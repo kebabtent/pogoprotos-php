@@ -1,5 +1,5 @@
 {
-  "name": "jaspervdm/POGOProtos-PHP",
+  "name": "jaspervdm/pogoprotos-php",
   "description": "Compiled PHP protobufs for pokemon go",
   "require": {
     "php": ">=5.5"
