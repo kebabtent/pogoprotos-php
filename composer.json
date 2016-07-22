@@ -1,5 +1,13 @@
 {
+  "name": "jaspervdm/POGOProtos-PHP",
+  "description": "Compiled PHP protobufs for pokemon go",
+  "require": {
+    "php": ">=5.5"
+  },
   "autoload": {
-    "files": ["src/protoc-gen-php/protocolbuffers.inc.php"]
+    "files": ["src/protoc-gen-php/protocolbuffers.inc.php"],
+    "psr-4": {
+      "POGOProtos\\": "src/POGOProtos"
+    }
   }
 }
