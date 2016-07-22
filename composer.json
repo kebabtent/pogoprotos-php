@@ -1,0 +1,5 @@
+{
+  "autoload": {
+    "files": ["src/protoc-gen-php/protocolbuffers.inc.php"]
+  }
+}
