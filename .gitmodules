@@ -1,0 +1,3 @@
+[submodule "src/protoc-gen-php"]
+	path = src/protoc-gen-php
+	url = https://github.com/bramp/protoc-gen-php
