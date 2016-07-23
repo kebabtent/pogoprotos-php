@@ -735,7 +735,7 @@ abstract class Protobuf {
 	private static $indent_char = "\t";
 	private static $print_limit = 50;
 
-	public static function toString($key, $value, $default) {
+	public static function toString($key, $value, $default = "") {
 		if ($value === $default)
 			return;
 
