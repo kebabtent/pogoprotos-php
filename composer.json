@@ -6,8 +6,6 @@
   },
   "autoload": {
     "files": ["src/protocolbuffers.inc.php"],
-    "psr-4": {
-      "POGOProtos\\": "src/POGOProtos"
-    }
+    "classmap": ["src/POGOProtos"]
   }
 }
