@@ -1,6 +1,6 @@
 [submodule "src/protoc-gen-php"]
-	path = src/protoc-gen-php
+	path = protoc-gen-php
 	url = https://github.com/bramp/protoc-gen-php
 [submodule "src/protos"]
-	path = src/protos
+	path = protos
 	url = https://github.com/AeonLucid/POGOProtos
