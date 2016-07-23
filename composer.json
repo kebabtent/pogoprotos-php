@@ -5,7 +5,7 @@
     "php": ">=5.5"
   },
   "autoload": {
-    "files": ["src/protoc-gen-php/protocolbuffers.inc.php"],
+    "files": ["src/protocolbuffers.inc.php"],
     "psr-4": {
       "POGOProtos\\": "src/POGOProtos"
     }
