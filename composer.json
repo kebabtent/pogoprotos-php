@@ -5,6 +5,11 @@
     "php": ">=5.5"
   },
   "autoload": {
-    "classmap": ["src"]
+    "psr-4": {
+      "POGOProtos\\": "src/POGOProtos"
+    },
+    "files": [
+      "src/protocolbuffers.inc.php"
+    ]
   }
 }
