@@ -18,7 +18,7 @@ namespace POGOProtos\Networking\Requests\Messages {
     private $encounterId = 0; // optional fixed64 encounter_id = 1
     private $pokeball = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId pokeball = 2
     private $normalizedReticleSize = 0; // optional double normalized_reticle_size = 3
-    private $spawnPointGuid = ""; // optional string spawn_point_guid = 4
+    private $spawnPointId = ""; // optional string spawn_point_id = 4
     private $hitPokemon = false; // optional bool hit_pokemon = 5
     private $spinModifier = 0; // optional double spin_modifier = 6
     private $normalizedHitPosition = 0; // optional double normalized_hit_position = 7
@@ -62,7 +62,7 @@ namespace POGOProtos\Networking\Requests\Messages {
             $this->normalizedReticleSize = $tmp;
 
             break;
-          case 4: // optional string spawn_point_guid = 4
+          case 4: // optional string spawn_point_id = 4
             if($wire !== 2) {
               throw new \Exception("Incorrect wire format for field $field, expected: 2 got: $wire");
             }
@@ -70,7 +70,7 @@ namespace POGOProtos\Networking\Requests\Messages {
             if ($len === false) throw new \Exception('Protobuf::read_varint returned false');
             $tmp = Protobuf::read_bytes($fp, $len, $limit);
             if ($tmp === false) throw new \Exception("read_bytes($len) returned false");
-            $this->spawnPointGuid = $tmp;
+            $this->spawnPointId = $tmp;
 
             break;
           case 5: // optional bool hit_pokemon = 5
@@ -119,10 +119,10 @@ namespace POGOProtos\Networking\Requests\Messages {
         fwrite($fp, "\x19", 1);
         Protobuf::write_double($fp, $this->normalizedReticleSize);
       }
-      if ($this->spawnPointGuid !== "") {
+      if ($this->spawnPointId !== "") {
         fwrite($fp, "\"", 1);
-        Protobuf::write_varint($fp, strlen($this->spawnPointGuid));
-        fwrite($fp, $this->spawnPointGuid);
+        Protobuf::write_varint($fp, strlen($this->spawnPointId));
+        fwrite($fp, $this->spawnPointId);
       }
       if ($this->hitPokemon !== false) {
         fwrite($fp, "(", 1);
@@ -149,8 +149,8 @@ namespace POGOProtos\Networking\Requests\Messages {
       if ($this->normalizedReticleSize !== 0) {
         $size += 9;
       }
-      if ($this->spawnPointGuid !== "") {
-        $l = strlen($this->spawnPointGuid);
+      if ($this->spawnPointId !== "") {
+        $l = strlen($this->spawnPointId);
         $size += 1 + Protobuf::size_varint($l) + $l;
       }
       if ($this->hitPokemon !== false) {
@@ -177,9 +177,9 @@ namespace POGOProtos\Networking\Requests\Messages {
     public function getNormalizedReticleSize() { return $this->normalizedReticleSize;}
     public function setNormalizedReticleSize($value) { $this->normalizedReticleSize = $value; }
 
-    public function clearSpawnPointGuid() { $this->spawnPointGuid = ""; }
-    public function getSpawnPointGuid() { return $this->spawnPointGuid;}
-    public function setSpawnPointGuid($value) { $this->spawnPointGuid = $value; }
+    public function clearSpawnPointId() { $this->spawnPointId = ""; }
+    public function getSpawnPointId() { return $this->spawnPointId;}
+    public function setSpawnPointId($value) { $this->spawnPointId = $value; }
 
     public function clearHitPokemon() { $this->hitPokemon = false; }
     public function getHitPokemon() { return $this->hitPokemon;}
@@ -198,7 +198,7 @@ namespace POGOProtos\Networking\Requests\Messages {
            . Protobuf::toString('encounter_id', $this->encounterId, 0)
            . Protobuf::toString('pokeball', $this->pokeball, ItemId::ITEM_UNKNOWN)
            . Protobuf::toString('normalized_reticle_size', $this->normalizedReticleSize, 0)
-           . Protobuf::toString('spawn_point_guid', $this->spawnPointGuid, "")
+           . Protobuf::toString('spawn_point_id', $this->spawnPointId, "")
            . Protobuf::toString('hit_pokemon', $this->hitPokemon, false)
            . Protobuf::toString('spin_modifier', $this->spinModifier, 0)
            . Protobuf::toString('normalized_hit_position', $this->normalizedHitPosition, 0);
