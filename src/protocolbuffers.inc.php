@@ -300,6 +300,10 @@ abstract class Protobuf {
 		if ($limit < $len) {
 			throw new Exception('read_bytes(): Unexpected end of stream');
 		}
+		
+		if ($len == 0) {
+			return null;
+		}
 
 		$bytes = fread($fp, $len);
 		if ($bytes === '' && feof($fp)) {
