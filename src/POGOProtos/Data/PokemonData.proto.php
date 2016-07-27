@@ -18,7 +18,7 @@ namespace POGOProtos\Data {
     private $staminaMax = 0; // optional int32 stamina_max = 5
     private $move1 = PokemonMove::MOVE_UNSET; // optional .POGOProtos.Enums.PokemonMove move_1 = 6
     private $move2 = PokemonMove::MOVE_UNSET; // optional .POGOProtos.Enums.PokemonMove move_2 = 7
-    private $deployedFortId = 0; // optional int32 deployed_fort_id = 8
+    private $deployedFortId = ""; // optional string deployed_fort_id = 8
     private $ownerName = ""; // optional string owner_name = 9
     private $isEgg = false; // optional bool is_egg = 10
     private $eggKmWalkedTarget = 0; // optional double egg_km_walked_target = 11
@@ -117,13 +117,15 @@ namespace POGOProtos\Data {
             $this->move2 = $tmp;
 
             break;
-          case 8: // optional int32 deployed_fort_id = 8
-            if($wire !== 0) {
-              throw new \Exception("Incorrect wire format for field $field, expected: 0 got: $wire");
+          case 8: // optional string deployed_fort_id = 8
+            if($wire !== 2) {
+              throw new \Exception("Incorrect wire format for field $field, expected: 2 got: $wire");
             }
-            $tmp = Protobuf::read_signed_varint($fp, $limit);
-            if ($tmp === false) throw new \Exception('Protobuf::read_varint returned false');
-            if ($tmp < Protobuf::MIN_INT32 || $tmp > Protobuf::MAX_INT32) throw new \Exception('int32 out of range');$this->deployedFortId = $tmp;
+            $len = Protobuf::read_varint($fp, $limit);
+            if ($len === false) throw new \Exception('Protobuf::read_varint returned false');
+            $tmp = Protobuf::read_bytes($fp, $len, $limit);
+            if ($tmp === false) throw new \Exception("read_bytes($len) returned false");
+            $this->deployedFortId = $tmp;
 
             break;
           case 9: // optional string owner_name = 9
@@ -365,9 +367,10 @@ namespace POGOProtos\Data {
         fwrite($fp, "8", 1);
         Protobuf::write_varint($fp, $this->move2);
       }
-      if ($this->deployedFortId !== 0) {
-        fwrite($fp, "@", 1);
-        Protobuf::write_varint($fp, $this->deployedFortId);
+      if ($this->deployedFortId !== "") {
+        fwrite($fp, "B", 1);
+        Protobuf::write_varint($fp, strlen($this->deployedFortId));
+        fwrite($fp, $this->deployedFortId);
       }
       if ($this->ownerName !== "") {
         fwrite($fp, "J", 1);
@@ -485,8 +488,9 @@ namespace POGOProtos\Data {
       if ($this->move2 !== PokemonMove::MOVE_UNSET) {
         $size += 1 + Protobuf::size_varint($this->move2);
       }
-      if ($this->deployedFortId !== 0) {
-        $size += 1 + Protobuf::size_varint($this->deployedFortId);
+      if ($this->deployedFortId !== "") {
+        $l = strlen($this->deployedFortId);
+        $size += 1 + Protobuf::size_varint($l) + $l;
       }
       if ($this->ownerName !== "") {
         $l = strlen($this->ownerName);
@@ -588,7 +592,7 @@ namespace POGOProtos\Data {
     public function getMove2() { return $this->move2;}
     public function setMove2($value) { $this->move2 = $value; }
 
-    public function clearDeployedFortId() { $this->deployedFortId = 0; }
+    public function clearDeployedFortId() { $this->deployedFortId = ""; }
     public function getDeployedFortId() { return $this->deployedFortId;}
     public function setDeployedFortId($value) { $this->deployedFortId = $value; }
 
@@ -689,7 +693,7 @@ namespace POGOProtos\Data {
            . Protobuf::toString('stamina_max', $this->staminaMax, 0)
            . Protobuf::toString('move_1', $this->move1, PokemonMove::MOVE_UNSET)
            . Protobuf::toString('move_2', $this->move2, PokemonMove::MOVE_UNSET)
-           . Protobuf::toString('deployed_fort_id', $this->deployedFortId, 0)
+           . Protobuf::toString('deployed_fort_id', $this->deployedFortId, "")
            . Protobuf::toString('owner_name', $this->ownerName, "")
            . Protobuf::toString('is_egg', $this->isEgg, false)
            . Protobuf::toString('egg_km_walked_target', $this->eggKmWalkedTarget, 0)
