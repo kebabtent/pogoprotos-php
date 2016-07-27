@@ -41,7 +41,7 @@ namespace POGOProtos\Networking\Responses {
   final class EvolvePokemonResponse extends ProtobufMessage {
 
     private $_unknown;
-    private $result = EvolvePokemonResponse_Result::UNSET; // optional .POGOProtos.Networking.Responses.EvolvePokemonResponse.Result result = 1
+    private $result = \POGOProtos\Networking\Responses\EvolvePokemonResponse_Result::UNSET; // optional .POGOProtos.Networking.Responses.EvolvePokemonResponse.Result result = 1
     private $evolvedPokemonData = null; // optional .POGOProtos.Data.PokemonData evolved_pokemon_data = 2
     private $experienceAwarded = 0; // optional int32 experience_awarded = 3
     private $candyAwarded = 0; // optional int32 candy_awarded = 4
@@ -103,7 +103,7 @@ namespace POGOProtos\Networking\Responses {
     }
 
     public function write($fp) {
-      if ($this->result !== EvolvePokemonResponse_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Networking\Responses\EvolvePokemonResponse_Result::UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->result);
       }
@@ -124,7 +124,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function size() {
       $size = 0;
-      if ($this->result !== EvolvePokemonResponse_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Networking\Responses\EvolvePokemonResponse_Result::UNSET) {
         $size += 1 + Protobuf::size_varint($this->result);
       }
       if ($this->evolvedPokemonData !== null) {
@@ -140,7 +140,7 @@ namespace POGOProtos\Networking\Responses {
       return $size;
     }
 
-    public function clearResult() { $this->result = EvolvePokemonResponse_Result::UNSET; }
+    public function clearResult() { $this->result = \POGOProtos\Networking\Responses\EvolvePokemonResponse_Result::UNSET; }
     public function getResult() { return $this->result;}
     public function setResult($value) { $this->result = $value; }
 
@@ -158,7 +158,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('result', $this->result, EvolvePokemonResponse_Result::UNSET)
+           . Protobuf::toString('result', $this->result, \POGOProtos\Networking\Responses\EvolvePokemonResponse_Result::UNSET)
            . Protobuf::toString('evolved_pokemon_data', $this->evolvedPokemonData, null)
            . Protobuf::toString('experience_awarded', $this->experienceAwarded, 0)
            . Protobuf::toString('candy_awarded', $this->candyAwarded, 0);

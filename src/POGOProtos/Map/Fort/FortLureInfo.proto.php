@@ -13,7 +13,7 @@ namespace POGOProtos\Map\Fort {
     private $_unknown;
     private $fortId = ""; // optional string fort_id = 1
     private $encounterId = 0; // optional fixed64 encounter_id = 2
-    private $activePokemonId = PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId active_pokemon_id = 3
+    private $activePokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId active_pokemon_id = 3
     private $lureExpiresTimestampMs = 0; // optional int64 lure_expires_timestamp_ms = 4
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
@@ -82,7 +82,7 @@ namespace POGOProtos\Map\Fort {
         fwrite($fp, "\x11", 1);
         Protobuf::write_uint64($fp, $this->encounterId);
       }
-      if ($this->activePokemonId !== PokemonId::MISSINGNO) {
+      if ($this->activePokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         fwrite($fp, "\x18", 1);
         Protobuf::write_varint($fp, $this->activePokemonId);
       }
@@ -101,7 +101,7 @@ namespace POGOProtos\Map\Fort {
       if ($this->encounterId !== 0) {
         $size += 9;
       }
-      if ($this->activePokemonId !== PokemonId::MISSINGNO) {
+      if ($this->activePokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         $size += 1 + Protobuf::size_varint($this->activePokemonId);
       }
       if ($this->lureExpiresTimestampMs !== 0) {
@@ -118,7 +118,7 @@ namespace POGOProtos\Map\Fort {
     public function getEncounterId() { return $this->encounterId;}
     public function setEncounterId($value) { $this->encounterId = $value; }
 
-    public function clearActivePokemonId() { $this->activePokemonId = PokemonId::MISSINGNO; }
+    public function clearActivePokemonId() { $this->activePokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; }
     public function getActivePokemonId() { return $this->activePokemonId;}
     public function setActivePokemonId($value) { $this->activePokemonId = $value; }
 
@@ -130,7 +130,7 @@ namespace POGOProtos\Map\Fort {
       return ''
            . Protobuf::toString('fort_id', $this->fortId, "")
            . Protobuf::toString('encounter_id', $this->encounterId, 0)
-           . Protobuf::toString('active_pokemon_id', $this->activePokemonId, PokemonId::MISSINGNO)
+           . Protobuf::toString('active_pokemon_id', $this->activePokemonId, \POGOProtos\Enums\PokemonId::MISSINGNO)
            . Protobuf::toString('lure_expires_timestamp_ms', $this->lureExpiresTimestampMs, 0);
     }
 

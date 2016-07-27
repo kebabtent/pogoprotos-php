@@ -44,7 +44,7 @@ namespace POGOProtos\Networking\Responses {
     private $codename = ""; // optional string codename = 1
     private $userMessage = ""; // optional string user_message = 2
     private $isAssignable = false; // optional bool is_assignable = 3
-    private $status = CheckCodenameAvailableResponse_Status::UNSET; // optional .POGOProtos.Networking.Responses.CheckCodenameAvailableResponse.Status status = 4
+    private $status = \POGOProtos\Networking\Responses\CheckCodenameAvailableResponse_Status::UNSET; // optional .POGOProtos.Networking.Responses.CheckCodenameAvailableResponse.Status status = 4
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
       parent::__construct($in, $limit);
@@ -119,7 +119,7 @@ namespace POGOProtos\Networking\Responses {
         fwrite($fp, "\x18", 1);
         Protobuf::write_varint($fp, $this->isAssignable ? 1 : 0);
       }
-      if ($this->status !== CheckCodenameAvailableResponse_Status::UNSET) {
+      if ($this->status !== \POGOProtos\Networking\Responses\CheckCodenameAvailableResponse_Status::UNSET) {
         fwrite($fp, " ", 1);
         Protobuf::write_varint($fp, $this->status);
       }
@@ -138,7 +138,7 @@ namespace POGOProtos\Networking\Responses {
       if ($this->isAssignable !== false) {
         $size += 2;
       }
-      if ($this->status !== CheckCodenameAvailableResponse_Status::UNSET) {
+      if ($this->status !== \POGOProtos\Networking\Responses\CheckCodenameAvailableResponse_Status::UNSET) {
         $size += 1 + Protobuf::size_varint($this->status);
       }
       return $size;
@@ -156,7 +156,7 @@ namespace POGOProtos\Networking\Responses {
     public function getIsAssignable() { return $this->isAssignable;}
     public function setIsAssignable($value) { $this->isAssignable = $value; }
 
-    public function clearStatus() { $this->status = CheckCodenameAvailableResponse_Status::UNSET; }
+    public function clearStatus() { $this->status = \POGOProtos\Networking\Responses\CheckCodenameAvailableResponse_Status::UNSET; }
     public function getStatus() { return $this->status;}
     public function setStatus($value) { $this->status = $value; }
 
@@ -165,7 +165,7 @@ namespace POGOProtos\Networking\Responses {
            . Protobuf::toString('codename', $this->codename, "")
            . Protobuf::toString('user_message', $this->userMessage, "")
            . Protobuf::toString('is_assignable', $this->isAssignable, false)
-           . Protobuf::toString('status', $this->status, CheckCodenameAvailableResponse_Status::UNSET);
+           . Protobuf::toString('status', $this->status, \POGOProtos\Networking\Responses\CheckCodenameAvailableResponse_Status::UNSET);
     }
 
     // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Responses.CheckCodenameAvailableResponse)

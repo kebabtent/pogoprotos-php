@@ -180,7 +180,7 @@ namespace POGOProtos\Data\Capture {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('activity_type', $this->activityType, ActivityType::ACTIVITY_UNKNOWN)
+           . Protobuf::toString('activity_type', $this->activityType, \POGOProtos\Enums\ActivityType::ACTIVITY_UNKNOWN)
            . Protobuf::toString('xp', $this->xp, 0)
            . Protobuf::toString('candy', $this->candy, 0)
            . Protobuf::toString('stardust', $this->stardust, 0);

@@ -117,7 +117,7 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('tutorials_completed', $this->tutorialsCompleted, TutorialState::LEGAL_SCREEN)
+           . Protobuf::toString('tutorials_completed', $this->tutorialsCompleted, \POGOProtos\Enums\TutorialState::LEGAL_SCREEN)
            . Protobuf::toString('send_marketing_emails', $this->sendMarketingEmails, false)
            . Protobuf::toString('send_push_notifications', $this->sendPushNotifications, false);
     }

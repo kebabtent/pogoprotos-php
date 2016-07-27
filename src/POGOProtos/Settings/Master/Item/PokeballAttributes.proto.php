@@ -11,7 +11,7 @@ namespace POGOProtos\Settings\Master\Item {
   final class PokeballAttributes extends ProtobufMessage {
 
     private $_unknown;
-    private $itemEffect = ItemEffect::ITEM_EFFECT_NONE; // optional .POGOProtos.Enums.ItemEffect item_effect = 1
+    private $itemEffect = \POGOProtos\Enums\ItemEffect::ITEM_EFFECT_NONE; // optional .POGOProtos.Enums.ItemEffect item_effect = 1
     private $captureMulti = 0; // optional float capture_multi = 2
     private $captureMultiEffect = 0; // optional float capture_multi_effect = 3
     private $itemEffectMod = 0; // optional float item_effect_mod = 4
@@ -71,7 +71,7 @@ namespace POGOProtos\Settings\Master\Item {
     }
 
     public function write($fp) {
-      if ($this->itemEffect !== ItemEffect::ITEM_EFFECT_NONE) {
+      if ($this->itemEffect !== \POGOProtos\Enums\ItemEffect::ITEM_EFFECT_NONE) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->itemEffect);
       }
@@ -91,7 +91,7 @@ namespace POGOProtos\Settings\Master\Item {
 
     public function size() {
       $size = 0;
-      if ($this->itemEffect !== ItemEffect::ITEM_EFFECT_NONE) {
+      if ($this->itemEffect !== \POGOProtos\Enums\ItemEffect::ITEM_EFFECT_NONE) {
         $size += 1 + Protobuf::size_varint($this->itemEffect);
       }
       if ($this->captureMulti !== 0) {
@@ -106,7 +106,7 @@ namespace POGOProtos\Settings\Master\Item {
       return $size;
     }
 
-    public function clearItemEffect() { $this->itemEffect = ItemEffect::ITEM_EFFECT_NONE; }
+    public function clearItemEffect() { $this->itemEffect = \POGOProtos\Enums\ItemEffect::ITEM_EFFECT_NONE; }
     public function getItemEffect() { return $this->itemEffect;}
     public function setItemEffect($value) { $this->itemEffect = $value; }
 
@@ -124,7 +124,7 @@ namespace POGOProtos\Settings\Master\Item {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('item_effect', $this->itemEffect, ItemEffect::ITEM_EFFECT_NONE)
+           . Protobuf::toString('item_effect', $this->itemEffect, \POGOProtos\Enums\ItemEffect::ITEM_EFFECT_NONE)
            . Protobuf::toString('capture_multi', $this->captureMulti, 0)
            . Protobuf::toString('capture_multi_effect', $this->captureMultiEffect, 0)
            . Protobuf::toString('item_effect_mod', $this->itemEffectMod, 0);

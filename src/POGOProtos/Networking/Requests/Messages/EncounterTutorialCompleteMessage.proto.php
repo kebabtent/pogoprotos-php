@@ -11,7 +11,7 @@ namespace POGOProtos\Networking\Requests\Messages {
   final class EncounterTutorialCompleteMessage extends ProtobufMessage {
 
     private $_unknown;
-    private $pokemonId = PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 1
+    private $pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 1
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
       parent::__construct($in, $limit);
@@ -41,7 +41,7 @@ namespace POGOProtos\Networking\Requests\Messages {
     }
 
     public function write($fp) {
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->pokemonId);
       }
@@ -49,19 +49,19 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function size() {
       $size = 0;
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         $size += 1 + Protobuf::size_varint($this->pokemonId);
       }
       return $size;
     }
 
-    public function clearPokemonId() { $this->pokemonId = PokemonId::MISSINGNO; }
+    public function clearPokemonId() { $this->pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; }
     public function getPokemonId() { return $this->pokemonId;}
     public function setPokemonId($value) { $this->pokemonId = $value; }
 
     public function __toString() {
       return ''
-           . Protobuf::toString('pokemon_id', $this->pokemonId, PokemonId::MISSINGNO);
+           . Protobuf::toString('pokemon_id', $this->pokemonId, \POGOProtos\Enums\PokemonId::MISSINGNO);
     }
 
     // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Requests.Messages.EncounterTutorialCompleteMessage)

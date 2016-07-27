@@ -12,7 +12,7 @@ namespace POGOProtos\Settings\Master\Item {
 
     private $_unknown;
     private $additionalStorage = 0; // optional int32 additional_storage = 1
-    private $upgradeType = InventoryUpgradeType::UPGRADE_UNSET; // optional .POGOProtos.Inventory.InventoryUpgradeType upgrade_type = 2
+    private $upgradeType = \POGOProtos\Inventory\InventoryUpgradeType::UPGRADE_UNSET; // optional .POGOProtos.Inventory.InventoryUpgradeType upgrade_type = 2
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
       parent::__construct($in, $limit);
@@ -55,7 +55,7 @@ namespace POGOProtos\Settings\Master\Item {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->additionalStorage);
       }
-      if ($this->upgradeType !== InventoryUpgradeType::UPGRADE_UNSET) {
+      if ($this->upgradeType !== \POGOProtos\Inventory\InventoryUpgradeType::UPGRADE_UNSET) {
         fwrite($fp, "\x10", 1);
         Protobuf::write_varint($fp, $this->upgradeType);
       }
@@ -66,7 +66,7 @@ namespace POGOProtos\Settings\Master\Item {
       if ($this->additionalStorage !== 0) {
         $size += 1 + Protobuf::size_varint($this->additionalStorage);
       }
-      if ($this->upgradeType !== InventoryUpgradeType::UPGRADE_UNSET) {
+      if ($this->upgradeType !== \POGOProtos\Inventory\InventoryUpgradeType::UPGRADE_UNSET) {
         $size += 1 + Protobuf::size_varint($this->upgradeType);
       }
       return $size;
@@ -76,14 +76,14 @@ namespace POGOProtos\Settings\Master\Item {
     public function getAdditionalStorage() { return $this->additionalStorage;}
     public function setAdditionalStorage($value) { $this->additionalStorage = $value; }
 
-    public function clearUpgradeType() { $this->upgradeType = InventoryUpgradeType::UPGRADE_UNSET; }
+    public function clearUpgradeType() { $this->upgradeType = \POGOProtos\Inventory\InventoryUpgradeType::UPGRADE_UNSET; }
     public function getUpgradeType() { return $this->upgradeType;}
     public function setUpgradeType($value) { $this->upgradeType = $value; }
 
     public function __toString() {
       return ''
            . Protobuf::toString('additional_storage', $this->additionalStorage, 0)
-           . Protobuf::toString('upgrade_type', $this->upgradeType, InventoryUpgradeType::UPGRADE_UNSET);
+           . Protobuf::toString('upgrade_type', $this->upgradeType, \POGOProtos\Inventory\InventoryUpgradeType::UPGRADE_UNSET);
     }
 
     // @@protoc_insertion_point(class_scope:POGOProtos.Settings.Master.Item.InventoryUpgradeAttributes)

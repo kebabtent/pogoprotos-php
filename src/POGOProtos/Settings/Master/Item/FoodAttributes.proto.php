@@ -131,7 +131,7 @@ namespace POGOProtos\Settings\Master\Item {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('item_effect', $this->itemEffect, ItemEffect::ITEM_EFFECT_NONE)
+           . Protobuf::toString('item_effect', $this->itemEffect, \POGOProtos\Enums\ItemEffect::ITEM_EFFECT_NONE)
            . Protobuf::toString('item_effect_percent', $this->itemEffectPercent, 0)
            . Protobuf::toString('growth_percent', $this->growthPercent, 0);
     }

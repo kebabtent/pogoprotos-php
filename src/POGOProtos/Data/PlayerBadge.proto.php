@@ -11,7 +11,7 @@ namespace POGOProtos\Data {
   final class PlayerBadge extends ProtobufMessage {
 
     private $_unknown;
-    private $badgeType = BadgeType::BADGE_UNSET; // optional .POGOProtos.Enums.BadgeType badge_type = 1
+    private $badgeType = \POGOProtos\Enums\BadgeType::BADGE_UNSET; // optional .POGOProtos.Enums.BadgeType badge_type = 1
     private $rank = 0; // optional int32 rank = 2
     private $startValue = 0; // optional int32 start_value = 3
     private $endValue = 0; // optional int32 end_value = 4
@@ -81,7 +81,7 @@ namespace POGOProtos\Data {
     }
 
     public function write($fp) {
-      if ($this->badgeType !== BadgeType::BADGE_UNSET) {
+      if ($this->badgeType !== \POGOProtos\Enums\BadgeType::BADGE_UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->badgeType);
       }
@@ -105,7 +105,7 @@ namespace POGOProtos\Data {
 
     public function size() {
       $size = 0;
-      if ($this->badgeType !== BadgeType::BADGE_UNSET) {
+      if ($this->badgeType !== \POGOProtos\Enums\BadgeType::BADGE_UNSET) {
         $size += 1 + Protobuf::size_varint($this->badgeType);
       }
       if ($this->rank !== 0) {
@@ -123,7 +123,7 @@ namespace POGOProtos\Data {
       return $size;
     }
 
-    public function clearBadgeType() { $this->badgeType = BadgeType::BADGE_UNSET; }
+    public function clearBadgeType() { $this->badgeType = \POGOProtos\Enums\BadgeType::BADGE_UNSET; }
     public function getBadgeType() { return $this->badgeType;}
     public function setBadgeType($value) { $this->badgeType = $value; }
 
@@ -145,7 +145,7 @@ namespace POGOProtos\Data {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('badge_type', $this->badgeType, BadgeType::BADGE_UNSET)
+           . Protobuf::toString('badge_type', $this->badgeType, \POGOProtos\Enums\BadgeType::BADGE_UNSET)
            . Protobuf::toString('rank', $this->rank, 0)
            . Protobuf::toString('start_value', $this->startValue, 0)
            . Protobuf::toString('end_value', $this->endValue, 0)

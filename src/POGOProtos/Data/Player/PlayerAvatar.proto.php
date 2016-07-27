@@ -17,7 +17,7 @@ namespace POGOProtos\Data\Player {
     private $pants = 0; // optional int32 pants = 5
     private $hat = 0; // optional int32 hat = 6
     private $shoes = 0; // optional int32 shoes = 7
-    private $gender = Gender::MALE; // optional .POGOProtos.Enums.Gender gender = 8
+    private $gender = \POGOProtos\Enums\Gender::MALE; // optional .POGOProtos.Enums.Gender gender = 8
     private $eyes = 0; // optional int32 eyes = 9
     private $backpack = 0; // optional int32 backpack = 10
 
@@ -145,7 +145,7 @@ namespace POGOProtos\Data\Player {
         fwrite($fp, "8", 1);
         Protobuf::write_varint($fp, $this->shoes);
       }
-      if ($this->gender !== Gender::MALE) {
+      if ($this->gender !== \POGOProtos\Enums\Gender::MALE) {
         fwrite($fp, "@", 1);
         Protobuf::write_varint($fp, $this->gender);
       }
@@ -179,7 +179,7 @@ namespace POGOProtos\Data\Player {
       if ($this->shoes !== 0) {
         $size += 1 + Protobuf::size_varint($this->shoes);
       }
-      if ($this->gender !== Gender::MALE) {
+      if ($this->gender !== \POGOProtos\Enums\Gender::MALE) {
         $size += 1 + Protobuf::size_varint($this->gender);
       }
       if ($this->eyes !== 0) {
@@ -215,7 +215,7 @@ namespace POGOProtos\Data\Player {
     public function getShoes() { return $this->shoes;}
     public function setShoes($value) { $this->shoes = $value; }
 
-    public function clearGender() { $this->gender = Gender::MALE; }
+    public function clearGender() { $this->gender = \POGOProtos\Enums\Gender::MALE; }
     public function getGender() { return $this->gender;}
     public function setGender($value) { $this->gender = $value; }
 
@@ -235,7 +235,7 @@ namespace POGOProtos\Data\Player {
            . Protobuf::toString('pants', $this->pants, 0)
            . Protobuf::toString('hat', $this->hat, 0)
            . Protobuf::toString('shoes', $this->shoes, 0)
-           . Protobuf::toString('gender', $this->gender, Gender::MALE)
+           . Protobuf::toString('gender', $this->gender, \POGOProtos\Enums\Gender::MALE)
            . Protobuf::toString('eyes', $this->eyes, 0)
            . Protobuf::toString('backpack', $this->backpack, 0);
     }

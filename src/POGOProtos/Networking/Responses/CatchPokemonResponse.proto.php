@@ -39,7 +39,7 @@ namespace POGOProtos\Networking\Responses {
   final class CatchPokemonResponse extends ProtobufMessage {
 
     private $_unknown;
-    private $status = CatchPokemonResponse_CatchStatus::CATCH_ERROR; // optional .POGOProtos.Networking.Responses.CatchPokemonResponse.CatchStatus status = 1
+    private $status = \POGOProtos\Networking\Responses\CatchPokemonResponse_CatchStatus::CATCH_ERROR; // optional .POGOProtos.Networking.Responses.CatchPokemonResponse.CatchStatus status = 1
     private $missPercent = 0; // optional double miss_percent = 2
     private $capturedPokemonId = 0; // optional fixed64 captured_pokemon_id = 3
     private $captureAward = null; // optional .POGOProtos.Data.Capture.CaptureAward capture_award = 4
@@ -101,7 +101,7 @@ namespace POGOProtos\Networking\Responses {
     }
 
     public function write($fp) {
-      if ($this->status !== CatchPokemonResponse_CatchStatus::CATCH_ERROR) {
+      if ($this->status !== \POGOProtos\Networking\Responses\CatchPokemonResponse_CatchStatus::CATCH_ERROR) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->status);
       }
@@ -122,7 +122,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function size() {
       $size = 0;
-      if ($this->status !== CatchPokemonResponse_CatchStatus::CATCH_ERROR) {
+      if ($this->status !== \POGOProtos\Networking\Responses\CatchPokemonResponse_CatchStatus::CATCH_ERROR) {
         $size += 1 + Protobuf::size_varint($this->status);
       }
       if ($this->missPercent !== 0) {
@@ -138,7 +138,7 @@ namespace POGOProtos\Networking\Responses {
       return $size;
     }
 
-    public function clearStatus() { $this->status = CatchPokemonResponse_CatchStatus::CATCH_ERROR; }
+    public function clearStatus() { $this->status = \POGOProtos\Networking\Responses\CatchPokemonResponse_CatchStatus::CATCH_ERROR; }
     public function getStatus() { return $this->status;}
     public function setStatus($value) { $this->status = $value; }
 
@@ -156,7 +156,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('status', $this->status, CatchPokemonResponse_CatchStatus::CATCH_ERROR)
+           . Protobuf::toString('status', $this->status, \POGOProtos\Networking\Responses\CatchPokemonResponse_CatchStatus::CATCH_ERROR)
            . Protobuf::toString('miss_percent', $this->missPercent, 0)
            . Protobuf::toString('captured_pokemon_id', $this->capturedPokemonId, 0)
            . Protobuf::toString('capture_award', $this->captureAward, null);

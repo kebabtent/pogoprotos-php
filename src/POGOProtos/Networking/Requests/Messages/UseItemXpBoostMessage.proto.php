@@ -11,7 +11,7 @@ namespace POGOProtos\Networking\Requests\Messages {
   final class UseItemXpBoostMessage extends ProtobufMessage {
 
     private $_unknown;
-    private $itemId = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
+    private $itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
       parent::__construct($in, $limit);
@@ -41,7 +41,7 @@ namespace POGOProtos\Networking\Requests\Messages {
     }
 
     public function write($fp) {
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->itemId);
       }
@@ -49,19 +49,19 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function size() {
       $size = 0;
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         $size += 1 + Protobuf::size_varint($this->itemId);
       }
       return $size;
     }
 
-    public function clearItemId() { $this->itemId = ItemId::ITEM_UNKNOWN; }
+    public function clearItemId() { $this->itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; }
     public function getItemId() { return $this->itemId;}
     public function setItemId($value) { $this->itemId = $value; }
 
     public function __toString() {
       return ''
-           . Protobuf::toString('item_id', $this->itemId, ItemId::ITEM_UNKNOWN);
+           . Protobuf::toString('item_id', $this->itemId, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN);
     }
 
     // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Requests.Messages.UseItemXpBoostMessage)

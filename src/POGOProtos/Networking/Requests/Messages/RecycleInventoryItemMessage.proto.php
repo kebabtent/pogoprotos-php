@@ -11,7 +11,7 @@ namespace POGOProtos\Networking\Requests\Messages {
   final class RecycleInventoryItemMessage extends ProtobufMessage {
 
     private $_unknown;
-    private $itemId = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
+    private $itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
     private $count = 0; // optional int32 count = 2
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
@@ -51,7 +51,7 @@ namespace POGOProtos\Networking\Requests\Messages {
     }
 
     public function write($fp) {
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->itemId);
       }
@@ -63,7 +63,7 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function size() {
       $size = 0;
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         $size += 1 + Protobuf::size_varint($this->itemId);
       }
       if ($this->count !== 0) {
@@ -72,7 +72,7 @@ namespace POGOProtos\Networking\Requests\Messages {
       return $size;
     }
 
-    public function clearItemId() { $this->itemId = ItemId::ITEM_UNKNOWN; }
+    public function clearItemId() { $this->itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; }
     public function getItemId() { return $this->itemId;}
     public function setItemId($value) { $this->itemId = $value; }
 
@@ -82,7 +82,7 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('item_id', $this->itemId, ItemId::ITEM_UNKNOWN)
+           . Protobuf::toString('item_id', $this->itemId, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN)
            . Protobuf::toString('count', $this->count, 0);
     }
 

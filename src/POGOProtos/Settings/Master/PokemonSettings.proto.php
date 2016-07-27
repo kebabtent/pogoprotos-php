@@ -11,10 +11,10 @@ namespace POGOProtos\Settings\Master {
   final class PokemonSettings extends ProtobufMessage {
 
     private $_unknown;
-    private $pokemonId = PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 1
+    private $pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 1
     private $modelScale = 0; // optional float model_scale = 3
-    private $type = PokemonType::POKEMON_TYPE_NONE; // optional .POGOProtos.Enums.PokemonType type = 4
-    private $type2 = PokemonType::POKEMON_TYPE_NONE; // optional .POGOProtos.Enums.PokemonType type_2 = 5
+    private $type = \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE; // optional .POGOProtos.Enums.PokemonType type = 4
+    private $type2 = \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE; // optional .POGOProtos.Enums.PokemonType type_2 = 5
     private $camera = null; // optional .POGOProtos.Settings.Master.Pokemon.CameraAttributes camera = 6
     private $encounter = null; // optional .POGOProtos.Settings.Master.Pokemon.EncounterAttributes encounter = 7
     private $stats = null; // optional .POGOProtos.Settings.Master.Pokemon.StatsAttributes stats = 8
@@ -23,14 +23,14 @@ namespace POGOProtos\Settings\Master {
     private $animationTime = array(); // repeated float animation_time = 11
     private $evolutionIds = array(); // repeated .POGOProtos.Enums.PokemonId evolution_ids = 12
     private $evolutionPips = 0; // optional int32 evolution_pips = 13
-    private $rarity = PokemonRarity::NORMAL; // optional .POGOProtos.Enums.PokemonRarity rarity = 14
+    private $rarity = \POGOProtos\Enums\PokemonRarity::NORMAL; // optional .POGOProtos.Enums.PokemonRarity rarity = 14
     private $pokedexHeightM = 0; // optional float pokedex_height_m = 15
     private $pokedexWeightKg = 0; // optional float pokedex_weight_kg = 16
-    private $parentPokemonId = PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId parent_pokemon_id = 17
+    private $parentPokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId parent_pokemon_id = 17
     private $heightStdDev = 0; // optional float height_std_dev = 18
     private $weightStdDev = 0; // optional float weight_std_dev = 19
     private $kmDistanceToHatch = 0; // optional float km_distance_to_hatch = 20
-    private $familyId = PokemonFamilyId::FAMILY_UNSET; // optional .POGOProtos.Enums.PokemonFamilyId family_id = 21
+    private $familyId = \POGOProtos\Enums\PokemonFamilyId::FAMILY_UNSET; // optional .POGOProtos.Enums.PokemonFamilyId family_id = 21
     private $candyToEvolve = 0; // optional int32 candy_to_evolve = 22
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
@@ -283,7 +283,7 @@ namespace POGOProtos\Settings\Master {
     }
 
     public function write($fp) {
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->pokemonId);
       }
@@ -291,11 +291,11 @@ namespace POGOProtos\Settings\Master {
         fwrite($fp, "\x1d", 1);
         Protobuf::write_float($fp, $this->modelScale);
       }
-      if ($this->type !== PokemonType::POKEMON_TYPE_NONE) {
+      if ($this->type !== \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE) {
         fwrite($fp, " ", 1);
         Protobuf::write_varint($fp, $this->type);
       }
-      if ($this->type2 !== PokemonType::POKEMON_TYPE_NONE) {
+      if ($this->type2 !== \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE) {
         fwrite($fp, "(", 1);
         Protobuf::write_varint($fp, $this->type2);
       }
@@ -334,7 +334,7 @@ namespace POGOProtos\Settings\Master {
         fwrite($fp, "h", 1);
         Protobuf::write_varint($fp, $this->evolutionPips);
       }
-      if ($this->rarity !== PokemonRarity::NORMAL) {
+      if ($this->rarity !== \POGOProtos\Enums\PokemonRarity::NORMAL) {
         fwrite($fp, "p", 1);
         Protobuf::write_varint($fp, $this->rarity);
       }
@@ -346,7 +346,7 @@ namespace POGOProtos\Settings\Master {
         fwrite($fp, "\x85\x01", 2);
         Protobuf::write_float($fp, $this->pokedexWeightKg);
       }
-      if ($this->parentPokemonId !== PokemonId::MISSINGNO) {
+      if ($this->parentPokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         fwrite($fp, "\x88\x01", 2);
         Protobuf::write_varint($fp, $this->parentPokemonId);
       }
@@ -362,7 +362,7 @@ namespace POGOProtos\Settings\Master {
         fwrite($fp, "\xa5\x01", 2);
         Protobuf::write_float($fp, $this->kmDistanceToHatch);
       }
-      if ($this->familyId !== PokemonFamilyId::FAMILY_UNSET) {
+      if ($this->familyId !== \POGOProtos\Enums\PokemonFamilyId::FAMILY_UNSET) {
         fwrite($fp, "\xa8\x01", 2);
         Protobuf::write_varint($fp, $this->familyId);
       }
@@ -374,16 +374,16 @@ namespace POGOProtos\Settings\Master {
 
     public function size() {
       $size = 0;
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         $size += 1 + Protobuf::size_varint($this->pokemonId);
       }
       if ($this->modelScale !== 0) {
         $size += 5;
       }
-      if ($this->type !== PokemonType::POKEMON_TYPE_NONE) {
+      if ($this->type !== \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE) {
         $size += 1 + Protobuf::size_varint($this->type);
       }
-      if ($this->type2 !== PokemonType::POKEMON_TYPE_NONE) {
+      if ($this->type2 !== \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE) {
         $size += 1 + Protobuf::size_varint($this->type2);
       }
       if ($this->camera !== null) {
@@ -417,7 +417,7 @@ namespace POGOProtos\Settings\Master {
       if ($this->evolutionPips !== 0) {
         $size += 1 + Protobuf::size_varint($this->evolutionPips);
       }
-      if ($this->rarity !== PokemonRarity::NORMAL) {
+      if ($this->rarity !== \POGOProtos\Enums\PokemonRarity::NORMAL) {
         $size += 1 + Protobuf::size_varint($this->rarity);
       }
       if ($this->pokedexHeightM !== 0) {
@@ -426,7 +426,7 @@ namespace POGOProtos\Settings\Master {
       if ($this->pokedexWeightKg !== 0) {
         $size += 6;
       }
-      if ($this->parentPokemonId !== PokemonId::MISSINGNO) {
+      if ($this->parentPokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         $size += 2 + Protobuf::size_varint($this->parentPokemonId);
       }
       if ($this->heightStdDev !== 0) {
@@ -438,7 +438,7 @@ namespace POGOProtos\Settings\Master {
       if ($this->kmDistanceToHatch !== 0) {
         $size += 6;
       }
-      if ($this->familyId !== PokemonFamilyId::FAMILY_UNSET) {
+      if ($this->familyId !== \POGOProtos\Enums\PokemonFamilyId::FAMILY_UNSET) {
         $size += 2 + Protobuf::size_varint($this->familyId);
       }
       if ($this->candyToEvolve !== 0) {
@@ -447,7 +447,7 @@ namespace POGOProtos\Settings\Master {
       return $size;
     }
 
-    public function clearPokemonId() { $this->pokemonId = PokemonId::MISSINGNO; }
+    public function clearPokemonId() { $this->pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; }
     public function getPokemonId() { return $this->pokemonId;}
     public function setPokemonId($value) { $this->pokemonId = $value; }
 
@@ -455,11 +455,11 @@ namespace POGOProtos\Settings\Master {
     public function getModelScale() { return $this->modelScale;}
     public function setModelScale($value) { $this->modelScale = $value; }
 
-    public function clearType() { $this->type = PokemonType::POKEMON_TYPE_NONE; }
+    public function clearType() { $this->type = \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE; }
     public function getType() { return $this->type;}
     public function setType($value) { $this->type = $value; }
 
-    public function clearType2() { $this->type2 = PokemonType::POKEMON_TYPE_NONE; }
+    public function clearType2() { $this->type2 = \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE; }
     public function getType2() { return $this->type2;}
     public function setType2($value) { $this->type2 = $value; }
 
@@ -511,7 +511,7 @@ namespace POGOProtos\Settings\Master {
     public function getEvolutionPips() { return $this->evolutionPips;}
     public function setEvolutionPips($value) { $this->evolutionPips = $value; }
 
-    public function clearRarity() { $this->rarity = PokemonRarity::NORMAL; }
+    public function clearRarity() { $this->rarity = \POGOProtos\Enums\PokemonRarity::NORMAL; }
     public function getRarity() { return $this->rarity;}
     public function setRarity($value) { $this->rarity = $value; }
 
@@ -523,7 +523,7 @@ namespace POGOProtos\Settings\Master {
     public function getPokedexWeightKg() { return $this->pokedexWeightKg;}
     public function setPokedexWeightKg($value) { $this->pokedexWeightKg = $value; }
 
-    public function clearParentPokemonId() { $this->parentPokemonId = PokemonId::MISSINGNO; }
+    public function clearParentPokemonId() { $this->parentPokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; }
     public function getParentPokemonId() { return $this->parentPokemonId;}
     public function setParentPokemonId($value) { $this->parentPokemonId = $value; }
 
@@ -539,7 +539,7 @@ namespace POGOProtos\Settings\Master {
     public function getKmDistanceToHatch() { return $this->kmDistanceToHatch;}
     public function setKmDistanceToHatch($value) { $this->kmDistanceToHatch = $value; }
 
-    public function clearFamilyId() { $this->familyId = PokemonFamilyId::FAMILY_UNSET; }
+    public function clearFamilyId() { $this->familyId = \POGOProtos\Enums\PokemonFamilyId::FAMILY_UNSET; }
     public function getFamilyId() { return $this->familyId;}
     public function setFamilyId($value) { $this->familyId = $value; }
 
@@ -549,26 +549,26 @@ namespace POGOProtos\Settings\Master {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('pokemon_id', $this->pokemonId, PokemonId::MISSINGNO)
+           . Protobuf::toString('pokemon_id', $this->pokemonId, \POGOProtos\Enums\PokemonId::MISSINGNO)
            . Protobuf::toString('model_scale', $this->modelScale, 0)
-           . Protobuf::toString('type', $this->type, PokemonType::POKEMON_TYPE_NONE)
-           . Protobuf::toString('type_2', $this->type2, PokemonType::POKEMON_TYPE_NONE)
+           . Protobuf::toString('type', $this->type, \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE)
+           . Protobuf::toString('type_2', $this->type2, \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE)
            . Protobuf::toString('camera', $this->camera, null)
            . Protobuf::toString('encounter', $this->encounter, null)
            . Protobuf::toString('stats', $this->stats, null)
-           . Protobuf::toString('quick_moves', $this->quickMoves, PokemonMove::MOVE_UNSET)
-           . Protobuf::toString('cinematic_moves', $this->cinematicMoves, PokemonMove::MOVE_UNSET)
+           . Protobuf::toString('quick_moves', $this->quickMoves, \POGOProtos\Enums\PokemonMove::MOVE_UNSET)
+           . Protobuf::toString('cinematic_moves', $this->cinematicMoves, \POGOProtos\Enums\PokemonMove::MOVE_UNSET)
            . Protobuf::toString('animation_time', $this->animationTime, 0)
-           . Protobuf::toString('evolution_ids', $this->evolutionIds, PokemonId::MISSINGNO)
+           . Protobuf::toString('evolution_ids', $this->evolutionIds, \POGOProtos\Enums\PokemonId::MISSINGNO)
            . Protobuf::toString('evolution_pips', $this->evolutionPips, 0)
-           . Protobuf::toString('rarity', $this->rarity, PokemonRarity::NORMAL)
+           . Protobuf::toString('rarity', $this->rarity, \POGOProtos\Enums\PokemonRarity::NORMAL)
            . Protobuf::toString('pokedex_height_m', $this->pokedexHeightM, 0)
            . Protobuf::toString('pokedex_weight_kg', $this->pokedexWeightKg, 0)
-           . Protobuf::toString('parent_pokemon_id', $this->parentPokemonId, PokemonId::MISSINGNO)
+           . Protobuf::toString('parent_pokemon_id', $this->parentPokemonId, \POGOProtos\Enums\PokemonId::MISSINGNO)
            . Protobuf::toString('height_std_dev', $this->heightStdDev, 0)
            . Protobuf::toString('weight_std_dev', $this->weightStdDev, 0)
            . Protobuf::toString('km_distance_to_hatch', $this->kmDistanceToHatch, 0)
-           . Protobuf::toString('family_id', $this->familyId, PokemonFamilyId::FAMILY_UNSET)
+           . Protobuf::toString('family_id', $this->familyId, \POGOProtos\Enums\PokemonFamilyId::FAMILY_UNSET)
            . Protobuf::toString('candy_to_evolve', $this->candyToEvolve, 0);
     }
 

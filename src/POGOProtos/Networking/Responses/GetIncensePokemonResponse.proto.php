@@ -35,7 +35,7 @@ namespace POGOProtos\Networking\Responses {
   final class GetIncensePokemonResponse extends ProtobufMessage {
 
     private $_unknown;
-    private $result = GetIncensePokemonResponse_Result::INCENSE_ENCOUNTER_UNKNOWN; // optional .POGOProtos.Networking.Responses.GetIncensePokemonResponse.Result result = 1
+    private $result = \POGOProtos\Networking\Responses\GetIncensePokemonResponse_Result::INCENSE_ENCOUNTER_UNKNOWN; // optional .POGOProtos.Networking.Responses.GetIncensePokemonResponse.Result result = 1
     private $pokemonTypeId = 0; // optional int32 pokemon_type_id = 2
     private $latitude = 0; // optional double latitude = 3
     private $longitude = 0; // optional double longitude = 4
@@ -127,7 +127,7 @@ namespace POGOProtos\Networking\Responses {
     }
 
     public function write($fp) {
-      if ($this->result !== GetIncensePokemonResponse_Result::INCENSE_ENCOUNTER_UNKNOWN) {
+      if ($this->result !== \POGOProtos\Networking\Responses\GetIncensePokemonResponse_Result::INCENSE_ENCOUNTER_UNKNOWN) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->result);
       }
@@ -160,7 +160,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function size() {
       $size = 0;
-      if ($this->result !== GetIncensePokemonResponse_Result::INCENSE_ENCOUNTER_UNKNOWN) {
+      if ($this->result !== \POGOProtos\Networking\Responses\GetIncensePokemonResponse_Result::INCENSE_ENCOUNTER_UNKNOWN) {
         $size += 1 + Protobuf::size_varint($this->result);
       }
       if ($this->pokemonTypeId !== 0) {
@@ -185,7 +185,7 @@ namespace POGOProtos\Networking\Responses {
       return $size;
     }
 
-    public function clearResult() { $this->result = GetIncensePokemonResponse_Result::INCENSE_ENCOUNTER_UNKNOWN; }
+    public function clearResult() { $this->result = \POGOProtos\Networking\Responses\GetIncensePokemonResponse_Result::INCENSE_ENCOUNTER_UNKNOWN; }
     public function getResult() { return $this->result;}
     public function setResult($value) { $this->result = $value; }
 
@@ -215,7 +215,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('result', $this->result, GetIncensePokemonResponse_Result::INCENSE_ENCOUNTER_UNKNOWN)
+           . Protobuf::toString('result', $this->result, \POGOProtos\Networking\Responses\GetIncensePokemonResponse_Result::INCENSE_ENCOUNTER_UNKNOWN)
            . Protobuf::toString('pokemon_type_id', $this->pokemonTypeId, 0)
            . Protobuf::toString('latitude', $this->latitude, 0)
            . Protobuf::toString('longitude', $this->longitude, 0)

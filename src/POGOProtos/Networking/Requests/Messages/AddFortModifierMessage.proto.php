@@ -11,7 +11,7 @@ namespace POGOProtos\Networking\Requests\Messages {
   final class AddFortModifierMessage extends ProtobufMessage {
 
     private $_unknown;
-    private $modifierType = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId modifier_type = 1
+    private $modifierType = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId modifier_type = 1
     private $fortId = ""; // optional string fort_id = 2
     private $playerLatitude = 0; // optional double player_latitude = 3
     private $playerLongitude = 0; // optional double player_longitude = 4
@@ -73,7 +73,7 @@ namespace POGOProtos\Networking\Requests\Messages {
     }
 
     public function write($fp) {
-      if ($this->modifierType !== ItemId::ITEM_UNKNOWN) {
+      if ($this->modifierType !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->modifierType);
       }
@@ -94,7 +94,7 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function size() {
       $size = 0;
-      if ($this->modifierType !== ItemId::ITEM_UNKNOWN) {
+      if ($this->modifierType !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         $size += 1 + Protobuf::size_varint($this->modifierType);
       }
       if ($this->fortId !== "") {
@@ -110,7 +110,7 @@ namespace POGOProtos\Networking\Requests\Messages {
       return $size;
     }
 
-    public function clearModifierType() { $this->modifierType = ItemId::ITEM_UNKNOWN; }
+    public function clearModifierType() { $this->modifierType = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; }
     public function getModifierType() { return $this->modifierType;}
     public function setModifierType($value) { $this->modifierType = $value; }
 
@@ -128,7 +128,7 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('modifier_type', $this->modifierType, ItemId::ITEM_UNKNOWN)
+           . Protobuf::toString('modifier_type', $this->modifierType, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN)
            . Protobuf::toString('fort_id', $this->fortId, "")
            . Protobuf::toString('player_latitude', $this->playerLatitude, 0)
            . Protobuf::toString('player_longitude', $this->playerLongitude, 0);

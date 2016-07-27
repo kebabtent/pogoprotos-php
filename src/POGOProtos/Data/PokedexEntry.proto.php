@@ -11,7 +11,7 @@ namespace POGOProtos\Data {
   final class PokedexEntry extends ProtobufMessage {
 
     private $_unknown;
-    private $pokemonId = PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 1
+    private $pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 1
     private $timesEncountered = 0; // optional int32 times_encountered = 2
     private $timesCaptured = 0; // optional int32 times_captured = 3
     private $evolutionStonePieces = 0; // optional int32 evolution_stone_pieces = 4
@@ -81,7 +81,7 @@ namespace POGOProtos\Data {
     }
 
     public function write($fp) {
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->pokemonId);
       }
@@ -105,7 +105,7 @@ namespace POGOProtos\Data {
 
     public function size() {
       $size = 0;
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         $size += 1 + Protobuf::size_varint($this->pokemonId);
       }
       if ($this->timesEncountered !== 0) {
@@ -123,7 +123,7 @@ namespace POGOProtos\Data {
       return $size;
     }
 
-    public function clearPokemonId() { $this->pokemonId = PokemonId::MISSINGNO; }
+    public function clearPokemonId() { $this->pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; }
     public function getPokemonId() { return $this->pokemonId;}
     public function setPokemonId($value) { $this->pokemonId = $value; }
 
@@ -145,7 +145,7 @@ namespace POGOProtos\Data {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('pokemon_id', $this->pokemonId, PokemonId::MISSINGNO)
+           . Protobuf::toString('pokemon_id', $this->pokemonId, \POGOProtos\Enums\PokemonId::MISSINGNO)
            . Protobuf::toString('times_encountered', $this->timesEncountered, 0)
            . Protobuf::toString('times_captured', $this->timesCaptured, 0)
            . Protobuf::toString('evolution_stone_pieces', $this->evolutionStonePieces, 0)

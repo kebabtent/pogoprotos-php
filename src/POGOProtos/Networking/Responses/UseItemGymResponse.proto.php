@@ -37,7 +37,7 @@ namespace POGOProtos\Networking\Responses {
   final class UseItemGymResponse extends ProtobufMessage {
 
     private $_unknown;
-    private $result = UseItemGymResponse_Result::UNSET; // optional .POGOProtos.Networking.Responses.UseItemGymResponse.Result result = 1
+    private $result = \POGOProtos\Networking\Responses\UseItemGymResponse_Result::UNSET; // optional .POGOProtos.Networking.Responses.UseItemGymResponse.Result result = 1
     private $updatedGp = 0; // optional int64 updated_gp = 2
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
@@ -77,7 +77,7 @@ namespace POGOProtos\Networking\Responses {
     }
 
     public function write($fp) {
-      if ($this->result !== UseItemGymResponse_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Networking\Responses\UseItemGymResponse_Result::UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->result);
       }
@@ -89,7 +89,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function size() {
       $size = 0;
-      if ($this->result !== UseItemGymResponse_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Networking\Responses\UseItemGymResponse_Result::UNSET) {
         $size += 1 + Protobuf::size_varint($this->result);
       }
       if ($this->updatedGp !== 0) {
@@ -98,7 +98,7 @@ namespace POGOProtos\Networking\Responses {
       return $size;
     }
 
-    public function clearResult() { $this->result = UseItemGymResponse_Result::UNSET; }
+    public function clearResult() { $this->result = \POGOProtos\Networking\Responses\UseItemGymResponse_Result::UNSET; }
     public function getResult() { return $this->result;}
     public function setResult($value) { $this->result = $value; }
 
@@ -108,7 +108,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('result', $this->result, UseItemGymResponse_Result::UNSET)
+           . Protobuf::toString('result', $this->result, \POGOProtos\Networking\Responses\UseItemGymResponse_Result::UNSET)
            . Protobuf::toString('updated_gp', $this->updatedGp, 0);
     }
 

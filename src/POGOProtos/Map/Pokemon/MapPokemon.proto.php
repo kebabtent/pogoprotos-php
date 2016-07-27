@@ -13,7 +13,7 @@ namespace POGOProtos\Map\Pokemon {
     private $_unknown;
     private $spawnPointId = ""; // optional string spawn_point_id = 1
     private $encounterId = 0; // optional fixed64 encounter_id = 2
-    private $pokemonId = PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 3
+    private $pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 3
     private $expirationTimestampMs = 0; // optional int64 expiration_timestamp_ms = 4
     private $latitude = 0; // optional double latitude = 5
     private $longitude = 0; // optional double longitude = 6
@@ -102,7 +102,7 @@ namespace POGOProtos\Map\Pokemon {
         fwrite($fp, "\x11", 1);
         Protobuf::write_uint64($fp, $this->encounterId);
       }
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         fwrite($fp, "\x18", 1);
         Protobuf::write_varint($fp, $this->pokemonId);
       }
@@ -129,7 +129,7 @@ namespace POGOProtos\Map\Pokemon {
       if ($this->encounterId !== 0) {
         $size += 9;
       }
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         $size += 1 + Protobuf::size_varint($this->pokemonId);
       }
       if ($this->expirationTimestampMs !== 0) {
@@ -152,7 +152,7 @@ namespace POGOProtos\Map\Pokemon {
     public function getEncounterId() { return $this->encounterId;}
     public function setEncounterId($value) { $this->encounterId = $value; }
 
-    public function clearPokemonId() { $this->pokemonId = PokemonId::MISSINGNO; }
+    public function clearPokemonId() { $this->pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; }
     public function getPokemonId() { return $this->pokemonId;}
     public function setPokemonId($value) { $this->pokemonId = $value; }
 
@@ -172,7 +172,7 @@ namespace POGOProtos\Map\Pokemon {
       return ''
            . Protobuf::toString('spawn_point_id', $this->spawnPointId, "")
            . Protobuf::toString('encounter_id', $this->encounterId, 0)
-           . Protobuf::toString('pokemon_id', $this->pokemonId, PokemonId::MISSINGNO)
+           . Protobuf::toString('pokemon_id', $this->pokemonId, \POGOProtos\Enums\PokemonId::MISSINGNO)
            . Protobuf::toString('expiration_timestamp_ms', $this->expirationTimestampMs, 0)
            . Protobuf::toString('latitude', $this->latitude, 0)
            . Protobuf::toString('longitude', $this->longitude, 0);

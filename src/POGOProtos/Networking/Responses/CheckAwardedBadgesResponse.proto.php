@@ -132,7 +132,7 @@ namespace POGOProtos\Networking\Responses {
     public function __toString() {
       return ''
            . Protobuf::toString('success', $this->success, false)
-           . Protobuf::toString('awarded_badges', $this->awardedBadges, BadgeType::BADGE_UNSET)
+           . Protobuf::toString('awarded_badges', $this->awardedBadges, \POGOProtos\Enums\BadgeType::BADGE_UNSET)
            . Protobuf::toString('awarded_badge_levels', $this->awardedBadgeLevels, 0);
     }
 

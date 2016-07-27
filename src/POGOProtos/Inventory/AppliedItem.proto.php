@@ -11,8 +11,8 @@ namespace POGOProtos\Inventory {
   final class AppliedItem extends ProtobufMessage {
 
     private $_unknown;
-    private $itemId = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
-    private $itemType = ItemType::ITEM_TYPE_NONE; // optional .POGOProtos.Inventory.Item.ItemType item_type = 2
+    private $itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
+    private $itemType = \POGOProtos\Inventory\Item\ItemType::ITEM_TYPE_NONE; // optional .POGOProtos.Inventory.Item.ItemType item_type = 2
     private $expireMs = 0; // optional int64 expire_ms = 3
     private $appliedMs = 0; // optional int64 applied_ms = 4
 
@@ -71,11 +71,11 @@ namespace POGOProtos\Inventory {
     }
 
     public function write($fp) {
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->itemId);
       }
-      if ($this->itemType !== ItemType::ITEM_TYPE_NONE) {
+      if ($this->itemType !== \POGOProtos\Inventory\Item\ItemType::ITEM_TYPE_NONE) {
         fwrite($fp, "\x10", 1);
         Protobuf::write_varint($fp, $this->itemType);
       }
@@ -91,10 +91,10 @@ namespace POGOProtos\Inventory {
 
     public function size() {
       $size = 0;
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         $size += 1 + Protobuf::size_varint($this->itemId);
       }
-      if ($this->itemType !== ItemType::ITEM_TYPE_NONE) {
+      if ($this->itemType !== \POGOProtos\Inventory\Item\ItemType::ITEM_TYPE_NONE) {
         $size += 1 + Protobuf::size_varint($this->itemType);
       }
       if ($this->expireMs !== 0) {
@@ -106,11 +106,11 @@ namespace POGOProtos\Inventory {
       return $size;
     }
 
-    public function clearItemId() { $this->itemId = ItemId::ITEM_UNKNOWN; }
+    public function clearItemId() { $this->itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; }
     public function getItemId() { return $this->itemId;}
     public function setItemId($value) { $this->itemId = $value; }
 
-    public function clearItemType() { $this->itemType = ItemType::ITEM_TYPE_NONE; }
+    public function clearItemType() { $this->itemType = \POGOProtos\Inventory\Item\ItemType::ITEM_TYPE_NONE; }
     public function getItemType() { return $this->itemType;}
     public function setItemType($value) { $this->itemType = $value; }
 
@@ -124,8 +124,8 @@ namespace POGOProtos\Inventory {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('item_id', $this->itemId, ItemId::ITEM_UNKNOWN)
-           . Protobuf::toString('item_type', $this->itemType, ItemType::ITEM_TYPE_NONE)
+           . Protobuf::toString('item_id', $this->itemId, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN)
+           . Protobuf::toString('item_type', $this->itemType, \POGOProtos\Inventory\Item\ItemType::ITEM_TYPE_NONE)
            . Protobuf::toString('expire_ms', $this->expireMs, 0)
            . Protobuf::toString('applied_ms', $this->appliedMs, 0);
     }

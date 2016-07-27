@@ -11,7 +11,7 @@ namespace POGOProtos\Map\Pokemon {
   final class NearbyPokemon extends ProtobufMessage {
 
     private $_unknown;
-    private $pokemonId = PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 1
+    private $pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 1
     private $distanceInMeters = 0; // optional float distance_in_meters = 2
     private $encounterId = 0; // optional fixed64 encounter_id = 3
 
@@ -61,7 +61,7 @@ namespace POGOProtos\Map\Pokemon {
     }
 
     public function write($fp) {
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->pokemonId);
       }
@@ -77,7 +77,7 @@ namespace POGOProtos\Map\Pokemon {
 
     public function size() {
       $size = 0;
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         $size += 1 + Protobuf::size_varint($this->pokemonId);
       }
       if ($this->distanceInMeters !== 0) {
@@ -89,7 +89,7 @@ namespace POGOProtos\Map\Pokemon {
       return $size;
     }
 
-    public function clearPokemonId() { $this->pokemonId = PokemonId::MISSINGNO; }
+    public function clearPokemonId() { $this->pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; }
     public function getPokemonId() { return $this->pokemonId;}
     public function setPokemonId($value) { $this->pokemonId = $value; }
 
@@ -103,7 +103,7 @@ namespace POGOProtos\Map\Pokemon {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('pokemon_id', $this->pokemonId, PokemonId::MISSINGNO)
+           . Protobuf::toString('pokemon_id', $this->pokemonId, \POGOProtos\Enums\PokemonId::MISSINGNO)
            . Protobuf::toString('distance_in_meters', $this->distanceInMeters, 0)
            . Protobuf::toString('encounter_id', $this->encounterId, 0);
     }

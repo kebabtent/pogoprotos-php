@@ -13,7 +13,7 @@ namespace POGOProtos\Data {
     private $_unknown;
     private $creationTimestampMs = 0; // optional int64 creation_timestamp_ms = 1
     private $username = ""; // optional string username = 2
-    private $team = TeamColor::NEUTRAL; // optional .POGOProtos.Enums.TeamColor team = 5
+    private $team = \POGOProtos\Enums\TeamColor::NEUTRAL; // optional .POGOProtos.Enums.TeamColor team = 5
     private $tutorialState = array(); // repeated .POGOProtos.Enums.TutorialState tutorial_state = 7 [packed = true]
     private $avatar = null; // optional .POGOProtos.Data.Player.PlayerAvatar avatar = 8
     private $maxPokemonStorage = 0; // optional int32 max_pokemon_storage = 9
@@ -171,7 +171,7 @@ namespace POGOProtos\Data {
         Protobuf::write_varint($fp, strlen($this->username));
         fwrite($fp, $this->username);
       }
-      if ($this->team !== TeamColor::NEUTRAL) {
+      if ($this->team !== \POGOProtos\Enums\TeamColor::NEUTRAL) {
         fwrite($fp, "(", 1);
         Protobuf::write_varint($fp, $this->team);
       }
@@ -223,7 +223,7 @@ namespace POGOProtos\Data {
         $l = strlen($this->username);
         $size += 1 + Protobuf::size_varint($l) + $l;
       }
-      if ($this->team !== TeamColor::NEUTRAL) {
+      if ($this->team !== \POGOProtos\Enums\TeamColor::NEUTRAL) {
         $size += 1 + Protobuf::size_varint($this->team);
       }
       foreach($this->tutorialState as $v) {
@@ -267,7 +267,7 @@ namespace POGOProtos\Data {
     public function getUsername() { return $this->username;}
     public function setUsername($value) { $this->username = $value; }
 
-    public function clearTeam() { $this->team = TeamColor::NEUTRAL; }
+    public function clearTeam() { $this->team = \POGOProtos\Enums\TeamColor::NEUTRAL; }
     public function getTeam() { return $this->team;}
     public function setTeam($value) { $this->team = $value; }
 
@@ -315,8 +315,8 @@ namespace POGOProtos\Data {
       return ''
            . Protobuf::toString('creation_timestamp_ms', $this->creationTimestampMs, 0)
            . Protobuf::toString('username', $this->username, "")
-           . Protobuf::toString('team', $this->team, TeamColor::NEUTRAL)
-           . Protobuf::toString('tutorial_state', $this->tutorialState, TutorialState::LEGAL_SCREEN)
+           . Protobuf::toString('team', $this->team, \POGOProtos\Enums\TeamColor::NEUTRAL)
+           . Protobuf::toString('tutorial_state', $this->tutorialState, \POGOProtos\Enums\TutorialState::LEGAL_SCREEN)
            . Protobuf::toString('avatar', $this->avatar, null)
            . Protobuf::toString('max_pokemon_storage', $this->maxPokemonStorage, 0)
            . Protobuf::toString('max_item_storage', $this->maxItemStorage, 0)

@@ -12,7 +12,7 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     private $_unknown;
     private $encounterId = 0; // optional fixed64 encounter_id = 1
-    private $pokeball = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId pokeball = 2
+    private $pokeball = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId pokeball = 2
     private $normalizedReticleSize = 0; // optional double normalized_reticle_size = 3
     private $spawnPointId = ""; // optional string spawn_point_id = 4
     private $hitPokemon = false; // optional bool hit_pokemon = 5
@@ -107,7 +107,7 @@ namespace POGOProtos\Networking\Requests\Messages {
         fwrite($fp, "\x09", 1);
         Protobuf::write_uint64($fp, $this->encounterId);
       }
-      if ($this->pokeball !== ItemId::ITEM_UNKNOWN) {
+      if ($this->pokeball !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         fwrite($fp, "\x10", 1);
         Protobuf::write_varint($fp, $this->pokeball);
       }
@@ -139,7 +139,7 @@ namespace POGOProtos\Networking\Requests\Messages {
       if ($this->encounterId !== 0) {
         $size += 9;
       }
-      if ($this->pokeball !== ItemId::ITEM_UNKNOWN) {
+      if ($this->pokeball !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         $size += 1 + Protobuf::size_varint($this->pokeball);
       }
       if ($this->normalizedReticleSize !== 0) {
@@ -165,7 +165,7 @@ namespace POGOProtos\Networking\Requests\Messages {
     public function getEncounterId() { return $this->encounterId;}
     public function setEncounterId($value) { $this->encounterId = $value; }
 
-    public function clearPokeball() { $this->pokeball = ItemId::ITEM_UNKNOWN; }
+    public function clearPokeball() { $this->pokeball = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; }
     public function getPokeball() { return $this->pokeball;}
     public function setPokeball($value) { $this->pokeball = $value; }
 
@@ -192,7 +192,7 @@ namespace POGOProtos\Networking\Requests\Messages {
     public function __toString() {
       return ''
            . Protobuf::toString('encounter_id', $this->encounterId, 0)
-           . Protobuf::toString('pokeball', $this->pokeball, ItemId::ITEM_UNKNOWN)
+           . Protobuf::toString('pokeball', $this->pokeball, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN)
            . Protobuf::toString('normalized_reticle_size', $this->normalizedReticleSize, 0)
            . Protobuf::toString('spawn_point_id', $this->spawnPointId, "")
            . Protobuf::toString('hit_pokemon', $this->hitPokemon, false)

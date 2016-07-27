@@ -11,7 +11,7 @@ namespace POGOProtos\Settings\Master {
   final class BadgeSettings extends ProtobufMessage {
 
     private $_unknown;
-    private $badgeType = BadgeType::BADGE_UNSET; // optional .POGOProtos.Enums.BadgeType badge_type = 1
+    private $badgeType = \POGOProtos\Enums\BadgeType::BADGE_UNSET; // optional .POGOProtos.Enums.BadgeType badge_type = 1
     private $badgeRank = 0; // optional int32 badge_rank = 2
     private $targets = array(); // repeated int32 targets = 3
 
@@ -70,7 +70,7 @@ namespace POGOProtos\Settings\Master {
     }
 
     public function write($fp) {
-      if ($this->badgeType !== BadgeType::BADGE_UNSET) {
+      if ($this->badgeType !== \POGOProtos\Enums\BadgeType::BADGE_UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->badgeType);
       }
@@ -86,7 +86,7 @@ namespace POGOProtos\Settings\Master {
 
     public function size() {
       $size = 0;
-      if ($this->badgeType !== BadgeType::BADGE_UNSET) {
+      if ($this->badgeType !== \POGOProtos\Enums\BadgeType::BADGE_UNSET) {
         $size += 1 + Protobuf::size_varint($this->badgeType);
       }
       if ($this->badgeRank !== 0) {
@@ -99,7 +99,7 @@ namespace POGOProtos\Settings\Master {
       return $size;
     }
 
-    public function clearBadgeType() { $this->badgeType = BadgeType::BADGE_UNSET; }
+    public function clearBadgeType() { $this->badgeType = \POGOProtos\Enums\BadgeType::BADGE_UNSET; }
     public function getBadgeType() { return $this->badgeType;}
     public function setBadgeType($value) { $this->badgeType = $value; }
 
@@ -117,7 +117,7 @@ namespace POGOProtos\Settings\Master {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('badge_type', $this->badgeType, BadgeType::BADGE_UNSET)
+           . Protobuf::toString('badge_type', $this->badgeType, \POGOProtos\Enums\BadgeType::BADGE_UNSET)
            . Protobuf::toString('badge_rank', $this->badgeRank, 0)
            . Protobuf::toString('targets', $this->targets, 0);
     }

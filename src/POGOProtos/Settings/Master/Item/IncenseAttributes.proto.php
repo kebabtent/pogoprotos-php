@@ -202,7 +202,7 @@ namespace POGOProtos\Settings\Master\Item {
     public function __toString() {
       return ''
            . Protobuf::toString('incense_lifetime_seconds', $this->incenseLifetimeSeconds, 0)
-           . Protobuf::toString('pokemon_type', $this->pokemonType, PokemonType::POKEMON_TYPE_NONE)
+           . Protobuf::toString('pokemon_type', $this->pokemonType, \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE)
            . Protobuf::toString('pokemon_incense_type_probability', $this->pokemonIncenseTypeProbability, 0)
            . Protobuf::toString('standing_time_between_encounters_seconds', $this->standingTimeBetweenEncountersSeconds, 0)
            . Protobuf::toString('moving_time_between_encounter_seconds', $this->movingTimeBetweenEncounterSeconds, 0)

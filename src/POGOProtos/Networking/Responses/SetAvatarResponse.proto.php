@@ -37,7 +37,7 @@ namespace POGOProtos\Networking\Responses {
   final class SetAvatarResponse extends ProtobufMessage {
 
     private $_unknown;
-    private $status = SetAvatarResponse_Status::UNSET; // optional .POGOProtos.Networking.Responses.SetAvatarResponse.Status status = 1
+    private $status = \POGOProtos\Networking\Responses\SetAvatarResponse_Status::UNSET; // optional .POGOProtos.Networking.Responses.SetAvatarResponse.Status status = 1
     private $playerData = null; // optional .POGOProtos.Data.PlayerData player_data = 2
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
@@ -79,7 +79,7 @@ namespace POGOProtos\Networking\Responses {
     }
 
     public function write($fp) {
-      if ($this->status !== SetAvatarResponse_Status::UNSET) {
+      if ($this->status !== \POGOProtos\Networking\Responses\SetAvatarResponse_Status::UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->status);
       }
@@ -92,7 +92,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function size() {
       $size = 0;
-      if ($this->status !== SetAvatarResponse_Status::UNSET) {
+      if ($this->status !== \POGOProtos\Networking\Responses\SetAvatarResponse_Status::UNSET) {
         $size += 1 + Protobuf::size_varint($this->status);
       }
       if ($this->playerData !== null) {
@@ -102,7 +102,7 @@ namespace POGOProtos\Networking\Responses {
       return $size;
     }
 
-    public function clearStatus() { $this->status = SetAvatarResponse_Status::UNSET; }
+    public function clearStatus() { $this->status = \POGOProtos\Networking\Responses\SetAvatarResponse_Status::UNSET; }
     public function getStatus() { return $this->status;}
     public function setStatus($value) { $this->status = $value; }
 
@@ -112,7 +112,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('status', $this->status, SetAvatarResponse_Status::UNSET)
+           . Protobuf::toString('status', $this->status, \POGOProtos\Networking\Responses\SetAvatarResponse_Status::UNSET)
            . Protobuf::toString('player_data', $this->playerData, null);
     }
 

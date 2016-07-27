@@ -33,7 +33,7 @@ namespace POGOProtos\Networking\Responses {
   final class DownloadRemoteConfigVersionResponse extends ProtobufMessage {
 
     private $_unknown;
-    private $result = DownloadRemoteConfigVersionResponse_Result::UNSET; // optional .POGOProtos.Networking.Responses.DownloadRemoteConfigVersionResponse.Result result = 1
+    private $result = \POGOProtos\Networking\Responses\DownloadRemoteConfigVersionResponse_Result::UNSET; // optional .POGOProtos.Networking.Responses.DownloadRemoteConfigVersionResponse.Result result = 1
     private $itemTemplatesTimestampMs = 0; // optional uint64 item_templates_timestamp_ms = 2
     private $assetDigestTimestampMs = 0; // optional uint64 asset_digest_timestamp_ms = 3
 
@@ -83,7 +83,7 @@ namespace POGOProtos\Networking\Responses {
     }
 
     public function write($fp) {
-      if ($this->result !== DownloadRemoteConfigVersionResponse_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Networking\Responses\DownloadRemoteConfigVersionResponse_Result::UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->result);
       }
@@ -99,7 +99,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function size() {
       $size = 0;
-      if ($this->result !== DownloadRemoteConfigVersionResponse_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Networking\Responses\DownloadRemoteConfigVersionResponse_Result::UNSET) {
         $size += 1 + Protobuf::size_varint($this->result);
       }
       if ($this->itemTemplatesTimestampMs !== 0) {
@@ -111,7 +111,7 @@ namespace POGOProtos\Networking\Responses {
       return $size;
     }
 
-    public function clearResult() { $this->result = DownloadRemoteConfigVersionResponse_Result::UNSET; }
+    public function clearResult() { $this->result = \POGOProtos\Networking\Responses\DownloadRemoteConfigVersionResponse_Result::UNSET; }
     public function getResult() { return $this->result;}
     public function setResult($value) { $this->result = $value; }
 
@@ -125,7 +125,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('result', $this->result, DownloadRemoteConfigVersionResponse_Result::UNSET)
+           . Protobuf::toString('result', $this->result, \POGOProtos\Networking\Responses\DownloadRemoteConfigVersionResponse_Result::UNSET)
            . Protobuf::toString('item_templates_timestamp_ms', $this->itemTemplatesTimestampMs, 0)
            . Protobuf::toString('asset_digest_timestamp_ms', $this->assetDigestTimestampMs, 0);
     }

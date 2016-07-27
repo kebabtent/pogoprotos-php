@@ -33,7 +33,7 @@ namespace POGOProtos\Networking\Responses {
   final class GetPlayerProfileResponse extends ProtobufMessage {
 
     private $_unknown;
-    private $result = GetPlayerProfileResponse_Result::UNSET; // optional .POGOProtos.Networking.Responses.GetPlayerProfileResponse.Result result = 1
+    private $result = \POGOProtos\Networking\Responses\GetPlayerProfileResponse_Result::UNSET; // optional .POGOProtos.Networking.Responses.GetPlayerProfileResponse.Result result = 1
     private $startTime = 0; // optional int64 start_time = 2
     private $badges = array(); // repeated .POGOProtos.Data.PlayerBadge badges = 3
 
@@ -85,7 +85,7 @@ namespace POGOProtos\Networking\Responses {
     }
 
     public function write($fp) {
-      if ($this->result !== GetPlayerProfileResponse_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Networking\Responses\GetPlayerProfileResponse_Result::UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->result);
       }
@@ -102,7 +102,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function size() {
       $size = 0;
-      if ($this->result !== GetPlayerProfileResponse_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Networking\Responses\GetPlayerProfileResponse_Result::UNSET) {
         $size += 1 + Protobuf::size_varint($this->result);
       }
       if ($this->startTime !== 0) {
@@ -115,7 +115,7 @@ namespace POGOProtos\Networking\Responses {
       return $size;
     }
 
-    public function clearResult() { $this->result = GetPlayerProfileResponse_Result::UNSET; }
+    public function clearResult() { $this->result = \POGOProtos\Networking\Responses\GetPlayerProfileResponse_Result::UNSET; }
     public function getResult() { return $this->result;}
     public function setResult($value) { $this->result = $value; }
 
@@ -133,7 +133,7 @@ namespace POGOProtos\Networking\Responses {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('result', $this->result, GetPlayerProfileResponse_Result::UNSET)
+           . Protobuf::toString('result', $this->result, \POGOProtos\Networking\Responses\GetPlayerProfileResponse_Result::UNSET)
            . Protobuf::toString('start_time', $this->startTime, 0)
            . Protobuf::toString('badges', $this->badges, null);
     }

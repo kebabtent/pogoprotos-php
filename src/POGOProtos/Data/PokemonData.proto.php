@@ -12,12 +12,12 @@ namespace POGOProtos\Data {
 
     private $_unknown;
     private $id = 0; // optional fixed64 id = 1
-    private $pokemonId = PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 2
+    private $pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 2
     private $cp = 0; // optional int32 cp = 3
     private $stamina = 0; // optional int32 stamina = 4
     private $staminaMax = 0; // optional int32 stamina_max = 5
-    private $move1 = PokemonMove::MOVE_UNSET; // optional .POGOProtos.Enums.PokemonMove move_1 = 6
-    private $move2 = PokemonMove::MOVE_UNSET; // optional .POGOProtos.Enums.PokemonMove move_2 = 7
+    private $move1 = \POGOProtos\Enums\PokemonMove::MOVE_UNSET; // optional .POGOProtos.Enums.PokemonMove move_1 = 6
+    private $move2 = \POGOProtos\Enums\PokemonMove::MOVE_UNSET; // optional .POGOProtos.Enums.PokemonMove move_2 = 7
     private $deployedFortId = ""; // optional string deployed_fort_id = 8
     private $ownerName = ""; // optional string owner_name = 9
     private $isEgg = false; // optional bool is_egg = 10
@@ -30,7 +30,7 @@ namespace POGOProtos\Data {
     private $individualDefense = 0; // optional int32 individual_defense = 18
     private $individualStamina = 0; // optional int32 individual_stamina = 19
     private $cpMultiplier = 0; // optional float cp_multiplier = 20
-    private $pokeball = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId pokeball = 21
+    private $pokeball = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId pokeball = 21
     private $capturedCellId = 0; // optional uint64 captured_cell_id = 22
     private $battlesAttacked = 0; // optional int32 battles_attacked = 23
     private $battlesDefended = 0; // optional int32 battles_defended = 24
@@ -343,7 +343,7 @@ namespace POGOProtos\Data {
         fwrite($fp, "\x09", 1);
         Protobuf::write_uint64($fp, $this->id);
       }
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         fwrite($fp, "\x10", 1);
         Protobuf::write_varint($fp, $this->pokemonId);
       }
@@ -359,11 +359,11 @@ namespace POGOProtos\Data {
         fwrite($fp, "(", 1);
         Protobuf::write_varint($fp, $this->staminaMax);
       }
-      if ($this->move1 !== PokemonMove::MOVE_UNSET) {
+      if ($this->move1 !== \POGOProtos\Enums\PokemonMove::MOVE_UNSET) {
         fwrite($fp, "0", 1);
         Protobuf::write_varint($fp, $this->move1);
       }
-      if ($this->move2 !== PokemonMove::MOVE_UNSET) {
+      if ($this->move2 !== \POGOProtos\Enums\PokemonMove::MOVE_UNSET) {
         fwrite($fp, "8", 1);
         Protobuf::write_varint($fp, $this->move2);
       }
@@ -417,7 +417,7 @@ namespace POGOProtos\Data {
         fwrite($fp, "\xa5\x01", 2);
         Protobuf::write_float($fp, $this->cpMultiplier);
       }
-      if ($this->pokeball !== ItemId::ITEM_UNKNOWN) {
+      if ($this->pokeball !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         fwrite($fp, "\xa8\x01", 2);
         Protobuf::write_varint($fp, $this->pokeball);
       }
@@ -470,7 +470,7 @@ namespace POGOProtos\Data {
       if ($this->id !== 0) {
         $size += 9;
       }
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         $size += 1 + Protobuf::size_varint($this->pokemonId);
       }
       if ($this->cp !== 0) {
@@ -482,10 +482,10 @@ namespace POGOProtos\Data {
       if ($this->staminaMax !== 0) {
         $size += 1 + Protobuf::size_varint($this->staminaMax);
       }
-      if ($this->move1 !== PokemonMove::MOVE_UNSET) {
+      if ($this->move1 !== \POGOProtos\Enums\PokemonMove::MOVE_UNSET) {
         $size += 1 + Protobuf::size_varint($this->move1);
       }
-      if ($this->move2 !== PokemonMove::MOVE_UNSET) {
+      if ($this->move2 !== \POGOProtos\Enums\PokemonMove::MOVE_UNSET) {
         $size += 1 + Protobuf::size_varint($this->move2);
       }
       if ($this->deployedFortId !== "") {
@@ -526,7 +526,7 @@ namespace POGOProtos\Data {
       if ($this->cpMultiplier !== 0) {
         $size += 6;
       }
-      if ($this->pokeball !== ItemId::ITEM_UNKNOWN) {
+      if ($this->pokeball !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         $size += 2 + Protobuf::size_varint($this->pokeball);
       }
       if ($this->capturedCellId !== 0) {
@@ -568,7 +568,7 @@ namespace POGOProtos\Data {
     public function getId() { return $this->id;}
     public function setId($value) { $this->id = $value; }
 
-    public function clearPokemonId() { $this->pokemonId = PokemonId::MISSINGNO; }
+    public function clearPokemonId() { $this->pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; }
     public function getPokemonId() { return $this->pokemonId;}
     public function setPokemonId($value) { $this->pokemonId = $value; }
 
@@ -584,11 +584,11 @@ namespace POGOProtos\Data {
     public function getStaminaMax() { return $this->staminaMax;}
     public function setStaminaMax($value) { $this->staminaMax = $value; }
 
-    public function clearMove1() { $this->move1 = PokemonMove::MOVE_UNSET; }
+    public function clearMove1() { $this->move1 = \POGOProtos\Enums\PokemonMove::MOVE_UNSET; }
     public function getMove1() { return $this->move1;}
     public function setMove1($value) { $this->move1 = $value; }
 
-    public function clearMove2() { $this->move2 = PokemonMove::MOVE_UNSET; }
+    public function clearMove2() { $this->move2 = \POGOProtos\Enums\PokemonMove::MOVE_UNSET; }
     public function getMove2() { return $this->move2;}
     public function setMove2($value) { $this->move2 = $value; }
 
@@ -640,7 +640,7 @@ namespace POGOProtos\Data {
     public function getCpMultiplier() { return $this->cpMultiplier;}
     public function setCpMultiplier($value) { $this->cpMultiplier = $value; }
 
-    public function clearPokeball() { $this->pokeball = ItemId::ITEM_UNKNOWN; }
+    public function clearPokeball() { $this->pokeball = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; }
     public function getPokeball() { return $this->pokeball;}
     public function setPokeball($value) { $this->pokeball = $value; }
 
@@ -687,12 +687,12 @@ namespace POGOProtos\Data {
     public function __toString() {
       return ''
            . Protobuf::toString('id', $this->id, 0)
-           . Protobuf::toString('pokemon_id', $this->pokemonId, PokemonId::MISSINGNO)
+           . Protobuf::toString('pokemon_id', $this->pokemonId, \POGOProtos\Enums\PokemonId::MISSINGNO)
            . Protobuf::toString('cp', $this->cp, 0)
            . Protobuf::toString('stamina', $this->stamina, 0)
            . Protobuf::toString('stamina_max', $this->staminaMax, 0)
-           . Protobuf::toString('move_1', $this->move1, PokemonMove::MOVE_UNSET)
-           . Protobuf::toString('move_2', $this->move2, PokemonMove::MOVE_UNSET)
+           . Protobuf::toString('move_1', $this->move1, \POGOProtos\Enums\PokemonMove::MOVE_UNSET)
+           . Protobuf::toString('move_2', $this->move2, \POGOProtos\Enums\PokemonMove::MOVE_UNSET)
            . Protobuf::toString('deployed_fort_id', $this->deployedFortId, "")
            . Protobuf::toString('owner_name', $this->ownerName, "")
            . Protobuf::toString('is_egg', $this->isEgg, false)
@@ -705,7 +705,7 @@ namespace POGOProtos\Data {
            . Protobuf::toString('individual_defense', $this->individualDefense, 0)
            . Protobuf::toString('individual_stamina', $this->individualStamina, 0)
            . Protobuf::toString('cp_multiplier', $this->cpMultiplier, 0)
-           . Protobuf::toString('pokeball', $this->pokeball, ItemId::ITEM_UNKNOWN)
+           . Protobuf::toString('pokeball', $this->pokeball, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN)
            . Protobuf::toString('captured_cell_id', $this->capturedCellId, 0)
            . Protobuf::toString('battles_attacked', $this->battlesAttacked, 0)
            . Protobuf::toString('battles_defended', $this->battlesDefended, 0)

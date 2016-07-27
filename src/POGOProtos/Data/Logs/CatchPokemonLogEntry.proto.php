@@ -35,8 +35,8 @@ namespace POGOProtos\Data\Logs {
   final class CatchPokemonLogEntry extends ProtobufMessage {
 
     private $_unknown;
-    private $result = CatchPokemonLogEntry_Result::UNSET; // optional .POGOProtos.Data.Logs.CatchPokemonLogEntry.Result result = 1
-    private $pokemonId = PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 2
+    private $result = \POGOProtos\Data\Logs\CatchPokemonLogEntry_Result::UNSET; // optional .POGOProtos.Data.Logs.CatchPokemonLogEntry.Result result = 1
+    private $pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; // optional .POGOProtos.Enums.PokemonId pokemon_id = 2
     private $combatPoints = 0; // optional int32 combat_points = 3
     private $pokemonDataId = 0; // optional uint64 pokemon_data_id = 4
 
@@ -95,11 +95,11 @@ namespace POGOProtos\Data\Logs {
     }
 
     public function write($fp) {
-      if ($this->result !== CatchPokemonLogEntry_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Data\Logs\CatchPokemonLogEntry_Result::UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->result);
       }
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         fwrite($fp, "\x10", 1);
         Protobuf::write_varint($fp, $this->pokemonId);
       }
@@ -115,10 +115,10 @@ namespace POGOProtos\Data\Logs {
 
     public function size() {
       $size = 0;
-      if ($this->result !== CatchPokemonLogEntry_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Data\Logs\CatchPokemonLogEntry_Result::UNSET) {
         $size += 1 + Protobuf::size_varint($this->result);
       }
-      if ($this->pokemonId !== PokemonId::MISSINGNO) {
+      if ($this->pokemonId !== \POGOProtos\Enums\PokemonId::MISSINGNO) {
         $size += 1 + Protobuf::size_varint($this->pokemonId);
       }
       if ($this->combatPoints !== 0) {
@@ -130,11 +130,11 @@ namespace POGOProtos\Data\Logs {
       return $size;
     }
 
-    public function clearResult() { $this->result = CatchPokemonLogEntry_Result::UNSET; }
+    public function clearResult() { $this->result = \POGOProtos\Data\Logs\CatchPokemonLogEntry_Result::UNSET; }
     public function getResult() { return $this->result;}
     public function setResult($value) { $this->result = $value; }
 
-    public function clearPokemonId() { $this->pokemonId = PokemonId::MISSINGNO; }
+    public function clearPokemonId() { $this->pokemonId = \POGOProtos\Enums\PokemonId::MISSINGNO; }
     public function getPokemonId() { return $this->pokemonId;}
     public function setPokemonId($value) { $this->pokemonId = $value; }
 
@@ -148,8 +148,8 @@ namespace POGOProtos\Data\Logs {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('result', $this->result, CatchPokemonLogEntry_Result::UNSET)
-           . Protobuf::toString('pokemon_id', $this->pokemonId, PokemonId::MISSINGNO)
+           . Protobuf::toString('result', $this->result, \POGOProtos\Data\Logs\CatchPokemonLogEntry_Result::UNSET)
+           . Protobuf::toString('pokemon_id', $this->pokemonId, \POGOProtos\Enums\PokemonId::MISSINGNO)
            . Protobuf::toString('combat_points', $this->combatPoints, 0)
            . Protobuf::toString('pokemon_data_id', $this->pokemonDataId, 0);
     }

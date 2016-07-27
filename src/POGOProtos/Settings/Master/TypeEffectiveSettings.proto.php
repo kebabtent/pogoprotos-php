@@ -12,7 +12,7 @@ namespace POGOProtos\Settings\Master {
 
     private $_unknown;
     private $attackScalar = array(); // repeated float attack_scalar = 1
-    private $attackType = PokemonType::POKEMON_TYPE_NONE; // optional .POGOProtos.Enums.PokemonType attack_type = 2
+    private $attackType = \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE; // optional .POGOProtos.Enums.PokemonType attack_type = 2
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
       parent::__construct($in, $limit);
@@ -64,7 +64,7 @@ namespace POGOProtos\Settings\Master {
         fwrite($fp, "\x0d", 1);
         Protobuf::write_float($fp, $v);
       }
-      if ($this->attackType !== PokemonType::POKEMON_TYPE_NONE) {
+      if ($this->attackType !== \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE) {
         fwrite($fp, "\x10", 1);
         Protobuf::write_varint($fp, $this->attackType);
       }
@@ -76,7 +76,7 @@ namespace POGOProtos\Settings\Master {
         $l = strlen($v);
         $size += 1 + Protobuf::size_varint($l) + $l;
       }
-      if ($this->attackType !== PokemonType::POKEMON_TYPE_NONE) {
+      if ($this->attackType !== \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE) {
         $size += 1 + Protobuf::size_varint($this->attackType);
       }
       return $size;
@@ -90,14 +90,14 @@ namespace POGOProtos\Settings\Master {
     public function addAttackScalar(array $value) { $this->attackScalar[] = $value; }
     public function addAllAttackScalar(array $values) { foreach($values as $value) {$this->attackScalar[] = $value; }}
 
-    public function clearAttackType() { $this->attackType = PokemonType::POKEMON_TYPE_NONE; }
+    public function clearAttackType() { $this->attackType = \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE; }
     public function getAttackType() { return $this->attackType;}
     public function setAttackType($value) { $this->attackType = $value; }
 
     public function __toString() {
       return ''
            . Protobuf::toString('attack_scalar', $this->attackScalar, 0)
-           . Protobuf::toString('attack_type', $this->attackType, PokemonType::POKEMON_TYPE_NONE);
+           . Protobuf::toString('attack_type', $this->attackType, \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE);
     }
 
     // @@protoc_insertion_point(class_scope:POGOProtos.Settings.Master.TypeEffectiveSettings)

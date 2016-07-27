@@ -11,7 +11,7 @@ namespace POGOProtos\Networking\Requests\Messages {
   final class UseItemGymMessage extends ProtobufMessage {
 
     private $_unknown;
-    private $itemId = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
+    private $itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
     private $gymId = ""; // optional string gym_id = 2
     private $playerLatitude = 0; // optional double player_latitude = 3
     private $playerLongitude = 0; // optional double player_longitude = 4
@@ -73,7 +73,7 @@ namespace POGOProtos\Networking\Requests\Messages {
     }
 
     public function write($fp) {
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->itemId);
       }
@@ -94,7 +94,7 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function size() {
       $size = 0;
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         $size += 1 + Protobuf::size_varint($this->itemId);
       }
       if ($this->gymId !== "") {
@@ -110,7 +110,7 @@ namespace POGOProtos\Networking\Requests\Messages {
       return $size;
     }
 
-    public function clearItemId() { $this->itemId = ItemId::ITEM_UNKNOWN; }
+    public function clearItemId() { $this->itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; }
     public function getItemId() { return $this->itemId;}
     public function setItemId($value) { $this->itemId = $value; }
 
@@ -128,7 +128,7 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('item_id', $this->itemId, ItemId::ITEM_UNKNOWN)
+           . Protobuf::toString('item_id', $this->itemId, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN)
            . Protobuf::toString('gym_id', $this->gymId, "")
            . Protobuf::toString('player_latitude', $this->playerLatitude, 0)
            . Protobuf::toString('player_longitude', $this->playerLongitude, 0);

@@ -16,7 +16,7 @@ namespace POGOProtos\Settings\Master\Pokemon {
     private $collisionRadiusM = 0; // optional float collision_radius_m = 3
     private $collisionHeightM = 0; // optional float collision_height_m = 4
     private $collisionHeadRadiusM = 0; // optional float collision_head_radius_m = 5
-    private $movementType = PokemonMovementType::MOVEMENT_STATIC; // optional .POGOProtos.Enums.PokemonMovementType movement_type = 6
+    private $movementType = \POGOProtos\Enums\PokemonMovementType::MOVEMENT_STATIC; // optional .POGOProtos.Enums.PokemonMovementType movement_type = 6
     private $movementTimerS = 0; // optional float movement_timer_s = 7
     private $jumpTimeS = 0; // optional float jump_time_s = 8
     private $attackTimerS = 0; // optional float attack_timer_s = 9
@@ -141,7 +141,7 @@ namespace POGOProtos\Settings\Master\Pokemon {
         fwrite($fp, "-", 1);
         Protobuf::write_float($fp, $this->collisionHeadRadiusM);
       }
-      if ($this->movementType !== PokemonMovementType::MOVEMENT_STATIC) {
+      if ($this->movementType !== \POGOProtos\Enums\PokemonMovementType::MOVEMENT_STATIC) {
         fwrite($fp, "0", 1);
         Protobuf::write_varint($fp, $this->movementType);
       }
@@ -176,7 +176,7 @@ namespace POGOProtos\Settings\Master\Pokemon {
       if ($this->collisionHeadRadiusM !== 0) {
         $size += 5;
       }
-      if ($this->movementType !== PokemonMovementType::MOVEMENT_STATIC) {
+      if ($this->movementType !== \POGOProtos\Enums\PokemonMovementType::MOVEMENT_STATIC) {
         $size += 1 + Protobuf::size_varint($this->movementType);
       }
       if ($this->movementTimerS !== 0) {
@@ -211,7 +211,7 @@ namespace POGOProtos\Settings\Master\Pokemon {
     public function getCollisionHeadRadiusM() { return $this->collisionHeadRadiusM;}
     public function setCollisionHeadRadiusM($value) { $this->collisionHeadRadiusM = $value; }
 
-    public function clearMovementType() { $this->movementType = PokemonMovementType::MOVEMENT_STATIC; }
+    public function clearMovementType() { $this->movementType = \POGOProtos\Enums\PokemonMovementType::MOVEMENT_STATIC; }
     public function getMovementType() { return $this->movementType;}
     public function setMovementType($value) { $this->movementType = $value; }
 
@@ -234,7 +234,7 @@ namespace POGOProtos\Settings\Master\Pokemon {
            . Protobuf::toString('collision_radius_m', $this->collisionRadiusM, 0)
            . Protobuf::toString('collision_height_m', $this->collisionHeightM, 0)
            . Protobuf::toString('collision_head_radius_m', $this->collisionHeadRadiusM, 0)
-           . Protobuf::toString('movement_type', $this->movementType, PokemonMovementType::MOVEMENT_STATIC)
+           . Protobuf::toString('movement_type', $this->movementType, \POGOProtos\Enums\PokemonMovementType::MOVEMENT_STATIC)
            . Protobuf::toString('movement_timer_s', $this->movementTimerS, 0)
            . Protobuf::toString('jump_time_s', $this->jumpTimeS, 0)
            . Protobuf::toString('attack_timer_s', $this->attackTimerS, 0);

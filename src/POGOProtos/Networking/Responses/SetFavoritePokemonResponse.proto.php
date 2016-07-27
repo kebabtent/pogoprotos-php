@@ -37,7 +37,7 @@ namespace POGOProtos\Networking\Responses {
   final class SetFavoritePokemonResponse extends ProtobufMessage {
 
     private $_unknown;
-    private $result = SetFavoritePokemonResponse_Result::UNSET; // optional .POGOProtos.Networking.Responses.SetFavoritePokemonResponse.Result result = 1
+    private $result = \POGOProtos\Networking\Responses\SetFavoritePokemonResponse_Result::UNSET; // optional .POGOProtos.Networking.Responses.SetFavoritePokemonResponse.Result result = 1
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
       parent::__construct($in, $limit);
@@ -67,7 +67,7 @@ namespace POGOProtos\Networking\Responses {
     }
 
     public function write($fp) {
-      if ($this->result !== SetFavoritePokemonResponse_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Networking\Responses\SetFavoritePokemonResponse_Result::UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->result);
       }
@@ -75,19 +75,19 @@ namespace POGOProtos\Networking\Responses {
 
     public function size() {
       $size = 0;
-      if ($this->result !== SetFavoritePokemonResponse_Result::UNSET) {
+      if ($this->result !== \POGOProtos\Networking\Responses\SetFavoritePokemonResponse_Result::UNSET) {
         $size += 1 + Protobuf::size_varint($this->result);
       }
       return $size;
     }
 
-    public function clearResult() { $this->result = SetFavoritePokemonResponse_Result::UNSET; }
+    public function clearResult() { $this->result = \POGOProtos\Networking\Responses\SetFavoritePokemonResponse_Result::UNSET; }
     public function getResult() { return $this->result;}
     public function setResult($value) { $this->result = $value; }
 
     public function __toString() {
       return ''
-           . Protobuf::toString('result', $this->result, SetFavoritePokemonResponse_Result::UNSET);
+           . Protobuf::toString('result', $this->result, \POGOProtos\Networking\Responses\SetFavoritePokemonResponse_Result::UNSET);
     }
 
     // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Responses.SetFavoritePokemonResponse)

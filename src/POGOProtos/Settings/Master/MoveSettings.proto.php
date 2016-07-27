@@ -11,9 +11,9 @@ namespace POGOProtos\Settings\Master {
   final class MoveSettings extends ProtobufMessage {
 
     private $_unknown;
-    private $movementId = PokemonMovementType::MOVEMENT_STATIC; // optional .POGOProtos.Enums.PokemonMovementType movement_id = 1
+    private $movementId = \POGOProtos\Enums\PokemonMovementType::MOVEMENT_STATIC; // optional .POGOProtos.Enums.PokemonMovementType movement_id = 1
     private $animationId = 0; // optional int32 animation_id = 2
-    private $pokemonType = PokemonType::POKEMON_TYPE_NONE; // optional .POGOProtos.Enums.PokemonType pokemon_type = 3
+    private $pokemonType = \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE; // optional .POGOProtos.Enums.PokemonType pokemon_type = 3
     private $power = 0; // optional float power = 4
     private $accuracyChance = 0; // optional float accuracy_chance = 5
     private $criticalChance = 0; // optional float critical_chance = 6
@@ -183,7 +183,7 @@ namespace POGOProtos\Settings\Master {
     }
 
     public function write($fp) {
-      if ($this->movementId !== PokemonMovementType::MOVEMENT_STATIC) {
+      if ($this->movementId !== \POGOProtos\Enums\PokemonMovementType::MOVEMENT_STATIC) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->movementId);
       }
@@ -191,7 +191,7 @@ namespace POGOProtos\Settings\Master {
         fwrite($fp, "\x10", 1);
         Protobuf::write_varint($fp, $this->animationId);
       }
-      if ($this->pokemonType !== PokemonType::POKEMON_TYPE_NONE) {
+      if ($this->pokemonType !== \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE) {
         fwrite($fp, "\x18", 1);
         Protobuf::write_varint($fp, $this->pokemonType);
       }
@@ -248,13 +248,13 @@ namespace POGOProtos\Settings\Master {
 
     public function size() {
       $size = 0;
-      if ($this->movementId !== PokemonMovementType::MOVEMENT_STATIC) {
+      if ($this->movementId !== \POGOProtos\Enums\PokemonMovementType::MOVEMENT_STATIC) {
         $size += 1 + Protobuf::size_varint($this->movementId);
       }
       if ($this->animationId !== 0) {
         $size += 1 + Protobuf::size_varint($this->animationId);
       }
-      if ($this->pokemonType !== PokemonType::POKEMON_TYPE_NONE) {
+      if ($this->pokemonType !== \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE) {
         $size += 1 + Protobuf::size_varint($this->pokemonType);
       }
       if ($this->power !== 0) {
@@ -297,7 +297,7 @@ namespace POGOProtos\Settings\Master {
       return $size;
     }
 
-    public function clearMovementId() { $this->movementId = PokemonMovementType::MOVEMENT_STATIC; }
+    public function clearMovementId() { $this->movementId = \POGOProtos\Enums\PokemonMovementType::MOVEMENT_STATIC; }
     public function getMovementId() { return $this->movementId;}
     public function setMovementId($value) { $this->movementId = $value; }
 
@@ -305,7 +305,7 @@ namespace POGOProtos\Settings\Master {
     public function getAnimationId() { return $this->animationId;}
     public function setAnimationId($value) { $this->animationId = $value; }
 
-    public function clearPokemonType() { $this->pokemonType = PokemonType::POKEMON_TYPE_NONE; }
+    public function clearPokemonType() { $this->pokemonType = \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE; }
     public function getPokemonType() { return $this->pokemonType;}
     public function setPokemonType($value) { $this->pokemonType = $value; }
 
@@ -359,9 +359,9 @@ namespace POGOProtos\Settings\Master {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('movement_id', $this->movementId, PokemonMovementType::MOVEMENT_STATIC)
+           . Protobuf::toString('movement_id', $this->movementId, \POGOProtos\Enums\PokemonMovementType::MOVEMENT_STATIC)
            . Protobuf::toString('animation_id', $this->animationId, 0)
-           . Protobuf::toString('pokemon_type', $this->pokemonType, PokemonType::POKEMON_TYPE_NONE)
+           . Protobuf::toString('pokemon_type', $this->pokemonType, \POGOProtos\Enums\PokemonType::POKEMON_TYPE_NONE)
            . Protobuf::toString('power', $this->power, 0)
            . Protobuf::toString('accuracy_chance', $this->accuracyChance, 0)
            . Protobuf::toString('critical_chance', $this->criticalChance, 0)

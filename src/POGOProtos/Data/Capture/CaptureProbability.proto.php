@@ -131,7 +131,7 @@ namespace POGOProtos\Data\Capture {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('pokeball_type', $this->pokeballType, ItemId::ITEM_UNKNOWN)
+           . Protobuf::toString('pokeball_type', $this->pokeballType, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN)
            . Protobuf::toString('capture_probability', $this->captureProbability, 0)
            . Protobuf::toString('reticle_difficulty_scale', $this->reticleDifficultyScale, 0);
     }

@@ -11,8 +11,8 @@ namespace POGOProtos\Inventory {
   final class InventoryUpgrade extends ProtobufMessage {
 
     private $_unknown;
-    private $itemId = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
-    private $upgradeType = InventoryUpgradeType::UPGRADE_UNSET; // optional .POGOProtos.Inventory.InventoryUpgradeType upgrade_type = 2
+    private $itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
+    private $upgradeType = \POGOProtos\Inventory\InventoryUpgradeType::UPGRADE_UNSET; // optional .POGOProtos.Inventory.InventoryUpgradeType upgrade_type = 2
     private $additionalStorage = 0; // optional int32 additional_storage = 3
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
@@ -61,11 +61,11 @@ namespace POGOProtos\Inventory {
     }
 
     public function write($fp) {
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->itemId);
       }
-      if ($this->upgradeType !== InventoryUpgradeType::UPGRADE_UNSET) {
+      if ($this->upgradeType !== \POGOProtos\Inventory\InventoryUpgradeType::UPGRADE_UNSET) {
         fwrite($fp, "\x10", 1);
         Protobuf::write_varint($fp, $this->upgradeType);
       }
@@ -77,10 +77,10 @@ namespace POGOProtos\Inventory {
 
     public function size() {
       $size = 0;
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         $size += 1 + Protobuf::size_varint($this->itemId);
       }
-      if ($this->upgradeType !== InventoryUpgradeType::UPGRADE_UNSET) {
+      if ($this->upgradeType !== \POGOProtos\Inventory\InventoryUpgradeType::UPGRADE_UNSET) {
         $size += 1 + Protobuf::size_varint($this->upgradeType);
       }
       if ($this->additionalStorage !== 0) {
@@ -89,11 +89,11 @@ namespace POGOProtos\Inventory {
       return $size;
     }
 
-    public function clearItemId() { $this->itemId = ItemId::ITEM_UNKNOWN; }
+    public function clearItemId() { $this->itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; }
     public function getItemId() { return $this->itemId;}
     public function setItemId($value) { $this->itemId = $value; }
 
-    public function clearUpgradeType() { $this->upgradeType = InventoryUpgradeType::UPGRADE_UNSET; }
+    public function clearUpgradeType() { $this->upgradeType = \POGOProtos\Inventory\InventoryUpgradeType::UPGRADE_UNSET; }
     public function getUpgradeType() { return $this->upgradeType;}
     public function setUpgradeType($value) { $this->upgradeType = $value; }
 
@@ -103,8 +103,8 @@ namespace POGOProtos\Inventory {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('item_id', $this->itemId, ItemId::ITEM_UNKNOWN)
-           . Protobuf::toString('upgrade_type', $this->upgradeType, InventoryUpgradeType::UPGRADE_UNSET)
+           . Protobuf::toString('item_id', $this->itemId, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN)
+           . Protobuf::toString('upgrade_type', $this->upgradeType, \POGOProtos\Inventory\InventoryUpgradeType::UPGRADE_UNSET)
            . Protobuf::toString('additional_storage', $this->additionalStorage, 0);
     }
 

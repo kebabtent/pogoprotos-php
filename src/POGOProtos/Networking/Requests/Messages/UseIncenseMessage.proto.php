@@ -11,7 +11,7 @@ namespace POGOProtos\Networking\Requests\Messages {
   final class UseIncenseMessage extends ProtobufMessage {
 
     private $_unknown;
-    private $incenseType = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId incense_type = 1
+    private $incenseType = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId incense_type = 1
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
       parent::__construct($in, $limit);
@@ -41,7 +41,7 @@ namespace POGOProtos\Networking\Requests\Messages {
     }
 
     public function write($fp) {
-      if ($this->incenseType !== ItemId::ITEM_UNKNOWN) {
+      if ($this->incenseType !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->incenseType);
       }
@@ -49,19 +49,19 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function size() {
       $size = 0;
-      if ($this->incenseType !== ItemId::ITEM_UNKNOWN) {
+      if ($this->incenseType !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         $size += 1 + Protobuf::size_varint($this->incenseType);
       }
       return $size;
     }
 
-    public function clearIncenseType() { $this->incenseType = ItemId::ITEM_UNKNOWN; }
+    public function clearIncenseType() { $this->incenseType = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; }
     public function getIncenseType() { return $this->incenseType;}
     public function setIncenseType($value) { $this->incenseType = $value; }
 
     public function __toString() {
       return ''
-           . Protobuf::toString('incense_type', $this->incenseType, ItemId::ITEM_UNKNOWN);
+           . Protobuf::toString('incense_type', $this->incenseType, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN);
     }
 
     // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Requests.Messages.UseIncenseMessage)

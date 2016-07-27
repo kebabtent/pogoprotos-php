@@ -12,7 +12,7 @@ namespace POGOProtos\Settings\Master {
 
     private $_unknown;
     private $sku = ""; // optional string sku = 1
-    private $category = HoloIapItemCategory::IAP_CATEGORY_NONE; // optional .POGOProtos.Enums.HoloIapItemCategory category = 2
+    private $category = \POGOProtos\Enums\HoloIapItemCategory::IAP_CATEGORY_NONE; // optional .POGOProtos.Enums.HoloIapItemCategory category = 2
     private $sortOrder = 0; // optional int32 sort_order = 3
     private $itemIds = array(); // repeated .POGOProtos.Inventory.Item.ItemId item_ids = 4
     private $counts = array(); // repeated int32 counts = 5
@@ -106,7 +106,7 @@ namespace POGOProtos\Settings\Master {
         Protobuf::write_varint($fp, strlen($this->sku));
         fwrite($fp, $this->sku);
       }
-      if ($this->category !== HoloIapItemCategory::IAP_CATEGORY_NONE) {
+      if ($this->category !== \POGOProtos\Enums\HoloIapItemCategory::IAP_CATEGORY_NONE) {
         fwrite($fp, "\x10", 1);
         Protobuf::write_varint($fp, $this->category);
       }
@@ -130,7 +130,7 @@ namespace POGOProtos\Settings\Master {
         $l = strlen($this->sku);
         $size += 1 + Protobuf::size_varint($l) + $l;
       }
-      if ($this->category !== HoloIapItemCategory::IAP_CATEGORY_NONE) {
+      if ($this->category !== \POGOProtos\Enums\HoloIapItemCategory::IAP_CATEGORY_NONE) {
         $size += 1 + Protobuf::size_varint($this->category);
       }
       if ($this->sortOrder !== 0) {
@@ -151,7 +151,7 @@ namespace POGOProtos\Settings\Master {
     public function getSku() { return $this->sku;}
     public function setSku($value) { $this->sku = $value; }
 
-    public function clearCategory() { $this->category = HoloIapItemCategory::IAP_CATEGORY_NONE; }
+    public function clearCategory() { $this->category = \POGOProtos\Enums\HoloIapItemCategory::IAP_CATEGORY_NONE; }
     public function getCategory() { return $this->category;}
     public function setCategory($value) { $this->category = $value; }
 
@@ -178,9 +178,9 @@ namespace POGOProtos\Settings\Master {
     public function __toString() {
       return ''
            . Protobuf::toString('sku', $this->sku, "")
-           . Protobuf::toString('category', $this->category, HoloIapItemCategory::IAP_CATEGORY_NONE)
+           . Protobuf::toString('category', $this->category, \POGOProtos\Enums\HoloIapItemCategory::IAP_CATEGORY_NONE)
            . Protobuf::toString('sort_order', $this->sortOrder, 0)
-           . Protobuf::toString('item_ids', $this->itemIds, ItemId::ITEM_UNKNOWN)
+           . Protobuf::toString('item_ids', $this->itemIds, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN)
            . Protobuf::toString('counts', $this->counts, 0);
     }
 

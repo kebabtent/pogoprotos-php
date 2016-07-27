@@ -591,8 +591,8 @@ namespace POGOProtos\Settings\Master {
     public function __toString() {
       return ''
            . Protobuf::toString('next_camera', $this->nextCamera, "")
-           . Protobuf::toString('interpolation', $this->interpolation, CameraInterpolation::CAM_INTERP_CUT)
-           . Protobuf::toString('target_type', $this->targetType, CameraTarget::CAM_TARGET_ATTACKER)
+           . Protobuf::toString('interpolation', $this->interpolation, \POGOProtos\Enums\CameraInterpolation::CAM_INTERP_CUT)
+           . Protobuf::toString('target_type', $this->targetType, \POGOProtos\Enums\CameraTarget::CAM_TARGET_ATTACKER)
            . Protobuf::toString('ease_in_speed', $this->easeInSpeed, 0)
            . Protobuf::toString('east_out_speed', $this->eastOutSpeed, 0)
            . Protobuf::toString('duration_seconds', $this->durationSeconds, 0)

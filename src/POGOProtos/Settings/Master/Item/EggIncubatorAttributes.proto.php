@@ -11,7 +11,7 @@ namespace POGOProtos\Settings\Master\Item {
   final class EggIncubatorAttributes extends ProtobufMessage {
 
     private $_unknown;
-    private $incubatorType = EggIncubatorType::INCUBATOR_UNSET; // optional .POGOProtos.Inventory.EggIncubatorType incubator_type = 1
+    private $incubatorType = \POGOProtos\Inventory\EggIncubatorType::INCUBATOR_UNSET; // optional .POGOProtos.Inventory.EggIncubatorType incubator_type = 1
     private $uses = 0; // optional int32 uses = 2
     private $distanceMultiplier = 0; // optional float distance_multiplier = 3
 
@@ -61,7 +61,7 @@ namespace POGOProtos\Settings\Master\Item {
     }
 
     public function write($fp) {
-      if ($this->incubatorType !== EggIncubatorType::INCUBATOR_UNSET) {
+      if ($this->incubatorType !== \POGOProtos\Inventory\EggIncubatorType::INCUBATOR_UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->incubatorType);
       }
@@ -77,7 +77,7 @@ namespace POGOProtos\Settings\Master\Item {
 
     public function size() {
       $size = 0;
-      if ($this->incubatorType !== EggIncubatorType::INCUBATOR_UNSET) {
+      if ($this->incubatorType !== \POGOProtos\Inventory\EggIncubatorType::INCUBATOR_UNSET) {
         $size += 1 + Protobuf::size_varint($this->incubatorType);
       }
       if ($this->uses !== 0) {
@@ -89,7 +89,7 @@ namespace POGOProtos\Settings\Master\Item {
       return $size;
     }
 
-    public function clearIncubatorType() { $this->incubatorType = EggIncubatorType::INCUBATOR_UNSET; }
+    public function clearIncubatorType() { $this->incubatorType = \POGOProtos\Inventory\EggIncubatorType::INCUBATOR_UNSET; }
     public function getIncubatorType() { return $this->incubatorType;}
     public function setIncubatorType($value) { $this->incubatorType = $value; }
 
@@ -103,7 +103,7 @@ namespace POGOProtos\Settings\Master\Item {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('incubator_type', $this->incubatorType, EggIncubatorType::INCUBATOR_UNSET)
+           . Protobuf::toString('incubator_type', $this->incubatorType, \POGOProtos\Inventory\EggIncubatorType::INCUBATOR_UNSET)
            . Protobuf::toString('uses', $this->uses, 0)
            . Protobuf::toString('distance_multiplier', $this->distanceMultiplier, 0);
     }

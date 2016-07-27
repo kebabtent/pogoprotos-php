@@ -11,7 +11,7 @@ namespace POGOProtos\Map\Fort {
   final class FortModifier extends ProtobufMessage {
 
     private $_unknown;
-    private $itemId = ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
+    private $itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; // optional .POGOProtos.Inventory.Item.ItemId item_id = 1
     private $expirationTimestampMs = 0; // optional int64 expiration_timestamp_ms = 2
     private $deployerPlayerCodename = ""; // optional string deployer_player_codename = 3
 
@@ -63,7 +63,7 @@ namespace POGOProtos\Map\Fort {
     }
 
     public function write($fp) {
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->itemId);
       }
@@ -80,7 +80,7 @@ namespace POGOProtos\Map\Fort {
 
     public function size() {
       $size = 0;
-      if ($this->itemId !== ItemId::ITEM_UNKNOWN) {
+      if ($this->itemId !== \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN) {
         $size += 1 + Protobuf::size_varint($this->itemId);
       }
       if ($this->expirationTimestampMs !== 0) {
@@ -93,7 +93,7 @@ namespace POGOProtos\Map\Fort {
       return $size;
     }
 
-    public function clearItemId() { $this->itemId = ItemId::ITEM_UNKNOWN; }
+    public function clearItemId() { $this->itemId = \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN; }
     public function getItemId() { return $this->itemId;}
     public function setItemId($value) { $this->itemId = $value; }
 
@@ -107,7 +107,7 @@ namespace POGOProtos\Map\Fort {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('item_id', $this->itemId, ItemId::ITEM_UNKNOWN)
+           . Protobuf::toString('item_id', $this->itemId, \POGOProtos\Inventory\Item\ItemId::ITEM_UNKNOWN)
            . Protobuf::toString('expiration_timestamp_ms', $this->expirationTimestampMs, 0)
            . Protobuf::toString('deployer_player_codename', $this->deployerPlayerCodename, "");
     }

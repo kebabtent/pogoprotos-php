@@ -11,7 +11,7 @@ namespace POGOProtos\Networking\Requests\Messages {
   final class SetPlayerTeamMessage extends ProtobufMessage {
 
     private $_unknown;
-    private $team = TeamColor::NEUTRAL; // optional .POGOProtos.Enums.TeamColor team = 1
+    private $team = \POGOProtos\Enums\TeamColor::NEUTRAL; // optional .POGOProtos.Enums.TeamColor team = 1
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
       parent::__construct($in, $limit);
@@ -41,7 +41,7 @@ namespace POGOProtos\Networking\Requests\Messages {
     }
 
     public function write($fp) {
-      if ($this->team !== TeamColor::NEUTRAL) {
+      if ($this->team !== \POGOProtos\Enums\TeamColor::NEUTRAL) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->team);
       }
@@ -49,19 +49,19 @@ namespace POGOProtos\Networking\Requests\Messages {
 
     public function size() {
       $size = 0;
-      if ($this->team !== TeamColor::NEUTRAL) {
+      if ($this->team !== \POGOProtos\Enums\TeamColor::NEUTRAL) {
         $size += 1 + Protobuf::size_varint($this->team);
       }
       return $size;
     }
 
-    public function clearTeam() { $this->team = TeamColor::NEUTRAL; }
+    public function clearTeam() { $this->team = \POGOProtos\Enums\TeamColor::NEUTRAL; }
     public function getTeam() { return $this->team;}
     public function setTeam($value) { $this->team = $value; }
 
     public function __toString() {
       return ''
-           . Protobuf::toString('team', $this->team, TeamColor::NEUTRAL);
+           . Protobuf::toString('team', $this->team, \POGOProtos\Enums\TeamColor::NEUTRAL);
     }
 
     // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Requests.Messages.SetPlayerTeamMessage)

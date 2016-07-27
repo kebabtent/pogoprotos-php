@@ -11,7 +11,7 @@ namespace POGOProtos\Inventory {
   final class PokemonFamily extends ProtobufMessage {
 
     private $_unknown;
-    private $familyId = PokemonFamilyId::FAMILY_UNSET; // optional .POGOProtos.Enums.PokemonFamilyId family_id = 1
+    private $familyId = \POGOProtos\Enums\PokemonFamilyId::FAMILY_UNSET; // optional .POGOProtos.Enums.PokemonFamilyId family_id = 1
     private $candy = 0; // optional int32 candy = 2
 
     public function __construct($in = null, &$limit = PHP_INT_MAX) {
@@ -51,7 +51,7 @@ namespace POGOProtos\Inventory {
     }
 
     public function write($fp) {
-      if ($this->familyId !== PokemonFamilyId::FAMILY_UNSET) {
+      if ($this->familyId !== \POGOProtos\Enums\PokemonFamilyId::FAMILY_UNSET) {
         fwrite($fp, "\x08", 1);
         Protobuf::write_varint($fp, $this->familyId);
       }
@@ -63,7 +63,7 @@ namespace POGOProtos\Inventory {
 
     public function size() {
       $size = 0;
-      if ($this->familyId !== PokemonFamilyId::FAMILY_UNSET) {
+      if ($this->familyId !== \POGOProtos\Enums\PokemonFamilyId::FAMILY_UNSET) {
         $size += 1 + Protobuf::size_varint($this->familyId);
       }
       if ($this->candy !== 0) {
@@ -72,7 +72,7 @@ namespace POGOProtos\Inventory {
       return $size;
     }
 
-    public function clearFamilyId() { $this->familyId = PokemonFamilyId::FAMILY_UNSET; }
+    public function clearFamilyId() { $this->familyId = \POGOProtos\Enums\PokemonFamilyId::FAMILY_UNSET; }
     public function getFamilyId() { return $this->familyId;}
     public function setFamilyId($value) { $this->familyId = $value; }
 
@@ -82,7 +82,7 @@ namespace POGOProtos\Inventory {
 
     public function __toString() {
       return ''
-           . Protobuf::toString('family_id', $this->familyId, PokemonFamilyId::FAMILY_UNSET)
+           . Protobuf::toString('family_id', $this->familyId, \POGOProtos\Enums\PokemonFamilyId::FAMILY_UNSET)
            . Protobuf::toString('candy', $this->candy, 0);
     }
 
