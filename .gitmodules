@@ -1,6 +1,3 @@
 [submodule "src/protos"]
 	path = protos
 	url = https://github.com/AeonLucid/POGOProtos
-[submodule "protoc-gen-php"]
-	path = protoc-gen-php
-	url = https://github.com/jaspervdm/protoc-gen-php
