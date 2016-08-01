@@ -2,11 +2,17 @@
   "name": "jaspervdm/pogoprotos-php",
   "description": "Compiled PHP protobufs for pokemon go",
   "require": {
-    "php": ">=5.5"
+    "php": ">=5.5",
+    "protobuf-php/protobuf": "~0.1@dev"
+  },
+  "require-dev": {
+    "protobuf-php/protobuf-plugin": "~0.1@dev"
   },
   "autoload": {
     "classmap": [
       "src/"
     ]
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable" : true
 }
