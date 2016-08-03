@@ -777,7 +777,7 @@ class PlayerData extends \Protobuf\AbstractMessage
                 }
 
                 while ($stream->tell() < $innerLimit) {
-                    $this->tutorial_state->add($reader->readVarint($stream));
+                    $this->tutorial_state->add(\POGOProtos\Enums\TutorialState::valueOf($reader->readVarint($stream)));
                 }
 
                 continue;

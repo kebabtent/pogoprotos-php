@@ -27,7 +27,7 @@ class MoveSettings extends \Protobuf\AbstractMessage
     /**
      * movement_id optional enum = 1
      *
-     * @var \POGOProtos\Enums\PokemonMovementType
+     * @var \POGOProtos\Enums\PokemonMove
      */
     protected $movement_id = null;
 
@@ -142,7 +142,7 @@ class MoveSettings extends \Protobuf\AbstractMessage
     /**
      * Get 'movement_id' value
      *
-     * @return \POGOProtos\Enums\PokemonMovementType
+     * @return \POGOProtos\Enums\PokemonMove
      */
     public function getMovementId()
     {
@@ -152,9 +152,9 @@ class MoveSettings extends \Protobuf\AbstractMessage
     /**
      * Set 'movement_id' value
      *
-     * @param \POGOProtos\Enums\PokemonMovementType $value
+     * @param \POGOProtos\Enums\PokemonMove $value
      */
-    public function setMovementId(\POGOProtos\Enums\PokemonMovementType $value = null)
+    public function setMovementId(\POGOProtos\Enums\PokemonMove $value = null)
     {
         $this->movement_id = $value;
     }
@@ -663,7 +663,7 @@ class MoveSettings extends \Protobuf\AbstractMessage
                     'name' => 'movement_id',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
-                    'type_name' => '.POGOProtos.Enums.PokemonMovementType'
+                    'type_name' => '.POGOProtos.Enums.PokemonMove'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 2,
@@ -890,7 +890,7 @@ class MoveSettings extends \Protobuf\AbstractMessage
             if ($tag === 1) {
                 \Protobuf\WireFormat::assertWireType($wire, 14);
 
-                $this->movement_id = \POGOProtos\Enums\PokemonMovementType::valueOf($reader->readVarint($stream));
+                $this->movement_id = \POGOProtos\Enums\PokemonMove::valueOf($reader->readVarint($stream));
 
                 continue;
             }

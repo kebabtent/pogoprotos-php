@@ -350,29 +350,65 @@ class CaptureAward extends \Protobuf\AbstractMessage
         $sizeContext = $context->getComputeSizeContext();
 
         if ($this->activity_type !== null) {
+            $innerSize   = 0;
+            $calculator  = $sizeContext->getSizeCalculator();
+
             foreach ($this->activity_type as $val) {
-                $writer->writeVarint($stream, 8);
-                $writer->writeVarint($stream, $val->value());
+                $innerSize += $calculator->computeVarintSize($val);
+            }
+
+            $writer->writeVarint($stream, 10);
+            $writer->writeVarint($stream, $innerSize);
+
+            foreach ($this->activity_type as $val) {
+                $writer->writeVarint($stream, $val);
             }
         }
 
         if ($this->xp !== null) {
+            $innerSize   = 0;
+            $calculator  = $sizeContext->getSizeCalculator();
+
             foreach ($this->xp as $val) {
-                $writer->writeVarint($stream, 16);
+                $innerSize += $calculator->computeVarintSize($val);
+            }
+
+            $writer->writeVarint($stream, 18);
+            $writer->writeVarint($stream, $innerSize);
+
+            foreach ($this->xp as $val) {
                 $writer->writeVarint($stream, $val);
             }
         }
 
         if ($this->candy !== null) {
+            $innerSize   = 0;
+            $calculator  = $sizeContext->getSizeCalculator();
+
             foreach ($this->candy as $val) {
-                $writer->writeVarint($stream, 24);
+                $innerSize += $calculator->computeVarintSize($val);
+            }
+
+            $writer->writeVarint($stream, 26);
+            $writer->writeVarint($stream, $innerSize);
+
+            foreach ($this->candy as $val) {
                 $writer->writeVarint($stream, $val);
             }
         }
 
         if ($this->stardust !== null) {
+            $innerSize   = 0;
+            $calculator  = $sizeContext->getSizeCalculator();
+
             foreach ($this->stardust as $val) {
-                $writer->writeVarint($stream, 32);
+                $innerSize += $calculator->computeVarintSize($val);
+            }
+
+            $writer->writeVarint($stream, 34);
+            $writer->writeVarint($stream, $innerSize);
+
+            foreach ($this->stardust as $val) {
                 $writer->writeVarint($stream, $val);
             }
         }
@@ -412,49 +448,61 @@ class CaptureAward extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->activity_type === null) {
                     $this->activity_type = new \Protobuf\EnumCollection();
                 }
 
-                $this->activity_type->add(\POGOProtos\Enums\ActivityType::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->activity_type->add(\POGOProtos\Enums\ActivityType::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->xp === null) {
                     $this->xp = new \Protobuf\ScalarCollection();
                 }
 
-                $this->xp->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->xp->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->candy === null) {
                     $this->candy = new \Protobuf\ScalarCollection();
                 }
 
-                $this->candy->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->candy->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 4) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->stardust === null) {
                     $this->stardust = new \Protobuf\ScalarCollection();
                 }
 
-                $this->stardust->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->stardust->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
@@ -489,31 +537,51 @@ class CaptureAward extends \Protobuf\AbstractMessage
         $size       = 0;
 
         if ($this->activity_type !== null) {
+            $innerSize = 0;
+
             foreach ($this->activity_type as $val) {
-                $size += 1;
-                $size += $calculator->computeVarintSize($val->value());
+                $innerSize += $calculator->computeVarintSize($val);
             }
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
         }
 
         if ($this->xp !== null) {
+            $innerSize = 0;
+
             foreach ($this->xp as $val) {
-                $size += 1;
-                $size += $calculator->computeVarintSize($val);
+                $innerSize += $calculator->computeVarintSize($val);
             }
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
         }
 
         if ($this->candy !== null) {
+            $innerSize = 0;
+
             foreach ($this->candy as $val) {
-                $size += 1;
-                $size += $calculator->computeVarintSize($val);
+                $innerSize += $calculator->computeVarintSize($val);
             }
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
         }
 
         if ($this->stardust !== null) {
+            $innerSize = 0;
+
             foreach ($this->stardust as $val) {
-                $size += 1;
-                $size += $calculator->computeVarintSize($val);
+                $innerSize += $calculator->computeVarintSize($val);
             }
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
         }
 
         if ($this->extensions !== null) {

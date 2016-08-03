@@ -40,7 +40,7 @@ class StartGymBattleMessage extends \Protobuf\AbstractMessage
     protected $attacking_pokemon_ids = null;
 
     /**
-     * defending_pokemon_id optional uint64 = 3
+     * defending_pokemon_id optional fixed64 = 3
      *
      * @var int
      */
@@ -301,7 +301,7 @@ class StartGymBattleMessage extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 3,
                     'name' => 'defending_pokemon_id',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -357,8 +357,8 @@ class StartGymBattleMessage extends \Protobuf\AbstractMessage
         }
 
         if ($this->defending_pokemon_id !== null) {
-            $writer->writeVarint($stream, 24);
-            $writer->writeVarint($stream, $this->defending_pokemon_id);
+            $writer->writeVarint($stream, 25);
+            $writer->writeFixed64($stream, $this->defending_pokemon_id);
         }
 
         if ($this->player_latitude !== null) {
@@ -426,9 +426,9 @@ class StartGymBattleMessage extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 4);
+                \Protobuf\WireFormat::assertWireType($wire, 6);
 
-                $this->defending_pokemon_id = $reader->readVarint($stream);
+                $this->defending_pokemon_id = $reader->readFixed64($stream);
 
                 continue;
             }
@@ -492,7 +492,7 @@ class StartGymBattleMessage extends \Protobuf\AbstractMessage
 
         if ($this->defending_pokemon_id !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->defending_pokemon_id);
+            $size += 8;
         }
 
         if ($this->player_latitude !== null) {

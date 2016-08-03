@@ -351,7 +351,7 @@ class CaptureProbability extends \Protobuf\AbstractMessage
                 }
 
                 while ($stream->tell() < $innerLimit) {
-                    $this->pokeball_type->add($reader->readVarint($stream));
+                    $this->pokeball_type->add(\POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream)));
                 }
 
                 continue;

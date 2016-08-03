@@ -25,11 +25,11 @@ class Unknown6 extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * unknown1 optional int32 = 1
+     * request_type optional int32 = 1
      *
      * @var int
      */
-    protected $unknown1 = null;
+    protected $request_type = null;
 
     /**
      * unknown2 optional message = 2
@@ -39,33 +39,33 @@ class Unknown6 extends \Protobuf\AbstractMessage
     protected $unknown2 = null;
 
     /**
-     * Check if 'unknown1' has a value
+     * Check if 'request_type' has a value
      *
      * @return bool
      */
-    public function hasUnknown1()
+    public function hasRequestType()
     {
-        return $this->unknown1 !== null;
+        return $this->request_type !== null;
     }
 
     /**
-     * Get 'unknown1' value
+     * Get 'request_type' value
      *
      * @return int
      */
-    public function getUnknown1()
+    public function getRequestType()
     {
-        return $this->unknown1;
+        return $this->request_type;
     }
 
     /**
-     * Set 'unknown1' value
+     * Set 'request_type' value
      *
      * @param int $value
      */
-    public function setUnknown1($value = null)
+    public function setRequestType($value = null)
     {
-        $this->unknown1 = $value;
+        $this->request_type = $value;
     }
 
     /**
@@ -133,11 +133,11 @@ class Unknown6 extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'unknown1' => null,
+            'request_type' => null,
             'unknown2' => null
         ], $values);
 
-        $message->setUnknown1($values['unknown1']);
+        $message->setRequestType($values['request_type']);
         $message->setUnknown2($values['unknown2']);
 
         return $message;
@@ -153,7 +153,7 @@ class Unknown6 extends \Protobuf\AbstractMessage
             'field'     => [
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 1,
-                    'name' => 'unknown1',
+                    'name' => 'request_type',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -192,9 +192,9 @@ class Unknown6 extends \Protobuf\AbstractMessage
         $writer      = $context->getWriter();
         $sizeContext = $context->getComputeSizeContext();
 
-        if ($this->unknown1 !== null) {
+        if ($this->request_type !== null) {
             $writer->writeVarint($stream, 8);
-            $writer->writeVarint($stream, $this->unknown1);
+            $writer->writeVarint($stream, $this->request_type);
         }
 
         if ($this->unknown2 !== null) {
@@ -240,7 +240,7 @@ class Unknown6 extends \Protobuf\AbstractMessage
             if ($tag === 1) {
                 \Protobuf\WireFormat::assertWireType($wire, 5);
 
-                $this->unknown1 = $reader->readVarint($stream);
+                $this->request_type = $reader->readVarint($stream);
 
                 continue;
             }
@@ -289,9 +289,9 @@ class Unknown6 extends \Protobuf\AbstractMessage
         $calculator = $context->getSizeCalculator();
         $size       = 0;
 
-        if ($this->unknown1 !== null) {
+        if ($this->request_type !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->unknown1);
+            $size += $calculator->computeVarintSize($this->request_type);
         }
 
         if ($this->unknown2 !== null) {
@@ -314,7 +314,7 @@ class Unknown6 extends \Protobuf\AbstractMessage
      */
     public function clear()
     {
-        $this->unknown1 = null;
+        $this->request_type = null;
         $this->unknown2 = null;
     }
 
@@ -327,7 +327,7 @@ class Unknown6 extends \Protobuf\AbstractMessage
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
 
-        $this->unknown1 = ($message->unknown1 !== null) ? $message->unknown1 : $this->unknown1;
+        $this->request_type = ($message->request_type !== null) ? $message->request_type : $this->request_type;
         $this->unknown2 = ($message->unknown2 !== null) ? $message->unknown2 : $this->unknown2;
     }
 

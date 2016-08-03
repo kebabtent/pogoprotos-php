@@ -6,12 +6,13 @@
  */
 
 
-namespace POGOProtos\Networking\Envelopes;
+namespace POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2\StoreItem;
 
 /**
- * Protobuf message : POGOProtos.Networking.Envelopes.Unknown6Response
+ * Protobuf message :
+ * POGOProtos.Networking.Envelopes.Unknown6Response.Unknown2.StoreItem.Tag
  */
-class Unknown6Response extends \Protobuf\AbstractMessage
+class Tag extends \Protobuf\AbstractMessage
 {
 
     /**
@@ -25,77 +26,77 @@ class Unknown6Response extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * response_type optional int32 = 1
+     * key optional string = 1
      *
-     * @var int
+     * @var string
      */
-    protected $response_type = null;
+    protected $key = null;
 
     /**
-     * unknown2 optional message = 2
+     * value optional string = 2
      *
-     * @var \POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2
+     * @var string
      */
-    protected $unknown2 = null;
+    protected $value = null;
 
     /**
-     * Check if 'response_type' has a value
+     * Check if 'key' has a value
      *
      * @return bool
      */
-    public function hasResponseType()
+    public function hasKey()
     {
-        return $this->response_type !== null;
+        return $this->key !== null;
     }
 
     /**
-     * Get 'response_type' value
+     * Get 'key' value
      *
-     * @return int
+     * @return string
      */
-    public function getResponseType()
+    public function getKey()
     {
-        return $this->response_type;
+        return $this->key;
     }
 
     /**
-     * Set 'response_type' value
+     * Set 'key' value
      *
-     * @param int $value
+     * @param string $value
      */
-    public function setResponseType($value = null)
+    public function setKey($value = null)
     {
-        $this->response_type = $value;
+        $this->key = $value;
     }
 
     /**
-     * Check if 'unknown2' has a value
+     * Check if 'value' has a value
      *
      * @return bool
      */
-    public function hasUnknown2()
+    public function hasValue()
     {
-        return $this->unknown2 !== null;
+        return $this->value !== null;
     }
 
     /**
-     * Get 'unknown2' value
+     * Get 'value' value
      *
-     * @return \POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2
+     * @return string
      */
-    public function getUnknown2()
+    public function getValue()
     {
-        return $this->unknown2;
+        return $this->value;
     }
 
     /**
-     * Set 'unknown2' value
+     * Set 'value' value
      *
-     * @param \POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2 $value
+     * @param string $value
      */
-    public function setUnknown2(\POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2 $value = null)
+    public function setValue($value = null)
     {
-        $this->unknown2 = $value;
+        $this->value = $value;
     }
 
     /**
@@ -133,12 +134,12 @@ class Unknown6Response extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'response_type' => null,
-            'unknown2' => null
+            'key' => null,
+            'value' => null
         ], $values);
 
-        $message->setResponseType($values['response_type']);
-        $message->setUnknown2($values['unknown2']);
+        $message->setKey($values['key']);
+        $message->setValue($values['value']);
 
         return $message;
     }
@@ -149,20 +150,19 @@ class Unknown6Response extends \Protobuf\AbstractMessage
     public static function descriptor()
     {
         return \google\protobuf\DescriptorProto::fromArray([
-            'name'      => 'Unknown6Response',
+            'name'      => 'Tag',
             'field'     => [
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 1,
-                    'name' => 'response_type',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'name' => 'key',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 2,
-                    'name' => 'unknown2',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
-                    'type_name' => '.POGOProtos.Networking.Envelopes.Unknown6Response.Unknown2'
+                    'name' => 'value',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -192,15 +192,14 @@ class Unknown6Response extends \Protobuf\AbstractMessage
         $writer      = $context->getWriter();
         $sizeContext = $context->getComputeSizeContext();
 
-        if ($this->response_type !== null) {
-            $writer->writeVarint($stream, 8);
-            $writer->writeVarint($stream, $this->response_type);
+        if ($this->key !== null) {
+            $writer->writeVarint($stream, 10);
+            $writer->writeString($stream, $this->key);
         }
 
-        if ($this->unknown2 !== null) {
+        if ($this->value !== null) {
             $writer->writeVarint($stream, 18);
-            $writer->writeVarint($stream, $this->unknown2->serializedSize($sizeContext));
-            $this->unknown2->writeTo($context);
+            $writer->writeString($stream, $this->value);
         }
 
         if ($this->extensions !== null) {
@@ -238,24 +237,17 @@ class Unknown6Response extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                \Protobuf\WireFormat::assertWireType($wire, 9);
 
-                $this->response_type = $reader->readVarint($stream);
+                $this->key = $reader->readString($stream);
 
                 continue;
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 11);
+                \Protobuf\WireFormat::assertWireType($wire, 9);
 
-                $innerSize    = $reader->readVarint($stream);
-                $innerMessage = new \POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2();
-
-                $this->unknown2 = $innerMessage;
-
-                $context->setLength($innerSize);
-                $innerMessage->readFrom($context);
-                $context->setLength($length);
+                $this->value = $reader->readString($stream);
 
                 continue;
             }
@@ -289,17 +281,14 @@ class Unknown6Response extends \Protobuf\AbstractMessage
         $calculator = $context->getSizeCalculator();
         $size       = 0;
 
-        if ($this->response_type !== null) {
+        if ($this->key !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->response_type);
+            $size += $calculator->computeStringSize($this->key);
         }
 
-        if ($this->unknown2 !== null) {
-            $innerSize = $this->unknown2->serializedSize($context);
-
+        if ($this->value !== null) {
             $size += 1;
-            $size += $innerSize;
-            $size += $calculator->computeVarintSize($innerSize);
+            $size += $calculator->computeStringSize($this->value);
         }
 
         if ($this->extensions !== null) {
@@ -314,8 +303,8 @@ class Unknown6Response extends \Protobuf\AbstractMessage
      */
     public function clear()
     {
-        $this->response_type = null;
-        $this->unknown2 = null;
+        $this->key = null;
+        $this->value = null;
     }
 
     /**
@@ -323,12 +312,12 @@ class Unknown6Response extends \Protobuf\AbstractMessage
      */
     public function merge(\Protobuf\Message $message)
     {
-        if ( ! $message instanceof \POGOProtos\Networking\Envelopes\Unknown6Response) {
+        if ( ! $message instanceof \POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2\StoreItem\Tag) {
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
 
-        $this->response_type = ($message->response_type !== null) ? $message->response_type : $this->response_type;
-        $this->unknown2 = ($message->unknown2 !== null) ? $message->unknown2 : $this->unknown2;
+        $this->key = ($message->key !== null) ? $message->key : $this->key;
+        $this->value = ($message->value !== null) ? $message->value : $this->value;
     }
 
 

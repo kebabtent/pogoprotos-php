@@ -88,11 +88,11 @@ class InventoryItemData extends \Protobuf\AbstractMessage
     protected $egg_incubators = null;
 
     /**
-     * pokemon_family optional message = 10
+     * candy optional message = 10
      *
-     * @var \POGOProtos\Inventory\PokemonFamily
+     * @var \POGOProtos\Inventory\Candy
      */
-    protected $pokemon_family = null;
+    protected $candy = null;
 
     /**
      * Check if 'pokemon_data' has a value
@@ -365,33 +365,33 @@ class InventoryItemData extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'pokemon_family' has a value
+     * Check if 'candy' has a value
      *
      * @return bool
      */
-    public function hasPokemonFamily()
+    public function hasCandy()
     {
-        return $this->pokemon_family !== null;
+        return $this->candy !== null;
     }
 
     /**
-     * Get 'pokemon_family' value
+     * Get 'candy' value
      *
-     * @return \POGOProtos\Inventory\PokemonFamily
+     * @return \POGOProtos\Inventory\Candy
      */
-    public function getPokemonFamily()
+    public function getCandy()
     {
-        return $this->pokemon_family;
+        return $this->candy;
     }
 
     /**
-     * Set 'pokemon_family' value
+     * Set 'candy' value
      *
-     * @param \POGOProtos\Inventory\PokemonFamily $value
+     * @param \POGOProtos\Inventory\Candy $value
      */
-    public function setPokemonFamily(\POGOProtos\Inventory\PokemonFamily $value = null)
+    public function setCandy(\POGOProtos\Inventory\Candy $value = null)
     {
-        $this->pokemon_family = $value;
+        $this->candy = $value;
     }
 
     /**
@@ -438,7 +438,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             'inventory_upgrades' => null,
             'applied_items' => null,
             'egg_incubators' => null,
-            'pokemon_family' => null
+            'candy' => null
         ], $values);
 
         $message->setPokemonData($values['pokemon_data']);
@@ -450,7 +450,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $message->setInventoryUpgrades($values['inventory_upgrades']);
         $message->setAppliedItems($values['applied_items']);
         $message->setEggIncubators($values['egg_incubators']);
-        $message->setPokemonFamily($values['pokemon_family']);
+        $message->setCandy($values['candy']);
 
         return $message;
     }
@@ -528,10 +528,10 @@ class InventoryItemData extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 10,
-                    'name' => 'pokemon_family',
+                    'name' => 'candy',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
-                    'type_name' => '.POGOProtos.Inventory.PokemonFamily'
+                    'type_name' => '.POGOProtos.Inventory.Candy'
                 ]),
             ],
         ]);
@@ -615,10 +615,10 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             $this->egg_incubators->writeTo($context);
         }
 
-        if ($this->pokemon_family !== null) {
+        if ($this->candy !== null) {
             $writer->writeVarint($stream, 82);
-            $writer->writeVarint($stream, $this->pokemon_family->serializedSize($sizeContext));
-            $this->pokemon_family->writeTo($context);
+            $writer->writeVarint($stream, $this->candy->serializedSize($sizeContext));
+            $this->candy->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -794,9 +794,9 @@ class InventoryItemData extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 11);
 
                 $innerSize    = $reader->readVarint($stream);
-                $innerMessage = new \POGOProtos\Inventory\PokemonFamily();
+                $innerMessage = new \POGOProtos\Inventory\Candy();
 
-                $this->pokemon_family = $innerMessage;
+                $this->candy = $innerMessage;
 
                 $context->setLength($innerSize);
                 $innerMessage->readFrom($context);
@@ -906,8 +906,8 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
-        if ($this->pokemon_family !== null) {
-            $innerSize = $this->pokemon_family->serializedSize($context);
+        if ($this->candy !== null) {
+            $innerSize = $this->candy->serializedSize($context);
 
             $size += 1;
             $size += $innerSize;
@@ -935,7 +935,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $this->inventory_upgrades = null;
         $this->applied_items = null;
         $this->egg_incubators = null;
-        $this->pokemon_family = null;
+        $this->candy = null;
     }
 
     /**
@@ -956,7 +956,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $this->inventory_upgrades = ($message->inventory_upgrades !== null) ? $message->inventory_upgrades : $this->inventory_upgrades;
         $this->applied_items = ($message->applied_items !== null) ? $message->applied_items : $this->applied_items;
         $this->egg_incubators = ($message->egg_incubators !== null) ? $message->egg_incubators : $this->egg_incubators;
-        $this->pokemon_family = ($message->pokemon_family !== null) ? $message->pokemon_family : $this->pokemon_family;
+        $this->candy = ($message->candy !== null) ? $message->candy : $this->candy;
     }
 
 

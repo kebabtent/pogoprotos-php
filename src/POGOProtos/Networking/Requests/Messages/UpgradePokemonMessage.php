@@ -26,7 +26,7 @@ class UpgradePokemonMessage extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * pokemon_id optional uint64 = 1
+     * pokemon_id optional fixed64 = 1
      *
      * @var int
      */
@@ -116,7 +116,7 @@ class UpgradePokemonMessage extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 1,
                     'name' => 'pokemon_id',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -148,8 +148,8 @@ class UpgradePokemonMessage extends \Protobuf\AbstractMessage
         $sizeContext = $context->getComputeSizeContext();
 
         if ($this->pokemon_id !== null) {
-            $writer->writeVarint($stream, 8);
-            $writer->writeVarint($stream, $this->pokemon_id);
+            $writer->writeVarint($stream, 9);
+            $writer->writeFixed64($stream, $this->pokemon_id);
         }
 
         if ($this->extensions !== null) {
@@ -187,9 +187,9 @@ class UpgradePokemonMessage extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 4);
+                \Protobuf\WireFormat::assertWireType($wire, 6);
 
-                $this->pokemon_id = $reader->readVarint($stream);
+                $this->pokemon_id = $reader->readFixed64($stream);
 
                 continue;
             }
@@ -225,7 +225,7 @@ class UpgradePokemonMessage extends \Protobuf\AbstractMessage
 
         if ($this->pokemon_id !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->pokemon_id);
+            $size += 8;
         }
 
         if ($this->extensions !== null) {
