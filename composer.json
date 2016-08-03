@@ -1,12 +1,18 @@
 {
   "name": "jaspervdm/pogoprotos-php",
   "description": "Compiled PHP protobufs for pokemon go",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/DrDelay/protobuf-plugin"
+    }
+  ],
   "require": {
     "php": ">=5.5",
     "protobuf-php/protobuf": "~0.1@dev"
   },
   "require-dev": {
-    "protobuf-php/protobuf-plugin": "~0.1@dev"
+    "protobuf-php/protobuf-plugin": "dev-master#d195a6abd00cf6621ff3eb628e77c4133ca0ecb6"
   },
   "autoload": {
     "classmap": [
