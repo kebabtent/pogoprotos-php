@@ -3,10 +3,10 @@
   "description": "Compiled PHP protobufs for pokemon go",
   "require": {
     "php": ">=5.5",
-    "protobuf-php/protobuf": "~0.1@dev"
+    "protobuf-php/protobuf": "~0.1"
   },
   "require-dev": {
-    "protobuf-php/protobuf-plugin": "~0.1@dev"
+    "protobuf-php/protobuf-plugin": "~0.1"
   },
   "autoload": {
     "classmap": [
