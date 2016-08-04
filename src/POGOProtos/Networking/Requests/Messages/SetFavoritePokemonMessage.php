@@ -27,7 +27,7 @@ class SetFavoritePokemonMessage extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * pokemon_id optional uint64 = 1
+     * pokemon_id optional int64 = 1
      *
      * @var int
      */
@@ -156,7 +156,7 @@ class SetFavoritePokemonMessage extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 1,
                     'name' => 'pokemon_id',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -238,7 +238,7 @@ class SetFavoritePokemonMessage extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 4);
+                \Protobuf\WireFormat::assertWireType($wire, 3);
 
                 $this->pokemon_id = $reader->readVarint($stream);
 
