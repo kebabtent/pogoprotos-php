@@ -27,7 +27,7 @@ class IncenseEncounterMessage extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * encounter_id optional int64 = 1
+     * encounter_id optional uint64 = 1
      *
      * @var int
      */
@@ -156,7 +156,7 @@ class IncenseEncounterMessage extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 1,
                     'name' => 'encounter_id',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -238,7 +238,7 @@ class IncenseEncounterMessage extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 3);
+                \Protobuf\WireFormat::assertWireType($wire, 4);
 
                 $this->encounter_id = $reader->readVarint($stream);
 

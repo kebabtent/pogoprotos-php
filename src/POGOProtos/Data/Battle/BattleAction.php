@@ -67,7 +67,7 @@ class BattleAction extends \Protobuf\AbstractMessage
     protected $target_index = null;
 
     /**
-     * active_pokemon_id optional uint64 = 8
+     * active_pokemon_id optional fixed64 = 8
      *
      * @var int
      */
@@ -109,7 +109,7 @@ class BattleAction extends \Protobuf\AbstractMessage
     protected $player_left = null;
 
     /**
-     * target_pokemon_id optional uint64 = 14
+     * target_pokemon_id optional fixed64 = 14
      *
      * @var int
      */
@@ -620,7 +620,7 @@ class BattleAction extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 8,
                     'name' => 'active_pokemon_id',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -659,7 +659,7 @@ class BattleAction extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 14,
                     'name' => 'target_pokemon_id',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -721,8 +721,8 @@ class BattleAction extends \Protobuf\AbstractMessage
         }
 
         if ($this->active_pokemon_id !== null) {
-            $writer->writeVarint($stream, 64);
-            $writer->writeVarint($stream, $this->active_pokemon_id);
+            $writer->writeVarint($stream, 65);
+            $writer->writeFixed64($stream, $this->active_pokemon_id);
         }
 
         if ($this->player_joined !== null) {
@@ -754,8 +754,8 @@ class BattleAction extends \Protobuf\AbstractMessage
         }
 
         if ($this->target_pokemon_id !== null) {
-            $writer->writeVarint($stream, 112);
-            $writer->writeVarint($stream, $this->target_pokemon_id);
+            $writer->writeVarint($stream, 113);
+            $writer->writeFixed64($stream, $this->target_pokemon_id);
         }
 
         if ($this->extensions !== null) {
@@ -841,9 +841,9 @@ class BattleAction extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 8) {
-                \Protobuf\WireFormat::assertWireType($wire, 4);
+                \Protobuf\WireFormat::assertWireType($wire, 6);
 
-                $this->active_pokemon_id = $reader->readVarint($stream);
+                $this->active_pokemon_id = $reader->readFixed64($stream);
 
                 continue;
             }
@@ -910,9 +910,9 @@ class BattleAction extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 14) {
-                \Protobuf\WireFormat::assertWireType($wire, 4);
+                \Protobuf\WireFormat::assertWireType($wire, 6);
 
-                $this->target_pokemon_id = $reader->readVarint($stream);
+                $this->target_pokemon_id = $reader->readFixed64($stream);
 
                 continue;
             }
@@ -978,7 +978,7 @@ class BattleAction extends \Protobuf\AbstractMessage
 
         if ($this->active_pokemon_id !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->active_pokemon_id);
+            $size += 8;
         }
 
         if ($this->player_joined !== null) {
@@ -1017,7 +1017,7 @@ class BattleAction extends \Protobuf\AbstractMessage
 
         if ($this->target_pokemon_id !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->target_pokemon_id);
+            $size += 8;
         }
 
         if ($this->extensions !== null) {

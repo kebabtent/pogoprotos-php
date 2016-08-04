@@ -32,11 +32,11 @@ class InventoryItem extends \Protobuf\AbstractMessage
     protected $modified_timestamp_ms = null;
 
     /**
-     * deleted_item_key optional int64 = 2
+     * deleted_item optional message = 2
      *
-     * @var int
+     * @var \POGOProtos\Inventory\InventoryItem\DeletedItem
      */
-    protected $deleted_item_key = null;
+    protected $deleted_item = null;
 
     /**
      * inventory_item_data optional message = 3
@@ -76,33 +76,33 @@ class InventoryItem extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'deleted_item_key' has a value
+     * Check if 'deleted_item' has a value
      *
      * @return bool
      */
-    public function hasDeletedItemKey()
+    public function hasDeletedItem()
     {
-        return $this->deleted_item_key !== null;
+        return $this->deleted_item !== null;
     }
 
     /**
-     * Get 'deleted_item_key' value
+     * Get 'deleted_item' value
      *
-     * @return int
+     * @return \POGOProtos\Inventory\InventoryItem\DeletedItem
      */
-    public function getDeletedItemKey()
+    public function getDeletedItem()
     {
-        return $this->deleted_item_key;
+        return $this->deleted_item;
     }
 
     /**
-     * Set 'deleted_item_key' value
+     * Set 'deleted_item' value
      *
-     * @param int $value
+     * @param \POGOProtos\Inventory\InventoryItem\DeletedItem $value
      */
-    public function setDeletedItemKey($value = null)
+    public function setDeletedItem(\POGOProtos\Inventory\InventoryItem\DeletedItem $value = null)
     {
-        $this->deleted_item_key = $value;
+        $this->deleted_item = $value;
     }
 
     /**
@@ -171,12 +171,12 @@ class InventoryItem extends \Protobuf\AbstractMessage
         $message = new self();
         $values  = array_merge([
             'modified_timestamp_ms' => null,
-            'deleted_item_key' => null,
+            'deleted_item' => null,
             'inventory_item_data' => null
         ], $values);
 
         $message->setModifiedTimestampMs($values['modified_timestamp_ms']);
-        $message->setDeletedItemKey($values['deleted_item_key']);
+        $message->setDeletedItem($values['deleted_item']);
         $message->setInventoryItemData($values['inventory_item_data']);
 
         return $message;
@@ -198,9 +198,10 @@ class InventoryItem extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 2,
-                    'name' => 'deleted_item_key',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                    'name' => 'deleted_item',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Inventory.InventoryItem.DeletedItem'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 3,
@@ -242,9 +243,10 @@ class InventoryItem extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, $this->modified_timestamp_ms);
         }
 
-        if ($this->deleted_item_key !== null) {
-            $writer->writeVarint($stream, 16);
-            $writer->writeVarint($stream, $this->deleted_item_key);
+        if ($this->deleted_item !== null) {
+            $writer->writeVarint($stream, 18);
+            $writer->writeVarint($stream, $this->deleted_item->serializedSize($sizeContext));
+            $this->deleted_item->writeTo($context);
         }
 
         if ($this->inventory_item_data !== null) {
@@ -296,9 +298,16 @@ class InventoryItem extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 3);
+                \Protobuf\WireFormat::assertWireType($wire, 11);
 
-                $this->deleted_item_key = $reader->readVarint($stream);
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Inventory\InventoryItem\DeletedItem();
+
+                $this->deleted_item = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
 
                 continue;
             }
@@ -352,9 +361,12 @@ class InventoryItem extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->modified_timestamp_ms);
         }
 
-        if ($this->deleted_item_key !== null) {
+        if ($this->deleted_item !== null) {
+            $innerSize = $this->deleted_item->serializedSize($context);
+
             $size += 1;
-            $size += $calculator->computeVarintSize($this->deleted_item_key);
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
         }
 
         if ($this->inventory_item_data !== null) {
@@ -378,7 +390,7 @@ class InventoryItem extends \Protobuf\AbstractMessage
     public function clear()
     {
         $this->modified_timestamp_ms = null;
-        $this->deleted_item_key = null;
+        $this->deleted_item = null;
         $this->inventory_item_data = null;
     }
 
@@ -392,7 +404,7 @@ class InventoryItem extends \Protobuf\AbstractMessage
         }
 
         $this->modified_timestamp_ms = ($message->modified_timestamp_ms !== null) ? $message->modified_timestamp_ms : $this->modified_timestamp_ms;
-        $this->deleted_item_key = ($message->deleted_item_key !== null) ? $message->deleted_item_key : $this->deleted_item_key;
+        $this->deleted_item = ($message->deleted_item !== null) ? $message->deleted_item : $this->deleted_item;
         $this->inventory_item_data = ($message->inventory_item_data !== null) ? $message->inventory_item_data : $this->inventory_item_data;
     }
 

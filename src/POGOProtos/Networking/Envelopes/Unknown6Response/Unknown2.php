@@ -32,6 +32,27 @@ class Unknown2 extends \Protobuf\AbstractMessage
     protected $unknown1 = null;
 
     /**
+     * items repeated message = 2
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2\StoreItem>
+     */
+    protected $items = null;
+
+    /**
+     * player_currencies repeated message = 3
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Data\Player\Currency>
+     */
+    protected $player_currencies = null;
+
+    /**
+     * unknown4 optional string = 4
+     *
+     * @var string
+     */
+    protected $unknown4 = null;
+
+    /**
      * Check if 'unknown1' has a value
      *
      * @return bool
@@ -59,6 +80,125 @@ class Unknown2 extends \Protobuf\AbstractMessage
     public function setUnknown1($value = null)
     {
         $this->unknown1 = $value;
+    }
+
+    /**
+     * Check if 'items' has a value
+     *
+     * @return bool
+     */
+    public function hasItemsList()
+    {
+        return $this->items !== null;
+    }
+
+    /**
+     * Get 'items' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2\StoreItem>
+     */
+    public function getItemsList()
+    {
+        return $this->items;
+    }
+
+    /**
+     * Set 'items' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2\StoreItem> $value
+     */
+    public function setItemsList(\Protobuf\Collection $value = null)
+    {
+        $this->items = $value;
+    }
+
+    /**
+     * Add a new element to 'items'
+     *
+     * @param \POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2\StoreItem
+     * $value
+     */
+    public function addItems(\POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2\StoreItem $value)
+    {
+        if ($this->items === null) {
+            $this->items = new \Protobuf\MessageCollection();
+        }
+
+        $this->items->add($value);
+    }
+
+    /**
+     * Check if 'player_currencies' has a value
+     *
+     * @return bool
+     */
+    public function hasPlayerCurrenciesList()
+    {
+        return $this->player_currencies !== null;
+    }
+
+    /**
+     * Get 'player_currencies' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Data\Player\Currency>
+     */
+    public function getPlayerCurrenciesList()
+    {
+        return $this->player_currencies;
+    }
+
+    /**
+     * Set 'player_currencies' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Data\Player\Currency> $value
+     */
+    public function setPlayerCurrenciesList(\Protobuf\Collection $value = null)
+    {
+        $this->player_currencies = $value;
+    }
+
+    /**
+     * Add a new element to 'player_currencies'
+     *
+     * @param \POGOProtos\Data\Player\Currency $value
+     */
+    public function addPlayerCurrencies(\POGOProtos\Data\Player\Currency $value)
+    {
+        if ($this->player_currencies === null) {
+            $this->player_currencies = new \Protobuf\MessageCollection();
+        }
+
+        $this->player_currencies->add($value);
+    }
+
+    /**
+     * Check if 'unknown4' has a value
+     *
+     * @return bool
+     */
+    public function hasUnknown4()
+    {
+        return $this->unknown4 !== null;
+    }
+
+    /**
+     * Get 'unknown4' value
+     *
+     * @return string
+     */
+    public function getUnknown4()
+    {
+        return $this->unknown4;
+    }
+
+    /**
+     * Set 'unknown4' value
+     *
+     * @param string $value
+     */
+    public function setUnknown4($value = null)
+    {
+        $this->unknown4 = $value;
     }
 
     /**
@@ -96,10 +236,22 @@ class Unknown2 extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'unknown1' => null
+            'unknown1' => null,
+            'items' => [],
+            'player_currencies' => [],
+            'unknown4' => null
         ], $values);
 
         $message->setUnknown1($values['unknown1']);
+        $message->setUnknown4($values['unknown4']);
+
+        foreach ($values['items'] as $item) {
+            $message->addItems($item);
+        }
+
+        foreach ($values['player_currencies'] as $item) {
+            $message->addPlayerCurrencies($item);
+        }
 
         return $message;
     }
@@ -116,6 +268,26 @@ class Unknown2 extends \Protobuf\AbstractMessage
                     'number' => 1,
                     'name' => 'unknown1',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 2,
+                    'name' => 'items',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Networking.Envelopes.Unknown6Response.Unknown2.StoreItem'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 3,
+                    'name' => 'player_currencies',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Data.Player.Currency'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'unknown4',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -149,6 +321,27 @@ class Unknown2 extends \Protobuf\AbstractMessage
         if ($this->unknown1 !== null) {
             $writer->writeVarint($stream, 8);
             $writer->writeVarint($stream, $this->unknown1);
+        }
+
+        if ($this->items !== null) {
+            foreach ($this->items as $val) {
+                $writer->writeVarint($stream, 18);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
+            }
+        }
+
+        if ($this->player_currencies !== null) {
+            foreach ($this->player_currencies as $val) {
+                $writer->writeVarint($stream, 26);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
+            }
+        }
+
+        if ($this->unknown4 !== null) {
+            $writer->writeVarint($stream, 34);
+            $writer->writeString($stream, $this->unknown4);
         }
 
         if ($this->extensions !== null) {
@@ -193,6 +386,52 @@ class Unknown2 extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 2) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Networking\Envelopes\Unknown6Response\Unknown2\StoreItem();
+
+                if ($this->items === null) {
+                    $this->items = new \Protobuf\MessageCollection();
+                }
+
+                $this->items->add($innerMessage);
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 3) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Player\Currency();
+
+                if ($this->player_currencies === null) {
+                    $this->player_currencies = new \Protobuf\MessageCollection();
+                }
+
+                $this->player_currencies->add($innerMessage);
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->unknown4 = $reader->readString($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -227,6 +466,31 @@ class Unknown2 extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->unknown1);
         }
 
+        if ($this->items !== null) {
+            foreach ($this->items as $val) {
+                $innerSize = $val->serializedSize($context);
+
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
+        }
+
+        if ($this->player_currencies !== null) {
+            foreach ($this->player_currencies as $val) {
+                $innerSize = $val->serializedSize($context);
+
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
+        }
+
+        if ($this->unknown4 !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->unknown4);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -240,6 +504,9 @@ class Unknown2 extends \Protobuf\AbstractMessage
     public function clear()
     {
         $this->unknown1 = null;
+        $this->items = null;
+        $this->player_currencies = null;
+        $this->unknown4 = null;
     }
 
     /**
@@ -252,6 +519,9 @@ class Unknown2 extends \Protobuf\AbstractMessage
         }
 
         $this->unknown1 = ($message->unknown1 !== null) ? $message->unknown1 : $this->unknown1;
+        $this->items = ($message->items !== null) ? $message->items : $this->items;
+        $this->player_currencies = ($message->player_currencies !== null) ? $message->player_currencies : $this->player_currencies;
+        $this->unknown4 = ($message->unknown4 !== null) ? $message->unknown4 : $this->unknown4;
     }
 
 

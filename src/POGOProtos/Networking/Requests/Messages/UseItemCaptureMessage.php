@@ -40,11 +40,11 @@ class UseItemCaptureMessage extends \Protobuf\AbstractMessage
     protected $encounter_id = null;
 
     /**
-     * spawn_point_guid optional string = 3
+     * spawn_point_id optional string = 3
      *
      * @var string
      */
-    protected $spawn_point_guid = null;
+    protected $spawn_point_id = null;
 
     /**
      * Check if 'item_id' has a value
@@ -107,33 +107,33 @@ class UseItemCaptureMessage extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'spawn_point_guid' has a value
+     * Check if 'spawn_point_id' has a value
      *
      * @return bool
      */
-    public function hasSpawnPointGuid()
+    public function hasSpawnPointId()
     {
-        return $this->spawn_point_guid !== null;
+        return $this->spawn_point_id !== null;
     }
 
     /**
-     * Get 'spawn_point_guid' value
+     * Get 'spawn_point_id' value
      *
      * @return string
      */
-    public function getSpawnPointGuid()
+    public function getSpawnPointId()
     {
-        return $this->spawn_point_guid;
+        return $this->spawn_point_id;
     }
 
     /**
-     * Set 'spawn_point_guid' value
+     * Set 'spawn_point_id' value
      *
      * @param string $value
      */
-    public function setSpawnPointGuid($value = null)
+    public function setSpawnPointId($value = null)
     {
-        $this->spawn_point_guid = $value;
+        $this->spawn_point_id = $value;
     }
 
     /**
@@ -173,12 +173,12 @@ class UseItemCaptureMessage extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'item_id' => null,
             'encounter_id' => null,
-            'spawn_point_guid' => null
+            'spawn_point_id' => null
         ], $values);
 
         $message->setItemId($values['item_id']);
         $message->setEncounterId($values['encounter_id']);
-        $message->setSpawnPointGuid($values['spawn_point_guid']);
+        $message->setSpawnPointId($values['spawn_point_id']);
 
         return $message;
     }
@@ -206,7 +206,7 @@ class UseItemCaptureMessage extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 3,
-                    'name' => 'spawn_point_guid',
+                    'name' => 'spawn_point_id',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -248,9 +248,9 @@ class UseItemCaptureMessage extends \Protobuf\AbstractMessage
             $writer->writeFixed64($stream, $this->encounter_id);
         }
 
-        if ($this->spawn_point_guid !== null) {
+        if ($this->spawn_point_id !== null) {
             $writer->writeVarint($stream, 26);
-            $writer->writeString($stream, $this->spawn_point_guid);
+            $writer->writeString($stream, $this->spawn_point_id);
         }
 
         if ($this->extensions !== null) {
@@ -306,7 +306,7 @@ class UseItemCaptureMessage extends \Protobuf\AbstractMessage
             if ($tag === 3) {
                 \Protobuf\WireFormat::assertWireType($wire, 9);
 
-                $this->spawn_point_guid = $reader->readString($stream);
+                $this->spawn_point_id = $reader->readString($stream);
 
                 continue;
             }
@@ -350,9 +350,9 @@ class UseItemCaptureMessage extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
-        if ($this->spawn_point_guid !== null) {
+        if ($this->spawn_point_id !== null) {
             $size += 1;
-            $size += $calculator->computeStringSize($this->spawn_point_guid);
+            $size += $calculator->computeStringSize($this->spawn_point_id);
         }
 
         if ($this->extensions !== null) {
@@ -369,7 +369,7 @@ class UseItemCaptureMessage extends \Protobuf\AbstractMessage
     {
         $this->item_id = null;
         $this->encounter_id = null;
-        $this->spawn_point_guid = null;
+        $this->spawn_point_id = null;
     }
 
     /**
@@ -383,7 +383,7 @@ class UseItemCaptureMessage extends \Protobuf\AbstractMessage
 
         $this->item_id = ($message->item_id !== null) ? $message->item_id : $this->item_id;
         $this->encounter_id = ($message->encounter_id !== null) ? $message->encounter_id : $this->encounter_id;
-        $this->spawn_point_guid = ($message->spawn_point_guid !== null) ? $message->spawn_point_guid : $this->spawn_point_guid;
+        $this->spawn_point_id = ($message->spawn_point_id !== null) ? $message->spawn_point_id : $this->spawn_point_id;
     }
 
 

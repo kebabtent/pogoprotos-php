@@ -46,7 +46,7 @@ class AssetDigestEntry extends \Protobuf\AbstractMessage
     protected $version = null;
 
     /**
-     * checksum optional uint32 = 4
+     * checksum optional fixed32 = 4
      *
      * @var int
      */
@@ -332,7 +332,7 @@ class AssetDigestEntry extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 4,
                     'name' => 'checksum',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT32(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -391,8 +391,8 @@ class AssetDigestEntry extends \Protobuf\AbstractMessage
         }
 
         if ($this->checksum !== null) {
-            $writer->writeVarint($stream, 32);
-            $writer->writeVarint($stream, $this->checksum);
+            $writer->writeVarint($stream, 37);
+            $writer->writeFixed32($stream, $this->checksum);
         }
 
         if ($this->size !== null) {
@@ -464,9 +464,9 @@ class AssetDigestEntry extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 4) {
-                \Protobuf\WireFormat::assertWireType($wire, 13);
+                \Protobuf\WireFormat::assertWireType($wire, 7);
 
-                $this->checksum = $reader->readVarint($stream);
+                $this->checksum = $reader->readFixed32($stream);
 
                 continue;
             }
@@ -533,7 +533,7 @@ class AssetDigestEntry extends \Protobuf\AbstractMessage
 
         if ($this->checksum !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->checksum);
+            $size += 4;
         }
 
         if ($this->size !== null) {

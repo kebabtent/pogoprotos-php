@@ -33,11 +33,11 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
     protected $result = null;
 
     /**
-     * pokemon_type_id optional int32 = 2
+     * pokemon_id optional enum = 2
      *
-     * @var int
+     * @var \POGOProtos\Enums\PokemonId
      */
-    protected $pokemon_type_id = null;
+    protected $pokemon_id = null;
 
     /**
      * latitude optional double = 3
@@ -105,33 +105,33 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'pokemon_type_id' has a value
+     * Check if 'pokemon_id' has a value
      *
      * @return bool
      */
-    public function hasPokemonTypeId()
+    public function hasPokemonId()
     {
-        return $this->pokemon_type_id !== null;
+        return $this->pokemon_id !== null;
     }
 
     /**
-     * Get 'pokemon_type_id' value
+     * Get 'pokemon_id' value
      *
-     * @return int
+     * @return \POGOProtos\Enums\PokemonId
      */
-    public function getPokemonTypeId()
+    public function getPokemonId()
     {
-        return $this->pokemon_type_id;
+        return $this->pokemon_id;
     }
 
     /**
-     * Set 'pokemon_type_id' value
+     * Set 'pokemon_id' value
      *
-     * @param int $value
+     * @param \POGOProtos\Enums\PokemonId $value
      */
-    public function setPokemonTypeId($value = null)
+    public function setPokemonId(\POGOProtos\Enums\PokemonId $value = null)
     {
-        $this->pokemon_type_id = $value;
+        $this->pokemon_id = $value;
     }
 
     /**
@@ -320,7 +320,7 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
         $message = new self();
         $values  = array_merge([
             'result' => null,
-            'pokemon_type_id' => null,
+            'pokemon_id' => null,
             'latitude' => null,
             'longitude' => null,
             'encounter_location' => null,
@@ -329,7 +329,7 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
         ], $values);
 
         $message->setResult($values['result']);
-        $message->setPokemonTypeId($values['pokemon_type_id']);
+        $message->setPokemonId($values['pokemon_id']);
         $message->setLatitude($values['latitude']);
         $message->setLongitude($values['longitude']);
         $message->setEncounterLocation($values['encounter_location']);
@@ -356,9 +356,10 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 2,
-                    'name' => 'pokemon_type_id',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                    'name' => 'pokemon_id',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Enums.PokemonId'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 3,
@@ -423,9 +424,9 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, $this->result->value());
         }
 
-        if ($this->pokemon_type_id !== null) {
+        if ($this->pokemon_id !== null) {
             $writer->writeVarint($stream, 16);
-            $writer->writeVarint($stream, $this->pokemon_type_id);
+            $writer->writeVarint($stream, $this->pokemon_id->value());
         }
 
         if ($this->latitude !== null) {
@@ -496,9 +497,9 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                \Protobuf\WireFormat::assertWireType($wire, 14);
 
-                $this->pokemon_type_id = $reader->readVarint($stream);
+                $this->pokemon_id = \POGOProtos\Enums\PokemonId::valueOf($reader->readVarint($stream));
 
                 continue;
             }
@@ -577,9 +578,9 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->result->value());
         }
 
-        if ($this->pokemon_type_id !== null) {
+        if ($this->pokemon_id !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->pokemon_type_id);
+            $size += $calculator->computeVarintSize($this->pokemon_id->value());
         }
 
         if ($this->latitude !== null) {
@@ -620,7 +621,7 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
     public function clear()
     {
         $this->result = null;
-        $this->pokemon_type_id = null;
+        $this->pokemon_id = null;
         $this->latitude = null;
         $this->longitude = null;
         $this->encounter_location = null;
@@ -638,7 +639,7 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
         }
 
         $this->result = ($message->result !== null) ? $message->result : $this->result;
-        $this->pokemon_type_id = ($message->pokemon_type_id !== null) ? $message->pokemon_type_id : $this->pokemon_type_id;
+        $this->pokemon_id = ($message->pokemon_id !== null) ? $message->pokemon_id : $this->pokemon_id;
         $this->latitude = ($message->latitude !== null) ? $message->latitude : $this->latitude;
         $this->longitude = ($message->longitude !== null) ? $message->longitude : $this->longitude;
         $this->encounter_location = ($message->encounter_location !== null) ? $message->encounter_location : $this->encounter_location;
