@@ -7,3 +7,6 @@ Protobuf files used: https://github.com/AeonLucid/POGOProtos
 Use Composer to install it:
 
     composer require jaspervdm/pogoprotos-php
+
+# Usage
+See the wiki for some [usage instructions](https://github.com/jaspervdm/pogoprotos-php/wiki/Usage)
