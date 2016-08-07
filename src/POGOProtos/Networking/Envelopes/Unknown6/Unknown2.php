@@ -25,44 +25,44 @@ class Unknown2 extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * unknown1 optional bytes = 1
+     * encrypted_signature optional bytes = 1
      *
      * @var \Protobuf\Stream
      */
-    protected $unknown1 = null;
+    protected $encrypted_signature = null;
 
     /**
-     * Check if 'unknown1' has a value
+     * Check if 'encrypted_signature' has a value
      *
      * @return bool
      */
-    public function hasUnknown1()
+    public function hasEncryptedSignature()
     {
-        return $this->unknown1 !== null;
+        return $this->encrypted_signature !== null;
     }
 
     /**
-     * Get 'unknown1' value
+     * Get 'encrypted_signature' value
      *
      * @return \Protobuf\Stream
      */
-    public function getUnknown1()
+    public function getEncryptedSignature()
     {
-        return $this->unknown1;
+        return $this->encrypted_signature;
     }
 
     /**
-     * Set 'unknown1' value
+     * Set 'encrypted_signature' value
      *
      * @param \Protobuf\Stream $value
      */
-    public function setUnknown1($value = null)
+    public function setEncryptedSignature($value = null)
     {
         if ($value !== null && ! $value instanceof \Protobuf\Stream) {
             $value = \Protobuf\Stream::wrap($value);
         }
 
-        $this->unknown1 = $value;
+        $this->encrypted_signature = $value;
     }
 
     /**
@@ -100,10 +100,10 @@ class Unknown2 extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'unknown1' => null
+            'encrypted_signature' => null
         ], $values);
 
-        $message->setUnknown1($values['unknown1']);
+        $message->setEncryptedSignature($values['encrypted_signature']);
 
         return $message;
     }
@@ -118,7 +118,7 @@ class Unknown2 extends \Protobuf\AbstractMessage
             'field'     => [
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 1,
-                    'name' => 'unknown1',
+                    'name' => 'encrypted_signature',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BYTES(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -150,9 +150,9 @@ class Unknown2 extends \Protobuf\AbstractMessage
         $writer      = $context->getWriter();
         $sizeContext = $context->getComputeSizeContext();
 
-        if ($this->unknown1 !== null) {
+        if ($this->encrypted_signature !== null) {
             $writer->writeVarint($stream, 10);
-            $writer->writeByteStream($stream, $this->unknown1);
+            $writer->writeByteStream($stream, $this->encrypted_signature);
         }
 
         if ($this->extensions !== null) {
@@ -192,7 +192,7 @@ class Unknown2 extends \Protobuf\AbstractMessage
             if ($tag === 1) {
                 \Protobuf\WireFormat::assertWireType($wire, 12);
 
-                $this->unknown1 = $reader->readByteStream($stream);
+                $this->encrypted_signature = $reader->readByteStream($stream);
 
                 continue;
             }
@@ -226,9 +226,9 @@ class Unknown2 extends \Protobuf\AbstractMessage
         $calculator = $context->getSizeCalculator();
         $size       = 0;
 
-        if ($this->unknown1 !== null) {
+        if ($this->encrypted_signature !== null) {
             $size += 1;
-            $size += $calculator->computeByteStreamSize($this->unknown1);
+            $size += $calculator->computeByteStreamSize($this->encrypted_signature);
         }
 
         if ($this->extensions !== null) {
@@ -243,7 +243,7 @@ class Unknown2 extends \Protobuf\AbstractMessage
      */
     public function clear()
     {
-        $this->unknown1 = null;
+        $this->encrypted_signature = null;
     }
 
     /**
@@ -255,7 +255,7 @@ class Unknown2 extends \Protobuf\AbstractMessage
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
 
-        $this->unknown1 = ($message->unknown1 !== null) ? $message->unknown1 : $this->unknown1;
+        $this->encrypted_signature = ($message->encrypted_signature !== null) ? $message->encrypted_signature : $this->encrypted_signature;
     }
 
 
