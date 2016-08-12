@@ -15,69 +15,69 @@ class PokemonRarity extends \Protobuf\Enum
 {
 
     /**
-     * NORMAL = 0
+     * POKEMON_RARITY_NORMAL = 0
      */
-    const NORMAL_VALUE = 0;
+    const POKEMON_RARITY_NORMAL_VALUE = 0;
 
     /**
-     * LEGENDARY = 1
+     * POKEMON_RARITY_LEGENDARY = 1
      */
-    const LEGENDARY_VALUE = 1;
+    const POKEMON_RARITY_LEGENDARY_VALUE = 1;
 
     /**
-     * MYTHIC = 2
+     * POKEMON_RARITY_MYTHIC = 2
      */
-    const MYTHIC_VALUE = 2;
-
-    /**
-     * @var \POGOProtos\Enums\PokemonRarity
-     */
-    protected static $NORMAL = null;
+    const POKEMON_RARITY_MYTHIC_VALUE = 2;
 
     /**
      * @var \POGOProtos\Enums\PokemonRarity
      */
-    protected static $LEGENDARY = null;
+    protected static $POKEMON_RARITY_NORMAL = null;
 
     /**
      * @var \POGOProtos\Enums\PokemonRarity
      */
-    protected static $MYTHIC = null;
+    protected static $POKEMON_RARITY_LEGENDARY = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonRarity
+     */
+    protected static $POKEMON_RARITY_MYTHIC = null;
 
     /**
      * @return \POGOProtos\Enums\PokemonRarity
      */
-    public static function NORMAL()
+    public static function POKEMON_RARITY_NORMAL()
     {
-        if (self::$NORMAL !== null) {
-            return self::$NORMAL;
+        if (self::$POKEMON_RARITY_NORMAL !== null) {
+            return self::$POKEMON_RARITY_NORMAL;
         }
 
-        return self::$NORMAL = new self('NORMAL', self::NORMAL_VALUE);
+        return self::$POKEMON_RARITY_NORMAL = new self('POKEMON_RARITY_NORMAL', self::POKEMON_RARITY_NORMAL_VALUE);
     }
 
     /**
      * @return \POGOProtos\Enums\PokemonRarity
      */
-    public static function LEGENDARY()
+    public static function POKEMON_RARITY_LEGENDARY()
     {
-        if (self::$LEGENDARY !== null) {
-            return self::$LEGENDARY;
+        if (self::$POKEMON_RARITY_LEGENDARY !== null) {
+            return self::$POKEMON_RARITY_LEGENDARY;
         }
 
-        return self::$LEGENDARY = new self('LEGENDARY', self::LEGENDARY_VALUE);
+        return self::$POKEMON_RARITY_LEGENDARY = new self('POKEMON_RARITY_LEGENDARY', self::POKEMON_RARITY_LEGENDARY_VALUE);
     }
 
     /**
      * @return \POGOProtos\Enums\PokemonRarity
      */
-    public static function MYTHIC()
+    public static function POKEMON_RARITY_MYTHIC()
     {
-        if (self::$MYTHIC !== null) {
-            return self::$MYTHIC;
+        if (self::$POKEMON_RARITY_MYTHIC !== null) {
+            return self::$POKEMON_RARITY_MYTHIC;
         }
 
-        return self::$MYTHIC = new self('MYTHIC', self::MYTHIC_VALUE);
+        return self::$POKEMON_RARITY_MYTHIC = new self('POKEMON_RARITY_MYTHIC', self::POKEMON_RARITY_MYTHIC_VALUE);
     }
 
     /**
@@ -87,9 +87,9 @@ class PokemonRarity extends \Protobuf\Enum
     public static function valueOf($value)
     {
         switch ($value) {
-            case 0: return self::NORMAL();
-            case 1: return self::LEGENDARY();
-            case 2: return self::MYTHIC();
+            case 0: return self::POKEMON_RARITY_NORMAL();
+            case 1: return self::POKEMON_RARITY_LEGENDARY();
+            case 2: return self::POKEMON_RARITY_MYTHIC();
             default: return null;
         }
     }

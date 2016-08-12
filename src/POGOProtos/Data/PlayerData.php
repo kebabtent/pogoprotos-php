@@ -657,14 +657,14 @@ class PlayerData extends \Protobuf\AbstractMessage
             $calculator  = $sizeContext->getSizeCalculator();
 
             foreach ($this->tutorial_state as $val) {
-                $innerSize += $calculator->computeVarintSize($val->value());
+                $innerSize += $calculator->computeVarintSize($val);
             }
 
             $writer->writeVarint($stream, 58);
             $writer->writeVarint($stream, $innerSize);
 
             foreach ($this->tutorial_state as $val) {
-                $writer->writeVarint($stream, $val->value());
+                $writer->writeVarint($stream, $val);
             }
         }
 
@@ -777,7 +777,7 @@ class PlayerData extends \Protobuf\AbstractMessage
                 }
 
                 while ($stream->tell() < $innerLimit) {
-                    $this->tutorial_state->add(\POGOProtos\Enums\TutorialState::valueOf($reader->readVarint($stream)));
+                    $this->tutorial_state->add($reader->readVarint($stream));
                 }
 
                 continue;
@@ -926,7 +926,7 @@ class PlayerData extends \Protobuf\AbstractMessage
             $innerSize = 0;
 
             foreach ($this->tutorial_state as $val) {
-                $innerSize += $calculator->computeVarintSize($val->value());
+                $innerSize += $calculator->computeVarintSize($val);
             }
 
             $size += 1;

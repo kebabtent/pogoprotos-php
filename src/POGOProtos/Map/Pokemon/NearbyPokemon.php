@@ -46,6 +46,20 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
     protected $encounter_id = null;
 
     /**
+     * fort_id optional string = 4
+     *
+     * @var string
+     */
+    protected $fort_id = null;
+
+    /**
+     * fort_image_url optional string = 5
+     *
+     * @var string
+     */
+    protected $fort_image_url = null;
+
+    /**
      * Check if 'pokemon_id' has a value
      *
      * @return bool
@@ -136,6 +150,66 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'fort_id' has a value
+     *
+     * @return bool
+     */
+    public function hasFortId()
+    {
+        return $this->fort_id !== null;
+    }
+
+    /**
+     * Get 'fort_id' value
+     *
+     * @return string
+     */
+    public function getFortId()
+    {
+        return $this->fort_id;
+    }
+
+    /**
+     * Set 'fort_id' value
+     *
+     * @param string $value
+     */
+    public function setFortId($value = null)
+    {
+        $this->fort_id = $value;
+    }
+
+    /**
+     * Check if 'fort_image_url' has a value
+     *
+     * @return bool
+     */
+    public function hasFortImageUrl()
+    {
+        return $this->fort_image_url !== null;
+    }
+
+    /**
+     * Get 'fort_image_url' value
+     *
+     * @return string
+     */
+    public function getFortImageUrl()
+    {
+        return $this->fort_image_url;
+    }
+
+    /**
+     * Set 'fort_image_url' value
+     *
+     * @param string $value
+     */
+    public function setFortImageUrl($value = null)
+    {
+        $this->fort_image_url = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -172,12 +246,16 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'pokemon_id' => null,
             'distance_in_meters' => null,
-            'encounter_id' => null
+            'encounter_id' => null,
+            'fort_id' => null,
+            'fort_image_url' => null
         ], $values);
 
         $message->setPokemonId($values['pokemon_id']);
         $message->setDistanceInMeters($values['distance_in_meters']);
         $message->setEncounterId($values['encounter_id']);
+        $message->setFortId($values['fort_id']);
+        $message->setFortImageUrl($values['fort_image_url']);
 
         return $message;
     }
@@ -207,6 +285,18 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
                     'number' => 3,
                     'name' => 'encounter_id',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'fort_id',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'fort_image_url',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -250,6 +340,16 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
         if ($this->encounter_id !== null) {
             $writer->writeVarint($stream, 25);
             $writer->writeFixed64($stream, $this->encounter_id);
+        }
+
+        if ($this->fort_id !== null) {
+            $writer->writeVarint($stream, 34);
+            $writer->writeString($stream, $this->fort_id);
+        }
+
+        if ($this->fort_image_url !== null) {
+            $writer->writeVarint($stream, 42);
+            $writer->writeString($stream, $this->fort_image_url);
         }
 
         if ($this->extensions !== null) {
@@ -310,6 +410,22 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->fort_id = $reader->readString($stream);
+
+                continue;
+            }
+
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->fort_image_url = $reader->readString($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -354,6 +470,16 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
+        if ($this->fort_id !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->fort_id);
+        }
+
+        if ($this->fort_image_url !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->fort_image_url);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -369,6 +495,8 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
         $this->pokemon_id = null;
         $this->distance_in_meters = null;
         $this->encounter_id = null;
+        $this->fort_id = null;
+        $this->fort_image_url = null;
     }
 
     /**
@@ -383,6 +511,8 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
         $this->pokemon_id = ($message->pokemon_id !== null) ? $message->pokemon_id : $this->pokemon_id;
         $this->distance_in_meters = ($message->distance_in_meters !== null) ? $message->distance_in_meters : $this->distance_in_meters;
         $this->encounter_id = ($message->encounter_id !== null) ? $message->encounter_id : $this->encounter_id;
+        $this->fort_id = ($message->fort_id !== null) ? $message->fort_id : $this->fort_id;
+        $this->fort_image_url = ($message->fort_image_url !== null) ? $message->fort_image_url : $this->fort_image_url;
     }
 
 

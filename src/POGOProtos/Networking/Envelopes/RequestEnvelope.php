@@ -46,9 +46,9 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     protected $requests = null;
 
     /**
-     * unknown6 repeated message = 6
+     * unknown6 optional message = 6
      *
-     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6>
+     * @var \POGOProtos\Networking\Envelopes\Unknown6
      */
     protected $unknown6 = null;
 
@@ -203,7 +203,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
      *
      * @return bool
      */
-    public function hasUnknown6List()
+    public function hasUnknown6()
     {
         return $this->unknown6 !== null;
     }
@@ -211,9 +211,9 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     /**
      * Get 'unknown6' value
      *
-     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6>
+     * @return \POGOProtos\Networking\Envelopes\Unknown6
      */
-    public function getUnknown6List()
+    public function getUnknown6()
     {
         return $this->unknown6;
     }
@@ -221,25 +221,11 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     /**
      * Set 'unknown6' value
      *
-     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6> $value
-     */
-    public function setUnknown6List(\Protobuf\Collection $value = null)
-    {
-        $this->unknown6 = $value;
-    }
-
-    /**
-     * Add a new element to 'unknown6'
-     *
      * @param \POGOProtos\Networking\Envelopes\Unknown6 $value
      */
-    public function addUnknown6(\POGOProtos\Networking\Envelopes\Unknown6 $value)
+    public function setUnknown6(\POGOProtos\Networking\Envelopes\Unknown6 $value = null)
     {
-        if ($this->unknown6 === null) {
-            $this->unknown6 = new \Protobuf\MessageCollection();
-        }
-
-        $this->unknown6->add($value);
+        $this->unknown6 = $value;
     }
 
     /**
@@ -460,7 +446,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             'status_code' => null,
             'request_id' => null,
             'requests' => [],
-            'unknown6' => [],
+            'unknown6' => null,
             'latitude' => null,
             'longitude' => null,
             'altitude' => null,
@@ -471,6 +457,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
 
         $message->setStatusCode($values['status_code']);
         $message->setRequestId($values['request_id']);
+        $message->setUnknown6($values['unknown6']);
         $message->setLatitude($values['latitude']);
         $message->setLongitude($values['longitude']);
         $message->setAltitude($values['altitude']);
@@ -480,10 +467,6 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
 
         foreach ($values['requests'] as $item) {
             $message->addRequests($item);
-        }
-
-        foreach ($values['unknown6'] as $item) {
-            $message->addUnknown6($item);
         }
 
         return $message;
@@ -520,7 +503,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
                     'number' => 6,
                     'name' => 'unknown6',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Networking.Envelopes.Unknown6'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -608,11 +591,9 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
         }
 
         if ($this->unknown6 !== null) {
-            foreach ($this->unknown6 as $val) {
-                $writer->writeVarint($stream, 50);
-                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
-                $val->writeTo($context);
-            }
+            $writer->writeVarint($stream, 50);
+            $writer->writeVarint($stream, $this->unknown6->serializedSize($sizeContext));
+            $this->unknown6->writeTo($context);
         }
 
         if ($this->latitude !== null) {
@@ -722,11 +703,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
                 $innerSize    = $reader->readVarint($stream);
                 $innerMessage = new \POGOProtos\Networking\Envelopes\Unknown6();
 
-                if ($this->unknown6 === null) {
-                    $this->unknown6 = new \Protobuf\MessageCollection();
-                }
-
-                $this->unknown6->add($innerMessage);
+                $this->unknown6 = $innerMessage;
 
                 $context->setLength($innerSize);
                 $innerMessage->readFrom($context);
@@ -847,13 +824,11 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
         }
 
         if ($this->unknown6 !== null) {
-            foreach ($this->unknown6 as $val) {
-                $innerSize = $val->serializedSize($context);
+            $innerSize = $this->unknown6->serializedSize($context);
 
-                $size += 1;
-                $size += $innerSize;
-                $size += $calculator->computeVarintSize($innerSize);
-            }
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
         }
 
         if ($this->latitude !== null) {

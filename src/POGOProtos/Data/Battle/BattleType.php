@@ -20,14 +20,14 @@ class BattleType extends \Protobuf\Enum
     const BATTLE_TYPE_UNSET_VALUE = 0;
 
     /**
-     * NORMAL = 1
+     * BATTLE_TYPE_NORMAL = 1
      */
-    const NORMAL_VALUE = 1;
+    const BATTLE_TYPE_NORMAL_VALUE = 1;
 
     /**
-     * TRAINING = 2
+     * BATTLE_TYPE_TRAINING = 2
      */
-    const TRAINING_VALUE = 2;
+    const BATTLE_TYPE_TRAINING_VALUE = 2;
 
     /**
      * @var \POGOProtos\Data\Battle\BattleType
@@ -37,12 +37,12 @@ class BattleType extends \Protobuf\Enum
     /**
      * @var \POGOProtos\Data\Battle\BattleType
      */
-    protected static $NORMAL = null;
+    protected static $BATTLE_TYPE_NORMAL = null;
 
     /**
      * @var \POGOProtos\Data\Battle\BattleType
      */
-    protected static $TRAINING = null;
+    protected static $BATTLE_TYPE_TRAINING = null;
 
     /**
      * @return \POGOProtos\Data\Battle\BattleType
@@ -59,25 +59,25 @@ class BattleType extends \Protobuf\Enum
     /**
      * @return \POGOProtos\Data\Battle\BattleType
      */
-    public static function NORMAL()
+    public static function BATTLE_TYPE_NORMAL()
     {
-        if (self::$NORMAL !== null) {
-            return self::$NORMAL;
+        if (self::$BATTLE_TYPE_NORMAL !== null) {
+            return self::$BATTLE_TYPE_NORMAL;
         }
 
-        return self::$NORMAL = new self('NORMAL', self::NORMAL_VALUE);
+        return self::$BATTLE_TYPE_NORMAL = new self('BATTLE_TYPE_NORMAL', self::BATTLE_TYPE_NORMAL_VALUE);
     }
 
     /**
      * @return \POGOProtos\Data\Battle\BattleType
      */
-    public static function TRAINING()
+    public static function BATTLE_TYPE_TRAINING()
     {
-        if (self::$TRAINING !== null) {
-            return self::$TRAINING;
+        if (self::$BATTLE_TYPE_TRAINING !== null) {
+            return self::$BATTLE_TYPE_TRAINING;
         }
 
-        return self::$TRAINING = new self('TRAINING', self::TRAINING_VALUE);
+        return self::$BATTLE_TYPE_TRAINING = new self('BATTLE_TYPE_TRAINING', self::BATTLE_TYPE_TRAINING_VALUE);
     }
 
     /**
@@ -88,8 +88,8 @@ class BattleType extends \Protobuf\Enum
     {
         switch ($value) {
             case 0: return self::BATTLE_TYPE_UNSET();
-            case 1: return self::NORMAL();
-            case 2: return self::TRAINING();
+            case 1: return self::BATTLE_TYPE_NORMAL();
+            case 2: return self::BATTLE_TYPE_TRAINING();
             default: return null;
         }
     }
