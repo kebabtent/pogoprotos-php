@@ -18,3 +18,12 @@ This requires the dev-dependencies and [protoc](https://github.com/google/protob
 
 ## Usage
 See the wiki for some [usage instructions](https://github.com/jaspervdm/pogoprotos-php/wiki/Usage)
+
+## Contributions
+* [jaspervdm](https://github.com/jaspervdm)
+* [DrDelay](https://github.com/DrDelay)
+* [barryvdh](https://github.com/barryvdh)
+
+## Credits
+* [AeonLucid](https://github.com/AeonLucid) for the [proto files](https://github.com/AeonLucid/POGOProtos)
+* [protobuf-php](https://github.com/protobuf-php) for the [PHP implementation of Protocol Buffers](https://github.com/protobuf-php/protobuf)
