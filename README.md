@@ -2,7 +2,6 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-<!--- [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg)](https://secure.php.net) -->
 [![Latest Stable Version][ico-githubversion]][link-releases]
 [![Total Downloads][ico-downloads]][link-packagist]
 [![PHP7 Ready](https://img.shields.io/badge/PHP7-ready-green.svg)][link-packagist]
@@ -41,7 +40,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ## Legal
 
 This project is in no way affiliated with, authorized, maintained, sponsored or endorsed by Niantic, The Pokémon Company, Nintendo or any of its affiliates or subsidiaries. 
-This is an independent and unofficial API library. 
+This is an independent and unofficial collection of protobufs compiled to PHP-classes. 
 The contents of this repository are a proof of concept and are for educational use only. 
 Using this project might be against Niantic's TOS.
 
