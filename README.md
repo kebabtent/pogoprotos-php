@@ -2,6 +2,7 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.5-8892BF.svg)](https://secure.php.net)
 [![Latest Stable Version][ico-githubversion]][link-releases]
 [![Total Downloads][ico-downloads]][link-packagist]
 [![PHP7 Ready](https://img.shields.io/badge/PHP7-ready-green.svg)][link-packagist]

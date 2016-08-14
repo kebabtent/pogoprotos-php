@@ -1,10 +1,32 @@
 {
   "name": "jaspervdm/pogoprotos-php",
   "description": "Compiled PHP protobufs for pokemon go",
+  "type": "library",
   "require": {
     "php": ">=5.5",
     "protobuf-php/protobuf": "~0.1"
   },
+  "keywords": [
+    "pokemon-go",
+    "Pokémon",
+    "PoGo",
+    "Protobuf",
+    "protos"
+  ],
+  "homepage": "https://github.com/jaspervdm/pogoprotos-php",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "jaspervdm",
+      "homepage": "https://github.com/jaspervdm",
+      "role": "Owner"
+    },
+    {
+      "name": "DrDelay",
+      "homepage": "https://github.com/DrDelay",
+      "role": "Collaborator"
+    }
+  ],
   "require-dev": {
     "protobuf-php/protobuf-plugin": "~0.1"
   },
@@ -14,5 +36,8 @@
     ]
   },
   "minimum-stability": "dev",
-  "prefer-stable" : true
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  }
 }
