@@ -6,7 +6,7 @@
 [![Total Downloads][ico-downloads]][link-packagist]
 [![PHP7 Ready](https://img.shields.io/badge/PHP7-ready-green.svg)][link-packagist]
 
-Protobuf files used: [AeonLucid/POGOProtos](https://github.com/AeonLucid/POGOProtos) - Ready to use in your PHP project
+Protobuf files used: [AeonLucid/POGOProtos](https://github.com/AeonLucid/POGOProtos) - Ready to use in your PHP project - [About][link-about]
 
 ## Installation
 
@@ -52,3 +52,4 @@ Using this project might be against Niantic's TOS.
 [link-packagist]: https://packagist.org/packages/jaspervdm/pogoprotos-php
 [link-releases]: https://github.com/jaspervdm/pogoprotos-php/releases
 [link-contributors]: ../../contributors
+[link-about]: https://github.com/jaspervdm/pogoprotos-php/wiki/About
