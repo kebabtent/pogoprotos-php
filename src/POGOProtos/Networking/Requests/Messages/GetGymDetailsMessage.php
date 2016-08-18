@@ -61,6 +61,13 @@ class GetGymDetailsMessage extends \Protobuf\AbstractMessage
     protected $gym_longitude = null;
 
     /**
+     * client_version optional string = 6
+     *
+     * @var string
+     */
+    protected $client_version = null;
+
+    /**
      * Check if 'gym_id' has a value
      *
      * @return bool
@@ -211,6 +218,36 @@ class GetGymDetailsMessage extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'client_version' has a value
+     *
+     * @return bool
+     */
+    public function hasClientVersion()
+    {
+        return $this->client_version !== null;
+    }
+
+    /**
+     * Get 'client_version' value
+     *
+     * @return string
+     */
+    public function getClientVersion()
+    {
+        return $this->client_version;
+    }
+
+    /**
+     * Set 'client_version' value
+     *
+     * @param string $value
+     */
+    public function setClientVersion($value = null)
+    {
+        $this->client_version = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -249,7 +286,8 @@ class GetGymDetailsMessage extends \Protobuf\AbstractMessage
             'player_latitude' => null,
             'player_longitude' => null,
             'gym_latitude' => null,
-            'gym_longitude' => null
+            'gym_longitude' => null,
+            'client_version' => null
         ], $values);
 
         $message->setGymId($values['gym_id']);
@@ -257,6 +295,7 @@ class GetGymDetailsMessage extends \Protobuf\AbstractMessage
         $message->setPlayerLongitude($values['player_longitude']);
         $message->setGymLatitude($values['gym_latitude']);
         $message->setGymLongitude($values['gym_longitude']);
+        $message->setClientVersion($values['client_version']);
 
         return $message;
     }
@@ -297,6 +336,12 @@ class GetGymDetailsMessage extends \Protobuf\AbstractMessage
                     'number' => 5,
                     'name' => 'gym_longitude',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'client_version',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -350,6 +395,11 @@ class GetGymDetailsMessage extends \Protobuf\AbstractMessage
         if ($this->gym_longitude !== null) {
             $writer->writeVarint($stream, 41);
             $writer->writeDouble($stream, $this->gym_longitude);
+        }
+
+        if ($this->client_version !== null) {
+            $writer->writeVarint($stream, 50);
+            $writer->writeString($stream, $this->client_version);
         }
 
         if ($this->extensions !== null) {
@@ -426,6 +476,14 @@ class GetGymDetailsMessage extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 6) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->client_version = $reader->readString($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -480,6 +538,11 @@ class GetGymDetailsMessage extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
+        if ($this->client_version !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->client_version);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -497,6 +560,7 @@ class GetGymDetailsMessage extends \Protobuf\AbstractMessage
         $this->player_longitude = null;
         $this->gym_latitude = null;
         $this->gym_longitude = null;
+        $this->client_version = null;
     }
 
     /**
@@ -513,6 +577,7 @@ class GetGymDetailsMessage extends \Protobuf\AbstractMessage
         $this->player_longitude = ($message->player_longitude !== null) ? $message->player_longitude : $this->player_longitude;
         $this->gym_latitude = ($message->gym_latitude !== null) ? $message->gym_latitude : $this->gym_latitude;
         $this->gym_longitude = ($message->gym_longitude !== null) ? $message->gym_longitude : $this->gym_longitude;
+        $this->client_version = ($message->client_version !== null) ? $message->client_version : $this->client_version;
     }
 
 

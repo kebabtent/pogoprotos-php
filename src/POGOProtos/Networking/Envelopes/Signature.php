@@ -95,7 +95,7 @@ class Signature extends \Protobuf\AbstractMessage
     protected $timestamp = null;
 
     /**
-     * request_hash repeated int64 = 24
+     * request_hash repeated uint64 = 24
      *
      * @var \Protobuf\Collection
      */
@@ -647,7 +647,7 @@ class Signature extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 24,
                     'name' => 'request_hash',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -907,7 +907,7 @@ class Signature extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 24) {
-                \Protobuf\WireFormat::assertWireType($wire, 3);
+                \Protobuf\WireFormat::assertWireType($wire, 4);
 
                 if ($this->request_hash === null) {
                     $this->request_hash = new \Protobuf\ScalarCollection();

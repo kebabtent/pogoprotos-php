@@ -102,6 +102,13 @@ class PlayerData extends \Protobuf\AbstractMessage
     protected $currencies = null;
 
     /**
+     * remaining_codename_claims optional int32 = 15
+     *
+     * @var int
+     */
+    protected $remaining_codename_claims = null;
+
+    /**
      * Check if 'creation_timestamp_ms' has a value
      *
      * @return bool
@@ -460,6 +467,36 @@ class PlayerData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'remaining_codename_claims' has a value
+     *
+     * @return bool
+     */
+    public function hasRemainingCodenameClaims()
+    {
+        return $this->remaining_codename_claims !== null;
+    }
+
+    /**
+     * Get 'remaining_codename_claims' value
+     *
+     * @return int
+     */
+    public function getRemainingCodenameClaims()
+    {
+        return $this->remaining_codename_claims;
+    }
+
+    /**
+     * Set 'remaining_codename_claims' value
+     *
+     * @param int $value
+     */
+    public function setRemainingCodenameClaims($value = null)
+    {
+        $this->remaining_codename_claims = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -504,7 +541,8 @@ class PlayerData extends \Protobuf\AbstractMessage
             'daily_bonus' => null,
             'equipped_badge' => null,
             'contact_settings' => null,
-            'currencies' => []
+            'currencies' => [],
+            'remaining_codename_claims' => null
         ], $values);
 
         $message->setCreationTimestampMs($values['creation_timestamp_ms']);
@@ -516,6 +554,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $message->setDailyBonus($values['daily_bonus']);
         $message->setEquippedBadge($values['equipped_badge']);
         $message->setContactSettings($values['contact_settings']);
+        $message->setRemainingCodenameClaims($values['remaining_codename_claims']);
 
         foreach ($values['tutorial_state'] as $item) {
             $message->addTutorialState($item);
@@ -609,6 +648,12 @@ class PlayerData extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
                     'type_name' => '.POGOProtos.Data.Player.Currency'
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 15,
+                    'name' => 'remaining_codename_claims',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
             ],
         ]);
     }
@@ -657,14 +702,14 @@ class PlayerData extends \Protobuf\AbstractMessage
             $calculator  = $sizeContext->getSizeCalculator();
 
             foreach ($this->tutorial_state as $val) {
-                $innerSize += $calculator->computeVarintSize($val->value());
+                $innerSize += $calculator->computeVarintSize($val);
             }
 
             $writer->writeVarint($stream, 58);
             $writer->writeVarint($stream, $innerSize);
 
             foreach ($this->tutorial_state as $val) {
-                $writer->writeVarint($stream, $val->value());
+                $writer->writeVarint($stream, $val);
             }
         }
 
@@ -708,6 +753,11 @@ class PlayerData extends \Protobuf\AbstractMessage
                 $writer->writeVarint($stream, $val->serializedSize($sizeContext));
                 $val->writeTo($context);
             }
+        }
+
+        if ($this->remaining_codename_claims !== null) {
+            $writer->writeVarint($stream, 120);
+            $writer->writeVarint($stream, $this->remaining_codename_claims);
         }
 
         if ($this->extensions !== null) {
@@ -777,7 +827,7 @@ class PlayerData extends \Protobuf\AbstractMessage
                 }
 
                 while ($stream->tell() < $innerLimit) {
-                    $this->tutorial_state->add(\POGOProtos\Enums\TutorialState::valueOf($reader->readVarint($stream)));
+                    $this->tutorial_state->add($reader->readVarint($stream));
                 }
 
                 continue;
@@ -878,6 +928,14 @@ class PlayerData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 15) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->remaining_codename_claims = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -926,7 +984,7 @@ class PlayerData extends \Protobuf\AbstractMessage
             $innerSize = 0;
 
             foreach ($this->tutorial_state as $val) {
-                $innerSize += $calculator->computeVarintSize($val->value());
+                $innerSize += $calculator->computeVarintSize($val);
             }
 
             $size += 1;
@@ -986,6 +1044,11 @@ class PlayerData extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->remaining_codename_claims !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->remaining_codename_claims);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1009,6 +1072,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $this->equipped_badge = null;
         $this->contact_settings = null;
         $this->currencies = null;
+        $this->remaining_codename_claims = null;
     }
 
     /**
@@ -1031,6 +1095,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $this->equipped_badge = ($message->equipped_badge !== null) ? $message->equipped_badge : $this->equipped_badge;
         $this->contact_settings = ($message->contact_settings !== null) ? $message->contact_settings : $this->contact_settings;
         $this->currencies = ($message->currencies !== null) ? $message->currencies : $this->currencies;
+        $this->remaining_codename_claims = ($message->remaining_codename_claims !== null) ? $message->remaining_codename_claims : $this->remaining_codename_claims;
     }
 
 

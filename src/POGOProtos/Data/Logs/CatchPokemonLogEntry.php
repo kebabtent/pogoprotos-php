@@ -46,7 +46,7 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
     protected $combat_points = null;
 
     /**
-     * pokemon_data_id optional uint64 = 4
+     * pokemon_data_id optional fixed64 = 4
      *
      * @var int
      */
@@ -252,7 +252,7 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 4,
                     'name' => 'pokemon_data_id',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -299,8 +299,8 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
         }
 
         if ($this->pokemon_data_id !== null) {
-            $writer->writeVarint($stream, 32);
-            $writer->writeVarint($stream, $this->pokemon_data_id);
+            $writer->writeVarint($stream, 33);
+            $writer->writeFixed64($stream, $this->pokemon_data_id);
         }
 
         if ($this->extensions !== null) {
@@ -362,9 +362,9 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 4) {
-                \Protobuf\WireFormat::assertWireType($wire, 4);
+                \Protobuf\WireFormat::assertWireType($wire, 6);
 
-                $this->pokemon_data_id = $reader->readVarint($stream);
+                $this->pokemon_data_id = $reader->readFixed64($stream);
 
                 continue;
             }
@@ -415,7 +415,7 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
 
         if ($this->pokemon_data_id !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->pokemon_data_id);
+            $size += 8;
         }
 
         if ($this->extensions !== null) {

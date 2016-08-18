@@ -53,6 +53,13 @@ class ClaimCodenameResponse extends \Protobuf\AbstractMessage
     protected $status = null;
 
     /**
+     * updated_player optional message = 5
+     *
+     * @var \POGOProtos\Data\PlayerData
+     */
+    protected $updated_player = null;
+
+    /**
      * Check if 'codename' has a value
      *
      * @return bool
@@ -173,6 +180,36 @@ class ClaimCodenameResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'updated_player' has a value
+     *
+     * @return bool
+     */
+    public function hasUpdatedPlayer()
+    {
+        return $this->updated_player !== null;
+    }
+
+    /**
+     * Get 'updated_player' value
+     *
+     * @return \POGOProtos\Data\PlayerData
+     */
+    public function getUpdatedPlayer()
+    {
+        return $this->updated_player;
+    }
+
+    /**
+     * Set 'updated_player' value
+     *
+     * @param \POGOProtos\Data\PlayerData $value
+     */
+    public function setUpdatedPlayer(\POGOProtos\Data\PlayerData $value = null)
+    {
+        $this->updated_player = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -210,13 +247,15 @@ class ClaimCodenameResponse extends \Protobuf\AbstractMessage
             'codename' => null,
             'user_message' => null,
             'is_assignable' => null,
-            'status' => null
+            'status' => null,
+            'updated_player' => null
         ], $values);
 
         $message->setCodename($values['codename']);
         $message->setUserMessage($values['user_message']);
         $message->setIsAssignable($values['is_assignable']);
         $message->setStatus($values['status']);
+        $message->setUpdatedPlayer($values['updated_player']);
 
         return $message;
     }
@@ -253,6 +292,13 @@ class ClaimCodenameResponse extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Networking.Responses.ClaimCodenameResponse.Status'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'updated_player',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.PlayerData'
                 ]),
             ],
         ]);
@@ -300,6 +346,12 @@ class ClaimCodenameResponse extends \Protobuf\AbstractMessage
         if ($this->status !== null) {
             $writer->writeVarint($stream, 32);
             $writer->writeVarint($stream, $this->status->value());
+        }
+
+        if ($this->updated_player !== null) {
+            $writer->writeVarint($stream, 42);
+            $writer->writeVarint($stream, $this->updated_player->serializedSize($sizeContext));
+            $this->updated_player->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -368,6 +420,21 @@ class ClaimCodenameResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PlayerData();
+
+                $this->updated_player = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -417,6 +484,14 @@ class ClaimCodenameResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->status->value());
         }
 
+        if ($this->updated_player !== null) {
+            $innerSize = $this->updated_player->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -433,6 +508,7 @@ class ClaimCodenameResponse extends \Protobuf\AbstractMessage
         $this->user_message = null;
         $this->is_assignable = null;
         $this->status = null;
+        $this->updated_player = null;
     }
 
     /**
@@ -448,6 +524,7 @@ class ClaimCodenameResponse extends \Protobuf\AbstractMessage
         $this->user_message = ($message->user_message !== null) ? $message->user_message : $this->user_message;
         $this->is_assignable = ($message->is_assignable !== null) ? $message->is_assignable : $this->is_assignable;
         $this->status = ($message->status !== null) ? $message->status : $this->status;
+        $this->updated_player = ($message->updated_player !== null) ? $message->updated_player : $this->updated_player;
     }
 
 

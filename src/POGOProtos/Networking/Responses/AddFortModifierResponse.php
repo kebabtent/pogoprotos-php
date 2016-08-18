@@ -25,6 +25,80 @@ class AddFortModifierResponse extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
+     * result optional enum = 1
+     *
+     * @var \POGOProtos\Networking\Responses\AddFortModifierResponse\Result
+     */
+    protected $result = null;
+
+    /**
+     * fort_details optional message = 2
+     *
+     * @var \POGOProtos\Networking\Responses\FortDetailsResponse
+     */
+    protected $fort_details = null;
+
+    /**
+     * Check if 'result' has a value
+     *
+     * @return bool
+     */
+    public function hasResult()
+    {
+        return $this->result !== null;
+    }
+
+    /**
+     * Get 'result' value
+     *
+     * @return \POGOProtos\Networking\Responses\AddFortModifierResponse\Result
+     */
+    public function getResult()
+    {
+        return $this->result;
+    }
+
+    /**
+     * Set 'result' value
+     *
+     * @param \POGOProtos\Networking\Responses\AddFortModifierResponse\Result $value
+     */
+    public function setResult(\POGOProtos\Networking\Responses\AddFortModifierResponse\Result $value = null)
+    {
+        $this->result = $value;
+    }
+
+    /**
+     * Check if 'fort_details' has a value
+     *
+     * @return bool
+     */
+    public function hasFortDetails()
+    {
+        return $this->fort_details !== null;
+    }
+
+    /**
+     * Get 'fort_details' value
+     *
+     * @return \POGOProtos\Networking\Responses\FortDetailsResponse
+     */
+    public function getFortDetails()
+    {
+        return $this->fort_details;
+    }
+
+    /**
+     * Set 'fort_details' value
+     *
+     * @param \POGOProtos\Networking\Responses\FortDetailsResponse $value
+     */
+    public function setFortDetails(\POGOProtos\Networking\Responses\FortDetailsResponse $value = null)
+    {
+        $this->fort_details = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -59,7 +133,12 @@ class AddFortModifierResponse extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
+            'result' => null,
+            'fort_details' => null
         ], $values);
+
+        $message->setResult($values['result']);
+        $message->setFortDetails($values['fort_details']);
 
         return $message;
     }
@@ -71,6 +150,22 @@ class AddFortModifierResponse extends \Protobuf\AbstractMessage
     {
         return \google\protobuf\DescriptorProto::fromArray([
             'name'      => 'AddFortModifierResponse',
+            'field'     => [
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 1,
+                    'name' => 'result',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Networking.Responses.AddFortModifierResponse.Result'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 2,
+                    'name' => 'fort_details',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Networking.Responses.FortDetailsResponse'
+                ]),
+            ],
         ]);
     }
 
@@ -97,6 +192,17 @@ class AddFortModifierResponse extends \Protobuf\AbstractMessage
         $stream      = $context->getStream();
         $writer      = $context->getWriter();
         $sizeContext = $context->getComputeSizeContext();
+
+        if ($this->result !== null) {
+            $writer->writeVarint($stream, 8);
+            $writer->writeVarint($stream, $this->result->value());
+        }
+
+        if ($this->fort_details !== null) {
+            $writer->writeVarint($stream, 18);
+            $writer->writeVarint($stream, $this->fort_details->serializedSize($sizeContext));
+            $this->fort_details->writeTo($context);
+        }
 
         if ($this->extensions !== null) {
             $this->extensions->writeTo($context);
@@ -132,6 +238,29 @@ class AddFortModifierResponse extends \Protobuf\AbstractMessage
                 break;
             }
 
+            if ($tag === 1) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                $this->result = \POGOProtos\Networking\Responses\AddFortModifierResponse\Result::valueOf($reader->readVarint($stream));
+
+                continue;
+            }
+
+            if ($tag === 2) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Networking\Responses\FortDetailsResponse();
+
+                $this->fort_details = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -161,6 +290,19 @@ class AddFortModifierResponse extends \Protobuf\AbstractMessage
         $calculator = $context->getSizeCalculator();
         $size       = 0;
 
+        if ($this->result !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->result->value());
+        }
+
+        if ($this->fort_details !== null) {
+            $innerSize = $this->fort_details->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -173,6 +315,8 @@ class AddFortModifierResponse extends \Protobuf\AbstractMessage
      */
     public function clear()
     {
+        $this->result = null;
+        $this->fort_details = null;
     }
 
     /**
@@ -183,6 +327,9 @@ class AddFortModifierResponse extends \Protobuf\AbstractMessage
         if ( ! $message instanceof \POGOProtos\Networking\Responses\AddFortModifierResponse) {
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
+
+        $this->result = ($message->result !== null) ? $message->result : $this->result;
+        $this->fort_details = ($message->fort_details !== null) ? $message->fort_details : $this->fort_details;
     }
 
 

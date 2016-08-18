@@ -25,43 +25,6 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * app_version optional string = 1
-     *
-     * @var string
-     */
-    protected $app_version = null;
-
-    /**
-     * Check if 'app_version' has a value
-     *
-     * @return bool
-     */
-    public function hasAppVersion()
-    {
-        return $this->app_version !== null;
-    }
-
-    /**
-     * Get 'app_version' value
-     *
-     * @return string
-     */
-    public function getAppVersion()
-    {
-        return $this->app_version;
-    }
-
-    /**
-     * Set 'app_version' value
-     *
-     * @param string $value
-     */
-    public function setAppVersion($value = null)
-    {
-        $this->app_version = $value;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -96,10 +59,7 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'app_version' => null
         ], $values);
-
-        $message->setAppVersion($values['app_version']);
 
         return $message;
     }
@@ -111,14 +71,6 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
     {
         return \google\protobuf\DescriptorProto::fromArray([
             'name'      => 'GetPlayerMessage',
-            'field'     => [
-                \google\protobuf\FieldDescriptorProto::fromArray([
-                    'number' => 1,
-                    'name' => 'app_version',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
-                ]),
-            ],
         ]);
     }
 
@@ -145,11 +97,6 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
         $stream      = $context->getStream();
         $writer      = $context->getWriter();
         $sizeContext = $context->getComputeSizeContext();
-
-        if ($this->app_version !== null) {
-            $writer->writeVarint($stream, 10);
-            $writer->writeString($stream, $this->app_version);
-        }
 
         if ($this->extensions !== null) {
             $this->extensions->writeTo($context);
@@ -185,14 +132,6 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
                 break;
             }
 
-            if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 9);
-
-                $this->app_version = $reader->readString($stream);
-
-                continue;
-            }
-
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -222,11 +161,6 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
         $calculator = $context->getSizeCalculator();
         $size       = 0;
 
-        if ($this->app_version !== null) {
-            $size += 1;
-            $size += $calculator->computeStringSize($this->app_version);
-        }
-
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -239,7 +173,6 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
      */
     public function clear()
     {
-        $this->app_version = null;
     }
 
     /**
@@ -250,8 +183,6 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
         if ( ! $message instanceof \POGOProtos\Networking\Requests\Messages\GetPlayerMessage) {
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
-
-        $this->app_version = ($message->app_version !== null) ? $message->app_version : $this->app_version;
     }
 
 

@@ -102,6 +102,20 @@ class FortData extends \Protobuf\AbstractMessage
     protected $is_in_battle = null;
 
     /**
+     * active_fort_modifier repeated enum = 12
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Inventory\Item\ItemId>
+     */
+    protected $active_fort_modifier = null;
+
+    /**
+     * lure_info optional message = 13
+     *
+     * @var \POGOProtos\Map\Fort\FortLureInfo
+     */
+    protected $lure_info = null;
+
+    /**
      * cooldown_complete_timestamp_ms optional int64 = 14
      *
      * @var int
@@ -121,20 +135,6 @@ class FortData extends \Protobuf\AbstractMessage
      * @var \POGOProtos\Map\Fort\FortRenderingType
      */
     protected $rendering_type = null;
-
-    /**
-     * active_fort_modifier optional bytes = 12
-     *
-     * @var \Protobuf\Stream
-     */
-    protected $active_fort_modifier = null;
-
-    /**
-     * lure_info optional message = 13
-     *
-     * @var \POGOProtos\Map\Fort\FortLureInfo
-     */
-    protected $lure_info = null;
 
     /**
      * Check if 'id' has a value
@@ -467,6 +467,80 @@ class FortData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'active_fort_modifier' has a value
+     *
+     * @return bool
+     */
+    public function hasActiveFortModifierList()
+    {
+        return $this->active_fort_modifier !== null;
+    }
+
+    /**
+     * Get 'active_fort_modifier' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Inventory\Item\ItemId>
+     */
+    public function getActiveFortModifierList()
+    {
+        return $this->active_fort_modifier;
+    }
+
+    /**
+     * Set 'active_fort_modifier' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Inventory\Item\ItemId> $value
+     */
+    public function setActiveFortModifierList(\Protobuf\Collection $value = null)
+    {
+        $this->active_fort_modifier = $value;
+    }
+
+    /**
+     * Add a new element to 'active_fort_modifier'
+     *
+     * @param \POGOProtos\Inventory\Item\ItemId $value
+     */
+    public function addActiveFortModifier(\POGOProtos\Inventory\Item\ItemId $value)
+    {
+        if ($this->active_fort_modifier === null) {
+            $this->active_fort_modifier = new \Protobuf\EnumCollection();
+        }
+
+        $this->active_fort_modifier->add($value);
+    }
+
+    /**
+     * Check if 'lure_info' has a value
+     *
+     * @return bool
+     */
+    public function hasLureInfo()
+    {
+        return $this->lure_info !== null;
+    }
+
+    /**
+     * Get 'lure_info' value
+     *
+     * @return \POGOProtos\Map\Fort\FortLureInfo
+     */
+    public function getLureInfo()
+    {
+        return $this->lure_info;
+    }
+
+    /**
+     * Set 'lure_info' value
+     *
+     * @param \POGOProtos\Map\Fort\FortLureInfo $value
+     */
+    public function setLureInfo(\POGOProtos\Map\Fort\FortLureInfo $value = null)
+    {
+        $this->lure_info = $value;
+    }
+
+    /**
      * Check if 'cooldown_complete_timestamp_ms' has a value
      *
      * @return bool
@@ -557,70 +631,6 @@ class FortData extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'active_fort_modifier' has a value
-     *
-     * @return bool
-     */
-    public function hasActiveFortModifier()
-    {
-        return $this->active_fort_modifier !== null;
-    }
-
-    /**
-     * Get 'active_fort_modifier' value
-     *
-     * @return \Protobuf\Stream
-     */
-    public function getActiveFortModifier()
-    {
-        return $this->active_fort_modifier;
-    }
-
-    /**
-     * Set 'active_fort_modifier' value
-     *
-     * @param \Protobuf\Stream $value
-     */
-    public function setActiveFortModifier($value = null)
-    {
-        if ($value !== null && ! $value instanceof \Protobuf\Stream) {
-            $value = \Protobuf\Stream::wrap($value);
-        }
-
-        $this->active_fort_modifier = $value;
-    }
-
-    /**
-     * Check if 'lure_info' has a value
-     *
-     * @return bool
-     */
-    public function hasLureInfo()
-    {
-        return $this->lure_info !== null;
-    }
-
-    /**
-     * Get 'lure_info' value
-     *
-     * @return \POGOProtos\Map\Fort\FortLureInfo
-     */
-    public function getLureInfo()
-    {
-        return $this->lure_info;
-    }
-
-    /**
-     * Set 'lure_info' value
-     *
-     * @param \POGOProtos\Map\Fort\FortLureInfo $value
-     */
-    public function setLureInfo(\POGOProtos\Map\Fort\FortLureInfo $value = null)
-    {
-        $this->lure_info = $value;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -666,11 +676,11 @@ class FortData extends \Protobuf\AbstractMessage
             'guard_pokemon_cp' => null,
             'gym_points' => null,
             'is_in_battle' => null,
+            'active_fort_modifier' => [],
+            'lure_info' => null,
             'cooldown_complete_timestamp_ms' => null,
             'sponsor' => null,
-            'rendering_type' => null,
-            'active_fort_modifier' => null,
-            'lure_info' => null
+            'rendering_type' => null
         ], $values);
 
         $message->setId($values['id']);
@@ -684,11 +694,14 @@ class FortData extends \Protobuf\AbstractMessage
         $message->setGuardPokemonCp($values['guard_pokemon_cp']);
         $message->setGymPoints($values['gym_points']);
         $message->setIsInBattle($values['is_in_battle']);
+        $message->setLureInfo($values['lure_info']);
         $message->setCooldownCompleteTimestampMs($values['cooldown_complete_timestamp_ms']);
         $message->setSponsor($values['sponsor']);
         $message->setRenderingType($values['rendering_type']);
-        $message->setActiveFortModifier($values['active_fort_modifier']);
-        $message->setLureInfo($values['lure_info']);
+
+        foreach ($values['active_fort_modifier'] as $item) {
+            $message->addActiveFortModifier($item);
+        }
 
         return $message;
     }
@@ -771,6 +784,20 @@ class FortData extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 12,
+                    'name' => 'active_fort_modifier',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Inventory.Item.ItemId'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 13,
+                    'name' => 'lure_info',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Map.Fort.FortLureInfo'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 14,
                     'name' => 'cooldown_complete_timestamp_ms',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
@@ -789,19 +816,6 @@ class FortData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Map.Fort.FortRenderingType'
-                ]),
-                \google\protobuf\FieldDescriptorProto::fromArray([
-                    'number' => 12,
-                    'name' => 'active_fort_modifier',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BYTES(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
-                ]),
-                \google\protobuf\FieldDescriptorProto::fromArray([
-                    'number' => 13,
-                    'name' => 'lure_info',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
-                    'type_name' => '.POGOProtos.Map.Fort.FortLureInfo'
                 ]),
             ],
         ]);
@@ -886,6 +900,19 @@ class FortData extends \Protobuf\AbstractMessage
             $writer->writeBool($stream, $this->is_in_battle);
         }
 
+        if ($this->active_fort_modifier !== null) {
+            foreach ($this->active_fort_modifier as $val) {
+                $writer->writeVarint($stream, 96);
+                $writer->writeVarint($stream, $val->value());
+            }
+        }
+
+        if ($this->lure_info !== null) {
+            $writer->writeVarint($stream, 106);
+            $writer->writeVarint($stream, $this->lure_info->serializedSize($sizeContext));
+            $this->lure_info->writeTo($context);
+        }
+
         if ($this->cooldown_complete_timestamp_ms !== null) {
             $writer->writeVarint($stream, 112);
             $writer->writeVarint($stream, $this->cooldown_complete_timestamp_ms);
@@ -899,17 +926,6 @@ class FortData extends \Protobuf\AbstractMessage
         if ($this->rendering_type !== null) {
             $writer->writeVarint($stream, 128);
             $writer->writeVarint($stream, $this->rendering_type->value());
-        }
-
-        if ($this->active_fort_modifier !== null) {
-            $writer->writeVarint($stream, 98);
-            $writer->writeByteStream($stream, $this->active_fort_modifier);
-        }
-
-        if ($this->lure_info !== null) {
-            $writer->writeVarint($stream, 106);
-            $writer->writeVarint($stream, $this->lure_info->serializedSize($sizeContext));
-            $this->lure_info->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -1034,6 +1050,33 @@ class FortData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 12) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                if ($this->active_fort_modifier === null) {
+                    $this->active_fort_modifier = new \Protobuf\EnumCollection();
+                }
+
+                $this->active_fort_modifier->add(\POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream)));
+
+                continue;
+            }
+
+            if ($tag === 13) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Map\Fort\FortLureInfo();
+
+                $this->lure_info = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             if ($tag === 14) {
                 \Protobuf\WireFormat::assertWireType($wire, 3);
 
@@ -1054,29 +1097,6 @@ class FortData extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 14);
 
                 $this->rendering_type = \POGOProtos\Map\Fort\FortRenderingType::valueOf($reader->readVarint($stream));
-
-                continue;
-            }
-
-            if ($tag === 12) {
-                \Protobuf\WireFormat::assertWireType($wire, 12);
-
-                $this->active_fort_modifier = $reader->readByteStream($stream);
-
-                continue;
-            }
-
-            if ($tag === 13) {
-                \Protobuf\WireFormat::assertWireType($wire, 11);
-
-                $innerSize    = $reader->readVarint($stream);
-                $innerMessage = new \POGOProtos\Map\Fort\FortLureInfo();
-
-                $this->lure_info = $innerMessage;
-
-                $context->setLength($innerSize);
-                $innerMessage->readFrom($context);
-                $context->setLength($length);
 
                 continue;
             }
@@ -1165,6 +1185,21 @@ class FortData extends \Protobuf\AbstractMessage
             $size += 1;
         }
 
+        if ($this->active_fort_modifier !== null) {
+            foreach ($this->active_fort_modifier as $val) {
+                $size += 1;
+                $size += $calculator->computeVarintSize($val->value());
+            }
+        }
+
+        if ($this->lure_info !== null) {
+            $innerSize = $this->lure_info->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->cooldown_complete_timestamp_ms !== null) {
             $size += 1;
             $size += $calculator->computeVarintSize($this->cooldown_complete_timestamp_ms);
@@ -1178,19 +1213,6 @@ class FortData extends \Protobuf\AbstractMessage
         if ($this->rendering_type !== null) {
             $size += 2;
             $size += $calculator->computeVarintSize($this->rendering_type->value());
-        }
-
-        if ($this->active_fort_modifier !== null) {
-            $size += 1;
-            $size += $calculator->computeByteStreamSize($this->active_fort_modifier);
-        }
-
-        if ($this->lure_info !== null) {
-            $innerSize = $this->lure_info->serializedSize($context);
-
-            $size += 1;
-            $size += $innerSize;
-            $size += $calculator->computeVarintSize($innerSize);
         }
 
         if ($this->extensions !== null) {
@@ -1216,11 +1238,11 @@ class FortData extends \Protobuf\AbstractMessage
         $this->guard_pokemon_cp = null;
         $this->gym_points = null;
         $this->is_in_battle = null;
+        $this->active_fort_modifier = null;
+        $this->lure_info = null;
         $this->cooldown_complete_timestamp_ms = null;
         $this->sponsor = null;
         $this->rendering_type = null;
-        $this->active_fort_modifier = null;
-        $this->lure_info = null;
     }
 
     /**
@@ -1243,11 +1265,11 @@ class FortData extends \Protobuf\AbstractMessage
         $this->guard_pokemon_cp = ($message->guard_pokemon_cp !== null) ? $message->guard_pokemon_cp : $this->guard_pokemon_cp;
         $this->gym_points = ($message->gym_points !== null) ? $message->gym_points : $this->gym_points;
         $this->is_in_battle = ($message->is_in_battle !== null) ? $message->is_in_battle : $this->is_in_battle;
+        $this->active_fort_modifier = ($message->active_fort_modifier !== null) ? $message->active_fort_modifier : $this->active_fort_modifier;
+        $this->lure_info = ($message->lure_info !== null) ? $message->lure_info : $this->lure_info;
         $this->cooldown_complete_timestamp_ms = ($message->cooldown_complete_timestamp_ms !== null) ? $message->cooldown_complete_timestamp_ms : $this->cooldown_complete_timestamp_ms;
         $this->sponsor = ($message->sponsor !== null) ? $message->sponsor : $this->sponsor;
         $this->rendering_type = ($message->rendering_type !== null) ? $message->rendering_type : $this->rendering_type;
-        $this->active_fort_modifier = ($message->active_fort_modifier !== null) ? $message->active_fort_modifier : $this->active_fort_modifier;
-        $this->lure_info = ($message->lure_info !== null) ? $message->lure_info : $this->lure_info;
     }
 
 

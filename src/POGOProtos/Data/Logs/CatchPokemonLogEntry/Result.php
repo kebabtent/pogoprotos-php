@@ -30,6 +30,11 @@ class Result extends \Protobuf\Enum
     const POKEMON_FLED_VALUE = 2;
 
     /**
+     * POKEMON_HATCHED = 3
+     */
+    const POKEMON_HATCHED_VALUE = 3;
+
+    /**
      * @var \POGOProtos\Data\Logs\CatchPokemonLogEntry\Result
      */
     protected static $UNSET = null;
@@ -43,6 +48,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Data\Logs\CatchPokemonLogEntry\Result
      */
     protected static $POKEMON_FLED = null;
+
+    /**
+     * @var \POGOProtos\Data\Logs\CatchPokemonLogEntry\Result
+     */
+    protected static $POKEMON_HATCHED = null;
 
     /**
      * @return \POGOProtos\Data\Logs\CatchPokemonLogEntry\Result
@@ -81,6 +91,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Data\Logs\CatchPokemonLogEntry\Result
+     */
+    public static function POKEMON_HATCHED()
+    {
+        if (self::$POKEMON_HATCHED !== null) {
+            return self::$POKEMON_HATCHED;
+        }
+
+        return self::$POKEMON_HATCHED = new self('POKEMON_HATCHED', self::POKEMON_HATCHED_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Data\Logs\CatchPokemonLogEntry\Result
      */
@@ -90,6 +112,7 @@ class Result extends \Protobuf\Enum
             case 0: return self::UNSET();
             case 1: return self::POKEMON_CAPTURED();
             case 2: return self::POKEMON_FLED();
+            case 3: return self::POKEMON_HATCHED();
             default: return null;
         }
     }

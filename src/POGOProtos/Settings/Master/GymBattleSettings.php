@@ -123,6 +123,13 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
     protected $swap_duration_ms = null;
 
     /**
+     * dodge_damage_reduction_percent optional float = 15
+     *
+     * @var float
+     */
+    protected $dodge_damage_reduction_percent = null;
+
+    /**
      * Check if 'energy_per_sec' has a value
      *
      * @return bool
@@ -543,6 +550,36 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'dodge_damage_reduction_percent' has a value
+     *
+     * @return bool
+     */
+    public function hasDodgeDamageReductionPercent()
+    {
+        return $this->dodge_damage_reduction_percent !== null;
+    }
+
+    /**
+     * Get 'dodge_damage_reduction_percent' value
+     *
+     * @return float
+     */
+    public function getDodgeDamageReductionPercent()
+    {
+        return $this->dodge_damage_reduction_percent;
+    }
+
+    /**
+     * Set 'dodge_damage_reduction_percent' value
+     *
+     * @param float $value
+     */
+    public function setDodgeDamageReductionPercent($value = null)
+    {
+        $this->dodge_damage_reduction_percent = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -590,7 +627,8 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
             'energy_delta_per_health_lost' => null,
             'dodge_duration_ms' => null,
             'minimum_player_level' => null,
-            'swap_duration_ms' => null
+            'swap_duration_ms' => null,
+            'dodge_damage_reduction_percent' => null
         ], $values);
 
         $message->setEnergyPerSec($values['energy_per_sec']);
@@ -607,6 +645,7 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
         $message->setDodgeDurationMs($values['dodge_duration_ms']);
         $message->setMinimumPlayerLevel($values['minimum_player_level']);
         $message->setSwapDurationMs($values['swap_duration_ms']);
+        $message->setDodgeDamageReductionPercent($values['dodge_damage_reduction_percent']);
 
         return $message;
     }
@@ -701,6 +740,12 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
                     'number' => 14,
                     'name' => 'swap_duration_ms',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 15,
+                    'name' => 'dodge_damage_reduction_percent',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -799,6 +844,11 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
         if ($this->swap_duration_ms !== null) {
             $writer->writeVarint($stream, 112);
             $writer->writeVarint($stream, $this->swap_duration_ms);
+        }
+
+        if ($this->dodge_damage_reduction_percent !== null) {
+            $writer->writeVarint($stream, 125);
+            $writer->writeFloat($stream, $this->dodge_damage_reduction_percent);
         }
 
         if ($this->extensions !== null) {
@@ -947,6 +997,14 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 15) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->dodge_damage_reduction_percent = $reader->readFloat($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1046,6 +1104,11 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->swap_duration_ms);
         }
 
+        if ($this->dodge_damage_reduction_percent !== null) {
+            $size += 1;
+            $size += 4;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1072,6 +1135,7 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
         $this->dodge_duration_ms = null;
         $this->minimum_player_level = null;
         $this->swap_duration_ms = null;
+        $this->dodge_damage_reduction_percent = null;
     }
 
     /**
@@ -1097,6 +1161,7 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
         $this->dodge_duration_ms = ($message->dodge_duration_ms !== null) ? $message->dodge_duration_ms : $this->dodge_duration_ms;
         $this->minimum_player_level = ($message->minimum_player_level !== null) ? $message->minimum_player_level : $this->minimum_player_level;
         $this->swap_duration_ms = ($message->swap_duration_ms !== null) ? $message->swap_duration_ms : $this->swap_duration_ms;
+        $this->dodge_damage_reduction_percent = ($message->dodge_damage_reduction_percent !== null) ? $message->dodge_damage_reduction_percent : $this->dodge_damage_reduction_percent;
     }
 
 

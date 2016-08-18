@@ -60,6 +60,13 @@ class GlobalSettings extends \Protobuf\AbstractMessage
     protected $minimum_client_version = null;
 
     /**
+     * gps_settings optional message = 7
+     *
+     * @var \POGOProtos\Settings\GpsSettings
+     */
+    protected $gps_settings = null;
+
+    /**
      * Check if 'fort_settings' has a value
      *
      * @return bool
@@ -210,6 +217,36 @@ class GlobalSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'gps_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasGpsSettings()
+    {
+        return $this->gps_settings !== null;
+    }
+
+    /**
+     * Get 'gps_settings' value
+     *
+     * @return \POGOProtos\Settings\GpsSettings
+     */
+    public function getGpsSettings()
+    {
+        return $this->gps_settings;
+    }
+
+    /**
+     * Set 'gps_settings' value
+     *
+     * @param \POGOProtos\Settings\GpsSettings $value
+     */
+    public function setGpsSettings(\POGOProtos\Settings\GpsSettings $value = null)
+    {
+        $this->gps_settings = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -248,7 +285,8 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             'map_settings' => null,
             'level_settings' => null,
             'inventory_settings' => null,
-            'minimum_client_version' => null
+            'minimum_client_version' => null,
+            'gps_settings' => null
         ], $values);
 
         $message->setFortSettings($values['fort_settings']);
@@ -256,6 +294,7 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $message->setLevelSettings($values['level_settings']);
         $message->setInventorySettings($values['inventory_settings']);
         $message->setMinimumClientVersion($values['minimum_client_version']);
+        $message->setGpsSettings($values['gps_settings']);
 
         return $message;
     }
@@ -301,6 +340,13 @@ class GlobalSettings extends \Protobuf\AbstractMessage
                     'name' => 'minimum_client_version',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'gps_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.GpsSettings'
                 ]),
             ],
         ]);
@@ -357,6 +403,12 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         if ($this->minimum_client_version !== null) {
             $writer->writeVarint($stream, 50);
             $writer->writeString($stream, $this->minimum_client_version);
+        }
+
+        if ($this->gps_settings !== null) {
+            $writer->writeVarint($stream, 58);
+            $writer->writeVarint($stream, $this->gps_settings->serializedSize($sizeContext));
+            $this->gps_settings->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -461,6 +513,21 @@ class GlobalSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 7) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\GpsSettings();
+
+                $this->gps_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -527,6 +594,14 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             $size += $calculator->computeStringSize($this->minimum_client_version);
         }
 
+        if ($this->gps_settings !== null) {
+            $innerSize = $this->gps_settings->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -544,6 +619,7 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $this->level_settings = null;
         $this->inventory_settings = null;
         $this->minimum_client_version = null;
+        $this->gps_settings = null;
     }
 
     /**
@@ -560,6 +636,7 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $this->level_settings = ($message->level_settings !== null) ? $message->level_settings : $this->level_settings;
         $this->inventory_settings = ($message->inventory_settings !== null) ? $message->inventory_settings : $this->inventory_settings;
         $this->minimum_client_version = ($message->minimum_client_version !== null) ? $message->minimum_client_version : $this->minimum_client_version;
+        $this->gps_settings = ($message->gps_settings !== null) ? $message->gps_settings : $this->gps_settings;
     }
 
 
