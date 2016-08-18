@@ -354,14 +354,14 @@ class CaptureAward extends \Protobuf\AbstractMessage
             $calculator  = $sizeContext->getSizeCalculator();
 
             foreach ($this->activity_type as $val) {
-                $innerSize += $calculator->computeVarintSize($val);
+                $innerSize += $calculator->computeVarintSize($val->value());
             }
 
             $writer->writeVarint($stream, 10);
             $writer->writeVarint($stream, $innerSize);
 
             foreach ($this->activity_type as $val) {
-                $writer->writeVarint($stream, $val);
+                $writer->writeVarint($stream, $val->value());
             }
         }
 
@@ -456,7 +456,7 @@ class CaptureAward extends \Protobuf\AbstractMessage
                 }
 
                 while ($stream->tell() < $innerLimit) {
-                    $this->activity_type->add($reader->readVarint($stream));
+                    $this->activity_type->add(\POGOProtos\Enums\ActivityType::valueOf($reader->readVarint($stream)));
                 }
 
                 continue;
@@ -540,7 +540,7 @@ class CaptureAward extends \Protobuf\AbstractMessage
             $innerSize = 0;
 
             foreach ($this->activity_type as $val) {
-                $innerSize += $calculator->computeVarintSize($val);
+                $innerSize += $calculator->computeVarintSize($val->value());
             }
 
             $size += 1;

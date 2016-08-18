@@ -276,14 +276,14 @@ class CaptureProbability extends \Protobuf\AbstractMessage
             $calculator  = $sizeContext->getSizeCalculator();
 
             foreach ($this->pokeball_type as $val) {
-                $innerSize += $calculator->computeVarintSize($val);
+                $innerSize += $calculator->computeVarintSize($val->value());
             }
 
             $writer->writeVarint($stream, 10);
             $writer->writeVarint($stream, $innerSize);
 
             foreach ($this->pokeball_type as $val) {
-                $writer->writeVarint($stream, $val);
+                $writer->writeVarint($stream, $val->value());
             }
         }
 
@@ -351,7 +351,7 @@ class CaptureProbability extends \Protobuf\AbstractMessage
                 }
 
                 while ($stream->tell() < $innerLimit) {
-                    $this->pokeball_type->add($reader->readVarint($stream));
+                    $this->pokeball_type->add(\POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream)));
                 }
 
                 continue;
@@ -413,7 +413,7 @@ class CaptureProbability extends \Protobuf\AbstractMessage
             $innerSize = 0;
 
             foreach ($this->pokeball_type as $val) {
-                $innerSize += $calculator->computeVarintSize($val);
+                $innerSize += $calculator->computeVarintSize($val->value());
             }
 
             $size += 1;
