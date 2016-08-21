@@ -906,16 +906,13 @@ class MapCell extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 6) {
-                $innerSize  = $reader->readVarint($stream);
-                $innerLimit = $stream->tell() + $innerSize;
+                \Protobuf\WireFormat::assertWireType($wire, 9);
 
                 if ($this->deleted_objects === null) {
                     $this->deleted_objects = new \Protobuf\ScalarCollection();
                 }
 
-                while ($stream->tell() < $innerLimit) {
-                    $this->deleted_objects->add($reader->readString($stream));
-                }
+                $this->deleted_objects->add($reader->readString($stream));
 
                 continue;
             }

@@ -737,46 +737,37 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 6) {
-                $innerSize  = $reader->readVarint($stream);
-                $innerLimit = $stream->tell() + $innerSize;
+                \Protobuf\WireFormat::assertWireType($wire, 8);
 
                 if ($this->has_almanac === null) {
                     $this->has_almanac = new \Protobuf\ScalarCollection();
                 }
 
-                while ($stream->tell() < $innerLimit) {
-                    $this->has_almanac->add($reader->readBool($stream));
-                }
+                $this->has_almanac->add($reader->readBool($stream));
 
                 continue;
             }
 
             if ($tag === 7) {
-                $innerSize  = $reader->readVarint($stream);
-                $innerLimit = $stream->tell() + $innerSize;
+                \Protobuf\WireFormat::assertWireType($wire, 8);
 
                 if ($this->has_ephemeris === null) {
                     $this->has_ephemeris = new \Protobuf\ScalarCollection();
                 }
 
-                while ($stream->tell() < $innerLimit) {
-                    $this->has_ephemeris->add($reader->readBool($stream));
-                }
+                $this->has_ephemeris->add($reader->readBool($stream));
 
                 continue;
             }
 
             if ($tag === 8) {
-                $innerSize  = $reader->readVarint($stream);
-                $innerLimit = $stream->tell() + $innerSize;
+                \Protobuf\WireFormat::assertWireType($wire, 8);
 
                 if ($this->used_in_fix === null) {
                     $this->used_in_fix = new \Protobuf\ScalarCollection();
                 }
 
-                while ($stream->tell() < $innerLimit) {
-                    $this->used_in_fix->add($reader->readBool($stream));
-                }
+                $this->used_in_fix->add($reader->readBool($stream));
 
                 continue;
             }

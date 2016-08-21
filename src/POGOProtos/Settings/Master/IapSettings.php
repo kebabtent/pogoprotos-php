@@ -555,16 +555,13 @@ class IapSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 4) {
-                $innerSize  = $reader->readVarint($stream);
-                $innerLimit = $stream->tell() + $innerSize;
+                \Protobuf\WireFormat::assertWireType($wire, 9);
 
                 if ($this->daily_defender_bonus_currency === null) {
                     $this->daily_defender_bonus_currency = new \Protobuf\ScalarCollection();
                 }
 
-                while ($stream->tell() < $innerLimit) {
-                    $this->daily_defender_bonus_currency->add($reader->readString($stream));
-                }
+                $this->daily_defender_bonus_currency->add($reader->readString($stream));
 
                 continue;
             }

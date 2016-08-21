@@ -256,16 +256,13 @@ class GetSuggestedCodenamesResponse extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                $innerSize  = $reader->readVarint($stream);
-                $innerLimit = $stream->tell() + $innerSize;
+                \Protobuf\WireFormat::assertWireType($wire, 9);
 
                 if ($this->codenames === null) {
                     $this->codenames = new \Protobuf\ScalarCollection();
                 }
 
-                while ($stream->tell() < $innerLimit) {
-                    $this->codenames->add($reader->readString($stream));
-                }
+                $this->codenames->add($reader->readString($stream));
 
                 continue;
             }

@@ -206,16 +206,13 @@ class GetDownloadUrlsMessage extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                $innerSize  = $reader->readVarint($stream);
-                $innerLimit = $stream->tell() + $innerSize;
+                \Protobuf\WireFormat::assertWireType($wire, 9);
 
                 if ($this->asset_id === null) {
                     $this->asset_id = new \Protobuf\ScalarCollection();
                 }
 
-                while ($stream->tell() < $innerLimit) {
-                    $this->asset_id->add($reader->readString($stream));
-                }
+                $this->asset_id->add($reader->readString($stream));
 
                 continue;
             }

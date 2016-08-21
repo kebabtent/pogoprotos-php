@@ -869,16 +869,13 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 5) {
-                $innerSize  = $reader->readVarint($stream);
-                $innerLimit = $stream->tell() + $innerSize;
+                \Protobuf\WireFormat::assertWireType($wire, 9);
 
                 if ($this->image_urls === null) {
                     $this->image_urls = new \Protobuf\ScalarCollection();
                 }
 
-                while ($stream->tell() < $innerLimit) {
-                    $this->image_urls->add($reader->readString($stream));
-                }
+                $this->image_urls->add($reader->readString($stream));
 
                 continue;
             }
