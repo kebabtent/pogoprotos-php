@@ -677,49 +677,61 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->satellites_prn === null) {
                     $this->satellites_prn = new \Protobuf\ScalarCollection();
                 }
 
-                $this->satellites_prn->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->satellites_prn->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->snr === null) {
                     $this->snr = new \Protobuf\ScalarCollection();
                 }
 
-                $this->snr->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->snr->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 4) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->azimuth === null) {
                     $this->azimuth = new \Protobuf\ScalarCollection();
                 }
 
-                $this->azimuth->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->azimuth->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 5) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->elevation === null) {
                     $this->elevation = new \Protobuf\ScalarCollection();
                 }
 
-                $this->elevation->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->elevation->add($reader->readFloat($stream));
+                }
 
                 continue;
             }

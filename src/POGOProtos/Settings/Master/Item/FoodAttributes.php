@@ -325,25 +325,31 @@ class FoodAttributes extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->item_effect === null) {
                     $this->item_effect = new \Protobuf\EnumCollection();
                 }
 
-                $this->item_effect->add(\POGOProtos\Enums\ItemEffect::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->item_effect->add(\POGOProtos\Enums\ItemEffect::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->item_effect_percent === null) {
                     $this->item_effect_percent = new \Protobuf\ScalarCollection();
                 }
 
-                $this->item_effect_percent->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->item_effect_percent->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
