@@ -462,13 +462,16 @@ class BattleResults extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->player_experience_awarded === null) {
                     $this->player_experience_awarded = new \Protobuf\ScalarCollection();
                 }
 
-                $this->player_experience_awarded->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->player_experience_awarded->add($reader->readVarint($stream));
+                }
 
                 continue;
             }

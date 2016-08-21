@@ -322,13 +322,16 @@ class BadgeSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->targets === null) {
                     $this->targets = new \Protobuf\ScalarCollection();
                 }
 
-                $this->targets->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->targets->add($reader->readVarint($stream));
+                }
 
                 continue;
             }

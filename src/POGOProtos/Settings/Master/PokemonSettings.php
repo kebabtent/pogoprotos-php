@@ -1354,49 +1354,61 @@ class PokemonSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 9) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->quick_moves === null) {
                     $this->quick_moves = new \Protobuf\EnumCollection();
                 }
 
-                $this->quick_moves->add(\POGOProtos\Enums\PokemonMove::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->quick_moves->add(\POGOProtos\Enums\PokemonMove::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }
 
             if ($tag === 10) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->cinematic_moves === null) {
                     $this->cinematic_moves = new \Protobuf\EnumCollection();
                 }
 
-                $this->cinematic_moves->add(\POGOProtos\Enums\PokemonMove::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->cinematic_moves->add(\POGOProtos\Enums\PokemonMove::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }
 
             if ($tag === 11) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->animation_time === null) {
                     $this->animation_time = new \Protobuf\ScalarCollection();
                 }
 
-                $this->animation_time->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->animation_time->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 12) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->evolution_ids === null) {
                     $this->evolution_ids = new \Protobuf\EnumCollection();
                 }
 
-                $this->evolution_ids->add(\POGOProtos\Enums\PokemonId::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->evolution_ids->add(\POGOProtos\Enums\PokemonId::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }

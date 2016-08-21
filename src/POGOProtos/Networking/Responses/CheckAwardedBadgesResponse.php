@@ -334,25 +334,31 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->awarded_badges === null) {
                     $this->awarded_badges = new \Protobuf\EnumCollection();
                 }
 
-                $this->awarded_badges->add(\POGOProtos\Enums\BadgeType::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->awarded_badges->add(\POGOProtos\Enums\BadgeType::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->awarded_badge_levels === null) {
                     $this->awarded_badge_levels = new \Protobuf\ScalarCollection();
                 }
 
-                $this->awarded_badge_levels->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->awarded_badge_levels->add($reader->readVarint($stream));
+                }
 
                 continue;
             }

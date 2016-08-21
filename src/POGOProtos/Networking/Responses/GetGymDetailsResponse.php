@@ -431,13 +431,16 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 9);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->urls === null) {
                     $this->urls = new \Protobuf\ScalarCollection();
                 }
 
-                $this->urls->add($reader->readString($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->urls->add($reader->readString($stream));
+                }
 
                 continue;
             }

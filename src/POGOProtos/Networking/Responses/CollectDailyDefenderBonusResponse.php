@@ -385,25 +385,31 @@ class CollectDailyDefenderBonusResponse extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 9);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->currency_type === null) {
                     $this->currency_type = new \Protobuf\ScalarCollection();
                 }
 
-                $this->currency_type->add($reader->readString($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->currency_type->add($reader->readString($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->currency_awarded === null) {
                     $this->currency_awarded = new \Protobuf\ScalarCollection();
                 }
 
-                $this->currency_awarded->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->currency_awarded->add($reader->readVarint($stream));
+                }
 
                 continue;
             }

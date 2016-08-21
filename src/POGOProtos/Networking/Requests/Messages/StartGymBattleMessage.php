@@ -414,13 +414,16 @@ class StartGymBattleMessage extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 6);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->attacking_pokemon_ids === null) {
                     $this->attacking_pokemon_ids = new \Protobuf\ScalarCollection();
                 }
 
-                $this->attacking_pokemon_ids->add($reader->readFixed64($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->attacking_pokemon_ids->add($reader->readFixed64($stream));
+                }
 
                 continue;
             }

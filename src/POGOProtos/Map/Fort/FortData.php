@@ -1051,13 +1051,16 @@ class FortData extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 12) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->active_fort_modifier === null) {
                     $this->active_fort_modifier = new \Protobuf\EnumCollection();
                 }
 
-                $this->active_fort_modifier->add(\POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->active_fort_modifier->add(\POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }

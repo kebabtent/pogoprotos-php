@@ -907,13 +907,16 @@ class Signature extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 24) {
-                \Protobuf\WireFormat::assertWireType($wire, 4);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->request_hash === null) {
                     $this->request_hash = new \Protobuf\ScalarCollection();
                 }
 
-                $this->request_hash->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->request_hash->add($reader->readVarint($stream));
+                }
 
                 continue;
             }

@@ -586,13 +586,16 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 100) {
-                \Protobuf\WireFormat::assertWireType($wire, 12);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->returns === null) {
                     $this->returns = new \Protobuf\StreamCollection();
                 }
 
-                $this->returns->add($reader->readByteStream($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->returns->add($reader->readByteStream($stream));
+                }
 
                 continue;
             }

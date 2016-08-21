@@ -450,25 +450,31 @@ class IapItemDisplay extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 4) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->item_ids === null) {
                     $this->item_ids = new \Protobuf\EnumCollection();
                 }
 
-                $this->item_ids->add(\POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->item_ids->add(\POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }
 
             if ($tag === 5) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->counts === null) {
                     $this->counts = new \Protobuf\ScalarCollection();
                 }
 
-                $this->counts->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->counts->add($reader->readVarint($stream));
+                }
 
                 continue;
             }

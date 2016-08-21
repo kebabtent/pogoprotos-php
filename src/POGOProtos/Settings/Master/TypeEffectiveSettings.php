@@ -256,13 +256,16 @@ class TypeEffectiveSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->attack_scalar === null) {
                     $this->attack_scalar = new \Protobuf\ScalarCollection();
                 }
 
-                $this->attack_scalar->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->attack_scalar->add($reader->readFloat($stream));
+                }
 
                 continue;
             }

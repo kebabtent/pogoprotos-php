@@ -514,13 +514,16 @@ class IncenseAttributes extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->pokemon_type === null) {
                     $this->pokemon_type = new \Protobuf\EnumCollection();
                 }
 
-                $this->pokemon_type->add(\POGOProtos\Enums\PokemonType::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->pokemon_type->add(\POGOProtos\Enums\PokemonType::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }

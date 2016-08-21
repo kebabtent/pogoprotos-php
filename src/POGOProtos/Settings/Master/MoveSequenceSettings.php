@@ -204,13 +204,16 @@ class MoveSequenceSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 9);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->sequence === null) {
                     $this->sequence = new \Protobuf\ScalarCollection();
                 }
 
-                $this->sequence->add($reader->readString($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->sequence->add($reader->readString($stream));
+                }
 
                 continue;
             }

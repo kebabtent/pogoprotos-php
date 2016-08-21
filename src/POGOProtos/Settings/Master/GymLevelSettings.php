@@ -411,49 +411,61 @@ class GymLevelSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->required_experience === null) {
                     $this->required_experience = new \Protobuf\ScalarCollection();
                 }
 
-                $this->required_experience->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->required_experience->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->leader_slots === null) {
                     $this->leader_slots = new \Protobuf\ScalarCollection();
                 }
 
-                $this->leader_slots->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->leader_slots->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->trainer_slots === null) {
                     $this->trainer_slots = new \Protobuf\ScalarCollection();
                 }
 
-                $this->trainer_slots->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->trainer_slots->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 4) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->search_roll_bonus === null) {
                     $this->search_roll_bonus = new \Protobuf\ScalarCollection();
                 }
 
-                $this->search_roll_bonus->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->search_roll_bonus->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
