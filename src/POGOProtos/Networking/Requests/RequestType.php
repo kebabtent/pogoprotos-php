@@ -275,6 +275,16 @@ class RequestType extends \Protobuf\Enum
     const SET_CONTACT_SETTINGS_VALUE = 151;
 
     /**
+     * SET_BUDDY_POKEMON = 152
+     */
+    const SET_BUDDY_POKEMON_VALUE = 152;
+
+    /**
+     * GET_BUDDY_WALKED = 153
+     */
+    const GET_BUDDY_WALKED_VALUE = 153;
+
+    /**
      * GET_ASSET_DIGEST = 300
      */
     const GET_ASSET_DIGEST_VALUE = 300;
@@ -318,6 +328,16 @@ class RequestType extends \Protobuf\Enum
      * LOAD_SPAWN_POINTS = 500
      */
     const LOAD_SPAWN_POINTS_VALUE = 500;
+
+    /**
+     * CHECK_CHALLENGE = 600
+     */
+    const CHECK_CHALLENGE_VALUE = 600;
+
+    /**
+     * VERIFY_CHALLENGE = 601
+     */
+    const VERIFY_CHALLENGE_VALUE = 601;
 
     /**
      * ECHO = 666
@@ -632,6 +652,16 @@ class RequestType extends \Protobuf\Enum
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
      */
+    protected static $SET_BUDDY_POKEMON = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $GET_BUDDY_WALKED = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
     protected static $GET_ASSET_DIGEST = null;
 
     /**
@@ -673,6 +703,16 @@ class RequestType extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Requests\RequestType
      */
     protected static $LOAD_SPAWN_POINTS = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $CHECK_CHALLENGE = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $VERIFY_CHALLENGE = null;
 
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
@@ -1351,6 +1391,30 @@ class RequestType extends \Protobuf\Enum
     /**
      * @return \POGOProtos\Networking\Requests\RequestType
      */
+    public static function SET_BUDDY_POKEMON()
+    {
+        if (self::$SET_BUDDY_POKEMON !== null) {
+            return self::$SET_BUDDY_POKEMON;
+        }
+
+        return self::$SET_BUDDY_POKEMON = new self('SET_BUDDY_POKEMON', self::SET_BUDDY_POKEMON_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function GET_BUDDY_WALKED()
+    {
+        if (self::$GET_BUDDY_WALKED !== null) {
+            return self::$GET_BUDDY_WALKED;
+        }
+
+        return self::$GET_BUDDY_WALKED = new self('GET_BUDDY_WALKED', self::GET_BUDDY_WALKED_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
     public static function GET_ASSET_DIGEST()
     {
         if (self::$GET_ASSET_DIGEST !== null) {
@@ -1454,6 +1518,30 @@ class RequestType extends \Protobuf\Enum
         }
 
         return self::$LOAD_SPAWN_POINTS = new self('LOAD_SPAWN_POINTS', self::LOAD_SPAWN_POINTS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function CHECK_CHALLENGE()
+    {
+        if (self::$CHECK_CHALLENGE !== null) {
+            return self::$CHECK_CHALLENGE;
+        }
+
+        return self::$CHECK_CHALLENGE = new self('CHECK_CHALLENGE', self::CHECK_CHALLENGE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function VERIFY_CHALLENGE()
+    {
+        if (self::$VERIFY_CHALLENGE !== null) {
+            return self::$VERIFY_CHALLENGE;
+        }
+
+        return self::$VERIFY_CHALLENGE = new self('VERIFY_CHALLENGE', self::VERIFY_CHALLENGE_VALUE);
     }
 
     /**
@@ -1635,6 +1723,8 @@ class RequestType extends \Protobuf\Enum
             case 149: return self::NICKNAME_POKEMON();
             case 150: return self::EQUIP_BADGE();
             case 151: return self::SET_CONTACT_SETTINGS();
+            case 152: return self::SET_BUDDY_POKEMON();
+            case 153: return self::GET_BUDDY_WALKED();
             case 300: return self::GET_ASSET_DIGEST();
             case 301: return self::GET_DOWNLOAD_URLS();
             case 401: return self::GET_SUGGESTED_CODENAMES();
@@ -1644,6 +1734,8 @@ class RequestType extends \Protobuf\Enum
             case 405: return self::SET_PLAYER_TEAM();
             case 406: return self::MARK_TUTORIAL_COMPLETE();
             case 500: return self::LOAD_SPAWN_POINTS();
+            case 600: return self::CHECK_CHALLENGE();
+            case 601: return self::VERIFY_CHALLENGE();
             case 666: return self::ECHO();
             case 700: return self::DEBUG_UPDATE_INVENTORY();
             case 701: return self::DEBUG_DELETE_PLAYER();

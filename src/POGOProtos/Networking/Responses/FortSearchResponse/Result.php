@@ -40,6 +40,11 @@ class Result extends \Protobuf\Enum
     const INVENTORY_FULL_VALUE = 4;
 
     /**
+     * EXCEEDED_DAILY_LIMIT = 5
+     */
+    const EXCEEDED_DAILY_LIMIT_VALUE = 5;
+
+    /**
      * @var \POGOProtos\Networking\Responses\FortSearchResponse\Result
      */
     protected static $NO_RESULT_SET = null;
@@ -63,6 +68,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\FortSearchResponse\Result
      */
     protected static $INVENTORY_FULL = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\FortSearchResponse\Result
+     */
+    protected static $EXCEEDED_DAILY_LIMIT = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\FortSearchResponse\Result
@@ -125,6 +135,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\FortSearchResponse\Result
+     */
+    public static function EXCEEDED_DAILY_LIMIT()
+    {
+        if (self::$EXCEEDED_DAILY_LIMIT !== null) {
+            return self::$EXCEEDED_DAILY_LIMIT;
+        }
+
+        return self::$EXCEEDED_DAILY_LIMIT = new self('EXCEEDED_DAILY_LIMIT', self::EXCEEDED_DAILY_LIMIT_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\FortSearchResponse\Result
      */
@@ -136,6 +158,7 @@ class Result extends \Protobuf\Enum
             case 2: return self::OUT_OF_RANGE();
             case 3: return self::IN_COOLDOWN_PERIOD();
             case 4: return self::INVENTORY_FULL();
+            case 5: return self::EXCEEDED_DAILY_LIMIT();
             default: return null;
         }
     }

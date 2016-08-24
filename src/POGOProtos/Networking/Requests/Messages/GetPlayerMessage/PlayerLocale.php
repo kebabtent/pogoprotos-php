@@ -6,12 +6,13 @@
  */
 
 
-namespace POGOProtos\Networking\Requests\Messages;
+namespace POGOProtos\Networking\Requests\Messages\GetPlayerMessage;
 
 /**
- * Protobuf message : POGOProtos.Networking.Requests.Messages.GetPlayerMessage
+ * Protobuf message :
+ * POGOProtos.Networking.Requests.Messages.GetPlayerMessage.PlayerLocale
  */
-class GetPlayerMessage extends \Protobuf\AbstractMessage
+class PlayerLocale extends \Protobuf\AbstractMessage
 {
 
     /**
@@ -25,40 +26,77 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * player_locale optional message = 1
+     * country optional string = 1
      *
-     * @var \POGOProtos\Networking\Requests\Messages\GetPlayerMessage\PlayerLocale
+     * @var string
      */
-    protected $player_locale = null;
+    protected $country = null;
 
     /**
-     * Check if 'player_locale' has a value
+     * language optional string = 2
+     *
+     * @var string
+     */
+    protected $language = null;
+
+    /**
+     * Check if 'country' has a value
      *
      * @return bool
      */
-    public function hasPlayerLocale()
+    public function hasCountry()
     {
-        return $this->player_locale !== null;
+        return $this->country !== null;
     }
 
     /**
-     * Get 'player_locale' value
+     * Get 'country' value
      *
-     * @return \POGOProtos\Networking\Requests\Messages\GetPlayerMessage\PlayerLocale
+     * @return string
      */
-    public function getPlayerLocale()
+    public function getCountry()
     {
-        return $this->player_locale;
+        return $this->country;
     }
 
     /**
-     * Set 'player_locale' value
+     * Set 'country' value
      *
-     * @param \POGOProtos\Networking\Requests\Messages\GetPlayerMessage\PlayerLocale $value
+     * @param string $value
      */
-    public function setPlayerLocale(\POGOProtos\Networking\Requests\Messages\GetPlayerMessage\PlayerLocale $value = null)
+    public function setCountry($value = null)
     {
-        $this->player_locale = $value;
+        $this->country = $value;
+    }
+
+    /**
+     * Check if 'language' has a value
+     *
+     * @return bool
+     */
+    public function hasLanguage()
+    {
+        return $this->language !== null;
+    }
+
+    /**
+     * Get 'language' value
+     *
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /**
+     * Set 'language' value
+     *
+     * @param string $value
+     */
+    public function setLanguage($value = null)
+    {
+        $this->language = $value;
     }
 
     /**
@@ -96,10 +134,12 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'player_locale' => null
+            'country' => null,
+            'language' => null
         ], $values);
 
-        $message->setPlayerLocale($values['player_locale']);
+        $message->setCountry($values['country']);
+        $message->setLanguage($values['language']);
 
         return $message;
     }
@@ -110,14 +150,19 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
     public static function descriptor()
     {
         return \google\protobuf\DescriptorProto::fromArray([
-            'name'      => 'GetPlayerMessage',
+            'name'      => 'PlayerLocale',
             'field'     => [
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 1,
-                    'name' => 'player_locale',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
-                    'type_name' => '.POGOProtos.Networking.Requests.Messages.GetPlayerMessage.PlayerLocale'
+                    'name' => 'country',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 2,
+                    'name' => 'language',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -147,10 +192,14 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
         $writer      = $context->getWriter();
         $sizeContext = $context->getComputeSizeContext();
 
-        if ($this->player_locale !== null) {
+        if ($this->country !== null) {
             $writer->writeVarint($stream, 10);
-            $writer->writeVarint($stream, $this->player_locale->serializedSize($sizeContext));
-            $this->player_locale->writeTo($context);
+            $writer->writeString($stream, $this->country);
+        }
+
+        if ($this->language !== null) {
+            $writer->writeVarint($stream, 18);
+            $writer->writeString($stream, $this->language);
         }
 
         if ($this->extensions !== null) {
@@ -188,16 +237,17 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 11);
+                \Protobuf\WireFormat::assertWireType($wire, 9);
 
-                $innerSize    = $reader->readVarint($stream);
-                $innerMessage = new \POGOProtos\Networking\Requests\Messages\GetPlayerMessage\PlayerLocale();
+                $this->country = $reader->readString($stream);
 
-                $this->player_locale = $innerMessage;
+                continue;
+            }
 
-                $context->setLength($innerSize);
-                $innerMessage->readFrom($context);
-                $context->setLength($length);
+            if ($tag === 2) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->language = $reader->readString($stream);
 
                 continue;
             }
@@ -231,12 +281,14 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
         $calculator = $context->getSizeCalculator();
         $size       = 0;
 
-        if ($this->player_locale !== null) {
-            $innerSize = $this->player_locale->serializedSize($context);
-
+        if ($this->country !== null) {
             $size += 1;
-            $size += $innerSize;
-            $size += $calculator->computeVarintSize($innerSize);
+            $size += $calculator->computeStringSize($this->country);
+        }
+
+        if ($this->language !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->language);
         }
 
         if ($this->extensions !== null) {
@@ -251,7 +303,8 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
      */
     public function clear()
     {
-        $this->player_locale = null;
+        $this->country = null;
+        $this->language = null;
     }
 
     /**
@@ -259,11 +312,12 @@ class GetPlayerMessage extends \Protobuf\AbstractMessage
      */
     public function merge(\Protobuf\Message $message)
     {
-        if ( ! $message instanceof \POGOProtos\Networking\Requests\Messages\GetPlayerMessage) {
+        if ( ! $message instanceof \POGOProtos\Networking\Requests\Messages\GetPlayerMessage\PlayerLocale) {
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
 
-        $this->player_locale = ($message->player_locale !== null) ? $message->player_locale : $this->player_locale;
+        $this->country = ($message->country !== null) ? $message->country : $this->country;
+        $this->language = ($message->language !== null) ? $message->language : $this->language;
     }
 
 

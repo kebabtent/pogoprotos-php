@@ -40,6 +40,11 @@ class Result extends \Protobuf\Enum
     const ERROR_POKEMON_IS_EGG_VALUE = 4;
 
     /**
+     * ERROR_POKEMON_IS_BUDDY = 5
+     */
+    const ERROR_POKEMON_IS_BUDDY_VALUE = 5;
+
+    /**
      * @var \POGOProtos\Networking\Responses\ReleasePokemonResponse\Result
      */
     protected static $UNSET = null;
@@ -63,6 +68,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\ReleasePokemonResponse\Result
      */
     protected static $ERROR_POKEMON_IS_EGG = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\ReleasePokemonResponse\Result
+     */
+    protected static $ERROR_POKEMON_IS_BUDDY = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\ReleasePokemonResponse\Result
@@ -125,6 +135,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\ReleasePokemonResponse\Result
+     */
+    public static function ERROR_POKEMON_IS_BUDDY()
+    {
+        if (self::$ERROR_POKEMON_IS_BUDDY !== null) {
+            return self::$ERROR_POKEMON_IS_BUDDY;
+        }
+
+        return self::$ERROR_POKEMON_IS_BUDDY = new self('ERROR_POKEMON_IS_BUDDY', self::ERROR_POKEMON_IS_BUDDY_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\ReleasePokemonResponse\Result
      */
@@ -136,6 +158,7 @@ class Result extends \Protobuf\Enum
             case 2: return self::POKEMON_DEPLOYED();
             case 3: return self::FAILED();
             case 4: return self::ERROR_POKEMON_IS_EGG();
+            case 5: return self::ERROR_POKEMON_IS_BUDDY();
             default: return null;
         }
     }

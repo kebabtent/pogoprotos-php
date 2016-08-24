@@ -109,6 +109,13 @@ class PlayerData extends \Protobuf\AbstractMessage
     protected $remaining_codename_claims = null;
 
     /**
+     * buddy_pokemon optional message = 16
+     *
+     * @var \POGOProtos\Data\BuddyPokemon
+     */
+    protected $buddy_pokemon = null;
+
+    /**
      * Check if 'creation_timestamp_ms' has a value
      *
      * @return bool
@@ -497,6 +504,36 @@ class PlayerData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'buddy_pokemon' has a value
+     *
+     * @return bool
+     */
+    public function hasBuddyPokemon()
+    {
+        return $this->buddy_pokemon !== null;
+    }
+
+    /**
+     * Get 'buddy_pokemon' value
+     *
+     * @return \POGOProtos\Data\BuddyPokemon
+     */
+    public function getBuddyPokemon()
+    {
+        return $this->buddy_pokemon;
+    }
+
+    /**
+     * Set 'buddy_pokemon' value
+     *
+     * @param \POGOProtos\Data\BuddyPokemon $value
+     */
+    public function setBuddyPokemon(\POGOProtos\Data\BuddyPokemon $value = null)
+    {
+        $this->buddy_pokemon = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -542,7 +579,8 @@ class PlayerData extends \Protobuf\AbstractMessage
             'equipped_badge' => null,
             'contact_settings' => null,
             'currencies' => [],
-            'remaining_codename_claims' => null
+            'remaining_codename_claims' => null,
+            'buddy_pokemon' => null
         ], $values);
 
         $message->setCreationTimestampMs($values['creation_timestamp_ms']);
@@ -555,6 +593,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $message->setEquippedBadge($values['equipped_badge']);
         $message->setContactSettings($values['contact_settings']);
         $message->setRemainingCodenameClaims($values['remaining_codename_claims']);
+        $message->setBuddyPokemon($values['buddy_pokemon']);
 
         foreach ($values['tutorial_state'] as $item) {
             $message->addTutorialState($item);
@@ -653,6 +692,13 @@ class PlayerData extends \Protobuf\AbstractMessage
                     'name' => 'remaining_codename_claims',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 16,
+                    'name' => 'buddy_pokemon',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.BuddyPokemon'
                 ]),
             ],
         ]);
@@ -758,6 +804,12 @@ class PlayerData extends \Protobuf\AbstractMessage
         if ($this->remaining_codename_claims !== null) {
             $writer->writeVarint($stream, 120);
             $writer->writeVarint($stream, $this->remaining_codename_claims);
+        }
+
+        if ($this->buddy_pokemon !== null) {
+            $writer->writeVarint($stream, 130);
+            $writer->writeVarint($stream, $this->buddy_pokemon->serializedSize($sizeContext));
+            $this->buddy_pokemon->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -936,6 +988,21 @@ class PlayerData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 16) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\BuddyPokemon();
+
+                $this->buddy_pokemon = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1049,6 +1116,14 @@ class PlayerData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->remaining_codename_claims);
         }
 
+        if ($this->buddy_pokemon !== null) {
+            $innerSize = $this->buddy_pokemon->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1073,6 +1148,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $this->contact_settings = null;
         $this->currencies = null;
         $this->remaining_codename_claims = null;
+        $this->buddy_pokemon = null;
     }
 
     /**
@@ -1096,6 +1172,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $this->contact_settings = ($message->contact_settings !== null) ? $message->contact_settings : $this->contact_settings;
         $this->currencies = ($message->currencies !== null) ? $message->currencies : $this->currencies;
         $this->remaining_codename_claims = ($message->remaining_codename_claims !== null) ? $message->remaining_codename_claims : $this->remaining_codename_claims;
+        $this->buddy_pokemon = ($message->buddy_pokemon !== null) ? $message->buddy_pokemon : $this->buddy_pokemon;
     }
 
 

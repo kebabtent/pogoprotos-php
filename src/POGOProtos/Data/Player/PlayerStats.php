@@ -172,9 +172,9 @@ class PlayerStats extends \Protobuf\AbstractMessage
     protected $pokemon_deployed = null;
 
     /**
-     * pokemon_caught_by_type optional bytes = 22
+     * pokemon_caught_by_type repeated int32 = 22
      *
-     * @var \Protobuf\Stream
+     * @var \Protobuf\Collection
      */
     protected $pokemon_caught_by_type = null;
 
@@ -820,7 +820,7 @@ class PlayerStats extends \Protobuf\AbstractMessage
      *
      * @return bool
      */
-    public function hasPokemonCaughtByType()
+    public function hasPokemonCaughtByTypeList()
     {
         return $this->pokemon_caught_by_type !== null;
     }
@@ -828,9 +828,9 @@ class PlayerStats extends \Protobuf\AbstractMessage
     /**
      * Get 'pokemon_caught_by_type' value
      *
-     * @return \Protobuf\Stream
+     * @return \Protobuf\Collection
      */
-    public function getPokemonCaughtByType()
+    public function getPokemonCaughtByTypeList()
     {
         return $this->pokemon_caught_by_type;
     }
@@ -838,15 +838,25 @@ class PlayerStats extends \Protobuf\AbstractMessage
     /**
      * Set 'pokemon_caught_by_type' value
      *
-     * @param \Protobuf\Stream $value
+     * @param \Protobuf\Collection $value
      */
-    public function setPokemonCaughtByType($value = null)
+    public function setPokemonCaughtByTypeList(\Protobuf\Collection $value = null)
     {
-        if ($value !== null && ! $value instanceof \Protobuf\Stream) {
-            $value = \Protobuf\Stream::wrap($value);
+        $this->pokemon_caught_by_type = $value;
+    }
+
+    /**
+     * Add a new element to 'pokemon_caught_by_type'
+     *
+     * @param int $value
+     */
+    public function addPokemonCaughtByType($value)
+    {
+        if ($this->pokemon_caught_by_type === null) {
+            $this->pokemon_caught_by_type = new \Protobuf\ScalarCollection();
         }
 
-        $this->pokemon_caught_by_type = $value;
+        $this->pokemon_caught_by_type->add($value);
     }
 
     /**
@@ -935,7 +945,7 @@ class PlayerStats extends \Protobuf\AbstractMessage
             'prestige_raised_total' => null,
             'prestige_dropped_total' => null,
             'pokemon_deployed' => null,
-            'pokemon_caught_by_type' => null,
+            'pokemon_caught_by_type' => [],
             'small_rattata_caught' => null
         ], $values);
 
@@ -960,8 +970,11 @@ class PlayerStats extends \Protobuf\AbstractMessage
         $message->setPrestigeRaisedTotal($values['prestige_raised_total']);
         $message->setPrestigeDroppedTotal($values['prestige_dropped_total']);
         $message->setPokemonDeployed($values['pokemon_deployed']);
-        $message->setPokemonCaughtByType($values['pokemon_caught_by_type']);
         $message->setSmallRattataCaught($values['small_rattata_caught']);
+
+        foreach ($values['pokemon_caught_by_type'] as $item) {
+            $message->addPokemonCaughtByType($item);
+        }
 
         return $message;
     }
@@ -1103,8 +1116,8 @@ class PlayerStats extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 22,
                     'name' => 'pokemon_caught_by_type',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BYTES(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 23,
@@ -1246,8 +1259,10 @@ class PlayerStats extends \Protobuf\AbstractMessage
         }
 
         if ($this->pokemon_caught_by_type !== null) {
-            $writer->writeVarint($stream, 178);
-            $writer->writeByteStream($stream, $this->pokemon_caught_by_type);
+            foreach ($this->pokemon_caught_by_type as $val) {
+                $writer->writeVarint($stream, 176);
+                $writer->writeVarint($stream, $val);
+            }
         }
 
         if ($this->small_rattata_caught !== null) {
@@ -1458,9 +1473,16 @@ class PlayerStats extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 22) {
-                \Protobuf\WireFormat::assertWireType($wire, 12);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
-                $this->pokemon_caught_by_type = $reader->readByteStream($stream);
+                if ($this->pokemon_caught_by_type === null) {
+                    $this->pokemon_caught_by_type = new \Protobuf\ScalarCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->pokemon_caught_by_type->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
@@ -1608,8 +1630,10 @@ class PlayerStats extends \Protobuf\AbstractMessage
         }
 
         if ($this->pokemon_caught_by_type !== null) {
-            $size += 2;
-            $size += $calculator->computeByteStreamSize($this->pokemon_caught_by_type);
+            foreach ($this->pokemon_caught_by_type as $val) {
+                $size += 2;
+                $size += $calculator->computeVarintSize($val);
+            }
         }
 
         if ($this->small_rattata_caught !== null) {

@@ -172,6 +172,20 @@ class PokemonSettings extends \Protobuf\AbstractMessage
     protected $candy_to_evolve = null;
 
     /**
+     * km_buddy_distance optional float = 23
+     *
+     * @var float
+     */
+    protected $km_buddy_distance = null;
+
+    /**
+     * buddy_size optional enum = 24
+     *
+     * @var \POGOProtos\Settings\Master\PokemonSettings\BuddySize
+     */
+    protected $buddy_size = null;
+
+    /**
      * Check if 'pokemon_id' has a value
      *
      * @return bool
@@ -858,6 +872,66 @@ class PokemonSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'km_buddy_distance' has a value
+     *
+     * @return bool
+     */
+    public function hasKmBuddyDistance()
+    {
+        return $this->km_buddy_distance !== null;
+    }
+
+    /**
+     * Get 'km_buddy_distance' value
+     *
+     * @return float
+     */
+    public function getKmBuddyDistance()
+    {
+        return $this->km_buddy_distance;
+    }
+
+    /**
+     * Set 'km_buddy_distance' value
+     *
+     * @param float $value
+     */
+    public function setKmBuddyDistance($value = null)
+    {
+        $this->km_buddy_distance = $value;
+    }
+
+    /**
+     * Check if 'buddy_size' has a value
+     *
+     * @return bool
+     */
+    public function hasBuddySize()
+    {
+        return $this->buddy_size !== null;
+    }
+
+    /**
+     * Get 'buddy_size' value
+     *
+     * @return \POGOProtos\Settings\Master\PokemonSettings\BuddySize
+     */
+    public function getBuddySize()
+    {
+        return $this->buddy_size;
+    }
+
+    /**
+     * Set 'buddy_size' value
+     *
+     * @param \POGOProtos\Settings\Master\PokemonSettings\BuddySize $value
+     */
+    public function setBuddySize(\POGOProtos\Settings\Master\PokemonSettings\BuddySize $value = null)
+    {
+        $this->buddy_size = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -912,7 +986,9 @@ class PokemonSettings extends \Protobuf\AbstractMessage
             'weight_std_dev' => null,
             'km_distance_to_hatch' => null,
             'family_id' => null,
-            'candy_to_evolve' => null
+            'candy_to_evolve' => null,
+            'km_buddy_distance' => null,
+            'buddy_size' => null
         ], $values);
 
         $message->setPokemonId($values['pokemon_id']);
@@ -932,6 +1008,8 @@ class PokemonSettings extends \Protobuf\AbstractMessage
         $message->setKmDistanceToHatch($values['km_distance_to_hatch']);
         $message->setFamilyId($values['family_id']);
         $message->setCandyToEvolve($values['candy_to_evolve']);
+        $message->setKmBuddyDistance($values['km_buddy_distance']);
+        $message->setBuddySize($values['buddy_size']);
 
         foreach ($values['quick_moves'] as $item) {
             $message->addQuickMoves($item);
@@ -1098,6 +1176,19 @@ class PokemonSettings extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 23,
+                    'name' => 'km_buddy_distance',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 24,
+                    'name' => 'buddy_size',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.Master.PokemonSettings.BuddySize'
+                ]),
             ],
         ]);
     }
@@ -1240,6 +1331,16 @@ class PokemonSettings extends \Protobuf\AbstractMessage
         if ($this->candy_to_evolve !== null) {
             $writer->writeVarint($stream, 176);
             $writer->writeVarint($stream, $this->candy_to_evolve);
+        }
+
+        if ($this->km_buddy_distance !== null) {
+            $writer->writeVarint($stream, 189);
+            $writer->writeFloat($stream, $this->km_buddy_distance);
+        }
+
+        if ($this->buddy_size !== null) {
+            $writer->writeVarint($stream, 192);
+            $writer->writeVarint($stream, $this->buddy_size->value());
         }
 
         if ($this->extensions !== null) {
@@ -1493,6 +1594,22 @@ class PokemonSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 23) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->km_buddy_distance = $reader->readFloat($stream);
+
+                continue;
+            }
+
+            if ($tag === 24) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                $this->buddy_size = \POGOProtos\Settings\Master\PokemonSettings\BuddySize::valueOf($reader->readVarint($stream));
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1644,6 +1761,16 @@ class PokemonSettings extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->candy_to_evolve);
         }
 
+        if ($this->km_buddy_distance !== null) {
+            $size += 2;
+            $size += 4;
+        }
+
+        if ($this->buddy_size !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->buddy_size->value());
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1677,6 +1804,8 @@ class PokemonSettings extends \Protobuf\AbstractMessage
         $this->km_distance_to_hatch = null;
         $this->family_id = null;
         $this->candy_to_evolve = null;
+        $this->km_buddy_distance = null;
+        $this->buddy_size = null;
     }
 
     /**
@@ -1709,6 +1838,8 @@ class PokemonSettings extends \Protobuf\AbstractMessage
         $this->km_distance_to_hatch = ($message->km_distance_to_hatch !== null) ? $message->km_distance_to_hatch : $this->km_distance_to_hatch;
         $this->family_id = ($message->family_id !== null) ? $message->family_id : $this->family_id;
         $this->candy_to_evolve = ($message->candy_to_evolve !== null) ? $message->candy_to_evolve : $this->candy_to_evolve;
+        $this->km_buddy_distance = ($message->km_buddy_distance !== null) ? $message->km_buddy_distance : $this->km_buddy_distance;
+        $this->buddy_size = ($message->buddy_size !== null) ? $message->buddy_size : $this->buddy_size;
     }
 
 

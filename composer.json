@@ -6,12 +6,6 @@
     "php": ">=5.5",
     "protobuf-php/protobuf": "~0.1"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/Droeftoeter/protobuf-plugin"
-    }
-  ],
   "keywords": [
     "pokemon-go",
     "Pokémon",
@@ -36,6 +30,13 @@
   "require-dev": {
     "protobuf-php/protobuf-plugin": "dev-master#fea131adaf9a9b6a409917050202ee0bb0c8b101"
   },
+  "repositories":
+  [
+    {
+      "type": "vcs",
+      "url": "https://github.com/Droeftoeter/protobuf-plugin"
+    }
+  ],
   "autoload": {
     "classmap": [
       "src/"

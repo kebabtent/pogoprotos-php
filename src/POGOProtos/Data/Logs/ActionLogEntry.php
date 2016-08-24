@@ -53,6 +53,13 @@ class ActionLogEntry extends \Protobuf\AbstractMessage
     protected $fort_search = null;
 
     /**
+     * buddy_pokemon optional message = 5
+     *
+     * @var \POGOProtos\Data\Logs\BuddyPokemonLogEntry
+     */
+    protected $buddy_pokemon = null;
+
+    /**
      * Check if 'timestamp_ms' has a value
      *
      * @return bool
@@ -173,6 +180,36 @@ class ActionLogEntry extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'buddy_pokemon' has a value
+     *
+     * @return bool
+     */
+    public function hasBuddyPokemon()
+    {
+        return $this->buddy_pokemon !== null;
+    }
+
+    /**
+     * Get 'buddy_pokemon' value
+     *
+     * @return \POGOProtos\Data\Logs\BuddyPokemonLogEntry
+     */
+    public function getBuddyPokemon()
+    {
+        return $this->buddy_pokemon;
+    }
+
+    /**
+     * Set 'buddy_pokemon' value
+     *
+     * @param \POGOProtos\Data\Logs\BuddyPokemonLogEntry $value
+     */
+    public function setBuddyPokemon(\POGOProtos\Data\Logs\BuddyPokemonLogEntry $value = null)
+    {
+        $this->buddy_pokemon = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -210,13 +247,15 @@ class ActionLogEntry extends \Protobuf\AbstractMessage
             'timestamp_ms' => null,
             'sfida' => null,
             'catch_pokemon' => null,
-            'fort_search' => null
+            'fort_search' => null,
+            'buddy_pokemon' => null
         ], $values);
 
         $message->setTimestampMs($values['timestamp_ms']);
         $message->setSfida($values['sfida']);
         $message->setCatchPokemon($values['catch_pokemon']);
         $message->setFortSearch($values['fort_search']);
+        $message->setBuddyPokemon($values['buddy_pokemon']);
 
         return $message;
     }
@@ -254,6 +293,13 @@ class ActionLogEntry extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Logs.FortSearchLogEntry'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'buddy_pokemon',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.Logs.BuddyPokemonLogEntry'
                 ]),
             ],
         ]);
@@ -303,6 +349,12 @@ class ActionLogEntry extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 34);
             $writer->writeVarint($stream, $this->fort_search->serializedSize($sizeContext));
             $this->fort_search->writeTo($context);
+        }
+
+        if ($this->buddy_pokemon !== null) {
+            $writer->writeVarint($stream, 42);
+            $writer->writeVarint($stream, $this->buddy_pokemon->serializedSize($sizeContext));
+            $this->buddy_pokemon->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -385,6 +437,21 @@ class ActionLogEntry extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Logs\BuddyPokemonLogEntry();
+
+                $this->buddy_pokemon = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -440,6 +507,14 @@ class ActionLogEntry extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->buddy_pokemon !== null) {
+            $innerSize = $this->buddy_pokemon->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -456,6 +531,7 @@ class ActionLogEntry extends \Protobuf\AbstractMessage
         $this->sfida = null;
         $this->catch_pokemon = null;
         $this->fort_search = null;
+        $this->buddy_pokemon = null;
     }
 
     /**
@@ -471,6 +547,7 @@ class ActionLogEntry extends \Protobuf\AbstractMessage
         $this->sfida = ($message->sfida !== null) ? $message->sfida : $this->sfida;
         $this->catch_pokemon = ($message->catch_pokemon !== null) ? $message->catch_pokemon : $this->catch_pokemon;
         $this->fort_search = ($message->fort_search !== null) ? $message->fort_search : $this->fort_search;
+        $this->buddy_pokemon = ($message->buddy_pokemon !== null) ? $message->buddy_pokemon : $this->buddy_pokemon;
     }
 
 
