@@ -46,9 +46,9 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     protected $requests = null;
 
     /**
-     * unknown6 optional message = 6
+     * unknown6 repeated message = 6
      *
-     * @var \POGOProtos\Networking\Envelopes\Unknown6
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6>
      */
     protected $unknown6 = null;
 
@@ -88,11 +88,11 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     protected $auth_ticket = null;
 
     /**
-     * unknown12 optional int64 = 12
+     * ms_since_last_locationfix optional int64 = 12
      *
      * @var int
      */
-    protected $unknown12 = null;
+    protected $ms_since_last_locationfix = null;
 
     /**
      * Check if 'status_code' has a value
@@ -203,7 +203,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
      *
      * @return bool
      */
-    public function hasUnknown6()
+    public function hasUnknown6List()
     {
         return $this->unknown6 !== null;
     }
@@ -211,9 +211,9 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     /**
      * Get 'unknown6' value
      *
-     * @return \POGOProtos\Networking\Envelopes\Unknown6
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6>
      */
-    public function getUnknown6()
+    public function getUnknown6List()
     {
         return $this->unknown6;
     }
@@ -221,11 +221,25 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     /**
      * Set 'unknown6' value
      *
-     * @param \POGOProtos\Networking\Envelopes\Unknown6 $value
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6> $value
      */
-    public function setUnknown6(\POGOProtos\Networking\Envelopes\Unknown6 $value = null)
+    public function setUnknown6List(\Protobuf\Collection $value = null)
     {
         $this->unknown6 = $value;
+    }
+
+    /**
+     * Add a new element to 'unknown6'
+     *
+     * @param \POGOProtos\Networking\Envelopes\Unknown6 $value
+     */
+    public function addUnknown6(\POGOProtos\Networking\Envelopes\Unknown6 $value)
+    {
+        if ($this->unknown6 === null) {
+            $this->unknown6 = new \Protobuf\MessageCollection();
+        }
+
+        $this->unknown6->add($value);
     }
 
     /**
@@ -379,33 +393,33 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'unknown12' has a value
+     * Check if 'ms_since_last_locationfix' has a value
      *
      * @return bool
      */
-    public function hasUnknown12()
+    public function hasMsSinceLastLocationfix()
     {
-        return $this->unknown12 !== null;
+        return $this->ms_since_last_locationfix !== null;
     }
 
     /**
-     * Get 'unknown12' value
+     * Get 'ms_since_last_locationfix' value
      *
      * @return int
      */
-    public function getUnknown12()
+    public function getMsSinceLastLocationfix()
     {
-        return $this->unknown12;
+        return $this->ms_since_last_locationfix;
     }
 
     /**
-     * Set 'unknown12' value
+     * Set 'ms_since_last_locationfix' value
      *
      * @param int $value
      */
-    public function setUnknown12($value = null)
+    public function setMsSinceLastLocationfix($value = null)
     {
-        $this->unknown12 = $value;
+        $this->ms_since_last_locationfix = $value;
     }
 
     /**
@@ -446,27 +460,30 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             'status_code' => null,
             'request_id' => null,
             'requests' => [],
-            'unknown6' => null,
+            'unknown6' => [],
             'latitude' => null,
             'longitude' => null,
             'altitude' => null,
             'auth_info' => null,
             'auth_ticket' => null,
-            'unknown12' => null
+            'ms_since_last_locationfix' => null
         ], $values);
 
         $message->setStatusCode($values['status_code']);
         $message->setRequestId($values['request_id']);
-        $message->setUnknown6($values['unknown6']);
         $message->setLatitude($values['latitude']);
         $message->setLongitude($values['longitude']);
         $message->setAltitude($values['altitude']);
         $message->setAuthInfo($values['auth_info']);
         $message->setAuthTicket($values['auth_ticket']);
-        $message->setUnknown12($values['unknown12']);
+        $message->setMsSinceLastLocationfix($values['ms_since_last_locationfix']);
 
         foreach ($values['requests'] as $item) {
             $message->addRequests($item);
+        }
+
+        foreach ($values['unknown6'] as $item) {
+            $message->addUnknown6($item);
         }
 
         return $message;
@@ -503,7 +520,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
                     'number' => 6,
                     'name' => 'unknown6',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
                     'type_name' => '.POGOProtos.Networking.Envelopes.Unknown6'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -540,7 +557,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 12,
-                    'name' => 'unknown12',
+                    'name' => 'ms_since_last_locationfix',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -591,9 +608,11 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
         }
 
         if ($this->unknown6 !== null) {
-            $writer->writeVarint($stream, 50);
-            $writer->writeVarint($stream, $this->unknown6->serializedSize($sizeContext));
-            $this->unknown6->writeTo($context);
+            foreach ($this->unknown6 as $val) {
+                $writer->writeVarint($stream, 50);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
+            }
         }
 
         if ($this->latitude !== null) {
@@ -623,9 +642,9 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             $this->auth_ticket->writeTo($context);
         }
 
-        if ($this->unknown12 !== null) {
+        if ($this->ms_since_last_locationfix !== null) {
             $writer->writeVarint($stream, 96);
-            $writer->writeVarint($stream, $this->unknown12);
+            $writer->writeVarint($stream, $this->ms_since_last_locationfix);
         }
 
         if ($this->extensions !== null) {
@@ -703,7 +722,11 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
                 $innerSize    = $reader->readVarint($stream);
                 $innerMessage = new \POGOProtos\Networking\Envelopes\Unknown6();
 
-                $this->unknown6 = $innerMessage;
+                if ($this->unknown6 === null) {
+                    $this->unknown6 = new \Protobuf\MessageCollection();
+                }
+
+                $this->unknown6->add($innerMessage);
 
                 $context->setLength($innerSize);
                 $innerMessage->readFrom($context);
@@ -769,7 +792,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             if ($tag === 12) {
                 \Protobuf\WireFormat::assertWireType($wire, 3);
 
-                $this->unknown12 = $reader->readVarint($stream);
+                $this->ms_since_last_locationfix = $reader->readVarint($stream);
 
                 continue;
             }
@@ -824,11 +847,13 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
         }
 
         if ($this->unknown6 !== null) {
-            $innerSize = $this->unknown6->serializedSize($context);
+            foreach ($this->unknown6 as $val) {
+                $innerSize = $val->serializedSize($context);
 
-            $size += 1;
-            $size += $innerSize;
-            $size += $calculator->computeVarintSize($innerSize);
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
         }
 
         if ($this->latitude !== null) {
@@ -862,9 +887,9 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
-        if ($this->unknown12 !== null) {
+        if ($this->ms_since_last_locationfix !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->unknown12);
+            $size += $calculator->computeVarintSize($this->ms_since_last_locationfix);
         }
 
         if ($this->extensions !== null) {
@@ -888,7 +913,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
         $this->altitude = null;
         $this->auth_info = null;
         $this->auth_ticket = null;
-        $this->unknown12 = null;
+        $this->ms_since_last_locationfix = null;
     }
 
     /**
@@ -909,7 +934,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
         $this->altitude = ($message->altitude !== null) ? $message->altitude : $this->altitude;
         $this->auth_info = ($message->auth_info !== null) ? $message->auth_info : $this->auth_info;
         $this->auth_ticket = ($message->auth_ticket !== null) ? $message->auth_ticket : $this->auth_ticket;
-        $this->unknown12 = ($message->unknown12 !== null) ? $message->unknown12 : $this->unknown12;
+        $this->ms_since_last_locationfix = ($message->ms_since_last_locationfix !== null) ? $message->ms_since_last_locationfix : $this->ms_since_last_locationfix;
     }
 
 

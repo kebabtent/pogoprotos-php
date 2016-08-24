@@ -39,25 +39,25 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
     protected $satellites_prn = null;
 
     /**
-     * snr repeated float = 3
-     *
-     * @var \Protobuf\Collection
-     */
-    protected $snr = null;
-
-    /**
-     * azimuth repeated float = 4
+     * azimuth repeated float = 3
      *
      * @var \Protobuf\Collection
      */
     protected $azimuth = null;
 
     /**
-     * elevation repeated float = 5
+     * elevation repeated float = 4
      *
      * @var \Protobuf\Collection
      */
     protected $elevation = null;
+
+    /**
+     * snr repeated float = 5
+     *
+     * @var \Protobuf\Collection
+     */
+    protected $snr = null;
 
     /**
      * has_almanac repeated bool = 6
@@ -155,50 +155,6 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'snr' has a value
-     *
-     * @return bool
-     */
-    public function hasSnrList()
-    {
-        return $this->snr !== null;
-    }
-
-    /**
-     * Get 'snr' value
-     *
-     * @return \Protobuf\Collection
-     */
-    public function getSnrList()
-    {
-        return $this->snr;
-    }
-
-    /**
-     * Set 'snr' value
-     *
-     * @param \Protobuf\Collection $value
-     */
-    public function setSnrList(\Protobuf\Collection $value = null)
-    {
-        $this->snr = $value;
-    }
-
-    /**
-     * Add a new element to 'snr'
-     *
-     * @param float $value
-     */
-    public function addSnr($value)
-    {
-        if ($this->snr === null) {
-            $this->snr = new \Protobuf\ScalarCollection();
-        }
-
-        $this->snr->add($value);
-    }
-
-    /**
      * Check if 'azimuth' has a value
      *
      * @return bool
@@ -284,6 +240,50 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
         }
 
         $this->elevation->add($value);
+    }
+
+    /**
+     * Check if 'snr' has a value
+     *
+     * @return bool
+     */
+    public function hasSnrList()
+    {
+        return $this->snr !== null;
+    }
+
+    /**
+     * Get 'snr' value
+     *
+     * @return \Protobuf\Collection
+     */
+    public function getSnrList()
+    {
+        return $this->snr;
+    }
+
+    /**
+     * Set 'snr' value
+     *
+     * @param \Protobuf\Collection $value
+     */
+    public function setSnrList(\Protobuf\Collection $value = null)
+    {
+        $this->snr = $value;
+    }
+
+    /**
+     * Add a new element to 'snr'
+     *
+     * @param float $value
+     */
+    public function addSnr($value)
+    {
+        if ($this->snr === null) {
+            $this->snr = new \Protobuf\ScalarCollection();
+        }
+
+        $this->snr->add($value);
     }
 
     /**
@@ -455,9 +455,9 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'time_to_fix' => null,
             'satellites_prn' => [],
-            'snr' => [],
             'azimuth' => [],
             'elevation' => [],
+            'snr' => [],
             'has_almanac' => [],
             'has_ephemeris' => [],
             'used_in_fix' => []
@@ -469,16 +469,16 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
             $message->addSatellitesPrn($item);
         }
 
-        foreach ($values['snr'] as $item) {
-            $message->addSnr($item);
-        }
-
         foreach ($values['azimuth'] as $item) {
             $message->addAzimuth($item);
         }
 
         foreach ($values['elevation'] as $item) {
             $message->addElevation($item);
+        }
+
+        foreach ($values['snr'] as $item) {
+            $message->addSnr($item);
         }
 
         foreach ($values['has_almanac'] as $item) {
@@ -518,19 +518,19 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 3,
-                    'name' => 'snr',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
-                ]),
-                \google\protobuf\FieldDescriptorProto::fromArray([
-                    'number' => 4,
                     'name' => 'azimuth',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
-                    'number' => 5,
+                    'number' => 4,
                     'name' => 'elevation',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'snr',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
@@ -592,22 +592,22 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
             }
         }
 
-        if ($this->snr !== null) {
-            foreach ($this->snr as $val) {
-                $writer->writeVarint($stream, 29);
-                $writer->writeFloat($stream, $val);
-            }
-        }
-
         if ($this->azimuth !== null) {
             foreach ($this->azimuth as $val) {
-                $writer->writeVarint($stream, 37);
+                $writer->writeVarint($stream, 29);
                 $writer->writeFloat($stream, $val);
             }
         }
 
         if ($this->elevation !== null) {
             foreach ($this->elevation as $val) {
+                $writer->writeVarint($stream, 37);
+                $writer->writeFloat($stream, $val);
+            }
+        }
+
+        if ($this->snr !== null) {
+            foreach ($this->snr as $val) {
                 $writer->writeVarint($stream, 45);
                 $writer->writeFloat($stream, $val);
             }
@@ -695,21 +695,6 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
                 $innerSize  = $reader->readVarint($stream);
                 $innerLimit = $stream->tell() + $innerSize;
 
-                if ($this->snr === null) {
-                    $this->snr = new \Protobuf\ScalarCollection();
-                }
-
-                while ($stream->tell() < $innerLimit) {
-                    $this->snr->add($reader->readFloat($stream));
-                }
-
-                continue;
-            }
-
-            if ($tag === 4) {
-                $innerSize  = $reader->readVarint($stream);
-                $innerLimit = $stream->tell() + $innerSize;
-
                 if ($this->azimuth === null) {
                     $this->azimuth = new \Protobuf\ScalarCollection();
                 }
@@ -721,7 +706,7 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
                 continue;
             }
 
-            if ($tag === 5) {
+            if ($tag === 4) {
                 $innerSize  = $reader->readVarint($stream);
                 $innerLimit = $stream->tell() + $innerSize;
 
@@ -731,6 +716,21 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
 
                 while ($stream->tell() < $innerLimit) {
                     $this->elevation->add($reader->readFloat($stream));
+                }
+
+                continue;
+            }
+
+            if ($tag === 5) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->snr === null) {
+                    $this->snr = new \Protobuf\ScalarCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->snr->add($reader->readFloat($stream));
                 }
 
                 continue;
@@ -813,13 +813,6 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
             }
         }
 
-        if ($this->snr !== null) {
-            foreach ($this->snr as $val) {
-                $size += 1;
-                $size += 4;
-            }
-        }
-
         if ($this->azimuth !== null) {
             foreach ($this->azimuth as $val) {
                 $size += 1;
@@ -829,6 +822,13 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
 
         if ($this->elevation !== null) {
             foreach ($this->elevation as $val) {
+                $size += 1;
+                $size += 4;
+            }
+        }
+
+        if ($this->snr !== null) {
+            foreach ($this->snr as $val) {
                 $size += 1;
                 $size += 4;
             }
@@ -869,9 +869,9 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
     {
         $this->time_to_fix = null;
         $this->satellites_prn = null;
-        $this->snr = null;
         $this->azimuth = null;
         $this->elevation = null;
+        $this->snr = null;
         $this->has_almanac = null;
         $this->has_ephemeris = null;
         $this->used_in_fix = null;
@@ -888,9 +888,9 @@ class AndroidGpsInfo extends \Protobuf\AbstractMessage
 
         $this->time_to_fix = ($message->time_to_fix !== null) ? $message->time_to_fix : $this->time_to_fix;
         $this->satellites_prn = ($message->satellites_prn !== null) ? $message->satellites_prn : $this->satellites_prn;
-        $this->snr = ($message->snr !== null) ? $message->snr : $this->snr;
         $this->azimuth = ($message->azimuth !== null) ? $message->azimuth : $this->azimuth;
         $this->elevation = ($message->elevation !== null) ? $message->elevation : $this->elevation;
+        $this->snr = ($message->snr !== null) ? $message->snr : $this->snr;
         $this->has_almanac = ($message->has_almanac !== null) ? $message->has_almanac : $this->has_almanac;
         $this->has_ephemeris = ($message->has_ephemeris !== null) ? $message->has_ephemeris : $this->has_ephemeris;
         $this->used_in_fix = ($message->used_in_fix !== null) ? $message->used_in_fix : $this->used_in_fix;
