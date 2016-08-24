@@ -308,13 +308,16 @@ class MarkTutorialCompleteMessage extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->tutorials_completed === null) {
                     $this->tutorials_completed = new \Protobuf\EnumCollection();
                 }
 
-                $this->tutorials_completed->add(\POGOProtos\Enums\TutorialState::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->tutorials_completed->add(\POGOProtos\Enums\TutorialState::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }

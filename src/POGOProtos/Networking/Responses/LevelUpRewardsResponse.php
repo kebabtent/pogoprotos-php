@@ -355,13 +355,16 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 4) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->items_unlocked === null) {
                     $this->items_unlocked = new \Protobuf\EnumCollection();
                 }
 
-                $this->items_unlocked->add(\POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->items_unlocked->add(\POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }

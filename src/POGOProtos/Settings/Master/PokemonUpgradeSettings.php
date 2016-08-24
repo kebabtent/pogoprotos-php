@@ -390,25 +390,31 @@ class PokemonUpgradeSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->candy_cost === null) {
                     $this->candy_cost = new \Protobuf\ScalarCollection();
                 }
 
-                $this->candy_cost->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->candy_cost->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 4) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->stardust_cost === null) {
                     $this->stardust_cost = new \Protobuf\ScalarCollection();
                 }
 
-                $this->stardust_cost->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->stardust_cost->add($reader->readVarint($stream));
+                }
 
                 continue;
             }

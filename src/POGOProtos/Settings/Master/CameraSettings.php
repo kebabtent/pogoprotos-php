@@ -1231,181 +1231,226 @@ class CameraSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->interpolation === null) {
                     $this->interpolation = new \Protobuf\EnumCollection();
                 }
 
-                $this->interpolation->add(\POGOProtos\Enums\CameraInterpolation::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->interpolation->add(\POGOProtos\Enums\CameraInterpolation::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->target_type === null) {
                     $this->target_type = new \Protobuf\EnumCollection();
                 }
 
-                $this->target_type->add(\POGOProtos\Enums\CameraTarget::valueOf($reader->readVarint($stream)));
+                while ($stream->tell() < $innerLimit) {
+                    $this->target_type->add(\POGOProtos\Enums\CameraTarget::valueOf($reader->readVarint($stream)));
+                }
 
                 continue;
             }
 
             if ($tag === 4) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->ease_in_speed === null) {
                     $this->ease_in_speed = new \Protobuf\ScalarCollection();
                 }
 
-                $this->ease_in_speed->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->ease_in_speed->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 5) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->east_out_speed === null) {
                     $this->east_out_speed = new \Protobuf\ScalarCollection();
                 }
 
-                $this->east_out_speed->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->east_out_speed->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 6) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->duration_seconds === null) {
                     $this->duration_seconds = new \Protobuf\ScalarCollection();
                 }
 
-                $this->duration_seconds->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->duration_seconds->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 7) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->wait_seconds === null) {
                     $this->wait_seconds = new \Protobuf\ScalarCollection();
                 }
 
-                $this->wait_seconds->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->wait_seconds->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 8) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->transition_seconds === null) {
                     $this->transition_seconds = new \Protobuf\ScalarCollection();
                 }
 
-                $this->transition_seconds->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->transition_seconds->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 9) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->angle_degree === null) {
                     $this->angle_degree = new \Protobuf\ScalarCollection();
                 }
 
-                $this->angle_degree->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->angle_degree->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 10) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->angle_offset_degree === null) {
                     $this->angle_offset_degree = new \Protobuf\ScalarCollection();
                 }
 
-                $this->angle_offset_degree->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->angle_offset_degree->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 11) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->pitch_degree === null) {
                     $this->pitch_degree = new \Protobuf\ScalarCollection();
                 }
 
-                $this->pitch_degree->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->pitch_degree->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 12) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->pitch_offset_degree === null) {
                     $this->pitch_offset_degree = new \Protobuf\ScalarCollection();
                 }
 
-                $this->pitch_offset_degree->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->pitch_offset_degree->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 13) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->roll_degree === null) {
                     $this->roll_degree = new \Protobuf\ScalarCollection();
                 }
 
-                $this->roll_degree->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->roll_degree->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 14) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->distance_meters === null) {
                     $this->distance_meters = new \Protobuf\ScalarCollection();
                 }
 
-                $this->distance_meters->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->distance_meters->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 15) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->height_percent === null) {
                     $this->height_percent = new \Protobuf\ScalarCollection();
                 }
 
-                $this->height_percent->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->height_percent->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 16) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->vert_ctr_ratio === null) {
                     $this->vert_ctr_ratio = new \Protobuf\ScalarCollection();
                 }
 
-                $this->vert_ctr_ratio->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->vert_ctr_ratio->add($reader->readFloat($stream));
+                }
 
                 continue;
             }

@@ -235,6 +235,13 @@ class PokemonData extends \Protobuf\AbstractMessage
     protected $from_fort = null;
 
     /**
+     * buddy_candy_awarded optional int32 = 32
+     *
+     * @var int
+     */
+    protected $buddy_candy_awarded = null;
+
+    /**
      * Check if 'id' has a value
      *
      * @return bool
@@ -1135,6 +1142,36 @@ class PokemonData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'buddy_candy_awarded' has a value
+     *
+     * @return bool
+     */
+    public function hasBuddyCandyAwarded()
+    {
+        return $this->buddy_candy_awarded !== null;
+    }
+
+    /**
+     * Get 'buddy_candy_awarded' value
+     *
+     * @return int
+     */
+    public function getBuddyCandyAwarded()
+    {
+        return $this->buddy_candy_awarded;
+    }
+
+    /**
+     * Set 'buddy_candy_awarded' value
+     *
+     * @param int $value
+     */
+    public function setBuddyCandyAwarded($value = null)
+    {
+        $this->buddy_candy_awarded = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -1198,7 +1235,8 @@ class PokemonData extends \Protobuf\AbstractMessage
             'additional_cp_multiplier' => null,
             'favorite' => null,
             'nickname' => null,
-            'from_fort' => null
+            'from_fort' => null,
+            'buddy_candy_awarded' => null
         ], $values);
 
         $message->setId($values['id']);
@@ -1231,6 +1269,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $message->setFavorite($values['favorite']);
         $message->setNickname($values['nickname']);
         $message->setFromFort($values['from_fort']);
+        $message->setBuddyCandyAwarded($values['buddy_candy_awarded']);
 
         return $message;
     }
@@ -1427,6 +1466,12 @@ class PokemonData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 32,
+                    'name' => 'buddy_candy_awarded',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
             ],
         ]);
     }
@@ -1603,6 +1648,11 @@ class PokemonData extends \Protobuf\AbstractMessage
         if ($this->from_fort !== null) {
             $writer->writeVarint($stream, 248);
             $writer->writeVarint($stream, $this->from_fort);
+        }
+
+        if ($this->buddy_candy_awarded !== null) {
+            $writer->writeVarint($stream, 256);
+            $writer->writeVarint($stream, $this->buddy_candy_awarded);
         }
 
         if ($this->extensions !== null) {
@@ -1879,6 +1929,14 @@ class PokemonData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 32) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->buddy_candy_awarded = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -2058,6 +2116,11 @@ class PokemonData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->from_fort);
         }
 
+        if ($this->buddy_candy_awarded !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->buddy_candy_awarded);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -2100,6 +2163,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $this->favorite = null;
         $this->nickname = null;
         $this->from_fort = null;
+        $this->buddy_candy_awarded = null;
     }
 
     /**
@@ -2141,6 +2205,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $this->favorite = ($message->favorite !== null) ? $message->favorite : $this->favorite;
         $this->nickname = ($message->nickname !== null) ? $message->nickname : $this->nickname;
         $this->from_fort = ($message->from_fort !== null) ? $message->from_fort : $this->from_fort;
+        $this->buddy_candy_awarded = ($message->buddy_candy_awarded !== null) ? $message->buddy_candy_awarded : $this->buddy_candy_awarded;
     }
 
 

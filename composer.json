@@ -28,8 +28,15 @@
     }
   ],
   "require-dev": {
-    "protobuf-php/protobuf-plugin": "~0.1"
+    "protobuf-php/protobuf-plugin": "dev-master#fea131adaf9a9b6a409917050202ee0bb0c8b101"
   },
+  "repositories":
+  [
+    {
+      "type": "vcs",
+      "url": "https://github.com/Droeftoeter/protobuf-plugin"
+    }
+  ],
   "autoload": {
     "classmap": [
       "src/"

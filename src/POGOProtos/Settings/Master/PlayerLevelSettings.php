@@ -443,37 +443,46 @@ class PlayerLevelSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->rank_num === null) {
                     $this->rank_num = new \Protobuf\ScalarCollection();
                 }
 
-                $this->rank_num->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->rank_num->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->required_experience === null) {
                     $this->required_experience = new \Protobuf\ScalarCollection();
                 }
 
-                $this->required_experience->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->required_experience->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->cp_multiplier === null) {
                     $this->cp_multiplier = new \Protobuf\ScalarCollection();
                 }
 
-                $this->cp_multiplier->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->cp_multiplier->add($reader->readFloat($stream));
+                }
 
                 continue;
             }

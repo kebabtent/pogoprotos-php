@@ -494,37 +494,46 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->experience_awarded === null) {
                     $this->experience_awarded = new \Protobuf\ScalarCollection();
                 }
 
-                $this->experience_awarded->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->experience_awarded->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 4) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->candy_awarded === null) {
                     $this->candy_awarded = new \Protobuf\ScalarCollection();
                 }
 
-                $this->candy_awarded->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->candy_awarded->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 5) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->stardust_awarded === null) {
                     $this->stardust_awarded = new \Protobuf\ScalarCollection();
                 }
 
-                $this->stardust_awarded->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->stardust_awarded->add($reader->readVarint($stream));
+                }
 
                 continue;
             }

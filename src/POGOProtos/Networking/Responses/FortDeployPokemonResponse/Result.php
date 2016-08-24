@@ -61,6 +61,11 @@ class Result extends \Protobuf\Enum
     const ERROR_PLAYER_BELOW_MINIMUM_LEVEL_VALUE = 8;
 
     /**
+     * ERROR_POKEMON_IS_BUDDY = 9
+     */
+    const ERROR_POKEMON_IS_BUDDY_VALUE = 9;
+
+    /**
      * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
     protected static $NO_RESULT_SET = null;
@@ -104,6 +109,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
     protected static $ERROR_PLAYER_BELOW_MINIMUM_LEVEL = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    protected static $ERROR_POKEMON_IS_BUDDY = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
@@ -214,6 +224,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    public static function ERROR_POKEMON_IS_BUDDY()
+    {
+        if (self::$ERROR_POKEMON_IS_BUDDY !== null) {
+            return self::$ERROR_POKEMON_IS_BUDDY;
+        }
+
+        return self::$ERROR_POKEMON_IS_BUDDY = new self('ERROR_POKEMON_IS_BUDDY', self::ERROR_POKEMON_IS_BUDDY_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
@@ -229,6 +251,7 @@ class Result extends \Protobuf\Enum
             case 6: return self::ERROR_PLAYER_HAS_NO_TEAM();
             case 7: return self::ERROR_POKEMON_NOT_FULL_HP();
             case 8: return self::ERROR_PLAYER_BELOW_MINIMUM_LEVEL();
+            case 9: return self::ERROR_POKEMON_IS_BUDDY();
             default: return null;
         }
     }

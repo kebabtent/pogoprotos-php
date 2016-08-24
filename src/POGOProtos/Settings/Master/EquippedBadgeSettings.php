@@ -332,25 +332,31 @@ class EquippedBadgeSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->catch_probability_bonus === null) {
                     $this->catch_probability_bonus = new \Protobuf\ScalarCollection();
                 }
 
-                $this->catch_probability_bonus->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->catch_probability_bonus->add($reader->readFloat($stream));
+                }
 
                 continue;
             }
 
             if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 2);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->flee_probability_bonus === null) {
                     $this->flee_probability_bonus = new \Protobuf\ScalarCollection();
                 }
 
-                $this->flee_probability_bonus->add($reader->readFloat($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->flee_probability_bonus->add($reader->readFloat($stream));
+                }
 
                 continue;
             }

@@ -532,13 +532,16 @@ class IapSettings extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 2) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
 
                 if ($this->daily_defender_bonus_per_pokemon === null) {
                     $this->daily_defender_bonus_per_pokemon = new \Protobuf\ScalarCollection();
                 }
 
-                $this->daily_defender_bonus_per_pokemon->add($reader->readVarint($stream));
+                while ($stream->tell() < $innerLimit) {
+                    $this->daily_defender_bonus_per_pokemon->add($reader->readVarint($stream));
+                }
 
                 continue;
             }
