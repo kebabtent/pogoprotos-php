@@ -46,11 +46,11 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     protected $requests = null;
 
     /**
-     * unknown6 repeated message = 6
+     * platform_requests repeated message = 6
      *
-     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6>
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\RequestEnvelope\PlatformRequest>
      */
-    protected $unknown6 = null;
+    protected $platform_requests = null;
 
     /**
      * latitude optional double = 7
@@ -67,11 +67,11 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     protected $longitude = null;
 
     /**
-     * altitude optional double = 9
+     * accuracy optional double = 9
      *
      * @var float
      */
-    protected $altitude = null;
+    protected $accuracy = null;
 
     /**
      * auth_info optional message = 10
@@ -199,47 +199,47 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'unknown6' has a value
+     * Check if 'platform_requests' has a value
      *
      * @return bool
      */
-    public function hasUnknown6List()
+    public function hasPlatformRequestsList()
     {
-        return $this->unknown6 !== null;
+        return $this->platform_requests !== null;
     }
 
     /**
-     * Get 'unknown6' value
+     * Get 'platform_requests' value
      *
-     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6>
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\RequestEnvelope\PlatformRequest>
      */
-    public function getUnknown6List()
+    public function getPlatformRequestsList()
     {
-        return $this->unknown6;
+        return $this->platform_requests;
     }
 
     /**
-     * Set 'unknown6' value
+     * Set 'platform_requests' value
      *
-     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6> $value
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\RequestEnvelope\PlatformRequest> $value
      */
-    public function setUnknown6List(\Protobuf\Collection $value = null)
+    public function setPlatformRequestsList(\Protobuf\Collection $value = null)
     {
-        $this->unknown6 = $value;
+        $this->platform_requests = $value;
     }
 
     /**
-     * Add a new element to 'unknown6'
+     * Add a new element to 'platform_requests'
      *
-     * @param \POGOProtos\Networking\Envelopes\Unknown6 $value
+     * @param \POGOProtos\Networking\Envelopes\RequestEnvelope\PlatformRequest $value
      */
-    public function addUnknown6(\POGOProtos\Networking\Envelopes\Unknown6 $value)
+    public function addPlatformRequests(\POGOProtos\Networking\Envelopes\RequestEnvelope\PlatformRequest $value)
     {
-        if ($this->unknown6 === null) {
-            $this->unknown6 = new \Protobuf\MessageCollection();
+        if ($this->platform_requests === null) {
+            $this->platform_requests = new \Protobuf\MessageCollection();
         }
 
-        $this->unknown6->add($value);
+        $this->platform_requests->add($value);
     }
 
     /**
@@ -303,33 +303,33 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'altitude' has a value
+     * Check if 'accuracy' has a value
      *
      * @return bool
      */
-    public function hasAltitude()
+    public function hasAccuracy()
     {
-        return $this->altitude !== null;
+        return $this->accuracy !== null;
     }
 
     /**
-     * Get 'altitude' value
+     * Get 'accuracy' value
      *
      * @return float
      */
-    public function getAltitude()
+    public function getAccuracy()
     {
-        return $this->altitude;
+        return $this->accuracy;
     }
 
     /**
-     * Set 'altitude' value
+     * Set 'accuracy' value
      *
      * @param float $value
      */
-    public function setAltitude($value = null)
+    public function setAccuracy($value = null)
     {
-        $this->altitude = $value;
+        $this->accuracy = $value;
     }
 
     /**
@@ -460,10 +460,10 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             'status_code' => null,
             'request_id' => null,
             'requests' => [],
-            'unknown6' => [],
+            'platform_requests' => [],
             'latitude' => null,
             'longitude' => null,
-            'altitude' => null,
+            'accuracy' => null,
             'auth_info' => null,
             'auth_ticket' => null,
             'ms_since_last_locationfix' => null
@@ -473,7 +473,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
         $message->setRequestId($values['request_id']);
         $message->setLatitude($values['latitude']);
         $message->setLongitude($values['longitude']);
-        $message->setAltitude($values['altitude']);
+        $message->setAccuracy($values['accuracy']);
         $message->setAuthInfo($values['auth_info']);
         $message->setAuthTicket($values['auth_ticket']);
         $message->setMsSinceLastLocationfix($values['ms_since_last_locationfix']);
@@ -482,8 +482,8 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             $message->addRequests($item);
         }
 
-        foreach ($values['unknown6'] as $item) {
-            $message->addUnknown6($item);
+        foreach ($values['platform_requests'] as $item) {
+            $message->addPlatformRequests($item);
         }
 
         return $message;
@@ -518,10 +518,10 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 6,
-                    'name' => 'unknown6',
+                    'name' => 'platform_requests',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
-                    'type_name' => '.POGOProtos.Networking.Envelopes.Unknown6'
+                    'type_name' => '.POGOProtos.Networking.Envelopes.RequestEnvelope.PlatformRequest'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 7,
@@ -537,7 +537,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 9,
-                    'name' => 'altitude',
+                    'name' => 'accuracy',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -607,8 +607,8 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             }
         }
 
-        if ($this->unknown6 !== null) {
-            foreach ($this->unknown6 as $val) {
+        if ($this->platform_requests !== null) {
+            foreach ($this->platform_requests as $val) {
                 $writer->writeVarint($stream, 50);
                 $writer->writeVarint($stream, $val->serializedSize($sizeContext));
                 $val->writeTo($context);
@@ -625,9 +625,9 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             $writer->writeDouble($stream, $this->longitude);
         }
 
-        if ($this->altitude !== null) {
+        if ($this->accuracy !== null) {
             $writer->writeVarint($stream, 73);
-            $writer->writeDouble($stream, $this->altitude);
+            $writer->writeDouble($stream, $this->accuracy);
         }
 
         if ($this->auth_info !== null) {
@@ -720,13 +720,13 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 11);
 
                 $innerSize    = $reader->readVarint($stream);
-                $innerMessage = new \POGOProtos\Networking\Envelopes\Unknown6();
+                $innerMessage = new \POGOProtos\Networking\Envelopes\RequestEnvelope\PlatformRequest();
 
-                if ($this->unknown6 === null) {
-                    $this->unknown6 = new \Protobuf\MessageCollection();
+                if ($this->platform_requests === null) {
+                    $this->platform_requests = new \Protobuf\MessageCollection();
                 }
 
-                $this->unknown6->add($innerMessage);
+                $this->platform_requests->add($innerMessage);
 
                 $context->setLength($innerSize);
                 $innerMessage->readFrom($context);
@@ -754,7 +754,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             if ($tag === 9) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->altitude = $reader->readDouble($stream);
+                $this->accuracy = $reader->readDouble($stream);
 
                 continue;
             }
@@ -846,8 +846,8 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             }
         }
 
-        if ($this->unknown6 !== null) {
-            foreach ($this->unknown6 as $val) {
+        if ($this->platform_requests !== null) {
+            foreach ($this->platform_requests as $val) {
                 $innerSize = $val->serializedSize($context);
 
                 $size += 1;
@@ -866,7 +866,7 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
-        if ($this->altitude !== null) {
+        if ($this->accuracy !== null) {
             $size += 1;
             $size += 8;
         }
@@ -907,10 +907,10 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
         $this->status_code = null;
         $this->request_id = null;
         $this->requests = null;
-        $this->unknown6 = null;
+        $this->platform_requests = null;
         $this->latitude = null;
         $this->longitude = null;
-        $this->altitude = null;
+        $this->accuracy = null;
         $this->auth_info = null;
         $this->auth_ticket = null;
         $this->ms_since_last_locationfix = null;
@@ -928,10 +928,10 @@ class RequestEnvelope extends \Protobuf\AbstractMessage
         $this->status_code = ($message->status_code !== null) ? $message->status_code : $this->status_code;
         $this->request_id = ($message->request_id !== null) ? $message->request_id : $this->request_id;
         $this->requests = ($message->requests !== null) ? $message->requests : $this->requests;
-        $this->unknown6 = ($message->unknown6 !== null) ? $message->unknown6 : $this->unknown6;
+        $this->platform_requests = ($message->platform_requests !== null) ? $message->platform_requests : $this->platform_requests;
         $this->latitude = ($message->latitude !== null) ? $message->latitude : $this->latitude;
         $this->longitude = ($message->longitude !== null) ? $message->longitude : $this->longitude;
-        $this->altitude = ($message->altitude !== null) ? $message->altitude : $this->altitude;
+        $this->accuracy = ($message->accuracy !== null) ? $message->accuracy : $this->accuracy;
         $this->auth_info = ($message->auth_info !== null) ? $message->auth_info : $this->auth_info;
         $this->auth_ticket = ($message->auth_ticket !== null) ? $message->auth_ticket : $this->auth_ticket;
         $this->ms_since_last_locationfix = ($message->ms_since_last_locationfix !== null) ? $message->ms_since_last_locationfix : $this->ms_since_last_locationfix;

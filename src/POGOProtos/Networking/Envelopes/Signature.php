@@ -67,14 +67,14 @@ class Signature extends \Protobuf\AbstractMessage
     protected $activity_status = null;
 
     /**
-     * location_hash1 optional uint64 = 10
+     * location_hash1 optional uint32 = 10
      *
      * @var int
      */
     protected $location_hash1 = null;
 
     /**
-     * location_hash2 optional uint64 = 20
+     * location_hash2 optional uint32 = 20
      *
      * @var int
      */
@@ -623,13 +623,13 @@ class Signature extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 10,
                     'name' => 'location_hash1',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 20,
                     'name' => 'location_hash2',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -875,7 +875,7 @@ class Signature extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 10) {
-                \Protobuf\WireFormat::assertWireType($wire, 4);
+                \Protobuf\WireFormat::assertWireType($wire, 13);
 
                 $this->location_hash1 = $reader->readVarint($stream);
 
@@ -883,7 +883,7 @@ class Signature extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 20) {
-                \Protobuf\WireFormat::assertWireType($wire, 4);
+                \Protobuf\WireFormat::assertWireType($wire, 13);
 
                 $this->location_hash2 = $reader->readVarint($stream);
 

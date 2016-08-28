@@ -25,9 +25,9 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * status_code optional int32 = 1
+     * status_code optional enum = 1
      *
-     * @var int
+     * @var \POGOProtos\Networking\Envelopes\ResponseEnvelope\StatusCode
      */
     protected $status_code = null;
 
@@ -46,11 +46,11 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
     protected $api_url = null;
 
     /**
-     * unknown6 repeated message = 6
+     * platform_returns repeated message = 6
      *
-     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6Response>
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\ResponseEnvelope\PlatformResponse>
      */
-    protected $unknown6 = null;
+    protected $platform_returns = null;
 
     /**
      * auth_ticket optional message = 7
@@ -86,7 +86,7 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
     /**
      * Get 'status_code' value
      *
-     * @return int
+     * @return \POGOProtos\Networking\Envelopes\ResponseEnvelope\StatusCode
      */
     public function getStatusCode()
     {
@@ -96,9 +96,9 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
     /**
      * Set 'status_code' value
      *
-     * @param int $value
+     * @param \POGOProtos\Networking\Envelopes\ResponseEnvelope\StatusCode $value
      */
-    public function setStatusCode($value = null)
+    public function setStatusCode(\POGOProtos\Networking\Envelopes\ResponseEnvelope\StatusCode $value = null)
     {
         $this->status_code = $value;
     }
@@ -164,47 +164,47 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'unknown6' has a value
+     * Check if 'platform_returns' has a value
      *
      * @return bool
      */
-    public function hasUnknown6List()
+    public function hasPlatformReturnsList()
     {
-        return $this->unknown6 !== null;
+        return $this->platform_returns !== null;
     }
 
     /**
-     * Get 'unknown6' value
+     * Get 'platform_returns' value
      *
-     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6Response>
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\ResponseEnvelope\PlatformResponse>
      */
-    public function getUnknown6List()
+    public function getPlatformReturnsList()
     {
-        return $this->unknown6;
+        return $this->platform_returns;
     }
 
     /**
-     * Set 'unknown6' value
+     * Set 'platform_returns' value
      *
-     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Unknown6Response> $value
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\ResponseEnvelope\PlatformResponse> $value
      */
-    public function setUnknown6List(\Protobuf\Collection $value = null)
+    public function setPlatformReturnsList(\Protobuf\Collection $value = null)
     {
-        $this->unknown6 = $value;
+        $this->platform_returns = $value;
     }
 
     /**
-     * Add a new element to 'unknown6'
+     * Add a new element to 'platform_returns'
      *
-     * @param \POGOProtos\Networking\Envelopes\Unknown6Response $value
+     * @param \POGOProtos\Networking\Envelopes\ResponseEnvelope\PlatformResponse $value
      */
-    public function addUnknown6(\POGOProtos\Networking\Envelopes\Unknown6Response $value)
+    public function addPlatformReturns(\POGOProtos\Networking\Envelopes\ResponseEnvelope\PlatformResponse $value)
     {
-        if ($this->unknown6 === null) {
-            $this->unknown6 = new \Protobuf\MessageCollection();
+        if ($this->platform_returns === null) {
+            $this->platform_returns = new \Protobuf\MessageCollection();
         }
 
-        $this->unknown6->add($value);
+        $this->platform_returns->add($value);
     }
 
     /**
@@ -349,7 +349,7 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
             'status_code' => null,
             'request_id' => null,
             'api_url' => null,
-            'unknown6' => [],
+            'platform_returns' => [],
             'auth_ticket' => null,
             'returns' => [],
             'error' => null
@@ -361,8 +361,8 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
         $message->setAuthTicket($values['auth_ticket']);
         $message->setError($values['error']);
 
-        foreach ($values['unknown6'] as $item) {
-            $message->addUnknown6($item);
+        foreach ($values['platform_returns'] as $item) {
+            $message->addPlatformReturns($item);
         }
 
         foreach ($values['returns'] as $item) {
@@ -383,8 +383,9 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 1,
                     'name' => 'status_code',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Networking.Envelopes.ResponseEnvelope.StatusCode'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 2,
@@ -400,10 +401,10 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 6,
-                    'name' => 'unknown6',
+                    'name' => 'platform_returns',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
-                    'type_name' => '.POGOProtos.Networking.Envelopes.Unknown6Response'
+                    'type_name' => '.POGOProtos.Networking.Envelopes.ResponseEnvelope.PlatformResponse'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 7,
@@ -454,7 +455,7 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
 
         if ($this->status_code !== null) {
             $writer->writeVarint($stream, 8);
-            $writer->writeVarint($stream, $this->status_code);
+            $writer->writeVarint($stream, $this->status_code->value());
         }
 
         if ($this->request_id !== null) {
@@ -467,8 +468,8 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
             $writer->writeString($stream, $this->api_url);
         }
 
-        if ($this->unknown6 !== null) {
-            foreach ($this->unknown6 as $val) {
+        if ($this->platform_returns !== null) {
+            foreach ($this->platform_returns as $val) {
                 $writer->writeVarint($stream, 50);
                 $writer->writeVarint($stream, $val->serializedSize($sizeContext));
                 $val->writeTo($context);
@@ -528,9 +529,9 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 5);
+                \Protobuf\WireFormat::assertWireType($wire, 14);
 
-                $this->status_code = $reader->readVarint($stream);
+                $this->status_code = \POGOProtos\Networking\Envelopes\ResponseEnvelope\StatusCode::valueOf($reader->readVarint($stream));
 
                 continue;
             }
@@ -555,13 +556,13 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 11);
 
                 $innerSize    = $reader->readVarint($stream);
-                $innerMessage = new \POGOProtos\Networking\Envelopes\Unknown6Response();
+                $innerMessage = new \POGOProtos\Networking\Envelopes\ResponseEnvelope\PlatformResponse();
 
-                if ($this->unknown6 === null) {
-                    $this->unknown6 = new \Protobuf\MessageCollection();
+                if ($this->platform_returns === null) {
+                    $this->platform_returns = new \Protobuf\MessageCollection();
                 }
 
-                $this->unknown6->add($innerMessage);
+                $this->platform_returns->add($innerMessage);
 
                 $context->setLength($innerSize);
                 $innerMessage->readFrom($context);
@@ -636,7 +637,7 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
 
         if ($this->status_code !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->status_code);
+            $size += $calculator->computeVarintSize($this->status_code->value());
         }
 
         if ($this->request_id !== null) {
@@ -649,8 +650,8 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
             $size += $calculator->computeStringSize($this->api_url);
         }
 
-        if ($this->unknown6 !== null) {
-            foreach ($this->unknown6 as $val) {
+        if ($this->platform_returns !== null) {
+            foreach ($this->platform_returns as $val) {
                 $innerSize = $val->serializedSize($context);
 
                 $size += 1;
@@ -694,7 +695,7 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
         $this->status_code = null;
         $this->request_id = null;
         $this->api_url = null;
-        $this->unknown6 = null;
+        $this->platform_returns = null;
         $this->auth_ticket = null;
         $this->returns = null;
         $this->error = null;
@@ -712,7 +713,7 @@ class ResponseEnvelope extends \Protobuf\AbstractMessage
         $this->status_code = ($message->status_code !== null) ? $message->status_code : $this->status_code;
         $this->request_id = ($message->request_id !== null) ? $message->request_id : $this->request_id;
         $this->api_url = ($message->api_url !== null) ? $message->api_url : $this->api_url;
-        $this->unknown6 = ($message->unknown6 !== null) ? $message->unknown6 : $this->unknown6;
+        $this->platform_returns = ($message->platform_returns !== null) ? $message->platform_returns : $this->platform_returns;
         $this->auth_ticket = ($message->auth_ticket !== null) ? $message->auth_ticket : $this->auth_ticket;
         $this->returns = ($message->returns !== null) ? $message->returns : $this->returns;
         $this->error = ($message->error !== null) ? $message->error : $this->error;

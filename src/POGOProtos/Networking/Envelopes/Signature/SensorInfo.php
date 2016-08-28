@@ -32,67 +32,67 @@ class SensorInfo extends \Protobuf\AbstractMessage
     protected $timestamp_snapshot = null;
 
     /**
-     * magnetometer_x optional double = 3
+     * linear_acceleration_x optional double = 3
      *
      * @var float
      */
-    protected $magnetometer_x = null;
+    protected $linear_acceleration_x = null;
 
     /**
-     * magnetometer_y optional double = 4
+     * linear_acceleration_y optional double = 4
      *
      * @var float
      */
-    protected $magnetometer_y = null;
+    protected $linear_acceleration_y = null;
 
     /**
-     * magnetometer_z optional double = 5
+     * linear_acceleration_z optional double = 5
      *
      * @var float
      */
-    protected $magnetometer_z = null;
+    protected $linear_acceleration_z = null;
 
     /**
-     * angle_normalized_x optional double = 6
+     * magnetic_field_x optional double = 6
      *
      * @var float
      */
-    protected $angle_normalized_x = null;
+    protected $magnetic_field_x = null;
 
     /**
-     * angle_normalized_y optional double = 7
+     * magnetic_field_y optional double = 7
      *
      * @var float
      */
-    protected $angle_normalized_y = null;
+    protected $magnetic_field_y = null;
 
     /**
-     * angle_normalized_z optional double = 8
+     * magnetic_field_z optional double = 8
      *
      * @var float
      */
-    protected $angle_normalized_z = null;
+    protected $magnetic_field_z = null;
 
     /**
-     * accel_raw_x optional double = 10
+     * rotation_vector_x optional double = 10
      *
      * @var float
      */
-    protected $accel_raw_x = null;
+    protected $rotation_vector_x = null;
 
     /**
-     * accel_raw_y optional double = 11
+     * rotation_vector_y optional double = 11
      *
      * @var float
      */
-    protected $accel_raw_y = null;
+    protected $rotation_vector_y = null;
 
     /**
-     * accel_raw_z optional double = 12
+     * rotation_vector_z optional double = 12
      *
      * @var float
      */
-    protected $accel_raw_z = null;
+    protected $rotation_vector_z = null;
 
     /**
      * gyroscope_raw_x optional double = 13
@@ -116,25 +116,25 @@ class SensorInfo extends \Protobuf\AbstractMessage
     protected $gyroscope_raw_z = null;
 
     /**
-     * accel_normalized_x optional double = 16
+     * gravity_x optional double = 16
      *
      * @var float
      */
-    protected $accel_normalized_x = null;
+    protected $gravity_x = null;
 
     /**
-     * accel_normalized_y optional double = 17
+     * gravity_y optional double = 17
      *
      * @var float
      */
-    protected $accel_normalized_y = null;
+    protected $gravity_y = null;
 
     /**
-     * accel_normalized_z optional double = 18
+     * gravity_z optional double = 18
      *
      * @var float
      */
-    protected $accel_normalized_z = null;
+    protected $gravity_z = null;
 
     /**
      * accelerometer_axes optional uint64 = 19
@@ -174,273 +174,273 @@ class SensorInfo extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'magnetometer_x' has a value
+     * Check if 'linear_acceleration_x' has a value
      *
      * @return bool
      */
-    public function hasMagnetometerX()
+    public function hasLinearAccelerationX()
     {
-        return $this->magnetometer_x !== null;
+        return $this->linear_acceleration_x !== null;
     }
 
     /**
-     * Get 'magnetometer_x' value
+     * Get 'linear_acceleration_x' value
      *
      * @return float
      */
-    public function getMagnetometerX()
+    public function getLinearAccelerationX()
     {
-        return $this->magnetometer_x;
+        return $this->linear_acceleration_x;
     }
 
     /**
-     * Set 'magnetometer_x' value
+     * Set 'linear_acceleration_x' value
      *
      * @param float $value
      */
-    public function setMagnetometerX($value = null)
+    public function setLinearAccelerationX($value = null)
     {
-        $this->magnetometer_x = $value;
+        $this->linear_acceleration_x = $value;
     }
 
     /**
-     * Check if 'magnetometer_y' has a value
+     * Check if 'linear_acceleration_y' has a value
      *
      * @return bool
      */
-    public function hasMagnetometerY()
+    public function hasLinearAccelerationY()
     {
-        return $this->magnetometer_y !== null;
+        return $this->linear_acceleration_y !== null;
     }
 
     /**
-     * Get 'magnetometer_y' value
+     * Get 'linear_acceleration_y' value
      *
      * @return float
      */
-    public function getMagnetometerY()
+    public function getLinearAccelerationY()
     {
-        return $this->magnetometer_y;
+        return $this->linear_acceleration_y;
     }
 
     /**
-     * Set 'magnetometer_y' value
+     * Set 'linear_acceleration_y' value
      *
      * @param float $value
      */
-    public function setMagnetometerY($value = null)
+    public function setLinearAccelerationY($value = null)
     {
-        $this->magnetometer_y = $value;
+        $this->linear_acceleration_y = $value;
     }
 
     /**
-     * Check if 'magnetometer_z' has a value
+     * Check if 'linear_acceleration_z' has a value
      *
      * @return bool
      */
-    public function hasMagnetometerZ()
+    public function hasLinearAccelerationZ()
     {
-        return $this->magnetometer_z !== null;
+        return $this->linear_acceleration_z !== null;
     }
 
     /**
-     * Get 'magnetometer_z' value
+     * Get 'linear_acceleration_z' value
      *
      * @return float
      */
-    public function getMagnetometerZ()
+    public function getLinearAccelerationZ()
     {
-        return $this->magnetometer_z;
+        return $this->linear_acceleration_z;
     }
 
     /**
-     * Set 'magnetometer_z' value
+     * Set 'linear_acceleration_z' value
      *
      * @param float $value
      */
-    public function setMagnetometerZ($value = null)
+    public function setLinearAccelerationZ($value = null)
     {
-        $this->magnetometer_z = $value;
+        $this->linear_acceleration_z = $value;
     }
 
     /**
-     * Check if 'angle_normalized_x' has a value
+     * Check if 'magnetic_field_x' has a value
      *
      * @return bool
      */
-    public function hasAngleNormalizedX()
+    public function hasMagneticFieldX()
     {
-        return $this->angle_normalized_x !== null;
+        return $this->magnetic_field_x !== null;
     }
 
     /**
-     * Get 'angle_normalized_x' value
+     * Get 'magnetic_field_x' value
      *
      * @return float
      */
-    public function getAngleNormalizedX()
+    public function getMagneticFieldX()
     {
-        return $this->angle_normalized_x;
+        return $this->magnetic_field_x;
     }
 
     /**
-     * Set 'angle_normalized_x' value
+     * Set 'magnetic_field_x' value
      *
      * @param float $value
      */
-    public function setAngleNormalizedX($value = null)
+    public function setMagneticFieldX($value = null)
     {
-        $this->angle_normalized_x = $value;
+        $this->magnetic_field_x = $value;
     }
 
     /**
-     * Check if 'angle_normalized_y' has a value
+     * Check if 'magnetic_field_y' has a value
      *
      * @return bool
      */
-    public function hasAngleNormalizedY()
+    public function hasMagneticFieldY()
     {
-        return $this->angle_normalized_y !== null;
+        return $this->magnetic_field_y !== null;
     }
 
     /**
-     * Get 'angle_normalized_y' value
+     * Get 'magnetic_field_y' value
      *
      * @return float
      */
-    public function getAngleNormalizedY()
+    public function getMagneticFieldY()
     {
-        return $this->angle_normalized_y;
+        return $this->magnetic_field_y;
     }
 
     /**
-     * Set 'angle_normalized_y' value
+     * Set 'magnetic_field_y' value
      *
      * @param float $value
      */
-    public function setAngleNormalizedY($value = null)
+    public function setMagneticFieldY($value = null)
     {
-        $this->angle_normalized_y = $value;
+        $this->magnetic_field_y = $value;
     }
 
     /**
-     * Check if 'angle_normalized_z' has a value
+     * Check if 'magnetic_field_z' has a value
      *
      * @return bool
      */
-    public function hasAngleNormalizedZ()
+    public function hasMagneticFieldZ()
     {
-        return $this->angle_normalized_z !== null;
+        return $this->magnetic_field_z !== null;
     }
 
     /**
-     * Get 'angle_normalized_z' value
+     * Get 'magnetic_field_z' value
      *
      * @return float
      */
-    public function getAngleNormalizedZ()
+    public function getMagneticFieldZ()
     {
-        return $this->angle_normalized_z;
+        return $this->magnetic_field_z;
     }
 
     /**
-     * Set 'angle_normalized_z' value
+     * Set 'magnetic_field_z' value
      *
      * @param float $value
      */
-    public function setAngleNormalizedZ($value = null)
+    public function setMagneticFieldZ($value = null)
     {
-        $this->angle_normalized_z = $value;
+        $this->magnetic_field_z = $value;
     }
 
     /**
-     * Check if 'accel_raw_x' has a value
+     * Check if 'rotation_vector_x' has a value
      *
      * @return bool
      */
-    public function hasAccelRawX()
+    public function hasRotationVectorX()
     {
-        return $this->accel_raw_x !== null;
+        return $this->rotation_vector_x !== null;
     }
 
     /**
-     * Get 'accel_raw_x' value
+     * Get 'rotation_vector_x' value
      *
      * @return float
      */
-    public function getAccelRawX()
+    public function getRotationVectorX()
     {
-        return $this->accel_raw_x;
+        return $this->rotation_vector_x;
     }
 
     /**
-     * Set 'accel_raw_x' value
+     * Set 'rotation_vector_x' value
      *
      * @param float $value
      */
-    public function setAccelRawX($value = null)
+    public function setRotationVectorX($value = null)
     {
-        $this->accel_raw_x = $value;
+        $this->rotation_vector_x = $value;
     }
 
     /**
-     * Check if 'accel_raw_y' has a value
+     * Check if 'rotation_vector_y' has a value
      *
      * @return bool
      */
-    public function hasAccelRawY()
+    public function hasRotationVectorY()
     {
-        return $this->accel_raw_y !== null;
+        return $this->rotation_vector_y !== null;
     }
 
     /**
-     * Get 'accel_raw_y' value
+     * Get 'rotation_vector_y' value
      *
      * @return float
      */
-    public function getAccelRawY()
+    public function getRotationVectorY()
     {
-        return $this->accel_raw_y;
+        return $this->rotation_vector_y;
     }
 
     /**
-     * Set 'accel_raw_y' value
+     * Set 'rotation_vector_y' value
      *
      * @param float $value
      */
-    public function setAccelRawY($value = null)
+    public function setRotationVectorY($value = null)
     {
-        $this->accel_raw_y = $value;
+        $this->rotation_vector_y = $value;
     }
 
     /**
-     * Check if 'accel_raw_z' has a value
+     * Check if 'rotation_vector_z' has a value
      *
      * @return bool
      */
-    public function hasAccelRawZ()
+    public function hasRotationVectorZ()
     {
-        return $this->accel_raw_z !== null;
+        return $this->rotation_vector_z !== null;
     }
 
     /**
-     * Get 'accel_raw_z' value
+     * Get 'rotation_vector_z' value
      *
      * @return float
      */
-    public function getAccelRawZ()
+    public function getRotationVectorZ()
     {
-        return $this->accel_raw_z;
+        return $this->rotation_vector_z;
     }
 
     /**
-     * Set 'accel_raw_z' value
+     * Set 'rotation_vector_z' value
      *
      * @param float $value
      */
-    public function setAccelRawZ($value = null)
+    public function setRotationVectorZ($value = null)
     {
-        $this->accel_raw_z = $value;
+        $this->rotation_vector_z = $value;
     }
 
     /**
@@ -534,93 +534,93 @@ class SensorInfo extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'accel_normalized_x' has a value
+     * Check if 'gravity_x' has a value
      *
      * @return bool
      */
-    public function hasAccelNormalizedX()
+    public function hasGravityX()
     {
-        return $this->accel_normalized_x !== null;
+        return $this->gravity_x !== null;
     }
 
     /**
-     * Get 'accel_normalized_x' value
+     * Get 'gravity_x' value
      *
      * @return float
      */
-    public function getAccelNormalizedX()
+    public function getGravityX()
     {
-        return $this->accel_normalized_x;
+        return $this->gravity_x;
     }
 
     /**
-     * Set 'accel_normalized_x' value
+     * Set 'gravity_x' value
      *
      * @param float $value
      */
-    public function setAccelNormalizedX($value = null)
+    public function setGravityX($value = null)
     {
-        $this->accel_normalized_x = $value;
+        $this->gravity_x = $value;
     }
 
     /**
-     * Check if 'accel_normalized_y' has a value
+     * Check if 'gravity_y' has a value
      *
      * @return bool
      */
-    public function hasAccelNormalizedY()
+    public function hasGravityY()
     {
-        return $this->accel_normalized_y !== null;
+        return $this->gravity_y !== null;
     }
 
     /**
-     * Get 'accel_normalized_y' value
+     * Get 'gravity_y' value
      *
      * @return float
      */
-    public function getAccelNormalizedY()
+    public function getGravityY()
     {
-        return $this->accel_normalized_y;
+        return $this->gravity_y;
     }
 
     /**
-     * Set 'accel_normalized_y' value
+     * Set 'gravity_y' value
      *
      * @param float $value
      */
-    public function setAccelNormalizedY($value = null)
+    public function setGravityY($value = null)
     {
-        $this->accel_normalized_y = $value;
+        $this->gravity_y = $value;
     }
 
     /**
-     * Check if 'accel_normalized_z' has a value
+     * Check if 'gravity_z' has a value
      *
      * @return bool
      */
-    public function hasAccelNormalizedZ()
+    public function hasGravityZ()
     {
-        return $this->accel_normalized_z !== null;
+        return $this->gravity_z !== null;
     }
 
     /**
-     * Get 'accel_normalized_z' value
+     * Get 'gravity_z' value
      *
      * @return float
      */
-    public function getAccelNormalizedZ()
+    public function getGravityZ()
     {
-        return $this->accel_normalized_z;
+        return $this->gravity_z;
     }
 
     /**
-     * Set 'accel_normalized_z' value
+     * Set 'gravity_z' value
      *
      * @param float $value
      */
-    public function setAccelNormalizedZ($value = null)
+    public function setGravityZ($value = null)
     {
-        $this->accel_normalized_z = $value;
+        $this->gravity_z = $value;
     }
 
     /**
@@ -689,40 +689,40 @@ class SensorInfo extends \Protobuf\AbstractMessage
         $message = new self();
         $values  = array_merge([
             'timestamp_snapshot' => null,
-            'magnetometer_x' => null,
-            'magnetometer_y' => null,
-            'magnetometer_z' => null,
-            'angle_normalized_x' => null,
-            'angle_normalized_y' => null,
-            'angle_normalized_z' => null,
-            'accel_raw_x' => null,
-            'accel_raw_y' => null,
-            'accel_raw_z' => null,
+            'linear_acceleration_x' => null,
+            'linear_acceleration_y' => null,
+            'linear_acceleration_z' => null,
+            'magnetic_field_x' => null,
+            'magnetic_field_y' => null,
+            'magnetic_field_z' => null,
+            'rotation_vector_x' => null,
+            'rotation_vector_y' => null,
+            'rotation_vector_z' => null,
             'gyroscope_raw_x' => null,
             'gyroscope_raw_y' => null,
             'gyroscope_raw_z' => null,
-            'accel_normalized_x' => null,
-            'accel_normalized_y' => null,
-            'accel_normalized_z' => null,
+            'gravity_x' => null,
+            'gravity_y' => null,
+            'gravity_z' => null,
             'accelerometer_axes' => null
         ], $values);
 
         $message->setTimestampSnapshot($values['timestamp_snapshot']);
-        $message->setMagnetometerX($values['magnetometer_x']);
-        $message->setMagnetometerY($values['magnetometer_y']);
-        $message->setMagnetometerZ($values['magnetometer_z']);
-        $message->setAngleNormalizedX($values['angle_normalized_x']);
-        $message->setAngleNormalizedY($values['angle_normalized_y']);
-        $message->setAngleNormalizedZ($values['angle_normalized_z']);
-        $message->setAccelRawX($values['accel_raw_x']);
-        $message->setAccelRawY($values['accel_raw_y']);
-        $message->setAccelRawZ($values['accel_raw_z']);
+        $message->setLinearAccelerationX($values['linear_acceleration_x']);
+        $message->setLinearAccelerationY($values['linear_acceleration_y']);
+        $message->setLinearAccelerationZ($values['linear_acceleration_z']);
+        $message->setMagneticFieldX($values['magnetic_field_x']);
+        $message->setMagneticFieldY($values['magnetic_field_y']);
+        $message->setMagneticFieldZ($values['magnetic_field_z']);
+        $message->setRotationVectorX($values['rotation_vector_x']);
+        $message->setRotationVectorY($values['rotation_vector_y']);
+        $message->setRotationVectorZ($values['rotation_vector_z']);
         $message->setGyroscopeRawX($values['gyroscope_raw_x']);
         $message->setGyroscopeRawY($values['gyroscope_raw_y']);
         $message->setGyroscopeRawZ($values['gyroscope_raw_z']);
-        $message->setAccelNormalizedX($values['accel_normalized_x']);
-        $message->setAccelNormalizedY($values['accel_normalized_y']);
-        $message->setAccelNormalizedZ($values['accel_normalized_z']);
+        $message->setGravityX($values['gravity_x']);
+        $message->setGravityY($values['gravity_y']);
+        $message->setGravityZ($values['gravity_z']);
         $message->setAccelerometerAxes($values['accelerometer_axes']);
 
         return $message;
@@ -744,55 +744,55 @@ class SensorInfo extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 3,
-                    'name' => 'magnetometer_x',
+                    'name' => 'linear_acceleration_x',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 4,
-                    'name' => 'magnetometer_y',
+                    'name' => 'linear_acceleration_y',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 5,
-                    'name' => 'magnetometer_z',
+                    'name' => 'linear_acceleration_z',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 6,
-                    'name' => 'angle_normalized_x',
+                    'name' => 'magnetic_field_x',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 7,
-                    'name' => 'angle_normalized_y',
+                    'name' => 'magnetic_field_y',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 8,
-                    'name' => 'angle_normalized_z',
+                    'name' => 'magnetic_field_z',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 10,
-                    'name' => 'accel_raw_x',
+                    'name' => 'rotation_vector_x',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 11,
-                    'name' => 'accel_raw_y',
+                    'name' => 'rotation_vector_y',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 12,
-                    'name' => 'accel_raw_z',
+                    'name' => 'rotation_vector_z',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -816,19 +816,19 @@ class SensorInfo extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 16,
-                    'name' => 'accel_normalized_x',
+                    'name' => 'gravity_x',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 17,
-                    'name' => 'accel_normalized_y',
+                    'name' => 'gravity_y',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 18,
-                    'name' => 'accel_normalized_z',
+                    'name' => 'gravity_z',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -871,49 +871,49 @@ class SensorInfo extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, $this->timestamp_snapshot);
         }
 
-        if ($this->magnetometer_x !== null) {
+        if ($this->linear_acceleration_x !== null) {
             $writer->writeVarint($stream, 25);
-            $writer->writeDouble($stream, $this->magnetometer_x);
+            $writer->writeDouble($stream, $this->linear_acceleration_x);
         }
 
-        if ($this->magnetometer_y !== null) {
+        if ($this->linear_acceleration_y !== null) {
             $writer->writeVarint($stream, 33);
-            $writer->writeDouble($stream, $this->magnetometer_y);
+            $writer->writeDouble($stream, $this->linear_acceleration_y);
         }
 
-        if ($this->magnetometer_z !== null) {
+        if ($this->linear_acceleration_z !== null) {
             $writer->writeVarint($stream, 41);
-            $writer->writeDouble($stream, $this->magnetometer_z);
+            $writer->writeDouble($stream, $this->linear_acceleration_z);
         }
 
-        if ($this->angle_normalized_x !== null) {
+        if ($this->magnetic_field_x !== null) {
             $writer->writeVarint($stream, 49);
-            $writer->writeDouble($stream, $this->angle_normalized_x);
+            $writer->writeDouble($stream, $this->magnetic_field_x);
         }
 
-        if ($this->angle_normalized_y !== null) {
+        if ($this->magnetic_field_y !== null) {
             $writer->writeVarint($stream, 57);
-            $writer->writeDouble($stream, $this->angle_normalized_y);
+            $writer->writeDouble($stream, $this->magnetic_field_y);
         }
 
-        if ($this->angle_normalized_z !== null) {
+        if ($this->magnetic_field_z !== null) {
             $writer->writeVarint($stream, 65);
-            $writer->writeDouble($stream, $this->angle_normalized_z);
+            $writer->writeDouble($stream, $this->magnetic_field_z);
         }
 
-        if ($this->accel_raw_x !== null) {
+        if ($this->rotation_vector_x !== null) {
             $writer->writeVarint($stream, 81);
-            $writer->writeDouble($stream, $this->accel_raw_x);
+            $writer->writeDouble($stream, $this->rotation_vector_x);
         }
 
-        if ($this->accel_raw_y !== null) {
+        if ($this->rotation_vector_y !== null) {
             $writer->writeVarint($stream, 89);
-            $writer->writeDouble($stream, $this->accel_raw_y);
+            $writer->writeDouble($stream, $this->rotation_vector_y);
         }
 
-        if ($this->accel_raw_z !== null) {
+        if ($this->rotation_vector_z !== null) {
             $writer->writeVarint($stream, 97);
-            $writer->writeDouble($stream, $this->accel_raw_z);
+            $writer->writeDouble($stream, $this->rotation_vector_z);
         }
 
         if ($this->gyroscope_raw_x !== null) {
@@ -931,19 +931,19 @@ class SensorInfo extends \Protobuf\AbstractMessage
             $writer->writeDouble($stream, $this->gyroscope_raw_z);
         }
 
-        if ($this->accel_normalized_x !== null) {
+        if ($this->gravity_x !== null) {
             $writer->writeVarint($stream, 129);
-            $writer->writeDouble($stream, $this->accel_normalized_x);
+            $writer->writeDouble($stream, $this->gravity_x);
         }
 
-        if ($this->accel_normalized_y !== null) {
+        if ($this->gravity_y !== null) {
             $writer->writeVarint($stream, 137);
-            $writer->writeDouble($stream, $this->accel_normalized_y);
+            $writer->writeDouble($stream, $this->gravity_y);
         }
 
-        if ($this->accel_normalized_z !== null) {
+        if ($this->gravity_z !== null) {
             $writer->writeVarint($stream, 145);
-            $writer->writeDouble($stream, $this->accel_normalized_z);
+            $writer->writeDouble($stream, $this->gravity_z);
         }
 
         if ($this->accelerometer_axes !== null) {
@@ -996,7 +996,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 3) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->magnetometer_x = $reader->readDouble($stream);
+                $this->linear_acceleration_x = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1004,7 +1004,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 4) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->magnetometer_y = $reader->readDouble($stream);
+                $this->linear_acceleration_y = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1012,7 +1012,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 5) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->magnetometer_z = $reader->readDouble($stream);
+                $this->linear_acceleration_z = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1020,7 +1020,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 6) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->angle_normalized_x = $reader->readDouble($stream);
+                $this->magnetic_field_x = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1028,7 +1028,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 7) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->angle_normalized_y = $reader->readDouble($stream);
+                $this->magnetic_field_y = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1036,7 +1036,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 8) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->angle_normalized_z = $reader->readDouble($stream);
+                $this->magnetic_field_z = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1044,7 +1044,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 10) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->accel_raw_x = $reader->readDouble($stream);
+                $this->rotation_vector_x = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1052,7 +1052,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 11) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->accel_raw_y = $reader->readDouble($stream);
+                $this->rotation_vector_y = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1060,7 +1060,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 12) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->accel_raw_z = $reader->readDouble($stream);
+                $this->rotation_vector_z = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1092,7 +1092,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 16) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->accel_normalized_x = $reader->readDouble($stream);
+                $this->gravity_x = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1100,7 +1100,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 17) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->accel_normalized_y = $reader->readDouble($stream);
+                $this->gravity_y = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1108,7 +1108,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 18) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->accel_normalized_z = $reader->readDouble($stream);
+                $this->gravity_z = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1155,47 +1155,47 @@ class SensorInfo extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->timestamp_snapshot);
         }
 
-        if ($this->magnetometer_x !== null) {
+        if ($this->linear_acceleration_x !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->magnetometer_y !== null) {
+        if ($this->linear_acceleration_y !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->magnetometer_z !== null) {
+        if ($this->linear_acceleration_z !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->angle_normalized_x !== null) {
+        if ($this->magnetic_field_x !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->angle_normalized_y !== null) {
+        if ($this->magnetic_field_y !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->angle_normalized_z !== null) {
+        if ($this->magnetic_field_z !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->accel_raw_x !== null) {
+        if ($this->rotation_vector_x !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->accel_raw_y !== null) {
+        if ($this->rotation_vector_y !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->accel_raw_z !== null) {
+        if ($this->rotation_vector_z !== null) {
             $size += 1;
             $size += 8;
         }
@@ -1215,17 +1215,17 @@ class SensorInfo extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
-        if ($this->accel_normalized_x !== null) {
+        if ($this->gravity_x !== null) {
             $size += 2;
             $size += 8;
         }
 
-        if ($this->accel_normalized_y !== null) {
+        if ($this->gravity_y !== null) {
             $size += 2;
             $size += 8;
         }
 
-        if ($this->accel_normalized_z !== null) {
+        if ($this->gravity_z !== null) {
             $size += 2;
             $size += 8;
         }
@@ -1248,21 +1248,21 @@ class SensorInfo extends \Protobuf\AbstractMessage
     public function clear()
     {
         $this->timestamp_snapshot = null;
-        $this->magnetometer_x = null;
-        $this->magnetometer_y = null;
-        $this->magnetometer_z = null;
-        $this->angle_normalized_x = null;
-        $this->angle_normalized_y = null;
-        $this->angle_normalized_z = null;
-        $this->accel_raw_x = null;
-        $this->accel_raw_y = null;
-        $this->accel_raw_z = null;
+        $this->linear_acceleration_x = null;
+        $this->linear_acceleration_y = null;
+        $this->linear_acceleration_z = null;
+        $this->magnetic_field_x = null;
+        $this->magnetic_field_y = null;
+        $this->magnetic_field_z = null;
+        $this->rotation_vector_x = null;
+        $this->rotation_vector_y = null;
+        $this->rotation_vector_z = null;
         $this->gyroscope_raw_x = null;
         $this->gyroscope_raw_y = null;
         $this->gyroscope_raw_z = null;
-        $this->accel_normalized_x = null;
-        $this->accel_normalized_y = null;
-        $this->accel_normalized_z = null;
+        $this->gravity_x = null;
+        $this->gravity_y = null;
+        $this->gravity_z = null;
         $this->accelerometer_axes = null;
     }
 
@@ -1276,21 +1276,21 @@ class SensorInfo extends \Protobuf\AbstractMessage
         }
 
         $this->timestamp_snapshot = ($message->timestamp_snapshot !== null) ? $message->timestamp_snapshot : $this->timestamp_snapshot;
-        $this->magnetometer_x = ($message->magnetometer_x !== null) ? $message->magnetometer_x : $this->magnetometer_x;
-        $this->magnetometer_y = ($message->magnetometer_y !== null) ? $message->magnetometer_y : $this->magnetometer_y;
-        $this->magnetometer_z = ($message->magnetometer_z !== null) ? $message->magnetometer_z : $this->magnetometer_z;
-        $this->angle_normalized_x = ($message->angle_normalized_x !== null) ? $message->angle_normalized_x : $this->angle_normalized_x;
-        $this->angle_normalized_y = ($message->angle_normalized_y !== null) ? $message->angle_normalized_y : $this->angle_normalized_y;
-        $this->angle_normalized_z = ($message->angle_normalized_z !== null) ? $message->angle_normalized_z : $this->angle_normalized_z;
-        $this->accel_raw_x = ($message->accel_raw_x !== null) ? $message->accel_raw_x : $this->accel_raw_x;
-        $this->accel_raw_y = ($message->accel_raw_y !== null) ? $message->accel_raw_y : $this->accel_raw_y;
-        $this->accel_raw_z = ($message->accel_raw_z !== null) ? $message->accel_raw_z : $this->accel_raw_z;
+        $this->linear_acceleration_x = ($message->linear_acceleration_x !== null) ? $message->linear_acceleration_x : $this->linear_acceleration_x;
+        $this->linear_acceleration_y = ($message->linear_acceleration_y !== null) ? $message->linear_acceleration_y : $this->linear_acceleration_y;
+        $this->linear_acceleration_z = ($message->linear_acceleration_z !== null) ? $message->linear_acceleration_z : $this->linear_acceleration_z;
+        $this->magnetic_field_x = ($message->magnetic_field_x !== null) ? $message->magnetic_field_x : $this->magnetic_field_x;
+        $this->magnetic_field_y = ($message->magnetic_field_y !== null) ? $message->magnetic_field_y : $this->magnetic_field_y;
+        $this->magnetic_field_z = ($message->magnetic_field_z !== null) ? $message->magnetic_field_z : $this->magnetic_field_z;
+        $this->rotation_vector_x = ($message->rotation_vector_x !== null) ? $message->rotation_vector_x : $this->rotation_vector_x;
+        $this->rotation_vector_y = ($message->rotation_vector_y !== null) ? $message->rotation_vector_y : $this->rotation_vector_y;
+        $this->rotation_vector_z = ($message->rotation_vector_z !== null) ? $message->rotation_vector_z : $this->rotation_vector_z;
         $this->gyroscope_raw_x = ($message->gyroscope_raw_x !== null) ? $message->gyroscope_raw_x : $this->gyroscope_raw_x;
         $this->gyroscope_raw_y = ($message->gyroscope_raw_y !== null) ? $message->gyroscope_raw_y : $this->gyroscope_raw_y;
         $this->gyroscope_raw_z = ($message->gyroscope_raw_z !== null) ? $message->gyroscope_raw_z : $this->gyroscope_raw_z;
-        $this->accel_normalized_x = ($message->accel_normalized_x !== null) ? $message->accel_normalized_x : $this->accel_normalized_x;
-        $this->accel_normalized_y = ($message->accel_normalized_y !== null) ? $message->accel_normalized_y : $this->accel_normalized_y;
-        $this->accel_normalized_z = ($message->accel_normalized_z !== null) ? $message->accel_normalized_z : $this->accel_normalized_z;
+        $this->gravity_x = ($message->gravity_x !== null) ? $message->gravity_x : $this->gravity_x;
+        $this->gravity_y = ($message->gravity_y !== null) ? $message->gravity_y : $this->gravity_y;
+        $this->gravity_z = ($message->gravity_z !== null) ? $message->gravity_z : $this->gravity_z;
         $this->accelerometer_axes = ($message->accelerometer_axes !== null) ? $message->accelerometer_axes : $this->accelerometer_axes;
     }
 

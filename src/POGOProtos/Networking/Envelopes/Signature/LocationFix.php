@@ -39,6 +39,13 @@ class LocationFix extends \Protobuf\AbstractMessage
     protected $timestamp_snapshot = null;
 
     /**
+     * altitude optional float = 4
+     *
+     * @var float
+     */
+    protected $altitude = null;
+
+    /**
      * latitude optional float = 13
      *
      * @var float
@@ -53,18 +60,25 @@ class LocationFix extends \Protobuf\AbstractMessage
     protected $longitude = null;
 
     /**
-     * horizontal_accuracy optional float = 20
+     * speed optional float = 18
+     *
+     * @var float
+     */
+    protected $speed = null;
+
+    /**
+     * course optional float = 20
+     *
+     * @var float
+     */
+    protected $course = null;
+
+    /**
+     * horizontal_accuracy optional float = 21
      *
      * @var float
      */
     protected $horizontal_accuracy = null;
-
-    /**
-     * altitude optional float = 21
-     *
-     * @var float
-     */
-    protected $altitude = null;
 
     /**
      * vertical_accuracy optional float = 22
@@ -155,6 +169,36 @@ class LocationFix extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'altitude' has a value
+     *
+     * @return bool
+     */
+    public function hasAltitude()
+    {
+        return $this->altitude !== null;
+    }
+
+    /**
+     * Get 'altitude' value
+     *
+     * @return float
+     */
+    public function getAltitude()
+    {
+        return $this->altitude;
+    }
+
+    /**
+     * Set 'altitude' value
+     *
+     * @param float $value
+     */
+    public function setAltitude($value = null)
+    {
+        $this->altitude = $value;
+    }
+
+    /**
      * Check if 'latitude' has a value
      *
      * @return bool
@@ -215,6 +259,66 @@ class LocationFix extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'speed' has a value
+     *
+     * @return bool
+     */
+    public function hasSpeed()
+    {
+        return $this->speed !== null;
+    }
+
+    /**
+     * Get 'speed' value
+     *
+     * @return float
+     */
+    public function getSpeed()
+    {
+        return $this->speed;
+    }
+
+    /**
+     * Set 'speed' value
+     *
+     * @param float $value
+     */
+    public function setSpeed($value = null)
+    {
+        $this->speed = $value;
+    }
+
+    /**
+     * Check if 'course' has a value
+     *
+     * @return bool
+     */
+    public function hasCourse()
+    {
+        return $this->course !== null;
+    }
+
+    /**
+     * Get 'course' value
+     *
+     * @return float
+     */
+    public function getCourse()
+    {
+        return $this->course;
+    }
+
+    /**
+     * Set 'course' value
+     *
+     * @param float $value
+     */
+    public function setCourse($value = null)
+    {
+        $this->course = $value;
+    }
+
+    /**
      * Check if 'horizontal_accuracy' has a value
      *
      * @return bool
@@ -242,36 +346,6 @@ class LocationFix extends \Protobuf\AbstractMessage
     public function setHorizontalAccuracy($value = null)
     {
         $this->horizontal_accuracy = $value;
-    }
-
-    /**
-     * Check if 'altitude' has a value
-     *
-     * @return bool
-     */
-    public function hasAltitude()
-    {
-        return $this->altitude !== null;
-    }
-
-    /**
-     * Get 'altitude' value
-     *
-     * @return float
-     */
-    public function getAltitude()
-    {
-        return $this->altitude;
-    }
-
-    /**
-     * Set 'altitude' value
-     *
-     * @param float $value
-     */
-    public function setAltitude($value = null)
-    {
-        $this->altitude = $value;
     }
 
     /**
@@ -431,10 +505,12 @@ class LocationFix extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'provider' => null,
             'timestamp_snapshot' => null,
+            'altitude' => null,
             'latitude' => null,
             'longitude' => null,
+            'speed' => null,
+            'course' => null,
             'horizontal_accuracy' => null,
-            'altitude' => null,
             'vertical_accuracy' => null,
             'provider_status' => null,
             'floor' => null,
@@ -443,10 +519,12 @@ class LocationFix extends \Protobuf\AbstractMessage
 
         $message->setProvider($values['provider']);
         $message->setTimestampSnapshot($values['timestamp_snapshot']);
+        $message->setAltitude($values['altitude']);
         $message->setLatitude($values['latitude']);
         $message->setLongitude($values['longitude']);
+        $message->setSpeed($values['speed']);
+        $message->setCourse($values['course']);
         $message->setHorizontalAccuracy($values['horizontal_accuracy']);
-        $message->setAltitude($values['altitude']);
         $message->setVerticalAccuracy($values['vertical_accuracy']);
         $message->setProviderStatus($values['provider_status']);
         $message->setFloor($values['floor']);
@@ -476,6 +554,12 @@ class LocationFix extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'altitude',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 13,
                     'name' => 'latitude',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
@@ -488,14 +572,20 @@ class LocationFix extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 18,
+                    'name' => 'speed',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 20,
-                    'name' => 'horizontal_accuracy',
+                    'name' => 'course',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 21,
-                    'name' => 'altitude',
+                    'name' => 'horizontal_accuracy',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -561,6 +651,11 @@ class LocationFix extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, $this->timestamp_snapshot);
         }
 
+        if ($this->altitude !== null) {
+            $writer->writeVarint($stream, 37);
+            $writer->writeFloat($stream, $this->altitude);
+        }
+
         if ($this->latitude !== null) {
             $writer->writeVarint($stream, 109);
             $writer->writeFloat($stream, $this->latitude);
@@ -571,14 +666,19 @@ class LocationFix extends \Protobuf\AbstractMessage
             $writer->writeFloat($stream, $this->longitude);
         }
 
-        if ($this->horizontal_accuracy !== null) {
-            $writer->writeVarint($stream, 165);
-            $writer->writeFloat($stream, $this->horizontal_accuracy);
+        if ($this->speed !== null) {
+            $writer->writeVarint($stream, 149);
+            $writer->writeFloat($stream, $this->speed);
         }
 
-        if ($this->altitude !== null) {
+        if ($this->course !== null) {
+            $writer->writeVarint($stream, 165);
+            $writer->writeFloat($stream, $this->course);
+        }
+
+        if ($this->horizontal_accuracy !== null) {
             $writer->writeVarint($stream, 173);
-            $writer->writeFloat($stream, $this->altitude);
+            $writer->writeFloat($stream, $this->horizontal_accuracy);
         }
 
         if ($this->vertical_accuracy !== null) {
@@ -651,6 +751,14 @@ class LocationFix extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->altitude = $reader->readFloat($stream);
+
+                continue;
+            }
+
             if ($tag === 13) {
                 \Protobuf\WireFormat::assertWireType($wire, 2);
 
@@ -667,10 +775,18 @@ class LocationFix extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 18) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->speed = $reader->readFloat($stream);
+
+                continue;
+            }
+
             if ($tag === 20) {
                 \Protobuf\WireFormat::assertWireType($wire, 2);
 
-                $this->horizontal_accuracy = $reader->readFloat($stream);
+                $this->course = $reader->readFloat($stream);
 
                 continue;
             }
@@ -678,7 +794,7 @@ class LocationFix extends \Protobuf\AbstractMessage
             if ($tag === 21) {
                 \Protobuf\WireFormat::assertWireType($wire, 2);
 
-                $this->altitude = $reader->readFloat($stream);
+                $this->horizontal_accuracy = $reader->readFloat($stream);
 
                 continue;
             }
@@ -754,6 +870,11 @@ class LocationFix extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->timestamp_snapshot);
         }
 
+        if ($this->altitude !== null) {
+            $size += 1;
+            $size += 4;
+        }
+
         if ($this->latitude !== null) {
             $size += 1;
             $size += 4;
@@ -764,12 +885,17 @@ class LocationFix extends \Protobuf\AbstractMessage
             $size += 4;
         }
 
-        if ($this->horizontal_accuracy !== null) {
+        if ($this->speed !== null) {
             $size += 2;
             $size += 4;
         }
 
-        if ($this->altitude !== null) {
+        if ($this->course !== null) {
+            $size += 2;
+            $size += 4;
+        }
+
+        if ($this->horizontal_accuracy !== null) {
             $size += 2;
             $size += 4;
         }
@@ -808,10 +934,12 @@ class LocationFix extends \Protobuf\AbstractMessage
     {
         $this->provider = null;
         $this->timestamp_snapshot = null;
+        $this->altitude = null;
         $this->latitude = null;
         $this->longitude = null;
+        $this->speed = null;
+        $this->course = null;
         $this->horizontal_accuracy = null;
-        $this->altitude = null;
         $this->vertical_accuracy = null;
         $this->provider_status = null;
         $this->floor = null;
@@ -829,10 +957,12 @@ class LocationFix extends \Protobuf\AbstractMessage
 
         $this->provider = ($message->provider !== null) ? $message->provider : $this->provider;
         $this->timestamp_snapshot = ($message->timestamp_snapshot !== null) ? $message->timestamp_snapshot : $this->timestamp_snapshot;
+        $this->altitude = ($message->altitude !== null) ? $message->altitude : $this->altitude;
         $this->latitude = ($message->latitude !== null) ? $message->latitude : $this->latitude;
         $this->longitude = ($message->longitude !== null) ? $message->longitude : $this->longitude;
+        $this->speed = ($message->speed !== null) ? $message->speed : $this->speed;
+        $this->course = ($message->course !== null) ? $message->course : $this->course;
         $this->horizontal_accuracy = ($message->horizontal_accuracy !== null) ? $message->horizontal_accuracy : $this->horizontal_accuracy;
-        $this->altitude = ($message->altitude !== null) ? $message->altitude : $this->altitude;
         $this->vertical_accuracy = ($message->vertical_accuracy !== null) ? $message->vertical_accuracy : $this->vertical_accuracy;
         $this->provider_status = ($message->provider_status !== null) ? $message->provider_status : $this->provider_status;
         $this->floor = ($message->floor !== null) ? $message->floor : $this->floor;
