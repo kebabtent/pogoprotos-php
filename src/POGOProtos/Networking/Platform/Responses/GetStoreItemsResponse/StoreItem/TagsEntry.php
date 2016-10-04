@@ -7,11 +7,11 @@
  */
 
 
-namespace POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem;
+namespace POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem;
 
 /**
  * Protobuf message :
- * POGOProtos.Networking.Envelopes.GetStoreItemsResponse.StoreItem.TagsEntry
+ * POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem.TagsEntry
  */
 class TagsEntry extends \Protobuf\AbstractMessage
 {
@@ -318,7 +318,7 @@ class TagsEntry extends \Protobuf\AbstractMessage
      */
     public function merge(\Protobuf\Message $message)
     {
-        if ( ! $message instanceof \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem\TagsEntry) {
+        if ( ! $message instanceof \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry) {
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
 

@@ -7,10 +7,11 @@
  */
 
 
-namespace POGOProtos\Networking\Envelopes\GetStoreItemsResponse;
+namespace POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse;
 
 /**
- * Protobuf enum : POGOProtos.Networking.Envelopes.GetStoreItemsResponse.Status
+ * Protobuf enum :
+ * POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.Status
  */
 class Status extends \Protobuf\Enum
 {
@@ -26,17 +27,17 @@ class Status extends \Protobuf\Enum
     const OKAY_VALUE = 1;
 
     /**
-     * @var \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\Status
+     * @var \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\Status
      */
     protected static $UNDEFINED = null;
 
     /**
-     * @var \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\Status
+     * @var \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\Status
      */
     protected static $OKAY = null;
 
     /**
-     * @return \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\Status
+     * @return \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\Status
      */
     public static function UNDEFINED()
     {
@@ -48,7 +49,7 @@ class Status extends \Protobuf\Enum
     }
 
     /**
-     * @return \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\Status
+     * @return \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\Status
      */
     public static function OKAY()
     {
@@ -61,7 +62,7 @@ class Status extends \Protobuf\Enum
 
     /**
      * @param int $value
-     * @return \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\Status
+     * @return \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\Status
      */
     public static function valueOf($value)
     {

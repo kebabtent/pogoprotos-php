@@ -7,11 +7,11 @@
  */
 
 
-namespace POGOProtos\Networking\Envelopes\GetStoreItemsResponse;
+namespace POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse;
 
 /**
  * Protobuf message :
- * POGOProtos.Networking.Envelopes.GetStoreItemsResponse.StoreItem
+ * POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem
  */
 class StoreItem extends \Protobuf\AbstractMessage
 {
@@ -64,7 +64,7 @@ class StoreItem extends \Protobuf\AbstractMessage
     /**
      * tags repeated message = 6
      *
-     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem\TagsEntry>
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry>
      */
     protected $tags = null;
 
@@ -238,7 +238,7 @@ class StoreItem extends \Protobuf\AbstractMessage
     /**
      * Get 'tags' value
      *
-     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem\TagsEntry>
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry>
      */
     public function getTagsList()
     {
@@ -248,7 +248,7 @@ class StoreItem extends \Protobuf\AbstractMessage
     /**
      * Set 'tags' value
      *
-     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem\TagsEntry> $value
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry> $value
      */
     public function setTagsList(\Protobuf\Collection $value = null)
     {
@@ -259,10 +259,10 @@ class StoreItem extends \Protobuf\AbstractMessage
      * Add a new element to 'tags'
      *
      * @param
-     * \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem\TagsEntry
+     * \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry
      * $value
      */
-    public function addTags(\POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem\TagsEntry $value)
+    public function addTags(\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry $value)
     {
         if ($this->tags === null) {
             $this->tags = new \Protobuf\MessageCollection();
@@ -405,7 +405,7 @@ class StoreItem extends \Protobuf\AbstractMessage
                     'name' => 'tags',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
-                    'type_name' => '.POGOProtos.Networking.Envelopes.GetStoreItemsResponse.StoreItem.TagsEntry'
+                    'type_name' => '.POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem.TagsEntry'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 7,
@@ -581,7 +581,7 @@ class StoreItem extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 11);
 
                 $innerSize    = $reader->readVarint($stream);
-                $innerMessage = new \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem\TagsEntry();
+                $innerMessage = new \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry();
 
                 if ($this->tags === null) {
                     $this->tags = new \Protobuf\MessageCollection();
@@ -708,7 +708,7 @@ class StoreItem extends \Protobuf\AbstractMessage
      */
     public function merge(\Protobuf\Message $message)
     {
-        if ( ! $message instanceof \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem) {
+        if ( ! $message instanceof \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem) {
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
 

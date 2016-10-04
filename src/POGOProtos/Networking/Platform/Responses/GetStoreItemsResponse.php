@@ -7,10 +7,11 @@
  */
 
 
-namespace POGOProtos\Networking\Envelopes;
+namespace POGOProtos\Networking\Platform\Responses;
 
 /**
- * Protobuf message : POGOProtos.Networking.Envelopes.GetStoreItemsResponse
+ * Protobuf message :
+ * POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse
  */
 class GetStoreItemsResponse extends \Protobuf\AbstractMessage
 {
@@ -28,14 +29,14 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
     /**
      * status optional enum = 1
      *
-     * @var \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\Status
+     * @var \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\Status
      */
     protected $status = null;
 
     /**
      * items repeated message = 2
      *
-     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem>
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem>
      */
     protected $items = null;
 
@@ -66,7 +67,7 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
     /**
      * Get 'status' value
      *
-     * @return \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\Status
+     * @return \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\Status
      */
     public function getStatus()
     {
@@ -76,9 +77,9 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
     /**
      * Set 'status' value
      *
-     * @param \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\Status $value
+     * @param \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\Status $value
      */
-    public function setStatus(\POGOProtos\Networking\Envelopes\GetStoreItemsResponse\Status $value = null)
+    public function setStatus(\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\Status $value = null)
     {
         $this->status = $value;
     }
@@ -96,7 +97,7 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
     /**
      * Get 'items' value
      *
-     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem>
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem>
      */
     public function getItemsList()
     {
@@ -106,7 +107,7 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
     /**
      * Set 'items' value
      *
-     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem> $value
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem> $value
      */
     public function setItemsList(\Protobuf\Collection $value = null)
     {
@@ -116,9 +117,10 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
     /**
      * Add a new element to 'items'
      *
-     * @param \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem $value
+     * @param \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem
+     * $value
      */
-    public function addItems(\POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem $value)
+    public function addItems(\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem $value)
     {
         if ($this->items === null) {
             $this->items = new \Protobuf\MessageCollection();
@@ -269,14 +271,14 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
                     'name' => 'status',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
-                    'type_name' => '.POGOProtos.Networking.Envelopes.GetStoreItemsResponse.Status'
+                    'type_name' => '.POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.Status'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 2,
                     'name' => 'items',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
-                    'type_name' => '.POGOProtos.Networking.Envelopes.GetStoreItemsResponse.StoreItem'
+                    'type_name' => '.POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 3,
@@ -382,7 +384,7 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
             if ($tag === 1) {
                 \Protobuf\WireFormat::assertWireType($wire, 14);
 
-                $this->status = \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\Status::valueOf($reader->readVarint($stream));
+                $this->status = \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\Status::valueOf($reader->readVarint($stream));
 
                 continue;
             }
@@ -391,7 +393,7 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 11);
 
                 $innerSize    = $reader->readVarint($stream);
-                $innerMessage = new \POGOProtos\Networking\Envelopes\GetStoreItemsResponse\StoreItem();
+                $innerMessage = new \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem();
 
                 if ($this->items === null) {
                     $this->items = new \Protobuf\MessageCollection();
@@ -515,7 +517,7 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
      */
     public function merge(\Protobuf\Message $message)
     {
-        if ( ! $message instanceof \POGOProtos\Networking\Envelopes\GetStoreItemsResponse) {
+        if ( ! $message instanceof \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse) {
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
 
