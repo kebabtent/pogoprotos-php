@@ -22,7 +22,7 @@ This repository already contains the compiled classes. To recompile them, run:
 ``` bash
 $ php compile.php
 ```
-This requires the dev-dependencies and [protoc](https://github.com/google/protobuf) in the path
+This requires [protoc](https://github.com/google/protobuf) ^3.1.0 in your path
 
 ## Usage
 
@@ -31,7 +31,6 @@ See the wiki for some [usage instructions](https://github.com/jaspervdm/pogoprot
 ## Credits
 
 - [AeonLucid](https://github.com/AeonLucid) for the [proto files](https://github.com/AeonLucid/POGOProtos)
-- [protobuf-php](https://github.com/protobuf-php) for the [PHP implementation of Protocol Buffers](https://github.com/protobuf-php/protobuf)
 - [All Contributors][link-contributors]
 
 ## License

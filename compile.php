@@ -27,7 +27,7 @@ function listProtos($dir) {
 $fp = fopen("out.log", "w");
 $files = listProtos($_IN);
 foreach ($files as $file) {
-  $cmd = "php ./vendor/protobuf-php/protobuf-plugin/bin/protobuf -i \"".$_IN."\" -o \"".$_OUT."\" \"".$file."\"";
+  $cmd = "protoc --php_out=\"".$_OUT."\" -I \"".$_IN."\" \"".$file."\"";
   fwrite($fp, "Compile ".$file."\n");
   $out = shell_exec($cmd);
   fwrite($fp, $out);

@@ -4,7 +4,7 @@
   "type": "library",
   "require": {
     "php": ">=5.5",
-    "protobuf-php/protobuf": "~0.1"
+    "google/protobuf": "^3.1.0"
   },
   "keywords": [
     "pokemon-go",
@@ -27,21 +27,14 @@
       "role": "Collaborator"
     }
   ],
-  "require-dev": {
-    "protobuf-php/protobuf-plugin": "dev-master#fea131adaf9a9b6a409917050202ee0bb0c8b101"
-  },
-  "repositories":
-  [
-    {
-      "type": "vcs",
-      "url": "https://github.com/Droeftoeter/protobuf-plugin"
-    }
-  ],
   "autoload": {
     "classmap": [
       "src/"
     ]
   },
+  "include-path": [
+    "src/"
+  ],
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
