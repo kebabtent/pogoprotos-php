@@ -25,11 +25,25 @@ class Signature extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
+     * field1 repeated message = 1
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\UnknownMessage>
+     */
+    protected $field1 = null;
+
+    /**
      * timestamp_since_start optional uint64 = 2
      *
      * @var int
      */
     protected $timestamp_since_start = null;
+
+    /**
+     * field3 optional string = 3
+     *
+     * @var string
+     */
+    protected $field3 = null;
 
     /**
      * location_fix repeated message = 4
@@ -39,16 +53,23 @@ class Signature extends \Protobuf\AbstractMessage
     protected $location_fix = null;
 
     /**
-     * gps_info optional message = 5
+     * gps_info repeated message = 5
      *
-     * @var \POGOProtos\Networking\Envelopes\Signature\AndroidGpsInfo
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Signature\AndroidGpsInfo>
      */
     protected $gps_info = null;
 
     /**
-     * sensor_info optional message = 7
+     * field6 repeated message = 6
      *
-     * @var \POGOProtos\Networking\Envelopes\Signature\SensorInfo
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\UnknownMessage>
+     */
+    protected $field6 = null;
+
+    /**
+     * sensor_info repeated message = 7
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Signature\SensorInfo>
      */
     protected $sensor_info = null;
 
@@ -74,11 +95,81 @@ class Signature extends \Protobuf\AbstractMessage
     protected $location_hash1 = null;
 
     /**
+     * field11 optional bool = 11
+     *
+     * @var bool
+     */
+    protected $field11 = null;
+
+    /**
+     * field12 optional bool = 12
+     *
+     * @var bool
+     */
+    protected $field12 = null;
+
+    /**
+     * field13 optional int32 = 13
+     *
+     * @var int
+     */
+    protected $field13 = null;
+
+    /**
+     * field14 optional int32 = 14
+     *
+     * @var int
+     */
+    protected $field14 = null;
+
+    /**
+     * field15 optional string = 15
+     *
+     * @var string
+     */
+    protected $field15 = null;
+
+    /**
+     * field16 optional int32 = 16
+     *
+     * @var int
+     */
+    protected $field16 = null;
+
+    /**
+     * field17 optional string = 17
+     *
+     * @var string
+     */
+    protected $field17 = null;
+
+    /**
+     * field18 optional string = 18
+     *
+     * @var string
+     */
+    protected $field18 = null;
+
+    /**
+     * field19 optional bool = 19
+     *
+     * @var bool
+     */
+    protected $field19 = null;
+
+    /**
      * location_hash2 optional uint32 = 20
      *
      * @var int
      */
     protected $location_hash2 = null;
+
+    /**
+     * field21 optional bool = 21
+     *
+     * @var bool
+     */
+    protected $field21 = null;
 
     /**
      * session_hash optional bytes = 22
@@ -109,6 +200,50 @@ class Signature extends \Protobuf\AbstractMessage
     protected $unknown25 = null;
 
     /**
+     * Check if 'field1' has a value
+     *
+     * @return bool
+     */
+    public function hasField1List()
+    {
+        return $this->field1 !== null;
+    }
+
+    /**
+     * Get 'field1' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\UnknownMessage>
+     */
+    public function getField1List()
+    {
+        return $this->field1;
+    }
+
+    /**
+     * Set 'field1' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\UnknownMessage> $value
+     */
+    public function setField1List(\Protobuf\Collection $value = null)
+    {
+        $this->field1 = $value;
+    }
+
+    /**
+     * Add a new element to 'field1'
+     *
+     * @param \POGOProtos\Networking\Envelopes\UnknownMessage $value
+     */
+    public function addField1(\POGOProtos\Networking\Envelopes\UnknownMessage $value)
+    {
+        if ($this->field1 === null) {
+            $this->field1 = new \Protobuf\MessageCollection();
+        }
+
+        $this->field1->add($value);
+    }
+
+    /**
      * Check if 'timestamp_since_start' has a value
      *
      * @return bool
@@ -136,6 +271,36 @@ class Signature extends \Protobuf\AbstractMessage
     public function setTimestampSinceStart($value = null)
     {
         $this->timestamp_since_start = $value;
+    }
+
+    /**
+     * Check if 'field3' has a value
+     *
+     * @return bool
+     */
+    public function hasField3()
+    {
+        return $this->field3 !== null;
+    }
+
+    /**
+     * Get 'field3' value
+     *
+     * @return string
+     */
+    public function getField3()
+    {
+        return $this->field3;
+    }
+
+    /**
+     * Set 'field3' value
+     *
+     * @param string $value
+     */
+    public function setField3($value = null)
+    {
+        $this->field3 = $value;
     }
 
     /**
@@ -187,7 +352,7 @@ class Signature extends \Protobuf\AbstractMessage
      *
      * @return bool
      */
-    public function hasGpsInfo()
+    public function hasGpsInfoList()
     {
         return $this->gps_info !== null;
     }
@@ -195,9 +360,9 @@ class Signature extends \Protobuf\AbstractMessage
     /**
      * Get 'gps_info' value
      *
-     * @return \POGOProtos\Networking\Envelopes\Signature\AndroidGpsInfo
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Signature\AndroidGpsInfo>
      */
-    public function getGpsInfo()
+    public function getGpsInfoList()
     {
         return $this->gps_info;
     }
@@ -205,11 +370,69 @@ class Signature extends \Protobuf\AbstractMessage
     /**
      * Set 'gps_info' value
      *
-     * @param \POGOProtos\Networking\Envelopes\Signature\AndroidGpsInfo $value
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Signature\AndroidGpsInfo> $value
      */
-    public function setGpsInfo(\POGOProtos\Networking\Envelopes\Signature\AndroidGpsInfo $value = null)
+    public function setGpsInfoList(\Protobuf\Collection $value = null)
     {
         $this->gps_info = $value;
+    }
+
+    /**
+     * Add a new element to 'gps_info'
+     *
+     * @param \POGOProtos\Networking\Envelopes\Signature\AndroidGpsInfo $value
+     */
+    public function addGpsInfo(\POGOProtos\Networking\Envelopes\Signature\AndroidGpsInfo $value)
+    {
+        if ($this->gps_info === null) {
+            $this->gps_info = new \Protobuf\MessageCollection();
+        }
+
+        $this->gps_info->add($value);
+    }
+
+    /**
+     * Check if 'field6' has a value
+     *
+     * @return bool
+     */
+    public function hasField6List()
+    {
+        return $this->field6 !== null;
+    }
+
+    /**
+     * Get 'field6' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\UnknownMessage>
+     */
+    public function getField6List()
+    {
+        return $this->field6;
+    }
+
+    /**
+     * Set 'field6' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\UnknownMessage> $value
+     */
+    public function setField6List(\Protobuf\Collection $value = null)
+    {
+        $this->field6 = $value;
+    }
+
+    /**
+     * Add a new element to 'field6'
+     *
+     * @param \POGOProtos\Networking\Envelopes\UnknownMessage $value
+     */
+    public function addField6(\POGOProtos\Networking\Envelopes\UnknownMessage $value)
+    {
+        if ($this->field6 === null) {
+            $this->field6 = new \Protobuf\MessageCollection();
+        }
+
+        $this->field6->add($value);
     }
 
     /**
@@ -217,7 +440,7 @@ class Signature extends \Protobuf\AbstractMessage
      *
      * @return bool
      */
-    public function hasSensorInfo()
+    public function hasSensorInfoList()
     {
         return $this->sensor_info !== null;
     }
@@ -225,9 +448,9 @@ class Signature extends \Protobuf\AbstractMessage
     /**
      * Get 'sensor_info' value
      *
-     * @return \POGOProtos\Networking\Envelopes\Signature\SensorInfo
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Signature\SensorInfo>
      */
-    public function getSensorInfo()
+    public function getSensorInfoList()
     {
         return $this->sensor_info;
     }
@@ -235,11 +458,25 @@ class Signature extends \Protobuf\AbstractMessage
     /**
      * Set 'sensor_info' value
      *
-     * @param \POGOProtos\Networking\Envelopes\Signature\SensorInfo $value
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Envelopes\Signature\SensorInfo> $value
      */
-    public function setSensorInfo(\POGOProtos\Networking\Envelopes\Signature\SensorInfo $value = null)
+    public function setSensorInfoList(\Protobuf\Collection $value = null)
     {
         $this->sensor_info = $value;
+    }
+
+    /**
+     * Add a new element to 'sensor_info'
+     *
+     * @param \POGOProtos\Networking\Envelopes\Signature\SensorInfo $value
+     */
+    public function addSensorInfo(\POGOProtos\Networking\Envelopes\Signature\SensorInfo $value)
+    {
+        if ($this->sensor_info === null) {
+            $this->sensor_info = new \Protobuf\MessageCollection();
+        }
+
+        $this->sensor_info->add($value);
     }
 
     /**
@@ -333,6 +570,276 @@ class Signature extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'field11' has a value
+     *
+     * @return bool
+     */
+    public function hasField11()
+    {
+        return $this->field11 !== null;
+    }
+
+    /**
+     * Get 'field11' value
+     *
+     * @return bool
+     */
+    public function getField11()
+    {
+        return $this->field11;
+    }
+
+    /**
+     * Set 'field11' value
+     *
+     * @param bool $value
+     */
+    public function setField11($value = null)
+    {
+        $this->field11 = $value;
+    }
+
+    /**
+     * Check if 'field12' has a value
+     *
+     * @return bool
+     */
+    public function hasField12()
+    {
+        return $this->field12 !== null;
+    }
+
+    /**
+     * Get 'field12' value
+     *
+     * @return bool
+     */
+    public function getField12()
+    {
+        return $this->field12;
+    }
+
+    /**
+     * Set 'field12' value
+     *
+     * @param bool $value
+     */
+    public function setField12($value = null)
+    {
+        $this->field12 = $value;
+    }
+
+    /**
+     * Check if 'field13' has a value
+     *
+     * @return bool
+     */
+    public function hasField13()
+    {
+        return $this->field13 !== null;
+    }
+
+    /**
+     * Get 'field13' value
+     *
+     * @return int
+     */
+    public function getField13()
+    {
+        return $this->field13;
+    }
+
+    /**
+     * Set 'field13' value
+     *
+     * @param int $value
+     */
+    public function setField13($value = null)
+    {
+        $this->field13 = $value;
+    }
+
+    /**
+     * Check if 'field14' has a value
+     *
+     * @return bool
+     */
+    public function hasField14()
+    {
+        return $this->field14 !== null;
+    }
+
+    /**
+     * Get 'field14' value
+     *
+     * @return int
+     */
+    public function getField14()
+    {
+        return $this->field14;
+    }
+
+    /**
+     * Set 'field14' value
+     *
+     * @param int $value
+     */
+    public function setField14($value = null)
+    {
+        $this->field14 = $value;
+    }
+
+    /**
+     * Check if 'field15' has a value
+     *
+     * @return bool
+     */
+    public function hasField15()
+    {
+        return $this->field15 !== null;
+    }
+
+    /**
+     * Get 'field15' value
+     *
+     * @return string
+     */
+    public function getField15()
+    {
+        return $this->field15;
+    }
+
+    /**
+     * Set 'field15' value
+     *
+     * @param string $value
+     */
+    public function setField15($value = null)
+    {
+        $this->field15 = $value;
+    }
+
+    /**
+     * Check if 'field16' has a value
+     *
+     * @return bool
+     */
+    public function hasField16()
+    {
+        return $this->field16 !== null;
+    }
+
+    /**
+     * Get 'field16' value
+     *
+     * @return int
+     */
+    public function getField16()
+    {
+        return $this->field16;
+    }
+
+    /**
+     * Set 'field16' value
+     *
+     * @param int $value
+     */
+    public function setField16($value = null)
+    {
+        $this->field16 = $value;
+    }
+
+    /**
+     * Check if 'field17' has a value
+     *
+     * @return bool
+     */
+    public function hasField17()
+    {
+        return $this->field17 !== null;
+    }
+
+    /**
+     * Get 'field17' value
+     *
+     * @return string
+     */
+    public function getField17()
+    {
+        return $this->field17;
+    }
+
+    /**
+     * Set 'field17' value
+     *
+     * @param string $value
+     */
+    public function setField17($value = null)
+    {
+        $this->field17 = $value;
+    }
+
+    /**
+     * Check if 'field18' has a value
+     *
+     * @return bool
+     */
+    public function hasField18()
+    {
+        return $this->field18 !== null;
+    }
+
+    /**
+     * Get 'field18' value
+     *
+     * @return string
+     */
+    public function getField18()
+    {
+        return $this->field18;
+    }
+
+    /**
+     * Set 'field18' value
+     *
+     * @param string $value
+     */
+    public function setField18($value = null)
+    {
+        $this->field18 = $value;
+    }
+
+    /**
+     * Check if 'field19' has a value
+     *
+     * @return bool
+     */
+    public function hasField19()
+    {
+        return $this->field19 !== null;
+    }
+
+    /**
+     * Get 'field19' value
+     *
+     * @return bool
+     */
+    public function getField19()
+    {
+        return $this->field19;
+    }
+
+    /**
+     * Set 'field19' value
+     *
+     * @param bool $value
+     */
+    public function setField19($value = null)
+    {
+        $this->field19 = $value;
+    }
+
+    /**
      * Check if 'location_hash2' has a value
      *
      * @return bool
@@ -360,6 +867,36 @@ class Signature extends \Protobuf\AbstractMessage
     public function setLocationHash2($value = null)
     {
         $this->location_hash2 = $value;
+    }
+
+    /**
+     * Check if 'field21' has a value
+     *
+     * @return bool
+     */
+    public function hasField21()
+    {
+        return $this->field21 !== null;
+    }
+
+    /**
+     * Get 'field21' value
+     *
+     * @return bool
+     */
+    public function getField21()
+    {
+        return $this->field21;
+    }
+
+    /**
+     * Set 'field21' value
+     *
+     * @param bool $value
+     */
+    public function setField21($value = null)
+    {
+        $this->field21 = $value;
     }
 
     /**
@@ -535,14 +1072,27 @@ class Signature extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
+            'field1' => [],
             'timestamp_since_start' => null,
+            'field3' => null,
             'location_fix' => [],
-            'gps_info' => null,
-            'sensor_info' => null,
+            'gps_info' => [],
+            'field6' => [],
+            'sensor_info' => [],
             'device_info' => null,
             'activity_status' => null,
             'location_hash1' => null,
+            'field11' => null,
+            'field12' => null,
+            'field13' => null,
+            'field14' => null,
+            'field15' => null,
+            'field16' => null,
+            'field17' => null,
+            'field18' => null,
+            'field19' => null,
             'location_hash2' => null,
+            'field21' => null,
             'session_hash' => null,
             'timestamp' => null,
             'request_hash' => [],
@@ -550,18 +1100,43 @@ class Signature extends \Protobuf\AbstractMessage
         ], $values);
 
         $message->setTimestampSinceStart($values['timestamp_since_start']);
-        $message->setGpsInfo($values['gps_info']);
-        $message->setSensorInfo($values['sensor_info']);
+        $message->setField3($values['field3']);
         $message->setDeviceInfo($values['device_info']);
         $message->setActivityStatus($values['activity_status']);
         $message->setLocationHash1($values['location_hash1']);
+        $message->setField11($values['field11']);
+        $message->setField12($values['field12']);
+        $message->setField13($values['field13']);
+        $message->setField14($values['field14']);
+        $message->setField15($values['field15']);
+        $message->setField16($values['field16']);
+        $message->setField17($values['field17']);
+        $message->setField18($values['field18']);
+        $message->setField19($values['field19']);
         $message->setLocationHash2($values['location_hash2']);
+        $message->setField21($values['field21']);
         $message->setSessionHash($values['session_hash']);
         $message->setTimestamp($values['timestamp']);
         $message->setUnknown25($values['unknown25']);
 
+        foreach ($values['field1'] as $item) {
+            $message->addField1($item);
+        }
+
         foreach ($values['location_fix'] as $item) {
             $message->addLocationFix($item);
+        }
+
+        foreach ($values['gps_info'] as $item) {
+            $message->addGpsInfo($item);
+        }
+
+        foreach ($values['field6'] as $item) {
+            $message->addField6($item);
+        }
+
+        foreach ($values['sensor_info'] as $item) {
+            $message->addSensorInfo($item);
         }
 
         foreach ($values['request_hash'] as $item) {
@@ -580,9 +1155,22 @@ class Signature extends \Protobuf\AbstractMessage
             'name'      => 'Signature',
             'field'     => [
                 \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 1,
+                    'name' => 'field1',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Networking.Envelopes.UnknownMessage'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 2,
                     'name' => 'timestamp_since_start',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 3,
+                    'name' => 'field3',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -596,14 +1184,21 @@ class Signature extends \Protobuf\AbstractMessage
                     'number' => 5,
                     'name' => 'gps_info',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
                     'type_name' => '.POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'field6',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Networking.Envelopes.UnknownMessage'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 7,
                     'name' => 'sensor_info',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
                     'type_name' => '.POGOProtos.Networking.Envelopes.Signature.SensorInfo'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -627,9 +1222,69 @@ class Signature extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 11,
+                    'name' => 'field11',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 12,
+                    'name' => 'field12',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 13,
+                    'name' => 'field13',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 14,
+                    'name' => 'field14',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 15,
+                    'name' => 'field15',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 16,
+                    'name' => 'field16',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 17,
+                    'name' => 'field17',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 18,
+                    'name' => 'field18',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 19,
+                    'name' => 'field19',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 20,
                     'name' => 'location_hash2',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 21,
+                    'name' => 'field21',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
@@ -684,9 +1339,22 @@ class Signature extends \Protobuf\AbstractMessage
         $writer      = $context->getWriter();
         $sizeContext = $context->getComputeSizeContext();
 
+        if ($this->field1 !== null) {
+            foreach ($this->field1 as $val) {
+                $writer->writeVarint($stream, 10);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
+            }
+        }
+
         if ($this->timestamp_since_start !== null) {
             $writer->writeVarint($stream, 16);
             $writer->writeVarint($stream, $this->timestamp_since_start);
+        }
+
+        if ($this->field3 !== null) {
+            $writer->writeVarint($stream, 26);
+            $writer->writeString($stream, $this->field3);
         }
 
         if ($this->location_fix !== null) {
@@ -698,15 +1366,27 @@ class Signature extends \Protobuf\AbstractMessage
         }
 
         if ($this->gps_info !== null) {
-            $writer->writeVarint($stream, 42);
-            $writer->writeVarint($stream, $this->gps_info->serializedSize($sizeContext));
-            $this->gps_info->writeTo($context);
+            foreach ($this->gps_info as $val) {
+                $writer->writeVarint($stream, 42);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
+            }
+        }
+
+        if ($this->field6 !== null) {
+            foreach ($this->field6 as $val) {
+                $writer->writeVarint($stream, 50);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
+            }
         }
 
         if ($this->sensor_info !== null) {
-            $writer->writeVarint($stream, 58);
-            $writer->writeVarint($stream, $this->sensor_info->serializedSize($sizeContext));
-            $this->sensor_info->writeTo($context);
+            foreach ($this->sensor_info as $val) {
+                $writer->writeVarint($stream, 58);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
+            }
         }
 
         if ($this->device_info !== null) {
@@ -726,9 +1406,59 @@ class Signature extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, $this->location_hash1);
         }
 
+        if ($this->field11 !== null) {
+            $writer->writeVarint($stream, 88);
+            $writer->writeBool($stream, $this->field11);
+        }
+
+        if ($this->field12 !== null) {
+            $writer->writeVarint($stream, 96);
+            $writer->writeBool($stream, $this->field12);
+        }
+
+        if ($this->field13 !== null) {
+            $writer->writeVarint($stream, 104);
+            $writer->writeVarint($stream, $this->field13);
+        }
+
+        if ($this->field14 !== null) {
+            $writer->writeVarint($stream, 112);
+            $writer->writeVarint($stream, $this->field14);
+        }
+
+        if ($this->field15 !== null) {
+            $writer->writeVarint($stream, 122);
+            $writer->writeString($stream, $this->field15);
+        }
+
+        if ($this->field16 !== null) {
+            $writer->writeVarint($stream, 128);
+            $writer->writeVarint($stream, $this->field16);
+        }
+
+        if ($this->field17 !== null) {
+            $writer->writeVarint($stream, 138);
+            $writer->writeString($stream, $this->field17);
+        }
+
+        if ($this->field18 !== null) {
+            $writer->writeVarint($stream, 146);
+            $writer->writeString($stream, $this->field18);
+        }
+
+        if ($this->field19 !== null) {
+            $writer->writeVarint($stream, 152);
+            $writer->writeBool($stream, $this->field19);
+        }
+
         if ($this->location_hash2 !== null) {
             $writer->writeVarint($stream, 160);
             $writer->writeVarint($stream, $this->location_hash2);
+        }
+
+        if ($this->field21 !== null) {
+            $writer->writeVarint($stream, 168);
+            $writer->writeBool($stream, $this->field21);
         }
 
         if ($this->session_hash !== null) {
@@ -787,10 +1517,37 @@ class Signature extends \Protobuf\AbstractMessage
                 break;
             }
 
+            if ($tag === 1) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Networking\Envelopes\UnknownMessage();
+
+                if ($this->field1 === null) {
+                    $this->field1 = new \Protobuf\MessageCollection();
+                }
+
+                $this->field1->add($innerMessage);
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             if ($tag === 2) {
                 \Protobuf\WireFormat::assertWireType($wire, 4);
 
                 $this->timestamp_since_start = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 3) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->field3 = $reader->readString($stream);
 
                 continue;
             }
@@ -820,7 +1577,30 @@ class Signature extends \Protobuf\AbstractMessage
                 $innerSize    = $reader->readVarint($stream);
                 $innerMessage = new \POGOProtos\Networking\Envelopes\Signature\AndroidGpsInfo();
 
-                $this->gps_info = $innerMessage;
+                if ($this->gps_info === null) {
+                    $this->gps_info = new \Protobuf\MessageCollection();
+                }
+
+                $this->gps_info->add($innerMessage);
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 6) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Networking\Envelopes\UnknownMessage();
+
+                if ($this->field6 === null) {
+                    $this->field6 = new \Protobuf\MessageCollection();
+                }
+
+                $this->field6->add($innerMessage);
 
                 $context->setLength($innerSize);
                 $innerMessage->readFrom($context);
@@ -835,7 +1615,11 @@ class Signature extends \Protobuf\AbstractMessage
                 $innerSize    = $reader->readVarint($stream);
                 $innerMessage = new \POGOProtos\Networking\Envelopes\Signature\SensorInfo();
 
-                $this->sensor_info = $innerMessage;
+                if ($this->sensor_info === null) {
+                    $this->sensor_info = new \Protobuf\MessageCollection();
+                }
+
+                $this->sensor_info->add($innerMessage);
 
                 $context->setLength($innerSize);
                 $innerMessage->readFrom($context);
@@ -882,10 +1666,90 @@ class Signature extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 11) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->field11 = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 12) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->field12 = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 13) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->field13 = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 14) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->field14 = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 15) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->field15 = $reader->readString($stream);
+
+                continue;
+            }
+
+            if ($tag === 16) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->field16 = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 17) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->field17 = $reader->readString($stream);
+
+                continue;
+            }
+
+            if ($tag === 18) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->field18 = $reader->readString($stream);
+
+                continue;
+            }
+
+            if ($tag === 19) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->field19 = $reader->readBool($stream);
+
+                continue;
+            }
+
             if ($tag === 20) {
                 \Protobuf\WireFormat::assertWireType($wire, 13);
 
                 $this->location_hash2 = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 21) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->field21 = $reader->readBool($stream);
 
                 continue;
             }
@@ -958,9 +1822,24 @@ class Signature extends \Protobuf\AbstractMessage
         $calculator = $context->getSizeCalculator();
         $size       = 0;
 
+        if ($this->field1 !== null) {
+            foreach ($this->field1 as $val) {
+                $innerSize = $val->serializedSize($context);
+
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
+        }
+
         if ($this->timestamp_since_start !== null) {
             $size += 1;
             $size += $calculator->computeVarintSize($this->timestamp_since_start);
+        }
+
+        if ($this->field3 !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->field3);
         }
 
         if ($this->location_fix !== null) {
@@ -974,19 +1853,33 @@ class Signature extends \Protobuf\AbstractMessage
         }
 
         if ($this->gps_info !== null) {
-            $innerSize = $this->gps_info->serializedSize($context);
+            foreach ($this->gps_info as $val) {
+                $innerSize = $val->serializedSize($context);
 
-            $size += 1;
-            $size += $innerSize;
-            $size += $calculator->computeVarintSize($innerSize);
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
+        }
+
+        if ($this->field6 !== null) {
+            foreach ($this->field6 as $val) {
+                $innerSize = $val->serializedSize($context);
+
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
         }
 
         if ($this->sensor_info !== null) {
-            $innerSize = $this->sensor_info->serializedSize($context);
+            foreach ($this->sensor_info as $val) {
+                $innerSize = $val->serializedSize($context);
 
-            $size += 1;
-            $size += $innerSize;
-            $size += $calculator->computeVarintSize($innerSize);
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
         }
 
         if ($this->device_info !== null) {
@@ -1010,9 +1903,59 @@ class Signature extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->location_hash1);
         }
 
+        if ($this->field11 !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
+        if ($this->field12 !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
+        if ($this->field13 !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->field13);
+        }
+
+        if ($this->field14 !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->field14);
+        }
+
+        if ($this->field15 !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->field15);
+        }
+
+        if ($this->field16 !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->field16);
+        }
+
+        if ($this->field17 !== null) {
+            $size += 2;
+            $size += $calculator->computeStringSize($this->field17);
+        }
+
+        if ($this->field18 !== null) {
+            $size += 2;
+            $size += $calculator->computeStringSize($this->field18);
+        }
+
+        if ($this->field19 !== null) {
+            $size += 2;
+            $size += 1;
+        }
+
         if ($this->location_hash2 !== null) {
             $size += 2;
             $size += $calculator->computeVarintSize($this->location_hash2);
+        }
+
+        if ($this->field21 !== null) {
+            $size += 2;
+            $size += 1;
         }
 
         if ($this->session_hash !== null) {
@@ -1049,14 +1992,27 @@ class Signature extends \Protobuf\AbstractMessage
      */
     public function clear()
     {
+        $this->field1 = null;
         $this->timestamp_since_start = null;
+        $this->field3 = null;
         $this->location_fix = null;
         $this->gps_info = null;
+        $this->field6 = null;
         $this->sensor_info = null;
         $this->device_info = null;
         $this->activity_status = null;
         $this->location_hash1 = null;
+        $this->field11 = null;
+        $this->field12 = null;
+        $this->field13 = null;
+        $this->field14 = null;
+        $this->field15 = null;
+        $this->field16 = null;
+        $this->field17 = null;
+        $this->field18 = null;
+        $this->field19 = null;
         $this->location_hash2 = null;
+        $this->field21 = null;
         $this->session_hash = null;
         $this->timestamp = null;
         $this->request_hash = null;
@@ -1072,14 +2028,27 @@ class Signature extends \Protobuf\AbstractMessage
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
 
+        $this->field1 = ($message->field1 !== null) ? $message->field1 : $this->field1;
         $this->timestamp_since_start = ($message->timestamp_since_start !== null) ? $message->timestamp_since_start : $this->timestamp_since_start;
+        $this->field3 = ($message->field3 !== null) ? $message->field3 : $this->field3;
         $this->location_fix = ($message->location_fix !== null) ? $message->location_fix : $this->location_fix;
         $this->gps_info = ($message->gps_info !== null) ? $message->gps_info : $this->gps_info;
+        $this->field6 = ($message->field6 !== null) ? $message->field6 : $this->field6;
         $this->sensor_info = ($message->sensor_info !== null) ? $message->sensor_info : $this->sensor_info;
         $this->device_info = ($message->device_info !== null) ? $message->device_info : $this->device_info;
         $this->activity_status = ($message->activity_status !== null) ? $message->activity_status : $this->activity_status;
         $this->location_hash1 = ($message->location_hash1 !== null) ? $message->location_hash1 : $this->location_hash1;
+        $this->field11 = ($message->field11 !== null) ? $message->field11 : $this->field11;
+        $this->field12 = ($message->field12 !== null) ? $message->field12 : $this->field12;
+        $this->field13 = ($message->field13 !== null) ? $message->field13 : $this->field13;
+        $this->field14 = ($message->field14 !== null) ? $message->field14 : $this->field14;
+        $this->field15 = ($message->field15 !== null) ? $message->field15 : $this->field15;
+        $this->field16 = ($message->field16 !== null) ? $message->field16 : $this->field16;
+        $this->field17 = ($message->field17 !== null) ? $message->field17 : $this->field17;
+        $this->field18 = ($message->field18 !== null) ? $message->field18 : $this->field18;
+        $this->field19 = ($message->field19 !== null) ? $message->field19 : $this->field19;
         $this->location_hash2 = ($message->location_hash2 !== null) ? $message->location_hash2 : $this->location_hash2;
+        $this->field21 = ($message->field21 !== null) ? $message->field21 : $this->field21;
         $this->session_hash = ($message->session_hash !== null) ? $message->session_hash : $this->session_hash;
         $this->timestamp = ($message->timestamp !== null) ? $message->timestamp : $this->timestamp;
         $this->request_hash = ($message->request_hash !== null) ? $message->request_hash : $this->request_hash;

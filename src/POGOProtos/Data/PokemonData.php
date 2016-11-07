@@ -242,6 +242,27 @@ class PokemonData extends \Protobuf\AbstractMessage
     protected $buddy_candy_awarded = null;
 
     /**
+     * buddy_total_km_walked optional float = 33
+     *
+     * @var float
+     */
+    protected $buddy_total_km_walked = null;
+
+    /**
+     * display_pokemon_id optional int32 = 34
+     *
+     * @var int
+     */
+    protected $display_pokemon_id = null;
+
+    /**
+     * display_cp optional int32 = 35
+     *
+     * @var int
+     */
+    protected $display_cp = null;
+
+    /**
      * Check if 'id' has a value
      *
      * @return bool
@@ -1172,6 +1193,96 @@ class PokemonData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'buddy_total_km_walked' has a value
+     *
+     * @return bool
+     */
+    public function hasBuddyTotalKmWalked()
+    {
+        return $this->buddy_total_km_walked !== null;
+    }
+
+    /**
+     * Get 'buddy_total_km_walked' value
+     *
+     * @return float
+     */
+    public function getBuddyTotalKmWalked()
+    {
+        return $this->buddy_total_km_walked;
+    }
+
+    /**
+     * Set 'buddy_total_km_walked' value
+     *
+     * @param float $value
+     */
+    public function setBuddyTotalKmWalked($value = null)
+    {
+        $this->buddy_total_km_walked = $value;
+    }
+
+    /**
+     * Check if 'display_pokemon_id' has a value
+     *
+     * @return bool
+     */
+    public function hasDisplayPokemonId()
+    {
+        return $this->display_pokemon_id !== null;
+    }
+
+    /**
+     * Get 'display_pokemon_id' value
+     *
+     * @return int
+     */
+    public function getDisplayPokemonId()
+    {
+        return $this->display_pokemon_id;
+    }
+
+    /**
+     * Set 'display_pokemon_id' value
+     *
+     * @param int $value
+     */
+    public function setDisplayPokemonId($value = null)
+    {
+        $this->display_pokemon_id = $value;
+    }
+
+    /**
+     * Check if 'display_cp' has a value
+     *
+     * @return bool
+     */
+    public function hasDisplayCp()
+    {
+        return $this->display_cp !== null;
+    }
+
+    /**
+     * Get 'display_cp' value
+     *
+     * @return int
+     */
+    public function getDisplayCp()
+    {
+        return $this->display_cp;
+    }
+
+    /**
+     * Set 'display_cp' value
+     *
+     * @param int $value
+     */
+    public function setDisplayCp($value = null)
+    {
+        $this->display_cp = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -1236,7 +1347,10 @@ class PokemonData extends \Protobuf\AbstractMessage
             'favorite' => null,
             'nickname' => null,
             'from_fort' => null,
-            'buddy_candy_awarded' => null
+            'buddy_candy_awarded' => null,
+            'buddy_total_km_walked' => null,
+            'display_pokemon_id' => null,
+            'display_cp' => null
         ], $values);
 
         $message->setId($values['id']);
@@ -1270,6 +1384,9 @@ class PokemonData extends \Protobuf\AbstractMessage
         $message->setNickname($values['nickname']);
         $message->setFromFort($values['from_fort']);
         $message->setBuddyCandyAwarded($values['buddy_candy_awarded']);
+        $message->setBuddyTotalKmWalked($values['buddy_total_km_walked']);
+        $message->setDisplayPokemonId($values['display_pokemon_id']);
+        $message->setDisplayCp($values['display_cp']);
 
         return $message;
     }
@@ -1472,6 +1589,24 @@ class PokemonData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 33,
+                    'name' => 'buddy_total_km_walked',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 34,
+                    'name' => 'display_pokemon_id',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 35,
+                    'name' => 'display_cp',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
             ],
         ]);
     }
@@ -1653,6 +1788,21 @@ class PokemonData extends \Protobuf\AbstractMessage
         if ($this->buddy_candy_awarded !== null) {
             $writer->writeVarint($stream, 256);
             $writer->writeVarint($stream, $this->buddy_candy_awarded);
+        }
+
+        if ($this->buddy_total_km_walked !== null) {
+            $writer->writeVarint($stream, 269);
+            $writer->writeFloat($stream, $this->buddy_total_km_walked);
+        }
+
+        if ($this->display_pokemon_id !== null) {
+            $writer->writeVarint($stream, 272);
+            $writer->writeVarint($stream, $this->display_pokemon_id);
+        }
+
+        if ($this->display_cp !== null) {
+            $writer->writeVarint($stream, 280);
+            $writer->writeVarint($stream, $this->display_cp);
         }
 
         if ($this->extensions !== null) {
@@ -1937,6 +2087,30 @@ class PokemonData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 33) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->buddy_total_km_walked = $reader->readFloat($stream);
+
+                continue;
+            }
+
+            if ($tag === 34) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->display_pokemon_id = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 35) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->display_cp = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -2121,6 +2295,21 @@ class PokemonData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->buddy_candy_awarded);
         }
 
+        if ($this->buddy_total_km_walked !== null) {
+            $size += 2;
+            $size += 4;
+        }
+
+        if ($this->display_pokemon_id !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->display_pokemon_id);
+        }
+
+        if ($this->display_cp !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->display_cp);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -2164,6 +2353,9 @@ class PokemonData extends \Protobuf\AbstractMessage
         $this->nickname = null;
         $this->from_fort = null;
         $this->buddy_candy_awarded = null;
+        $this->buddy_total_km_walked = null;
+        $this->display_pokemon_id = null;
+        $this->display_cp = null;
     }
 
     /**
@@ -2206,6 +2398,9 @@ class PokemonData extends \Protobuf\AbstractMessage
         $this->nickname = ($message->nickname !== null) ? $message->nickname : $this->nickname;
         $this->from_fort = ($message->from_fort !== null) ? $message->from_fort : $this->from_fort;
         $this->buddy_candy_awarded = ($message->buddy_candy_awarded !== null) ? $message->buddy_candy_awarded : $this->buddy_candy_awarded;
+        $this->buddy_total_km_walked = ($message->buddy_total_km_walked !== null) ? $message->buddy_total_km_walked : $this->buddy_total_km_walked;
+        $this->display_pokemon_id = ($message->display_pokemon_id !== null) ? $message->display_pokemon_id : $this->display_pokemon_id;
+        $this->display_cp = ($message->display_cp !== null) ? $message->display_cp : $this->display_cp;
     }
 
 

@@ -39,6 +39,13 @@ class GymMembership extends \Protobuf\AbstractMessage
     protected $trainer_public_profile = null;
 
     /**
+     * training_pokemon optional message = 3
+     *
+     * @var \POGOProtos\Data\PokemonData
+     */
+    protected $training_pokemon = null;
+
+    /**
      * Check if 'pokemon_data' has a value
      *
      * @return bool
@@ -99,6 +106,36 @@ class GymMembership extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'training_pokemon' has a value
+     *
+     * @return bool
+     */
+    public function hasTrainingPokemon()
+    {
+        return $this->training_pokemon !== null;
+    }
+
+    /**
+     * Get 'training_pokemon' value
+     *
+     * @return \POGOProtos\Data\PokemonData
+     */
+    public function getTrainingPokemon()
+    {
+        return $this->training_pokemon;
+    }
+
+    /**
+     * Set 'training_pokemon' value
+     *
+     * @param \POGOProtos\Data\PokemonData $value
+     */
+    public function setTrainingPokemon(\POGOProtos\Data\PokemonData $value = null)
+    {
+        $this->training_pokemon = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -134,11 +171,13 @@ class GymMembership extends \Protobuf\AbstractMessage
         $message = new self();
         $values  = array_merge([
             'pokemon_data' => null,
-            'trainer_public_profile' => null
+            'trainer_public_profile' => null,
+            'training_pokemon' => null
         ], $values);
 
         $message->setPokemonData($values['pokemon_data']);
         $message->setTrainerPublicProfile($values['trainer_public_profile']);
+        $message->setTrainingPokemon($values['training_pokemon']);
 
         return $message;
     }
@@ -164,6 +203,13 @@ class GymMembership extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Player.PlayerPublicProfile'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 3,
+                    'name' => 'training_pokemon',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.PokemonData'
                 ]),
             ],
         ]);
@@ -203,6 +249,12 @@ class GymMembership extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 18);
             $writer->writeVarint($stream, $this->trainer_public_profile->serializedSize($sizeContext));
             $this->trainer_public_profile->writeTo($context);
+        }
+
+        if ($this->training_pokemon !== null) {
+            $writer->writeVarint($stream, 26);
+            $writer->writeVarint($stream, $this->training_pokemon->serializedSize($sizeContext));
+            $this->training_pokemon->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -269,6 +321,21 @@ class GymMembership extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 3) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PokemonData();
+
+                $this->training_pokemon = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -314,6 +381,14 @@ class GymMembership extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->training_pokemon !== null) {
+            $innerSize = $this->training_pokemon->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -328,6 +403,7 @@ class GymMembership extends \Protobuf\AbstractMessage
     {
         $this->pokemon_data = null;
         $this->trainer_public_profile = null;
+        $this->training_pokemon = null;
     }
 
     /**
@@ -341,6 +417,7 @@ class GymMembership extends \Protobuf\AbstractMessage
 
         $this->pokemon_data = ($message->pokemon_data !== null) ? $message->pokemon_data : $this->pokemon_data;
         $this->trainer_public_profile = ($message->trainer_public_profile !== null) ? $message->trainer_public_profile : $this->trainer_public_profile;
+        $this->training_pokemon = ($message->training_pokemon !== null) ? $message->training_pokemon : $this->training_pokemon;
     }
 
 

@@ -53,6 +53,13 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
     protected $capture_award = null;
 
     /**
+     * capture_reason optional enum = 5
+     *
+     * @var \POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason
+     */
+    protected $capture_reason = null;
+
+    /**
      * Check if 'status' has a value
      *
      * @return bool
@@ -173,6 +180,36 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'capture_reason' has a value
+     *
+     * @return bool
+     */
+    public function hasCaptureReason()
+    {
+        return $this->capture_reason !== null;
+    }
+
+    /**
+     * Get 'capture_reason' value
+     *
+     * @return \POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason
+     */
+    public function getCaptureReason()
+    {
+        return $this->capture_reason;
+    }
+
+    /**
+     * Set 'capture_reason' value
+     *
+     * @param \POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason $value
+     */
+    public function setCaptureReason(\POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason $value = null)
+    {
+        $this->capture_reason = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -210,13 +247,15 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
             'status' => null,
             'miss_percent' => null,
             'captured_pokemon_id' => null,
-            'capture_award' => null
+            'capture_award' => null,
+            'capture_reason' => null
         ], $values);
 
         $message->setStatus($values['status']);
         $message->setMissPercent($values['miss_percent']);
         $message->setCapturedPokemonId($values['captured_pokemon_id']);
         $message->setCaptureAward($values['capture_award']);
+        $message->setCaptureReason($values['capture_reason']);
 
         return $message;
     }
@@ -254,6 +293,13 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Capture.CaptureAward'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'capture_reason',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Networking.Responses.CatchPokemonResponse.CaptureReason'
                 ]),
             ],
         ]);
@@ -302,6 +348,11 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 34);
             $writer->writeVarint($stream, $this->capture_award->serializedSize($sizeContext));
             $this->capture_award->writeTo($context);
+        }
+
+        if ($this->capture_reason !== null) {
+            $writer->writeVarint($stream, 40);
+            $writer->writeVarint($stream, $this->capture_reason->value());
         }
 
         if ($this->extensions !== null) {
@@ -377,6 +428,14 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                $this->capture_reason = \POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason::valueOf($reader->readVarint($stream));
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -429,6 +488,11 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->capture_reason !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->capture_reason->value());
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -445,6 +509,7 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
         $this->miss_percent = null;
         $this->captured_pokemon_id = null;
         $this->capture_award = null;
+        $this->capture_reason = null;
     }
 
     /**
@@ -460,6 +525,7 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
         $this->miss_percent = ($message->miss_percent !== null) ? $message->miss_percent : $this->miss_percent;
         $this->captured_pokemon_id = ($message->captured_pokemon_id !== null) ? $message->captured_pokemon_id : $this->captured_pokemon_id;
         $this->capture_award = ($message->capture_award !== null) ? $message->capture_award : $this->capture_award;
+        $this->capture_reason = ($message->capture_reason !== null) ? $message->capture_reason : $this->capture_reason;
     }
 
 

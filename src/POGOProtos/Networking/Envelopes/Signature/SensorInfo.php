@@ -74,46 +74,53 @@ class SensorInfo extends \Protobuf\AbstractMessage
     protected $magnetic_field_z = null;
 
     /**
-     * rotation_vector_x optional double = 10
+     * magnetic_field_accuracy optional int32 = 9
      *
-     * @var float
+     * @var int
      */
-    protected $rotation_vector_x = null;
+    protected $magnetic_field_accuracy = null;
 
     /**
-     * rotation_vector_y optional double = 11
+     * attitude_pitch optional double = 10
      *
      * @var float
      */
-    protected $rotation_vector_y = null;
+    protected $attitude_pitch = null;
 
     /**
-     * rotation_vector_z optional double = 12
+     * attitude_yaw optional double = 11
      *
      * @var float
      */
-    protected $rotation_vector_z = null;
+    protected $attitude_yaw = null;
 
     /**
-     * gyroscope_raw_x optional double = 13
+     * attitude_roll optional double = 12
      *
      * @var float
      */
-    protected $gyroscope_raw_x = null;
+    protected $attitude_roll = null;
 
     /**
-     * gyroscope_raw_y optional double = 14
+     * rotation_rate_x optional double = 13
      *
      * @var float
      */
-    protected $gyroscope_raw_y = null;
+    protected $rotation_rate_x = null;
 
     /**
-     * gyroscope_raw_z optional double = 15
+     * rotation_rate_y optional double = 14
      *
      * @var float
      */
-    protected $gyroscope_raw_z = null;
+    protected $rotation_rate_y = null;
+
+    /**
+     * rotation_rate_z optional double = 15
+     *
+     * @var float
+     */
+    protected $rotation_rate_z = null;
 
     /**
      * gravity_x optional double = 16
@@ -137,11 +144,11 @@ class SensorInfo extends \Protobuf\AbstractMessage
     protected $gravity_z = null;
 
     /**
-     * accelerometer_axes optional uint64 = 19
+     * status optional int32 = 19
      *
      * @var int
      */
-    protected $accelerometer_axes = null;
+    protected $status = null;
 
     /**
      * Check if 'timestamp_snapshot' has a value
@@ -354,183 +361,213 @@ class SensorInfo extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'rotation_vector_x' has a value
+     * Check if 'magnetic_field_accuracy' has a value
      *
      * @return bool
      */
-    public function hasRotationVectorX()
+    public function hasMagneticFieldAccuracy()
     {
-        return $this->rotation_vector_x !== null;
+        return $this->magnetic_field_accuracy !== null;
     }
 
     /**
-     * Get 'rotation_vector_x' value
+     * Get 'magnetic_field_accuracy' value
      *
-     * @return float
+     * @return int
      */
-    public function getRotationVectorX()
+    public function getMagneticFieldAccuracy()
     {
-        return $this->rotation_vector_x;
+        return $this->magnetic_field_accuracy;
     }
 
     /**
-     * Set 'rotation_vector_x' value
+     * Set 'magnetic_field_accuracy' value
      *
-     * @param float $value
+     * @param int $value
      */
-    public function setRotationVectorX($value = null)
+    public function setMagneticFieldAccuracy($value = null)
     {
-        $this->rotation_vector_x = $value;
+        $this->magnetic_field_accuracy = $value;
     }
 
     /**
-     * Check if 'rotation_vector_y' has a value
-     *
-     * @return bool
-     */
-    public function hasRotationVectorY()
-    {
-        return $this->rotation_vector_y !== null;
-    }
-
-    /**
-     * Get 'rotation_vector_y' value
-     *
-     * @return float
-     */
-    public function getRotationVectorY()
-    {
-        return $this->rotation_vector_y;
-    }
-
-    /**
-     * Set 'rotation_vector_y' value
-     *
-     * @param float $value
-     */
-    public function setRotationVectorY($value = null)
-    {
-        $this->rotation_vector_y = $value;
-    }
-
-    /**
-     * Check if 'rotation_vector_z' has a value
+     * Check if 'attitude_pitch' has a value
      *
      * @return bool
      */
-    public function hasRotationVectorZ()
+    public function hasAttitudePitch()
     {
-        return $this->rotation_vector_z !== null;
+        return $this->attitude_pitch !== null;
     }
 
     /**
-     * Get 'rotation_vector_z' value
+     * Get 'attitude_pitch' value
      *
      * @return float
      */
-    public function getRotationVectorZ()
+    public function getAttitudePitch()
     {
-        return $this->rotation_vector_z;
+        return $this->attitude_pitch;
     }
 
     /**
-     * Set 'rotation_vector_z' value
+     * Set 'attitude_pitch' value
      *
      * @param float $value
      */
-    public function setRotationVectorZ($value = null)
+    public function setAttitudePitch($value = null)
     {
-        $this->rotation_vector_z = $value;
+        $this->attitude_pitch = $value;
     }
 
     /**
-     * Check if 'gyroscope_raw_x' has a value
+     * Check if 'attitude_yaw' has a value
      *
      * @return bool
      */
-    public function hasGyroscopeRawX()
+    public function hasAttitudeYaw()
     {
-        return $this->gyroscope_raw_x !== null;
+        return $this->attitude_yaw !== null;
     }
 
     /**
-     * Get 'gyroscope_raw_x' value
+     * Get 'attitude_yaw' value
      *
      * @return float
      */
-    public function getGyroscopeRawX()
+    public function getAttitudeYaw()
     {
-        return $this->gyroscope_raw_x;
+        return $this->attitude_yaw;
     }
 
     /**
-     * Set 'gyroscope_raw_x' value
+     * Set 'attitude_yaw' value
      *
      * @param float $value
      */
-    public function setGyroscopeRawX($value = null)
+    public function setAttitudeYaw($value = null)
     {
-        $this->gyroscope_raw_x = $value;
+        $this->attitude_yaw = $value;
     }
 
     /**
-     * Check if 'gyroscope_raw_y' has a value
+     * Check if 'attitude_roll' has a value
      *
      * @return bool
      */
-    public function hasGyroscopeRawY()
+    public function hasAttitudeRoll()
     {
-        return $this->gyroscope_raw_y !== null;
+        return $this->attitude_roll !== null;
     }
 
     /**
-     * Get 'gyroscope_raw_y' value
+     * Get 'attitude_roll' value
      *
      * @return float
      */
-    public function getGyroscopeRawY()
+    public function getAttitudeRoll()
     {
-        return $this->gyroscope_raw_y;
+        return $this->attitude_roll;
     }
 
     /**
-     * Set 'gyroscope_raw_y' value
+     * Set 'attitude_roll' value
      *
      * @param float $value
      */
-    public function setGyroscopeRawY($value = null)
+    public function setAttitudeRoll($value = null)
     {
-        $this->gyroscope_raw_y = $value;
+        $this->attitude_roll = $value;
     }
 
     /**
-     * Check if 'gyroscope_raw_z' has a value
+     * Check if 'rotation_rate_x' has a value
      *
      * @return bool
      */
-    public function hasGyroscopeRawZ()
+    public function hasRotationRateX()
     {
-        return $this->gyroscope_raw_z !== null;
+        return $this->rotation_rate_x !== null;
     }
 
     /**
-     * Get 'gyroscope_raw_z' value
+     * Get 'rotation_rate_x' value
      *
      * @return float
      */
-    public function getGyroscopeRawZ()
+    public function getRotationRateX()
     {
-        return $this->gyroscope_raw_z;
+        return $this->rotation_rate_x;
     }
 
     /**
-     * Set 'gyroscope_raw_z' value
+     * Set 'rotation_rate_x' value
      *
      * @param float $value
      */
-    public function setGyroscopeRawZ($value = null)
+    public function setRotationRateX($value = null)
     {
-        $this->gyroscope_raw_z = $value;
+        $this->rotation_rate_x = $value;
+    }
+
+    /**
+     * Check if 'rotation_rate_y' has a value
+     *
+     * @return bool
+     */
+    public function hasRotationRateY()
+    {
+        return $this->rotation_rate_y !== null;
+    }
+
+    /**
+     * Get 'rotation_rate_y' value
+     *
+     * @return float
+     */
+    public function getRotationRateY()
+    {
+        return $this->rotation_rate_y;
+    }
+
+    /**
+     * Set 'rotation_rate_y' value
+     *
+     * @param float $value
+     */
+    public function setRotationRateY($value = null)
+    {
+        $this->rotation_rate_y = $value;
+    }
+
+    /**
+     * Check if 'rotation_rate_z' has a value
+     *
+     * @return bool
+     */
+    public function hasRotationRateZ()
+    {
+        return $this->rotation_rate_z !== null;
+    }
+
+    /**
+     * Get 'rotation_rate_z' value
+     *
+     * @return float
+     */
+    public function getRotationRateZ()
+    {
+        return $this->rotation_rate_z;
+    }
+
+    /**
+     * Set 'rotation_rate_z' value
+     *
+     * @param float $value
+     */
+    public function setRotationRateZ($value = null)
+    {
+        $this->rotation_rate_z = $value;
     }
 
     /**
@@ -624,33 +661,33 @@ class SensorInfo extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'accelerometer_axes' has a value
+     * Check if 'status' has a value
      *
      * @return bool
      */
-    public function hasAccelerometerAxes()
+    public function hasStatus()
     {
-        return $this->accelerometer_axes !== null;
+        return $this->status !== null;
     }
 
     /**
-     * Get 'accelerometer_axes' value
+     * Get 'status' value
      *
      * @return int
      */
-    public function getAccelerometerAxes()
+    public function getStatus()
     {
-        return $this->accelerometer_axes;
+        return $this->status;
     }
 
     /**
-     * Set 'accelerometer_axes' value
+     * Set 'status' value
      *
      * @param int $value
      */
-    public function setAccelerometerAxes($value = null)
+    public function setStatus($value = null)
     {
-        $this->accelerometer_axes = $value;
+        $this->status = $value;
     }
 
     /**
@@ -695,16 +732,17 @@ class SensorInfo extends \Protobuf\AbstractMessage
             'magnetic_field_x' => null,
             'magnetic_field_y' => null,
             'magnetic_field_z' => null,
-            'rotation_vector_x' => null,
-            'rotation_vector_y' => null,
-            'rotation_vector_z' => null,
-            'gyroscope_raw_x' => null,
-            'gyroscope_raw_y' => null,
-            'gyroscope_raw_z' => null,
+            'magnetic_field_accuracy' => null,
+            'attitude_pitch' => null,
+            'attitude_yaw' => null,
+            'attitude_roll' => null,
+            'rotation_rate_x' => null,
+            'rotation_rate_y' => null,
+            'rotation_rate_z' => null,
             'gravity_x' => null,
             'gravity_y' => null,
             'gravity_z' => null,
-            'accelerometer_axes' => null
+            'status' => null
         ], $values);
 
         $message->setTimestampSnapshot($values['timestamp_snapshot']);
@@ -714,16 +752,17 @@ class SensorInfo extends \Protobuf\AbstractMessage
         $message->setMagneticFieldX($values['magnetic_field_x']);
         $message->setMagneticFieldY($values['magnetic_field_y']);
         $message->setMagneticFieldZ($values['magnetic_field_z']);
-        $message->setRotationVectorX($values['rotation_vector_x']);
-        $message->setRotationVectorY($values['rotation_vector_y']);
-        $message->setRotationVectorZ($values['rotation_vector_z']);
-        $message->setGyroscopeRawX($values['gyroscope_raw_x']);
-        $message->setGyroscopeRawY($values['gyroscope_raw_y']);
-        $message->setGyroscopeRawZ($values['gyroscope_raw_z']);
+        $message->setMagneticFieldAccuracy($values['magnetic_field_accuracy']);
+        $message->setAttitudePitch($values['attitude_pitch']);
+        $message->setAttitudeYaw($values['attitude_yaw']);
+        $message->setAttitudeRoll($values['attitude_roll']);
+        $message->setRotationRateX($values['rotation_rate_x']);
+        $message->setRotationRateY($values['rotation_rate_y']);
+        $message->setRotationRateZ($values['rotation_rate_z']);
         $message->setGravityX($values['gravity_x']);
         $message->setGravityY($values['gravity_y']);
         $message->setGravityZ($values['gravity_z']);
-        $message->setAccelerometerAxes($values['accelerometer_axes']);
+        $message->setStatus($values['status']);
 
         return $message;
     }
@@ -779,38 +818,44 @@ class SensorInfo extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 9,
+                    'name' => 'magnetic_field_accuracy',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 10,
-                    'name' => 'rotation_vector_x',
+                    'name' => 'attitude_pitch',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 11,
-                    'name' => 'rotation_vector_y',
+                    'name' => 'attitude_yaw',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 12,
-                    'name' => 'rotation_vector_z',
+                    'name' => 'attitude_roll',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 13,
-                    'name' => 'gyroscope_raw_x',
+                    'name' => 'rotation_rate_x',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 14,
-                    'name' => 'gyroscope_raw_y',
+                    'name' => 'rotation_rate_y',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 15,
-                    'name' => 'gyroscope_raw_z',
+                    'name' => 'rotation_rate_z',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -834,8 +879,8 @@ class SensorInfo extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 19,
-                    'name' => 'accelerometer_axes',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'name' => 'status',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -901,34 +946,39 @@ class SensorInfo extends \Protobuf\AbstractMessage
             $writer->writeDouble($stream, $this->magnetic_field_z);
         }
 
-        if ($this->rotation_vector_x !== null) {
+        if ($this->magnetic_field_accuracy !== null) {
+            $writer->writeVarint($stream, 72);
+            $writer->writeVarint($stream, $this->magnetic_field_accuracy);
+        }
+
+        if ($this->attitude_pitch !== null) {
             $writer->writeVarint($stream, 81);
-            $writer->writeDouble($stream, $this->rotation_vector_x);
+            $writer->writeDouble($stream, $this->attitude_pitch);
         }
 
-        if ($this->rotation_vector_y !== null) {
+        if ($this->attitude_yaw !== null) {
             $writer->writeVarint($stream, 89);
-            $writer->writeDouble($stream, $this->rotation_vector_y);
+            $writer->writeDouble($stream, $this->attitude_yaw);
         }
 
-        if ($this->rotation_vector_z !== null) {
+        if ($this->attitude_roll !== null) {
             $writer->writeVarint($stream, 97);
-            $writer->writeDouble($stream, $this->rotation_vector_z);
+            $writer->writeDouble($stream, $this->attitude_roll);
         }
 
-        if ($this->gyroscope_raw_x !== null) {
+        if ($this->rotation_rate_x !== null) {
             $writer->writeVarint($stream, 105);
-            $writer->writeDouble($stream, $this->gyroscope_raw_x);
+            $writer->writeDouble($stream, $this->rotation_rate_x);
         }
 
-        if ($this->gyroscope_raw_y !== null) {
+        if ($this->rotation_rate_y !== null) {
             $writer->writeVarint($stream, 113);
-            $writer->writeDouble($stream, $this->gyroscope_raw_y);
+            $writer->writeDouble($stream, $this->rotation_rate_y);
         }
 
-        if ($this->gyroscope_raw_z !== null) {
+        if ($this->rotation_rate_z !== null) {
             $writer->writeVarint($stream, 121);
-            $writer->writeDouble($stream, $this->gyroscope_raw_z);
+            $writer->writeDouble($stream, $this->rotation_rate_z);
         }
 
         if ($this->gravity_x !== null) {
@@ -946,9 +996,9 @@ class SensorInfo extends \Protobuf\AbstractMessage
             $writer->writeDouble($stream, $this->gravity_z);
         }
 
-        if ($this->accelerometer_axes !== null) {
+        if ($this->status !== null) {
             $writer->writeVarint($stream, 152);
-            $writer->writeVarint($stream, $this->accelerometer_axes);
+            $writer->writeVarint($stream, $this->status);
         }
 
         if ($this->extensions !== null) {
@@ -1041,10 +1091,18 @@ class SensorInfo extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 9) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->magnetic_field_accuracy = $reader->readVarint($stream);
+
+                continue;
+            }
+
             if ($tag === 10) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->rotation_vector_x = $reader->readDouble($stream);
+                $this->attitude_pitch = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1052,7 +1110,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 11) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->rotation_vector_y = $reader->readDouble($stream);
+                $this->attitude_yaw = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1060,7 +1118,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 12) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->rotation_vector_z = $reader->readDouble($stream);
+                $this->attitude_roll = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1068,7 +1126,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 13) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->gyroscope_raw_x = $reader->readDouble($stream);
+                $this->rotation_rate_x = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1076,7 +1134,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 14) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->gyroscope_raw_y = $reader->readDouble($stream);
+                $this->rotation_rate_y = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1084,7 +1142,7 @@ class SensorInfo extends \Protobuf\AbstractMessage
             if ($tag === 15) {
                 \Protobuf\WireFormat::assertWireType($wire, 1);
 
-                $this->gyroscope_raw_z = $reader->readDouble($stream);
+                $this->rotation_rate_z = $reader->readDouble($stream);
 
                 continue;
             }
@@ -1114,9 +1172,9 @@ class SensorInfo extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 19) {
-                \Protobuf\WireFormat::assertWireType($wire, 4);
+                \Protobuf\WireFormat::assertWireType($wire, 5);
 
-                $this->accelerometer_axes = $reader->readVarint($stream);
+                $this->status = $reader->readVarint($stream);
 
                 continue;
             }
@@ -1185,32 +1243,37 @@ class SensorInfo extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
-        if ($this->rotation_vector_x !== null) {
+        if ($this->magnetic_field_accuracy !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->magnetic_field_accuracy);
+        }
+
+        if ($this->attitude_pitch !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->rotation_vector_y !== null) {
+        if ($this->attitude_yaw !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->rotation_vector_z !== null) {
+        if ($this->attitude_roll !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->gyroscope_raw_x !== null) {
+        if ($this->rotation_rate_x !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->gyroscope_raw_y !== null) {
+        if ($this->rotation_rate_y !== null) {
             $size += 1;
             $size += 8;
         }
 
-        if ($this->gyroscope_raw_z !== null) {
+        if ($this->rotation_rate_z !== null) {
             $size += 1;
             $size += 8;
         }
@@ -1230,9 +1293,9 @@ class SensorInfo extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
-        if ($this->accelerometer_axes !== null) {
+        if ($this->status !== null) {
             $size += 2;
-            $size += $calculator->computeVarintSize($this->accelerometer_axes);
+            $size += $calculator->computeVarintSize($this->status);
         }
 
         if ($this->extensions !== null) {
@@ -1254,16 +1317,17 @@ class SensorInfo extends \Protobuf\AbstractMessage
         $this->magnetic_field_x = null;
         $this->magnetic_field_y = null;
         $this->magnetic_field_z = null;
-        $this->rotation_vector_x = null;
-        $this->rotation_vector_y = null;
-        $this->rotation_vector_z = null;
-        $this->gyroscope_raw_x = null;
-        $this->gyroscope_raw_y = null;
-        $this->gyroscope_raw_z = null;
+        $this->magnetic_field_accuracy = null;
+        $this->attitude_pitch = null;
+        $this->attitude_yaw = null;
+        $this->attitude_roll = null;
+        $this->rotation_rate_x = null;
+        $this->rotation_rate_y = null;
+        $this->rotation_rate_z = null;
         $this->gravity_x = null;
         $this->gravity_y = null;
         $this->gravity_z = null;
-        $this->accelerometer_axes = null;
+        $this->status = null;
     }
 
     /**
@@ -1282,16 +1346,17 @@ class SensorInfo extends \Protobuf\AbstractMessage
         $this->magnetic_field_x = ($message->magnetic_field_x !== null) ? $message->magnetic_field_x : $this->magnetic_field_x;
         $this->magnetic_field_y = ($message->magnetic_field_y !== null) ? $message->magnetic_field_y : $this->magnetic_field_y;
         $this->magnetic_field_z = ($message->magnetic_field_z !== null) ? $message->magnetic_field_z : $this->magnetic_field_z;
-        $this->rotation_vector_x = ($message->rotation_vector_x !== null) ? $message->rotation_vector_x : $this->rotation_vector_x;
-        $this->rotation_vector_y = ($message->rotation_vector_y !== null) ? $message->rotation_vector_y : $this->rotation_vector_y;
-        $this->rotation_vector_z = ($message->rotation_vector_z !== null) ? $message->rotation_vector_z : $this->rotation_vector_z;
-        $this->gyroscope_raw_x = ($message->gyroscope_raw_x !== null) ? $message->gyroscope_raw_x : $this->gyroscope_raw_x;
-        $this->gyroscope_raw_y = ($message->gyroscope_raw_y !== null) ? $message->gyroscope_raw_y : $this->gyroscope_raw_y;
-        $this->gyroscope_raw_z = ($message->gyroscope_raw_z !== null) ? $message->gyroscope_raw_z : $this->gyroscope_raw_z;
+        $this->magnetic_field_accuracy = ($message->magnetic_field_accuracy !== null) ? $message->magnetic_field_accuracy : $this->magnetic_field_accuracy;
+        $this->attitude_pitch = ($message->attitude_pitch !== null) ? $message->attitude_pitch : $this->attitude_pitch;
+        $this->attitude_yaw = ($message->attitude_yaw !== null) ? $message->attitude_yaw : $this->attitude_yaw;
+        $this->attitude_roll = ($message->attitude_roll !== null) ? $message->attitude_roll : $this->attitude_roll;
+        $this->rotation_rate_x = ($message->rotation_rate_x !== null) ? $message->rotation_rate_x : $this->rotation_rate_x;
+        $this->rotation_rate_y = ($message->rotation_rate_y !== null) ? $message->rotation_rate_y : $this->rotation_rate_y;
+        $this->rotation_rate_z = ($message->rotation_rate_z !== null) ? $message->rotation_rate_z : $this->rotation_rate_z;
         $this->gravity_x = ($message->gravity_x !== null) ? $message->gravity_x : $this->gravity_x;
         $this->gravity_y = ($message->gravity_y !== null) ? $message->gravity_y : $this->gravity_y;
         $this->gravity_z = ($message->gravity_z !== null) ? $message->gravity_z : $this->gravity_z;
-        $this->accelerometer_axes = ($message->accelerometer_axes !== null) ? $message->accelerometer_axes : $this->accelerometer_axes;
+        $this->status = ($message->status !== null) ? $message->status : $this->status;
     }
 
 

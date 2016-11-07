@@ -135,6 +135,21 @@ class ActivityType extends \Protobuf\Enum
     const ACTIVITY_DEFEAT_GYM_LEADER_VALUE = 23;
 
     /**
+     * ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS = 24
+     */
+    const ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS_VALUE = 24;
+
+    /**
+     * ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY = 25
+     */
+    const ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY_VALUE = 25;
+
+    /**
+     * ACTIVITY_SEARCH_FORT_STREAK_BONUS = 26
+     */
+    const ACTIVITY_SEARCH_FORT_STREAK_BONUS_VALUE = 26;
+
+    /**
      * @var \POGOProtos\Enums\ActivityType
      */
     protected static $ACTIVITY_UNKNOWN = null;
@@ -253,6 +268,21 @@ class ActivityType extends \Protobuf\Enum
      * @var \POGOProtos\Enums\ActivityType
      */
     protected static $ACTIVITY_DEFEAT_GYM_LEADER = null;
+
+    /**
+     * @var \POGOProtos\Enums\ActivityType
+     */
+    protected static $ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS = null;
+
+    /**
+     * @var \POGOProtos\Enums\ActivityType
+     */
+    protected static $ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY = null;
+
+    /**
+     * @var \POGOProtos\Enums\ActivityType
+     */
+    protected static $ACTIVITY_SEARCH_FORT_STREAK_BONUS = null;
 
     /**
      * @return \POGOProtos\Enums\ActivityType
@@ -543,6 +573,42 @@ class ActivityType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\ActivityType
+     */
+    public static function ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS()
+    {
+        if (self::$ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS !== null) {
+            return self::$ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS;
+        }
+
+        return self::$ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS = new self('ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS', self::ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\ActivityType
+     */
+    public static function ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY()
+    {
+        if (self::$ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY !== null) {
+            return self::$ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY;
+        }
+
+        return self::$ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY = new self('ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY', self::ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\ActivityType
+     */
+    public static function ACTIVITY_SEARCH_FORT_STREAK_BONUS()
+    {
+        if (self::$ACTIVITY_SEARCH_FORT_STREAK_BONUS !== null) {
+            return self::$ACTIVITY_SEARCH_FORT_STREAK_BONUS;
+        }
+
+        return self::$ACTIVITY_SEARCH_FORT_STREAK_BONUS = new self('ACTIVITY_SEARCH_FORT_STREAK_BONUS', self::ACTIVITY_SEARCH_FORT_STREAK_BONUS_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\ActivityType
      */
@@ -573,6 +639,9 @@ class ActivityType extends \Protobuf\Enum
             case 21: return self::ACTIVITY_HATCH_EGG_LARGE_BONUS();
             case 22: return self::ACTIVITY_DEFEAT_GYM_DEFENDER();
             case 23: return self::ACTIVITY_DEFEAT_GYM_LEADER();
+            case 24: return self::ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS();
+            case 25: return self::ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY();
+            case 26: return self::ACTIVITY_SEARCH_FORT_STREAK_BONUS();
             default: return null;
         }
     }

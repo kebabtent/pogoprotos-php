@@ -46,11 +46,11 @@ class AttackGymMessage extends \Protobuf\AbstractMessage
     protected $attack_actions = null;
 
     /**
-     * last_retrieved_actions optional message = 4
+     * last_retrieved_action optional message = 4
      *
      * @var \POGOProtos\Data\Battle\BattleAction
      */
-    protected $last_retrieved_actions = null;
+    protected $last_retrieved_action = null;
 
     /**
      * player_latitude optional double = 5
@@ -171,33 +171,33 @@ class AttackGymMessage extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'last_retrieved_actions' has a value
+     * Check if 'last_retrieved_action' has a value
      *
      * @return bool
      */
-    public function hasLastRetrievedActions()
+    public function hasLastRetrievedAction()
     {
-        return $this->last_retrieved_actions !== null;
+        return $this->last_retrieved_action !== null;
     }
 
     /**
-     * Get 'last_retrieved_actions' value
+     * Get 'last_retrieved_action' value
      *
      * @return \POGOProtos\Data\Battle\BattleAction
      */
-    public function getLastRetrievedActions()
+    public function getLastRetrievedAction()
     {
-        return $this->last_retrieved_actions;
+        return $this->last_retrieved_action;
     }
 
     /**
-     * Set 'last_retrieved_actions' value
+     * Set 'last_retrieved_action' value
      *
      * @param \POGOProtos\Data\Battle\BattleAction $value
      */
-    public function setLastRetrievedActions(\POGOProtos\Data\Battle\BattleAction $value = null)
+    public function setLastRetrievedAction(\POGOProtos\Data\Battle\BattleAction $value = null)
     {
-        $this->last_retrieved_actions = $value;
+        $this->last_retrieved_action = $value;
     }
 
     /**
@@ -298,14 +298,14 @@ class AttackGymMessage extends \Protobuf\AbstractMessage
             'gym_id' => null,
             'battle_id' => null,
             'attack_actions' => [],
-            'last_retrieved_actions' => null,
+            'last_retrieved_action' => null,
             'player_latitude' => null,
             'player_longitude' => null
         ], $values);
 
         $message->setGymId($values['gym_id']);
         $message->setBattleId($values['battle_id']);
-        $message->setLastRetrievedActions($values['last_retrieved_actions']);
+        $message->setLastRetrievedAction($values['last_retrieved_action']);
         $message->setPlayerLatitude($values['player_latitude']);
         $message->setPlayerLongitude($values['player_longitude']);
 
@@ -345,7 +345,7 @@ class AttackGymMessage extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 4,
-                    'name' => 'last_retrieved_actions',
+                    'name' => 'last_retrieved_action',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Battle.BattleAction'
@@ -408,10 +408,10 @@ class AttackGymMessage extends \Protobuf\AbstractMessage
             }
         }
 
-        if ($this->last_retrieved_actions !== null) {
+        if ($this->last_retrieved_action !== null) {
             $writer->writeVarint($stream, 34);
-            $writer->writeVarint($stream, $this->last_retrieved_actions->serializedSize($sizeContext));
-            $this->last_retrieved_actions->writeTo($context);
+            $writer->writeVarint($stream, $this->last_retrieved_action->serializedSize($sizeContext));
+            $this->last_retrieved_action->writeTo($context);
         }
 
         if ($this->player_latitude !== null) {
@@ -499,7 +499,7 @@ class AttackGymMessage extends \Protobuf\AbstractMessage
                 $innerSize    = $reader->readVarint($stream);
                 $innerMessage = new \POGOProtos\Data\Battle\BattleAction();
 
-                $this->last_retrieved_actions = $innerMessage;
+                $this->last_retrieved_action = $innerMessage;
 
                 $context->setLength($innerSize);
                 $innerMessage->readFrom($context);
@@ -573,8 +573,8 @@ class AttackGymMessage extends \Protobuf\AbstractMessage
             }
         }
 
-        if ($this->last_retrieved_actions !== null) {
-            $innerSize = $this->last_retrieved_actions->serializedSize($context);
+        if ($this->last_retrieved_action !== null) {
+            $innerSize = $this->last_retrieved_action->serializedSize($context);
 
             $size += 1;
             $size += $innerSize;
@@ -606,7 +606,7 @@ class AttackGymMessage extends \Protobuf\AbstractMessage
         $this->gym_id = null;
         $this->battle_id = null;
         $this->attack_actions = null;
-        $this->last_retrieved_actions = null;
+        $this->last_retrieved_action = null;
         $this->player_latitude = null;
         $this->player_longitude = null;
     }
@@ -623,7 +623,7 @@ class AttackGymMessage extends \Protobuf\AbstractMessage
         $this->gym_id = ($message->gym_id !== null) ? $message->gym_id : $this->gym_id;
         $this->battle_id = ($message->battle_id !== null) ? $message->battle_id : $this->battle_id;
         $this->attack_actions = ($message->attack_actions !== null) ? $message->attack_actions : $this->attack_actions;
-        $this->last_retrieved_actions = ($message->last_retrieved_actions !== null) ? $message->last_retrieved_actions : $this->last_retrieved_actions;
+        $this->last_retrieved_action = ($message->last_retrieved_action !== null) ? $message->last_retrieved_action : $this->last_retrieved_action;
         $this->player_latitude = ($message->player_latitude !== null) ? $message->player_latitude : $this->player_latitude;
         $this->player_longitude = ($message->player_longitude !== null) ? $message->player_longitude : $this->player_longitude;
     }

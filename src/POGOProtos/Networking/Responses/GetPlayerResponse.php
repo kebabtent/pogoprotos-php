@@ -39,6 +39,20 @@ class GetPlayerResponse extends \Protobuf\AbstractMessage
     protected $player_data = null;
 
     /**
+     * banned optional bool = 3
+     *
+     * @var bool
+     */
+    protected $banned = null;
+
+    /**
+     * warn optional bool = 4
+     *
+     * @var bool
+     */
+    protected $warn = null;
+
+    /**
      * Check if 'success' has a value
      *
      * @return bool
@@ -99,6 +113,66 @@ class GetPlayerResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'banned' has a value
+     *
+     * @return bool
+     */
+    public function hasBanned()
+    {
+        return $this->banned !== null;
+    }
+
+    /**
+     * Get 'banned' value
+     *
+     * @return bool
+     */
+    public function getBanned()
+    {
+        return $this->banned;
+    }
+
+    /**
+     * Set 'banned' value
+     *
+     * @param bool $value
+     */
+    public function setBanned($value = null)
+    {
+        $this->banned = $value;
+    }
+
+    /**
+     * Check if 'warn' has a value
+     *
+     * @return bool
+     */
+    public function hasWarn()
+    {
+        return $this->warn !== null;
+    }
+
+    /**
+     * Get 'warn' value
+     *
+     * @return bool
+     */
+    public function getWarn()
+    {
+        return $this->warn;
+    }
+
+    /**
+     * Set 'warn' value
+     *
+     * @param bool $value
+     */
+    public function setWarn($value = null)
+    {
+        $this->warn = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -134,11 +208,15 @@ class GetPlayerResponse extends \Protobuf\AbstractMessage
         $message = new self();
         $values  = array_merge([
             'success' => null,
-            'player_data' => null
+            'player_data' => null,
+            'banned' => null,
+            'warn' => null
         ], $values);
 
         $message->setSuccess($values['success']);
         $message->setPlayerData($values['player_data']);
+        $message->setBanned($values['banned']);
+        $message->setWarn($values['warn']);
 
         return $message;
     }
@@ -163,6 +241,18 @@ class GetPlayerResponse extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.PlayerData'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 3,
+                    'name' => 'banned',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'warn',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -201,6 +291,16 @@ class GetPlayerResponse extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 18);
             $writer->writeVarint($stream, $this->player_data->serializedSize($sizeContext));
             $this->player_data->writeTo($context);
+        }
+
+        if ($this->banned !== null) {
+            $writer->writeVarint($stream, 24);
+            $writer->writeBool($stream, $this->banned);
+        }
+
+        if ($this->warn !== null) {
+            $writer->writeVarint($stream, 32);
+            $writer->writeBool($stream, $this->warn);
         }
 
         if ($this->extensions !== null) {
@@ -260,6 +360,22 @@ class GetPlayerResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 3) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->banned = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->warn = $reader->readBool($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -302,6 +418,16 @@ class GetPlayerResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->banned !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
+        if ($this->warn !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -316,6 +442,8 @@ class GetPlayerResponse extends \Protobuf\AbstractMessage
     {
         $this->success = null;
         $this->player_data = null;
+        $this->banned = null;
+        $this->warn = null;
     }
 
     /**
@@ -329,6 +457,8 @@ class GetPlayerResponse extends \Protobuf\AbstractMessage
 
         $this->success = ($message->success !== null) ? $message->success : $this->success;
         $this->player_data = ($message->player_data !== null) ? $message->player_data : $this->player_data;
+        $this->banned = ($message->banned !== null) ? $message->banned : $this->banned;
+        $this->warn = ($message->warn !== null) ? $message->warn : $this->warn;
     }
 
 

@@ -60,6 +60,13 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
     protected $stardust_awarded = null;
 
     /**
+     * egg_km_walked repeated float = 6
+     *
+     * @var \Protobuf\Collection
+     */
+    protected $egg_km_walked = null;
+
+    /**
      * Check if 'success' has a value
      *
      * @return bool
@@ -266,6 +273,50 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'egg_km_walked' has a value
+     *
+     * @return bool
+     */
+    public function hasEggKmWalkedList()
+    {
+        return $this->egg_km_walked !== null;
+    }
+
+    /**
+     * Get 'egg_km_walked' value
+     *
+     * @return \Protobuf\Collection
+     */
+    public function getEggKmWalkedList()
+    {
+        return $this->egg_km_walked;
+    }
+
+    /**
+     * Set 'egg_km_walked' value
+     *
+     * @param \Protobuf\Collection $value
+     */
+    public function setEggKmWalkedList(\Protobuf\Collection $value = null)
+    {
+        $this->egg_km_walked = $value;
+    }
+
+    /**
+     * Add a new element to 'egg_km_walked'
+     *
+     * @param float $value
+     */
+    public function addEggKmWalked($value)
+    {
+        if ($this->egg_km_walked === null) {
+            $this->egg_km_walked = new \Protobuf\ScalarCollection();
+        }
+
+        $this->egg_km_walked->add($value);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -304,7 +355,8 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
             'pokemon_id' => [],
             'experience_awarded' => [],
             'candy_awarded' => [],
-            'stardust_awarded' => []
+            'stardust_awarded' => [],
+            'egg_km_walked' => []
         ], $values);
 
         $message->setSuccess($values['success']);
@@ -323,6 +375,10 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
 
         foreach ($values['stardust_awarded'] as $item) {
             $message->addStardustAwarded($item);
+        }
+
+        foreach ($values['egg_km_walked'] as $item) {
+            $message->addEggKmWalked($item);
         }
 
         return $message;
@@ -364,6 +420,12 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
                     'number' => 5,
                     'name' => 'stardust_awarded',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'egg_km_walked',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
             ],
@@ -433,6 +495,13 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
             foreach ($this->stardust_awarded as $val) {
                 $writer->writeVarint($stream, 40);
                 $writer->writeVarint($stream, $val);
+            }
+        }
+
+        if ($this->egg_km_walked !== null) {
+            foreach ($this->egg_km_walked as $val) {
+                $writer->writeVarint($stream, 53);
+                $writer->writeFloat($stream, $val);
             }
         }
 
@@ -538,6 +607,21 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 6) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->egg_km_walked === null) {
+                    $this->egg_km_walked = new \Protobuf\ScalarCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->egg_km_walked->add($reader->readFloat($stream));
+                }
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -605,6 +689,13 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->egg_km_walked !== null) {
+            foreach ($this->egg_km_walked as $val) {
+                $size += 1;
+                $size += 4;
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -622,6 +713,7 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
         $this->experience_awarded = null;
         $this->candy_awarded = null;
         $this->stardust_awarded = null;
+        $this->egg_km_walked = null;
     }
 
     /**
@@ -638,6 +730,7 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
         $this->experience_awarded = ($message->experience_awarded !== null) ? $message->experience_awarded : $this->experience_awarded;
         $this->candy_awarded = ($message->candy_awarded !== null) ? $message->candy_awarded : $this->candy_awarded;
         $this->stardust_awarded = ($message->stardust_awarded !== null) ? $message->stardust_awarded : $this->stardust_awarded;
+        $this->egg_km_walked = ($message->egg_km_walked !== null) ? $message->egg_km_walked : $this->egg_km_walked;
     }
 
 

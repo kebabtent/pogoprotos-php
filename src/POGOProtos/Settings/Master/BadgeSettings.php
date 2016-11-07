@@ -46,6 +46,13 @@ class BadgeSettings extends \Protobuf\AbstractMessage
     protected $targets = null;
 
     /**
+     * capture_reward repeated message = 4
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Data\Badge\BadgeCaptureReward>
+     */
+    protected $capture_reward = null;
+
+    /**
      * Check if 'badge_type' has a value
      *
      * @return bool
@@ -150,6 +157,50 @@ class BadgeSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'capture_reward' has a value
+     *
+     * @return bool
+     */
+    public function hasCaptureRewardList()
+    {
+        return $this->capture_reward !== null;
+    }
+
+    /**
+     * Get 'capture_reward' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Data\Badge\BadgeCaptureReward>
+     */
+    public function getCaptureRewardList()
+    {
+        return $this->capture_reward;
+    }
+
+    /**
+     * Set 'capture_reward' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Data\Badge\BadgeCaptureReward> $value
+     */
+    public function setCaptureRewardList(\Protobuf\Collection $value = null)
+    {
+        $this->capture_reward = $value;
+    }
+
+    /**
+     * Add a new element to 'capture_reward'
+     *
+     * @param \POGOProtos\Data\Badge\BadgeCaptureReward $value
+     */
+    public function addCaptureReward(\POGOProtos\Data\Badge\BadgeCaptureReward $value)
+    {
+        if ($this->capture_reward === null) {
+            $this->capture_reward = new \Protobuf\MessageCollection();
+        }
+
+        $this->capture_reward->add($value);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -186,7 +237,8 @@ class BadgeSettings extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'badge_type' => null,
             'badge_rank' => null,
-            'targets' => []
+            'targets' => [],
+            'capture_reward' => []
         ], $values);
 
         $message->setBadgeType($values['badge_type']);
@@ -194,6 +246,10 @@ class BadgeSettings extends \Protobuf\AbstractMessage
 
         foreach ($values['targets'] as $item) {
             $message->addTargets($item);
+        }
+
+        foreach ($values['capture_reward'] as $item) {
+            $message->addCaptureReward($item);
         }
 
         return $message;
@@ -225,6 +281,13 @@ class BadgeSettings extends \Protobuf\AbstractMessage
                     'name' => 'targets',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'capture_reward',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Data.Badge.BadgeCaptureReward'
                 ]),
             ],
         ]);
@@ -268,6 +331,14 @@ class BadgeSettings extends \Protobuf\AbstractMessage
             foreach ($this->targets as $val) {
                 $writer->writeVarint($stream, 24);
                 $writer->writeVarint($stream, $val);
+            }
+        }
+
+        if ($this->capture_reward !== null) {
+            foreach ($this->capture_reward as $val) {
+                $writer->writeVarint($stream, 34);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
             }
         }
 
@@ -336,6 +407,25 @@ class BadgeSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Badge\BadgeCaptureReward();
+
+                if ($this->capture_reward === null) {
+                    $this->capture_reward = new \Protobuf\MessageCollection();
+                }
+
+                $this->capture_reward->add($innerMessage);
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -382,6 +472,16 @@ class BadgeSettings extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->capture_reward !== null) {
+            foreach ($this->capture_reward as $val) {
+                $innerSize = $val->serializedSize($context);
+
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -397,6 +497,7 @@ class BadgeSettings extends \Protobuf\AbstractMessage
         $this->badge_type = null;
         $this->badge_rank = null;
         $this->targets = null;
+        $this->capture_reward = null;
     }
 
     /**
@@ -411,6 +512,7 @@ class BadgeSettings extends \Protobuf\AbstractMessage
         $this->badge_type = ($message->badge_type !== null) ? $message->badge_type : $this->badge_type;
         $this->badge_rank = ($message->badge_rank !== null) ? $message->badge_rank : $this->badge_rank;
         $this->targets = ($message->targets !== null) ? $message->targets : $this->targets;
+        $this->capture_reward = ($message->capture_reward !== null) ? $message->capture_reward : $this->capture_reward;
     }
 
 

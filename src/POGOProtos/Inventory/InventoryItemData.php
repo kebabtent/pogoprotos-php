@@ -95,6 +95,13 @@ class InventoryItemData extends \Protobuf\AbstractMessage
     protected $candy = null;
 
     /**
+     * quest optional message = 11
+     *
+     * @var \POGOProtos\Data\Quests\Quest
+     */
+    protected $quest = null;
+
+    /**
      * Check if 'pokemon_data' has a value
      *
      * @return bool
@@ -395,6 +402,36 @@ class InventoryItemData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'quest' has a value
+     *
+     * @return bool
+     */
+    public function hasQuest()
+    {
+        return $this->quest !== null;
+    }
+
+    /**
+     * Get 'quest' value
+     *
+     * @return \POGOProtos\Data\Quests\Quest
+     */
+    public function getQuest()
+    {
+        return $this->quest;
+    }
+
+    /**
+     * Set 'quest' value
+     *
+     * @param \POGOProtos\Data\Quests\Quest $value
+     */
+    public function setQuest(\POGOProtos\Data\Quests\Quest $value = null)
+    {
+        $this->quest = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -438,7 +475,8 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             'inventory_upgrades' => null,
             'applied_items' => null,
             'egg_incubators' => null,
-            'candy' => null
+            'candy' => null,
+            'quest' => null
         ], $values);
 
         $message->setPokemonData($values['pokemon_data']);
@@ -451,6 +489,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $message->setAppliedItems($values['applied_items']);
         $message->setEggIncubators($values['egg_incubators']);
         $message->setCandy($values['candy']);
+        $message->setQuest($values['quest']);
 
         return $message;
     }
@@ -532,6 +571,13 @@ class InventoryItemData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Inventory.Candy'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 11,
+                    'name' => 'quest',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.Quests.Quest'
                 ]),
             ],
         ]);
@@ -619,6 +665,12 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 82);
             $writer->writeVarint($stream, $this->candy->serializedSize($sizeContext));
             $this->candy->writeTo($context);
+        }
+
+        if ($this->quest !== null) {
+            $writer->writeVarint($stream, 90);
+            $writer->writeVarint($stream, $this->quest->serializedSize($sizeContext));
+            $this->quest->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -805,6 +857,21 @@ class InventoryItemData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 11) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Quests\Quest();
+
+                $this->quest = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -914,6 +981,14 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->quest !== null) {
+            $innerSize = $this->quest->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -936,6 +1011,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $this->applied_items = null;
         $this->egg_incubators = null;
         $this->candy = null;
+        $this->quest = null;
     }
 
     /**
@@ -957,6 +1033,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $this->applied_items = ($message->applied_items !== null) ? $message->applied_items : $this->applied_items;
         $this->egg_incubators = ($message->egg_incubators !== null) ? $message->egg_incubators : $this->egg_incubators;
         $this->candy = ($message->candy !== null) ? $message->candy : $this->candy;
+        $this->quest = ($message->quest !== null) ? $message->quest : $this->quest;
     }
 
 

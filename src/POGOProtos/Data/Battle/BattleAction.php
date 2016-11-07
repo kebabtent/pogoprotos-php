@@ -25,11 +25,11 @@ class BattleAction extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * Type optional enum = 1
+     * type optional enum = 1
      *
      * @var \POGOProtos\Data\Battle\BattleActionType
      */
-    protected $Type = null;
+    protected $type = null;
 
     /**
      * action_start_ms optional int64 = 2
@@ -88,18 +88,18 @@ class BattleAction extends \Protobuf\AbstractMessage
     protected $battle_results = null;
 
     /**
-     * damage_windows_start_timestamp_mss optional int64 = 11
+     * damage_windows_start_timestamp_ms optional int64 = 11
      *
      * @var int
      */
-    protected $damage_windows_start_timestamp_mss = null;
+    protected $damage_windows_start_timestamp_ms = null;
 
     /**
-     * damage_windows_end_timestamp_mss optional int64 = 12
+     * damage_windows_end_timestamp_ms optional int64 = 12
      *
      * @var int
      */
-    protected $damage_windows_end_timestamp_mss = null;
+    protected $damage_windows_end_timestamp_ms = null;
 
     /**
      * player_left optional message = 13
@@ -116,33 +116,33 @@ class BattleAction extends \Protobuf\AbstractMessage
     protected $target_pokemon_id = null;
 
     /**
-     * Check if 'Type' has a value
+     * Check if 'type' has a value
      *
      * @return bool
      */
     public function hasType()
     {
-        return $this->Type !== null;
+        return $this->type !== null;
     }
 
     /**
-     * Get 'Type' value
+     * Get 'type' value
      *
      * @return \POGOProtos\Data\Battle\BattleActionType
      */
     public function getType()
     {
-        return $this->Type;
+        return $this->type;
     }
 
     /**
-     * Set 'Type' value
+     * Set 'type' value
      *
      * @param \POGOProtos\Data\Battle\BattleActionType $value
      */
     public function setType(\POGOProtos\Data\Battle\BattleActionType $value = null)
     {
-        $this->Type = $value;
+        $this->type = $value;
     }
 
     /**
@@ -386,63 +386,63 @@ class BattleAction extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'damage_windows_start_timestamp_mss' has a value
+     * Check if 'damage_windows_start_timestamp_ms' has a value
      *
      * @return bool
      */
-    public function hasDamageWindowsStartTimestampMss()
+    public function hasDamageWindowsStartTimestampMs()
     {
-        return $this->damage_windows_start_timestamp_mss !== null;
+        return $this->damage_windows_start_timestamp_ms !== null;
     }
 
     /**
-     * Get 'damage_windows_start_timestamp_mss' value
+     * Get 'damage_windows_start_timestamp_ms' value
      *
      * @return int
      */
-    public function getDamageWindowsStartTimestampMss()
+    public function getDamageWindowsStartTimestampMs()
     {
-        return $this->damage_windows_start_timestamp_mss;
+        return $this->damage_windows_start_timestamp_ms;
     }
 
     /**
-     * Set 'damage_windows_start_timestamp_mss' value
+     * Set 'damage_windows_start_timestamp_ms' value
      *
      * @param int $value
      */
-    public function setDamageWindowsStartTimestampMss($value = null)
+    public function setDamageWindowsStartTimestampMs($value = null)
     {
-        $this->damage_windows_start_timestamp_mss = $value;
+        $this->damage_windows_start_timestamp_ms = $value;
     }
 
     /**
-     * Check if 'damage_windows_end_timestamp_mss' has a value
+     * Check if 'damage_windows_end_timestamp_ms' has a value
      *
      * @return bool
      */
-    public function hasDamageWindowsEndTimestampMss()
+    public function hasDamageWindowsEndTimestampMs()
     {
-        return $this->damage_windows_end_timestamp_mss !== null;
+        return $this->damage_windows_end_timestamp_ms !== null;
     }
 
     /**
-     * Get 'damage_windows_end_timestamp_mss' value
+     * Get 'damage_windows_end_timestamp_ms' value
      *
      * @return int
      */
-    public function getDamageWindowsEndTimestampMss()
+    public function getDamageWindowsEndTimestampMs()
     {
-        return $this->damage_windows_end_timestamp_mss;
+        return $this->damage_windows_end_timestamp_ms;
     }
 
     /**
-     * Set 'damage_windows_end_timestamp_mss' value
+     * Set 'damage_windows_end_timestamp_ms' value
      *
      * @param int $value
      */
-    public function setDamageWindowsEndTimestampMss($value = null)
+    public function setDamageWindowsEndTimestampMs($value = null)
     {
-        $this->damage_windows_end_timestamp_mss = $value;
+        $this->damage_windows_end_timestamp_ms = $value;
     }
 
     /**
@@ -540,7 +540,7 @@ class BattleAction extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'Type' => null,
+            'type' => null,
             'action_start_ms' => null,
             'duration_ms' => null,
             'energy_delta' => null,
@@ -549,13 +549,13 @@ class BattleAction extends \Protobuf\AbstractMessage
             'active_pokemon_id' => null,
             'player_joined' => null,
             'battle_results' => null,
-            'damage_windows_start_timestamp_mss' => null,
-            'damage_windows_end_timestamp_mss' => null,
+            'damage_windows_start_timestamp_ms' => null,
+            'damage_windows_end_timestamp_ms' => null,
             'player_left' => null,
             'target_pokemon_id' => null
         ], $values);
 
-        $message->setType($values['Type']);
+        $message->setType($values['type']);
         $message->setActionStartMs($values['action_start_ms']);
         $message->setDurationMs($values['duration_ms']);
         $message->setEnergyDelta($values['energy_delta']);
@@ -564,8 +564,8 @@ class BattleAction extends \Protobuf\AbstractMessage
         $message->setActivePokemonId($values['active_pokemon_id']);
         $message->setPlayerJoined($values['player_joined']);
         $message->setBattleResults($values['battle_results']);
-        $message->setDamageWindowsStartTimestampMss($values['damage_windows_start_timestamp_mss']);
-        $message->setDamageWindowsEndTimestampMss($values['damage_windows_end_timestamp_mss']);
+        $message->setDamageWindowsStartTimestampMs($values['damage_windows_start_timestamp_ms']);
+        $message->setDamageWindowsEndTimestampMs($values['damage_windows_end_timestamp_ms']);
         $message->setPlayerLeft($values['player_left']);
         $message->setTargetPokemonId($values['target_pokemon_id']);
 
@@ -582,7 +582,7 @@ class BattleAction extends \Protobuf\AbstractMessage
             'field'     => [
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 1,
-                    'name' => 'Type',
+                    'name' => 'type',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Battle.BattleActionType'
@@ -639,13 +639,13 @@ class BattleAction extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 11,
-                    'name' => 'damage_windows_start_timestamp_mss',
+                    'name' => 'damage_windows_start_timestamp_ms',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 12,
-                    'name' => 'damage_windows_end_timestamp_mss',
+                    'name' => 'damage_windows_end_timestamp_ms',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -690,9 +690,9 @@ class BattleAction extends \Protobuf\AbstractMessage
         $writer      = $context->getWriter();
         $sizeContext = $context->getComputeSizeContext();
 
-        if ($this->Type !== null) {
+        if ($this->type !== null) {
             $writer->writeVarint($stream, 8);
-            $writer->writeVarint($stream, $this->Type->value());
+            $writer->writeVarint($stream, $this->type->value());
         }
 
         if ($this->action_start_ms !== null) {
@@ -737,14 +737,14 @@ class BattleAction extends \Protobuf\AbstractMessage
             $this->battle_results->writeTo($context);
         }
 
-        if ($this->damage_windows_start_timestamp_mss !== null) {
+        if ($this->damage_windows_start_timestamp_ms !== null) {
             $writer->writeVarint($stream, 88);
-            $writer->writeVarint($stream, $this->damage_windows_start_timestamp_mss);
+            $writer->writeVarint($stream, $this->damage_windows_start_timestamp_ms);
         }
 
-        if ($this->damage_windows_end_timestamp_mss !== null) {
+        if ($this->damage_windows_end_timestamp_ms !== null) {
             $writer->writeVarint($stream, 96);
-            $writer->writeVarint($stream, $this->damage_windows_end_timestamp_mss);
+            $writer->writeVarint($stream, $this->damage_windows_end_timestamp_ms);
         }
 
         if ($this->player_left !== null) {
@@ -795,7 +795,7 @@ class BattleAction extends \Protobuf\AbstractMessage
             if ($tag === 1) {
                 \Protobuf\WireFormat::assertWireType($wire, 14);
 
-                $this->Type = \POGOProtos\Data\Battle\BattleActionType::valueOf($reader->readVarint($stream));
+                $this->type = \POGOProtos\Data\Battle\BattleActionType::valueOf($reader->readVarint($stream));
 
                 continue;
             }
@@ -881,7 +881,7 @@ class BattleAction extends \Protobuf\AbstractMessage
             if ($tag === 11) {
                 \Protobuf\WireFormat::assertWireType($wire, 3);
 
-                $this->damage_windows_start_timestamp_mss = $reader->readVarint($stream);
+                $this->damage_windows_start_timestamp_ms = $reader->readVarint($stream);
 
                 continue;
             }
@@ -889,7 +889,7 @@ class BattleAction extends \Protobuf\AbstractMessage
             if ($tag === 12) {
                 \Protobuf\WireFormat::assertWireType($wire, 3);
 
-                $this->damage_windows_end_timestamp_mss = $reader->readVarint($stream);
+                $this->damage_windows_end_timestamp_ms = $reader->readVarint($stream);
 
                 continue;
             }
@@ -946,9 +946,9 @@ class BattleAction extends \Protobuf\AbstractMessage
         $calculator = $context->getSizeCalculator();
         $size       = 0;
 
-        if ($this->Type !== null) {
+        if ($this->type !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->Type->value());
+            $size += $calculator->computeVarintSize($this->type->value());
         }
 
         if ($this->action_start_ms !== null) {
@@ -997,14 +997,14 @@ class BattleAction extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
-        if ($this->damage_windows_start_timestamp_mss !== null) {
+        if ($this->damage_windows_start_timestamp_ms !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->damage_windows_start_timestamp_mss);
+            $size += $calculator->computeVarintSize($this->damage_windows_start_timestamp_ms);
         }
 
-        if ($this->damage_windows_end_timestamp_mss !== null) {
+        if ($this->damage_windows_end_timestamp_ms !== null) {
             $size += 1;
-            $size += $calculator->computeVarintSize($this->damage_windows_end_timestamp_mss);
+            $size += $calculator->computeVarintSize($this->damage_windows_end_timestamp_ms);
         }
 
         if ($this->player_left !== null) {
@@ -1032,7 +1032,7 @@ class BattleAction extends \Protobuf\AbstractMessage
      */
     public function clear()
     {
-        $this->Type = null;
+        $this->type = null;
         $this->action_start_ms = null;
         $this->duration_ms = null;
         $this->energy_delta = null;
@@ -1041,8 +1041,8 @@ class BattleAction extends \Protobuf\AbstractMessage
         $this->active_pokemon_id = null;
         $this->player_joined = null;
         $this->battle_results = null;
-        $this->damage_windows_start_timestamp_mss = null;
-        $this->damage_windows_end_timestamp_mss = null;
+        $this->damage_windows_start_timestamp_ms = null;
+        $this->damage_windows_end_timestamp_ms = null;
         $this->player_left = null;
         $this->target_pokemon_id = null;
     }
@@ -1056,7 +1056,7 @@ class BattleAction extends \Protobuf\AbstractMessage
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
 
-        $this->Type = ($message->Type !== null) ? $message->Type : $this->Type;
+        $this->type = ($message->type !== null) ? $message->type : $this->type;
         $this->action_start_ms = ($message->action_start_ms !== null) ? $message->action_start_ms : $this->action_start_ms;
         $this->duration_ms = ($message->duration_ms !== null) ? $message->duration_ms : $this->duration_ms;
         $this->energy_delta = ($message->energy_delta !== null) ? $message->energy_delta : $this->energy_delta;
@@ -1065,8 +1065,8 @@ class BattleAction extends \Protobuf\AbstractMessage
         $this->active_pokemon_id = ($message->active_pokemon_id !== null) ? $message->active_pokemon_id : $this->active_pokemon_id;
         $this->player_joined = ($message->player_joined !== null) ? $message->player_joined : $this->player_joined;
         $this->battle_results = ($message->battle_results !== null) ? $message->battle_results : $this->battle_results;
-        $this->damage_windows_start_timestamp_mss = ($message->damage_windows_start_timestamp_mss !== null) ? $message->damage_windows_start_timestamp_mss : $this->damage_windows_start_timestamp_mss;
-        $this->damage_windows_end_timestamp_mss = ($message->damage_windows_end_timestamp_mss !== null) ? $message->damage_windows_end_timestamp_mss : $this->damage_windows_end_timestamp_mss;
+        $this->damage_windows_start_timestamp_ms = ($message->damage_windows_start_timestamp_ms !== null) ? $message->damage_windows_start_timestamp_ms : $this->damage_windows_start_timestamp_ms;
+        $this->damage_windows_end_timestamp_ms = ($message->damage_windows_end_timestamp_ms !== null) ? $message->damage_windows_end_timestamp_ms : $this->damage_windows_end_timestamp_ms;
         $this->player_left = ($message->player_left !== null) ? $message->player_left : $this->player_left;
         $this->target_pokemon_id = ($message->target_pokemon_id !== null) ? $message->target_pokemon_id : $this->target_pokemon_id;
     }

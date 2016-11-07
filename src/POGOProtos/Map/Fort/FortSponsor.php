@@ -30,6 +30,16 @@ class FortSponsor extends \Protobuf\Enum
     const POKEMON_STORE_VALUE = 2;
 
     /**
+     * TOHO = 3
+     */
+    const TOHO_VALUE = 3;
+
+    /**
+     * SOFTBANK = 4
+     */
+    const SOFTBANK_VALUE = 4;
+
+    /**
      * @var \POGOProtos\Map\Fort\FortSponsor
      */
     protected static $UNSET_SPONSOR = null;
@@ -43,6 +53,16 @@ class FortSponsor extends \Protobuf\Enum
      * @var \POGOProtos\Map\Fort\FortSponsor
      */
     protected static $POKEMON_STORE = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $TOHO = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $SOFTBANK = null;
 
     /**
      * @return \POGOProtos\Map\Fort\FortSponsor
@@ -81,6 +101,30 @@ class FortSponsor extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function TOHO()
+    {
+        if (self::$TOHO !== null) {
+            return self::$TOHO;
+        }
+
+        return self::$TOHO = new self('TOHO', self::TOHO_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function SOFTBANK()
+    {
+        if (self::$SOFTBANK !== null) {
+            return self::$SOFTBANK;
+        }
+
+        return self::$SOFTBANK = new self('SOFTBANK', self::SOFTBANK_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Map\Fort\FortSponsor
      */
@@ -90,6 +134,8 @@ class FortSponsor extends \Protobuf\Enum
             case 0: return self::UNSET_SPONSOR();
             case 1: return self::MCDONALDS();
             case 2: return self::POKEMON_STORE();
+            case 3: return self::TOHO();
+            case 4: return self::SOFTBANK();
             default: return null;
         }
     }

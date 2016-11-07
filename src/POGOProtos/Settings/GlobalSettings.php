@@ -67,6 +67,20 @@ class GlobalSettings extends \Protobuf\AbstractMessage
     protected $gps_settings = null;
 
     /**
+     * festival_settings optional message = 8
+     *
+     * @var \POGOProtos\Settings\FestivalSettings
+     */
+    protected $festival_settings = null;
+
+    /**
+     * event_settings optional message = 9
+     *
+     * @var \POGOProtos\Settings\EventSettings
+     */
+    protected $event_settings = null;
+
+    /**
      * Check if 'fort_settings' has a value
      *
      * @return bool
@@ -247,6 +261,66 @@ class GlobalSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'festival_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasFestivalSettings()
+    {
+        return $this->festival_settings !== null;
+    }
+
+    /**
+     * Get 'festival_settings' value
+     *
+     * @return \POGOProtos\Settings\FestivalSettings
+     */
+    public function getFestivalSettings()
+    {
+        return $this->festival_settings;
+    }
+
+    /**
+     * Set 'festival_settings' value
+     *
+     * @param \POGOProtos\Settings\FestivalSettings $value
+     */
+    public function setFestivalSettings(\POGOProtos\Settings\FestivalSettings $value = null)
+    {
+        $this->festival_settings = $value;
+    }
+
+    /**
+     * Check if 'event_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasEventSettings()
+    {
+        return $this->event_settings !== null;
+    }
+
+    /**
+     * Get 'event_settings' value
+     *
+     * @return \POGOProtos\Settings\EventSettings
+     */
+    public function getEventSettings()
+    {
+        return $this->event_settings;
+    }
+
+    /**
+     * Set 'event_settings' value
+     *
+     * @param \POGOProtos\Settings\EventSettings $value
+     */
+    public function setEventSettings(\POGOProtos\Settings\EventSettings $value = null)
+    {
+        $this->event_settings = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -286,7 +360,9 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             'level_settings' => null,
             'inventory_settings' => null,
             'minimum_client_version' => null,
-            'gps_settings' => null
+            'gps_settings' => null,
+            'festival_settings' => null,
+            'event_settings' => null
         ], $values);
 
         $message->setFortSettings($values['fort_settings']);
@@ -295,6 +371,8 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $message->setInventorySettings($values['inventory_settings']);
         $message->setMinimumClientVersion($values['minimum_client_version']);
         $message->setGpsSettings($values['gps_settings']);
+        $message->setFestivalSettings($values['festival_settings']);
+        $message->setEventSettings($values['event_settings']);
 
         return $message;
     }
@@ -347,6 +425,20 @@ class GlobalSettings extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Settings.GpsSettings'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'festival_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.FestivalSettings'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 9,
+                    'name' => 'event_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.EventSettings'
                 ]),
             ],
         ]);
@@ -409,6 +501,18 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 58);
             $writer->writeVarint($stream, $this->gps_settings->serializedSize($sizeContext));
             $this->gps_settings->writeTo($context);
+        }
+
+        if ($this->festival_settings !== null) {
+            $writer->writeVarint($stream, 66);
+            $writer->writeVarint($stream, $this->festival_settings->serializedSize($sizeContext));
+            $this->festival_settings->writeTo($context);
+        }
+
+        if ($this->event_settings !== null) {
+            $writer->writeVarint($stream, 74);
+            $writer->writeVarint($stream, $this->event_settings->serializedSize($sizeContext));
+            $this->event_settings->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -528,6 +632,36 @@ class GlobalSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 8) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\FestivalSettings();
+
+                $this->festival_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 9) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\EventSettings();
+
+                $this->event_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -602,6 +736,22 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->festival_settings !== null) {
+            $innerSize = $this->festival_settings->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->event_settings !== null) {
+            $innerSize = $this->event_settings->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -620,6 +770,8 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $this->inventory_settings = null;
         $this->minimum_client_version = null;
         $this->gps_settings = null;
+        $this->festival_settings = null;
+        $this->event_settings = null;
     }
 
     /**
@@ -637,6 +789,8 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $this->inventory_settings = ($message->inventory_settings !== null) ? $message->inventory_settings : $this->inventory_settings;
         $this->minimum_client_version = ($message->minimum_client_version !== null) ? $message->minimum_client_version : $this->minimum_client_version;
         $this->gps_settings = ($message->gps_settings !== null) ? $message->gps_settings : $this->gps_settings;
+        $this->festival_settings = ($message->festival_settings !== null) ? $message->festival_settings : $this->festival_settings;
+        $this->event_settings = ($message->event_settings !== null) ? $message->event_settings : $this->event_settings;
     }
 
 
