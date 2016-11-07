@@ -45,6 +45,9 @@ class PokemonData extends \Google\Protobuf\Internal\Message
     private $nickname = '';
     private $from_fort = 0;
     private $buddy_candy_awarded = 0;
+    private $buddy_total_km_walked = 0.0;
+    private $display_pokemon_id = 0;
+    private $display_cp = 0;
 
     public function getId()
     {
@@ -387,17 +390,50 @@ class PokemonData extends \Google\Protobuf\Internal\Message
         $this->buddy_candy_awarded = $var;
     }
 
+    public function getBuddyTotalKmWalked()
+    {
+        return $this->buddy_total_km_walked;
+    }
+
+    public function setBuddyTotalKmWalked($var)
+    {
+        GPBUtil::checkFloat($var);
+        $this->buddy_total_km_walked = $var;
+    }
+
+    public function getDisplayPokemonId()
+    {
+        return $this->display_pokemon_id;
+    }
+
+    public function setDisplayPokemonId($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->display_pokemon_id = $var;
+    }
+
+    public function getDisplayCp()
+    {
+        return $this->display_cp;
+    }
+
+    public function setDisplayCp($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->display_cp = $var;
+    }
+
 }
 
 $pool = DescriptorPool::getGeneratedPool();
 
 $pool->internalAddGeneratedFile(hex2bin(
-    "0ae2070a21504f474f50726f746f732f446174612f506f6b656d6f6e4461" .
+    "0ab1080a21504f474f50726f746f732f446174612f506f6b656d6f6e4461" .
     "74612e70726f746f120f504f474f50726f746f732e446174611a20504f47" .
     "4f50726f746f732f456e756d732f506f6b656d6f6e49642e70726f746f1a" .
     "22504f474f50726f746f732f456e756d732f506f6b656d6f6e4d6f76652e" .
     "70726f746f1a26504f474f50726f746f732f496e76656e746f72792f4974" .
-    "656d2f4974656d49642e70726f746f22b5060a0b506f6b656d6f6e446174" .
+    "656d2f4974656d49642e70726f746f2284070a0b506f6b656d6f6e446174" .
     "61120a0a026964180120012806122f0a0a706f6b656d6f6e5f6964180220" .
     "01280e321b2e504f474f50726f746f732e456e756d732e506f6b656d6f6e" .
     "4964120a0a026370180320012805120f0a077374616d696e611804200128" .
@@ -424,7 +460,9 @@ $pool->internalAddGeneratedFile(hex2bin(
     "0512200a186164646974696f6e616c5f63705f6d756c7469706c69657218" .
     "1c2001280212100a086661766f72697465181d2001280512100a086e6963" .
     "6b6e616d65181e2001280912110a0966726f6d5f666f7274181f20012805" .
-    "121b0a1362756464795f63616e64795f6177617264656418202001280562" .
-    "0670726f746f33"
+    "121b0a1362756464795f63616e64795f6177617264656418202001280512" .
+    "1d0a1562756464795f746f74616c5f6b6d5f77616c6b6564182120012802" .
+    "121a0a12646973706c61795f706f6b656d6f6e5f69641822200128051212" .
+    "0a0a646973706c61795f6370182320012805620670726f746f33"
 ));
 

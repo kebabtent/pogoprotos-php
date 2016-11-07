@@ -16,6 +16,7 @@ class GetHatchedEggsResponse extends \Google\Protobuf\Internal\Message
     private $experience_awarded;
     private $candy_awarded;
     private $stardust_awarded;
+    private $egg_km_walked;
 
     public function getSuccess()
     {
@@ -72,19 +73,31 @@ class GetHatchedEggsResponse extends \Google\Protobuf\Internal\Message
         $this->stardust_awarded = $var;
     }
 
+    public function getEggKmWalked()
+    {
+        return $this->egg_km_walked;
+    }
+
+    public function setEggKmWalked(&$var)
+    {
+        GPBUtil::checkRepeatedField($var, GPBType::FLOAT);
+        $this->egg_km_walked = $var;
+    }
+
 }
 
 $pool = DescriptorPool::getGeneratedPool();
 
 $pool->internalAddGeneratedFile(hex2bin(
-    "0af8010a3c504f474f50726f746f732f4e6574776f726b696e672f526573" .
+    "0a8f020a3c504f474f50726f746f732f4e6574776f726b696e672f526573" .
     "706f6e7365732f4765744861746368656445676773526573706f6e73652e" .
     "70726f746f121f504f474f50726f746f732e4e6574776f726b696e672e52" .
-    "6573706f6e736573228e010a164765744861746368656445676773526573" .
+    "6573706f6e73657322a5010a164765744861746368656445676773526573" .
     "706f6e7365120f0a077375636365737318012001280812160a0a706f6b65" .
     "6d6f6e5f696418022003280642021001121a0a12657870657269656e6365" .
     "5f6177617264656418032003280512150a0d63616e64795f617761726465" .
     "6418042003280512180a1073746172647573745f61776172646564180520" .
-    "032805620670726f746f33"
+    "03280512150a0d6567675f6b6d5f77616c6b656418062003280262067072" .
+    "6f746f33"
 ));
 

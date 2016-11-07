@@ -15,7 +15,7 @@ class AttackGymMessage extends \Google\Protobuf\Internal\Message
     private $gym_id = '';
     private $battle_id = '';
     private $attack_actions;
-    private $last_retrieved_actions = null;
+    private $last_retrieved_action = null;
     private $player_latitude = 0.0;
     private $player_longitude = 0.0;
 
@@ -52,15 +52,15 @@ class AttackGymMessage extends \Google\Protobuf\Internal\Message
         $this->attack_actions = $var;
     }
 
-    public function getLastRetrievedActions()
+    public function getLastRetrievedAction()
     {
-        return $this->last_retrieved_actions;
+        return $this->last_retrieved_action;
     }
 
-    public function setLastRetrievedActions(&$var)
+    public function setLastRetrievedAction(&$var)
     {
         GPBUtil::checkMessage($var, \POGOProtos\Data\Battle\BattleAction::class);
-        $this->last_retrieved_actions = $var;
+        $this->last_retrieved_action = $var;
     }
 
     public function getPlayerLatitude()
@@ -90,19 +90,19 @@ class AttackGymMessage extends \Google\Protobuf\Internal\Message
 $pool = DescriptorPool::getGeneratedPool();
 
 $pool->internalAddGeneratedFile(hex2bin(
-    "0a8b030a3e504f474f50726f746f732f4e6574776f726b696e672f526571" .
+    "0a8a030a3e504f474f50726f746f732f4e6574776f726b696e672f526571" .
     "75657374732f4d657373616765732f41747461636b47796d4d6573736167" .
     "652e70726f746f1227504f474f50726f746f732e4e6574776f726b696e67" .
     "2e52657175657374732e4d657373616765731a29504f474f50726f746f73" .
     "2f446174612f426174746c652f426174746c65416374696f6e2e70726f74" .
-    "6f22ec010a1041747461636b47796d4d657373616765120e0a0667796d5f" .
+    "6f22eb010a1041747461636b47796d4d657373616765120e0a0667796d5f" .
     "696418012001280912110a09626174746c655f6964180220012809123c0a" .
     "0e61747461636b5f616374696f6e7318032003280b32242e504f474f5072" .
     "6f746f732e446174612e426174746c652e426174746c65416374696f6e12" .
-    "440a166c6173745f7265747269657665645f616374696f6e731804200128" .
-    "0b32242e504f474f50726f746f732e446174612e426174746c652e426174" .
-    "746c65416374696f6e12170a0f706c617965725f6c617469747564651805" .
-    "2001280112180a10706c617965725f6c6f6e676974756465180620012801" .
-    "620670726f746f33"
+    "430a156c6173745f7265747269657665645f616374696f6e18042001280b" .
+    "32242e504f474f50726f746f732e446174612e426174746c652e42617474" .
+    "6c65416374696f6e12170a0f706c617965725f6c61746974756465180520" .
+    "01280112180a10706c617965725f6c6f6e67697475646518062001280162" .
+    "0670726f746f33"
 ));
 

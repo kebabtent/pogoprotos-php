@@ -14,7 +14,7 @@ use Google\Protobuf\Internal\GPBUtil;
 
 class BattleAction extends \Google\Protobuf\Internal\Message
 {
-    private $Type = 0;
+    private $type = 0;
     private $action_start_ms = 0;
     private $duration_ms = 0;
     private $energy_delta = 0;
@@ -23,20 +23,20 @@ class BattleAction extends \Google\Protobuf\Internal\Message
     private $active_pokemon_id = 0;
     private $player_joined = null;
     private $battle_results = null;
-    private $damage_windows_start_timestamp_mss = 0;
-    private $damage_windows_end_timestamp_mss = 0;
+    private $damage_windows_start_timestamp_ms = 0;
+    private $damage_windows_end_timestamp_ms = 0;
     private $player_left = null;
     private $target_pokemon_id = 0;
 
     public function getType()
     {
-        return $this->Type;
+        return $this->type;
     }
 
     public function setType($var)
     {
         GPBUtil::checkEnum($var, \POGOProtos\Data\Battle\BattleActionType::class);
-        $this->Type = $var;
+        $this->type = $var;
     }
 
     public function getActionStartMs()
@@ -127,26 +127,26 @@ class BattleAction extends \Google\Protobuf\Internal\Message
         $this->battle_results = $var;
     }
 
-    public function getDamageWindowsStartTimestampMss()
+    public function getDamageWindowsStartTimestampMs()
     {
-        return $this->damage_windows_start_timestamp_mss;
+        return $this->damage_windows_start_timestamp_ms;
     }
 
-    public function setDamageWindowsStartTimestampMss($var)
+    public function setDamageWindowsStartTimestampMs($var)
     {
         GPBUtil::checkInt64($var);
-        $this->damage_windows_start_timestamp_mss = $var;
+        $this->damage_windows_start_timestamp_ms = $var;
     }
 
-    public function getDamageWindowsEndTimestampMss()
+    public function getDamageWindowsEndTimestampMs()
     {
-        return $this->damage_windows_end_timestamp_mss;
+        return $this->damage_windows_end_timestamp_ms;
     }
 
-    public function setDamageWindowsEndTimestampMss($var)
+    public function setDamageWindowsEndTimestampMs($var)
     {
         GPBUtil::checkInt64($var);
-        $this->damage_windows_end_timestamp_mss = $var;
+        $this->damage_windows_end_timestamp_ms = $var;
     }
 
     public function getPlayerLeft()
@@ -176,14 +176,14 @@ class BattleAction extends \Google\Protobuf\Internal\Message
 $pool = DescriptorPool::getGeneratedPool();
 
 $pool->internalAddGeneratedFile(hex2bin(
-    "0ade050a29504f474f50726f746f732f446174612f426174746c652f4261" .
+    "0adc050a29504f474f50726f746f732f446174612f426174746c652f4261" .
     "74746c65416374696f6e2e70726f746f1216504f474f50726f746f732e44" .
     "6174612e426174746c651a2a504f474f50726f746f732f446174612f4261" .
     "74746c652f426174746c65526573756c74732e70726f746f1a2d504f474f" .
     "50726f746f732f446174612f426174746c652f426174746c65416374696f" .
     "6e547970652e70726f746f1a2e504f474f50726f746f732f446174612f42" .
     "6174746c652f426174746c655061727469636970616e742e70726f746f22" .
-    "85040a0c426174746c65416374696f6e12360a045479706518012001280e" .
+    "83040a0c426174746c65416374696f6e12360a047479706518012001280e" .
     "32282e504f474f50726f746f732e446174612e426174746c652e42617474" .
     "6c65416374696f6e5479706512170a0f616374696f6e5f73746172745f6d" .
     "7318022001280312130a0b6475726174696f6e5f6d731803200128051214" .
@@ -194,12 +194,12 @@ $pool->internalAddGeneratedFile(hex2bin(
     "4f474f50726f746f732e446174612e426174746c652e426174746c655061" .
     "727469636970616e74123d0a0e626174746c655f726573756c7473180a20" .
     "01280b32252e504f474f50726f746f732e446174612e426174746c652e42" .
-    "6174746c65526573756c7473122a0a2264616d6167655f77696e646f7773" .
-    "5f73746172745f74696d657374616d705f6d7373180b2001280312280a20" .
-    "64616d6167655f77696e646f77735f656e645f74696d657374616d705f6d" .
-    "7373180c20012803123e0a0b706c617965725f6c656674180d2001280b32" .
-    "292e504f474f50726f746f732e446174612e426174746c652e426174746c" .
-    "655061727469636970616e7412190a117461726765745f706f6b656d6f6e" .
-    "5f6964180e20012806620670726f746f33"
+    "6174746c65526573756c747312290a2164616d6167655f77696e646f7773" .
+    "5f73746172745f74696d657374616d705f6d73180b2001280312270a1f64" .
+    "616d6167655f77696e646f77735f656e645f74696d657374616d705f6d73" .
+    "180c20012803123e0a0b706c617965725f6c656674180d2001280b32292e" .
+    "504f474f50726f746f732e446174612e426174746c652e426174746c6550" .
+    "61727469636970616e7412190a117461726765745f706f6b656d6f6e5f69" .
+    "64180e20012806620670726f746f33"
 ));
 

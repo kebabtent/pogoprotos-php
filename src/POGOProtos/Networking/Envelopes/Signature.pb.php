@@ -11,18 +11,42 @@ use Google\Protobuf\Internal\GPBUtil;
 
 class Signature extends \Google\Protobuf\Internal\Message
 {
+    private $field1;
     private $timestamp_since_start = 0;
+    private $field3 = '';
     private $location_fix;
-    private $gps_info = null;
-    private $sensor_info = null;
+    private $gps_info;
+    private $field6;
+    private $sensor_info;
     private $device_info = null;
     private $activity_status = null;
     private $location_hash1 = 0;
+    private $field11 = false;
+    private $field12 = false;
+    private $field13 = 0;
+    private $field14 = 0;
+    private $field15 = '';
+    private $field16 = 0;
+    private $field17 = '';
+    private $field18 = '';
+    private $field19 = false;
     private $location_hash2 = 0;
+    private $field21 = false;
     private $session_hash = '';
     private $timestamp = 0;
     private $request_hash;
     private $unknown25 = 0;
+
+    public function getField1()
+    {
+        return $this->field1;
+    }
+
+    public function setField1(&$var)
+    {
+        GPBUtil::checkRepeatedField($var, GPBType::MESSAGE, \POGOProtos\Networking\Envelopes\UnknownMessage::class);
+        $this->field1 = $var;
+    }
 
     public function getTimestampSinceStart()
     {
@@ -33,6 +57,17 @@ class Signature extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->timestamp_since_start = $var;
+    }
+
+    public function getField3()
+    {
+        return $this->field3;
+    }
+
+    public function setField3($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->field3 = $var;
     }
 
     public function getLocationFix()
@@ -53,8 +88,19 @@ class Signature extends \Google\Protobuf\Internal\Message
 
     public function setGpsInfo(&$var)
     {
-        GPBUtil::checkMessage($var, \POGOProtos\Networking\Envelopes\Signature_AndroidGpsInfo::class);
+        GPBUtil::checkRepeatedField($var, GPBType::MESSAGE, \POGOProtos\Networking\Envelopes\Signature_AndroidGpsInfo::class);
         $this->gps_info = $var;
+    }
+
+    public function getField6()
+    {
+        return $this->field6;
+    }
+
+    public function setField6(&$var)
+    {
+        GPBUtil::checkRepeatedField($var, GPBType::MESSAGE, \POGOProtos\Networking\Envelopes\UnknownMessage::class);
+        $this->field6 = $var;
     }
 
     public function getSensorInfo()
@@ -64,7 +110,7 @@ class Signature extends \Google\Protobuf\Internal\Message
 
     public function setSensorInfo(&$var)
     {
-        GPBUtil::checkMessage($var, \POGOProtos\Networking\Envelopes\Signature_SensorInfo::class);
+        GPBUtil::checkRepeatedField($var, GPBType::MESSAGE, \POGOProtos\Networking\Envelopes\Signature_SensorInfo::class);
         $this->sensor_info = $var;
     }
 
@@ -101,6 +147,105 @@ class Signature extends \Google\Protobuf\Internal\Message
         $this->location_hash1 = $var;
     }
 
+    public function getField11()
+    {
+        return $this->field11;
+    }
+
+    public function setField11($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->field11 = $var;
+    }
+
+    public function getField12()
+    {
+        return $this->field12;
+    }
+
+    public function setField12($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->field12 = $var;
+    }
+
+    public function getField13()
+    {
+        return $this->field13;
+    }
+
+    public function setField13($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->field13 = $var;
+    }
+
+    public function getField14()
+    {
+        return $this->field14;
+    }
+
+    public function setField14($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->field14 = $var;
+    }
+
+    public function getField15()
+    {
+        return $this->field15;
+    }
+
+    public function setField15($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->field15 = $var;
+    }
+
+    public function getField16()
+    {
+        return $this->field16;
+    }
+
+    public function setField16($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->field16 = $var;
+    }
+
+    public function getField17()
+    {
+        return $this->field17;
+    }
+
+    public function setField17($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->field17 = $var;
+    }
+
+    public function getField18()
+    {
+        return $this->field18;
+    }
+
+    public function setField18($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->field18 = $var;
+    }
+
+    public function getField19()
+    {
+        return $this->field19;
+    }
+
+    public function setField19($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->field19 = $var;
+    }
+
     public function getLocationHash2()
     {
         return $this->location_hash2;
@@ -110,6 +255,17 @@ class Signature extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->location_hash2 = $var;
+    }
+
+    public function getField21()
+    {
+        return $this->field21;
+    }
+
+    public function setField21($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->field21 = $var;
     }
 
     public function getSessionHash()
@@ -417,16 +573,17 @@ class Signature_SensorInfo extends \Google\Protobuf\Internal\Message
     private $magnetic_field_x = 0.0;
     private $magnetic_field_y = 0.0;
     private $magnetic_field_z = 0.0;
-    private $rotation_vector_x = 0.0;
-    private $rotation_vector_y = 0.0;
-    private $rotation_vector_z = 0.0;
-    private $gyroscope_raw_x = 0.0;
-    private $gyroscope_raw_y = 0.0;
-    private $gyroscope_raw_z = 0.0;
+    private $magnetic_field_accuracy = 0;
+    private $attitude_pitch = 0.0;
+    private $attitude_yaw = 0.0;
+    private $attitude_roll = 0.0;
+    private $rotation_rate_x = 0.0;
+    private $rotation_rate_y = 0.0;
+    private $rotation_rate_z = 0.0;
     private $gravity_x = 0.0;
     private $gravity_y = 0.0;
     private $gravity_z = 0.0;
-    private $accelerometer_axes = 0;
+    private $status = 0;
 
     public function getTimestampSnapshot()
     {
@@ -505,70 +662,81 @@ class Signature_SensorInfo extends \Google\Protobuf\Internal\Message
         $this->magnetic_field_z = $var;
     }
 
-    public function getRotationVectorX()
+    public function getMagneticFieldAccuracy()
     {
-        return $this->rotation_vector_x;
+        return $this->magnetic_field_accuracy;
     }
 
-    public function setRotationVectorX($var)
+    public function setMagneticFieldAccuracy($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->magnetic_field_accuracy = $var;
+    }
+
+    public function getAttitudePitch()
+    {
+        return $this->attitude_pitch;
+    }
+
+    public function setAttitudePitch($var)
     {
         GPBUtil::checkDouble($var);
-        $this->rotation_vector_x = $var;
+        $this->attitude_pitch = $var;
     }
 
-    public function getRotationVectorY()
+    public function getAttitudeYaw()
     {
-        return $this->rotation_vector_y;
+        return $this->attitude_yaw;
     }
 
-    public function setRotationVectorY($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->rotation_vector_y = $var;
-    }
-
-    public function getRotationVectorZ()
-    {
-        return $this->rotation_vector_z;
-    }
-
-    public function setRotationVectorZ($var)
+    public function setAttitudeYaw($var)
     {
         GPBUtil::checkDouble($var);
-        $this->rotation_vector_z = $var;
+        $this->attitude_yaw = $var;
     }
 
-    public function getGyroscopeRawX()
+    public function getAttitudeRoll()
     {
-        return $this->gyroscope_raw_x;
+        return $this->attitude_roll;
     }
 
-    public function setGyroscopeRawX($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->gyroscope_raw_x = $var;
-    }
-
-    public function getGyroscopeRawY()
-    {
-        return $this->gyroscope_raw_y;
-    }
-
-    public function setGyroscopeRawY($var)
+    public function setAttitudeRoll($var)
     {
         GPBUtil::checkDouble($var);
-        $this->gyroscope_raw_y = $var;
+        $this->attitude_roll = $var;
     }
 
-    public function getGyroscopeRawZ()
+    public function getRotationRateX()
     {
-        return $this->gyroscope_raw_z;
+        return $this->rotation_rate_x;
     }
 
-    public function setGyroscopeRawZ($var)
+    public function setRotationRateX($var)
     {
         GPBUtil::checkDouble($var);
-        $this->gyroscope_raw_z = $var;
+        $this->rotation_rate_x = $var;
+    }
+
+    public function getRotationRateY()
+    {
+        return $this->rotation_rate_y;
+    }
+
+    public function setRotationRateY($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->rotation_rate_y = $var;
+    }
+
+    public function getRotationRateZ()
+    {
+        return $this->rotation_rate_z;
+    }
+
+    public function setRotationRateZ($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->rotation_rate_z = $var;
     }
 
     public function getGravityX()
@@ -604,15 +772,15 @@ class Signature_SensorInfo extends \Google\Protobuf\Internal\Message
         $this->gravity_z = $var;
     }
 
-    public function getAccelerometerAxes()
+    public function getStatus()
     {
-        return $this->accelerometer_axes;
+        return $this->status;
     }
 
-    public function setAccelerometerAxes($var)
+    public function setStatus($var)
     {
-        GPBUtil::checkUint64($var);
-        $this->accelerometer_axes = $var;
+        GPBUtil::checkInt32($var);
+        $this->status = $var;
     }
 
 }
@@ -891,78 +1059,95 @@ class Signature_ActivityStatus extends \Google\Protobuf\Internal\Message
 
 }
 
+class UnknownMessage extends \Google\Protobuf\Internal\Message
+{
+
+}
+
 $pool = DescriptorPool::getGeneratedPool();
 
 $pool->internalAddGeneratedFile(hex2bin(
-    "0aaf100a2f504f474f50726f746f732f4e6574776f726b696e672f456e76" .
+    "0a86130a2f504f474f50726f746f732f4e6574776f726b696e672f456e76" .
     "656c6f7065732f5369676e61747572652e70726f746f121f504f474f5072" .
-    "6f746f732e4e6574776f726b696e672e456e76656c6f70657322d20f0a09" .
-    "5369676e6174757265121d0a1574696d657374616d705f73696e63655f73" .
-    "74617274180220012804124c0a0c6c6f636174696f6e5f66697818042003" .
-    "280b32362e504f474f50726f746f732e4e6574776f726b696e672e456e76" .
-    "656c6f7065732e5369676e61747572652e4c6f636174696f6e466978124b" .
-    "0a086770735f696e666f18052001280b32392e504f474f50726f746f732e" .
-    "4e6574776f726b696e672e456e76656c6f7065732e5369676e6174757265" .
-    "2e416e64726f6964477073496e666f124a0a0b73656e736f725f696e666f" .
-    "18072001280b32352e504f474f50726f746f732e4e6574776f726b696e67" .
-    "2e456e76656c6f7065732e5369676e61747572652e53656e736f72496e66" .
-    "6f124a0a0b6465766963655f696e666f18082001280b32352e504f474f50" .
-    "726f746f732e4e6574776f726b696e672e456e76656c6f7065732e536967" .
-    "6e61747572652e446576696365496e666f12520a0f61637469766974795f" .
-    "73746174757318092001280b32392e504f474f50726f746f732e4e657477" .
-    "6f726b696e672e456e76656c6f7065732e5369676e61747572652e416374" .
-    "697669747953746174757312160a0e6c6f636174696f6e5f686173683118" .
-    "0a2001280d12160a0e6c6f636174696f6e5f686173683218142001280d12" .
-    "140a0c73657373696f6e5f6861736818162001280c12110a0974696d6573" .
-    "74616d7018172001280412140a0c726571756573745f6861736818182003" .
-    "280412110a09756e6b6e6f776e32351819200128031a88020a0b4c6f6361" .
-    "74696f6e46697812100a0870726f7669646572180120012809121a0a1274" .
-    "696d657374616d705f736e617073686f7418022001280412100a08616c74" .
-    "697475646518042001280212100a086c61746974756465180d2001280212" .
-    "110a096c6f6e676974756465180e20012802120d0a057370656564181220" .
-    "012802120e0a06636f75727365181420012802121b0a13686f72697a6f6e" .
-    "74616c5f616363757261637918152001280212190a11766572746963616c" .
-    "5f616363757261637918162001280212170a0f70726f76696465725f7374" .
-    "61747573181a20012804120d0a05666c6f6f72181b2001280d12150a0d6c" .
-    "6f636174696f6e5f74797065181c200128041aaf010a0e416e64726f6964" .
-    "477073496e666f12130a0b74696d655f746f5f6669781801200128041216" .
-    "0a0e736174656c6c697465735f70726e180220032805120f0a07617a696d" .
-    "75746818032003280212110a09656c65766174696f6e180420032802120b" .
-    "0a03736e7218052003280212130a0b6861735f616c6d616e616318062003" .
-    "280812150a0d6861735f657068656d6572697318072003280812130a0b75" .
-    "7365645f696e5f6669781808200328081ac4030a0a53656e736f72496e66" .
-    "6f121a0a1274696d657374616d705f736e617073686f7418012001280412" .
-    "1d0a156c696e6561725f616363656c65726174696f6e5f78180320012801" .
-    "121d0a156c696e6561725f616363656c65726174696f6e5f791804200128" .
-    "01121d0a156c696e6561725f616363656c65726174696f6e5f7a18052001" .
-    "280112180a106d61676e657469635f6669656c645f781806200128011218" .
-    "0a106d61676e657469635f6669656c645f7918072001280112180a106d61" .
-    "676e657469635f6669656c645f7a18082001280112190a11726f74617469" .
-    "6f6e5f766563746f725f78180a2001280112190a11726f746174696f6e5f" .
-    "766563746f725f79180b2001280112190a11726f746174696f6e5f766563" .
-    "746f725f7a180c2001280112170a0f6779726f73636f70655f7261775f78" .
-    "180d2001280112170a0f6779726f73636f70655f7261775f79180e200128" .
-    "0112170a0f6779726f73636f70655f7261775f7a180f2001280112110a09" .
-    "677261766974795f7818102001280112110a09677261766974795f791811" .
-    "2001280112110a09677261766974795f7a181220012801121a0a12616363" .
-    "656c65726f6d657465725f617865731813200128041ada020a0a44657669" .
-    "6365496e666f12110a096465766963655f6964180120012809121a0a1261" .
-    "6e64726f69645f626f6172645f6e616d65180220012809121a0a12616e64" .
-    "726f69645f626f6f746c6f6164657218032001280912140a0c6465766963" .
-    "655f6272616e6418042001280912140a0c6465766963655f6d6f64656c18" .
-    "0520012809121f0a176465766963655f6d6f64656c5f6964656e74696669" .
-    "657218062001280912190a116465766963655f6d6f64656c5f626f6f7418" .
-    "0720012809121d0a1568617264776172655f6d616e756661637475726572" .
-    "18082001280912160a0e68617264776172655f6d6f64656c180920012809" .
-    "12160a0e6669726d776172655f6272616e64180a2001280912150a0d6669" .
-    "726d776172655f74616773180c2001280912150a0d6669726d776172655f" .
-    "74797065180d20012809121c0a146669726d776172655f66696e67657270" .
-    "72696e74180e200128091abb010a0e416374697669747953746174757312" .
-    "150a0d73746172745f74696d655f6d7318012001280412160a0e756e6b6e" .
-    "6f776e5f737461747573180220012808120f0a0777616c6b696e67180320" .
-    "012808120f0a0772756e6e696e6718042001280812120a0a73746174696f" .
-    "6e61727918052001280812120a0a6175746f6d6f74697665180620012808" .
-    "120f0a0774696c74696e67180720012808120f0a076379636c696e671808" .
-    "20012808120e0a0673746174757318092001280c620670726f746f33"
+    "6f746f732e4e6574776f726b696e672e456e76656c6f7065732297120a09" .
+    "5369676e6174757265123f0a066669656c643118012003280b322f2e504f" .
+    "474f50726f746f732e4e6574776f726b696e672e456e76656c6f7065732e" .
+    "556e6b6e6f776e4d657373616765121d0a1574696d657374616d705f7369" .
+    "6e63655f7374617274180220012804120e0a066669656c64331803200128" .
+    "09124c0a0c6c6f636174696f6e5f66697818042003280b32362e504f474f" .
+    "50726f746f732e4e6574776f726b696e672e456e76656c6f7065732e5369" .
+    "676e61747572652e4c6f636174696f6e466978124b0a086770735f696e66" .
+    "6f18052003280b32392e504f474f50726f746f732e4e6574776f726b696e" .
+    "672e456e76656c6f7065732e5369676e61747572652e416e64726f696447" .
+    "7073496e666f123f0a066669656c643618062003280b322f2e504f474f50" .
+    "726f746f732e4e6574776f726b696e672e456e76656c6f7065732e556e6b" .
+    "6e6f776e4d657373616765124a0a0b73656e736f725f696e666f18072003" .
+    "280b32352e504f474f50726f746f732e4e6574776f726b696e672e456e76" .
+    "656c6f7065732e5369676e61747572652e53656e736f72496e666f124a0a" .
+    "0b6465766963655f696e666f18082001280b32352e504f474f50726f746f" .
+    "732e4e6574776f726b696e672e456e76656c6f7065732e5369676e617475" .
+    "72652e446576696365496e666f12520a0f61637469766974795f73746174" .
+    "757318092001280b32392e504f474f50726f746f732e4e6574776f726b69" .
+    "6e672e456e76656c6f7065732e5369676e61747572652e41637469766974" .
+    "7953746174757312160a0e6c6f636174696f6e5f6861736831180a200128" .
+    "0d120f0a076669656c643131180b20012808120f0a076669656c64313218" .
+    "0c20012808120f0a076669656c643133180d20012805120f0a076669656c" .
+    "643134180e20012805120f0a076669656c643135180f20012809120f0a07" .
+    "6669656c643136181020012805120f0a076669656c643137181120012809" .
+    "120f0a076669656c643138181220012809120f0a076669656c6431391813" .
+    "2001280812160a0e6c6f636174696f6e5f686173683218142001280d120f" .
+    "0a076669656c64323118152001280812140a0c73657373696f6e5f686173" .
+    "6818162001280c12110a0974696d657374616d7018172001280412140a0c" .
+    "726571756573745f6861736818182003280412110a09756e6b6e6f776e32" .
+    "351819200128031a88020a0b4c6f636174696f6e46697812100a0870726f" .
+    "7669646572180120012809121a0a1274696d657374616d705f736e617073" .
+    "686f7418022001280412100a08616c74697475646518042001280212100a" .
+    "086c61746974756465180d2001280212110a096c6f6e676974756465180e" .
+    "20012802120d0a057370656564181220012802120e0a06636f7572736518" .
+    "1420012802121b0a13686f72697a6f6e74616c5f61636375726163791815" .
+    "2001280212190a11766572746963616c5f61636375726163791816200128" .
+    "0212170a0f70726f76696465725f737461747573181a20012804120d0a05" .
+    "666c6f6f72181b2001280d12150a0d6c6f636174696f6e5f74797065181c" .
+    "200128041aaf010a0e416e64726f6964477073496e666f12130a0b74696d" .
+    "655f746f5f66697818012001280412160a0e736174656c6c697465735f70" .
+    "726e180220032805120f0a07617a696d75746818032003280212110a0965" .
+    "6c65766174696f6e180420032802120b0a03736e7218052003280212130a" .
+    "0b6861735f616c6d616e616318062003280812150a0d6861735f65706865" .
+    "6d6572697318072003280812130a0b757365645f696e5f66697818082003" .
+    "28081acd030a0a53656e736f72496e666f121a0a1274696d657374616d70" .
+    "5f736e617073686f74180120012804121d0a156c696e6561725f61636365" .
+    "6c65726174696f6e5f78180320012801121d0a156c696e6561725f616363" .
+    "656c65726174696f6e5f79180420012801121d0a156c696e6561725f6163" .
+    "63656c65726174696f6e5f7a18052001280112180a106d61676e65746963" .
+    "5f6669656c645f7818062001280112180a106d61676e657469635f666965" .
+    "6c645f7918072001280112180a106d61676e657469635f6669656c645f7a" .
+    "180820012801121f0a176d61676e657469635f6669656c645f6163637572" .
+    "61637918092001280512160a0e61747469747564655f7069746368180a20" .
+    "01280112140a0c61747469747564655f796177180b2001280112150a0d61" .
+    "747469747564655f726f6c6c180c2001280112170a0f726f746174696f6e" .
+    "5f726174655f78180d2001280112170a0f726f746174696f6e5f72617465" .
+    "5f79180e2001280112170a0f726f746174696f6e5f726174655f7a180f20" .
+    "01280112110a09677261766974795f7818102001280112110a0967726176" .
+    "6974795f7918112001280112110a09677261766974795f7a181220012801" .
+    "120e0a067374617475731813200128051ada020a0a446576696365496e66" .
+    "6f12110a096465766963655f6964180120012809121a0a12616e64726f69" .
+    "645f626f6172645f6e616d65180220012809121a0a12616e64726f69645f" .
+    "626f6f746c6f6164657218032001280912140a0c6465766963655f627261" .
+    "6e6418042001280912140a0c6465766963655f6d6f64656c180520012809" .
+    "121f0a176465766963655f6d6f64656c5f6964656e746966696572180620" .
+    "01280912190a116465766963655f6d6f64656c5f626f6f74180720012809" .
+    "121d0a1568617264776172655f6d616e7566616374757265721808200128" .
+    "0912160a0e68617264776172655f6d6f64656c18092001280912160a0e66" .
+    "69726d776172655f6272616e64180a2001280912150a0d6669726d776172" .
+    "655f74616773180c2001280912150a0d6669726d776172655f7479706518" .
+    "0d20012809121c0a146669726d776172655f66696e6765727072696e7418" .
+    "0e200128091abb010a0e416374697669747953746174757312150a0d7374" .
+    "6172745f74696d655f6d7318012001280412160a0e756e6b6e6f776e5f73" .
+    "7461747573180220012808120f0a0777616c6b696e67180320012808120f" .
+    "0a0772756e6e696e6718042001280812120a0a73746174696f6e61727918" .
+    "052001280812120a0a6175746f6d6f74697665180620012808120f0a0774" .
+    "696c74696e67180720012808120f0a076379636c696e6718082001280812" .
+    "0e0a0673746174757318092001280c22100a0e556e6b6e6f776e4d657373" .
+    "616765620670726f746f33"
 ));
 
