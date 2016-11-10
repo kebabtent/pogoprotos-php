@@ -39,6 +39,13 @@ class GymState extends \Protobuf\AbstractMessage
     protected $memberships = null;
 
     /**
+     * deploy_lockout optional bool = 3
+     *
+     * @var bool
+     */
+    protected $deploy_lockout = null;
+
+    /**
      * Check if 'fort_data' has a value
      *
      * @return bool
@@ -113,6 +120,36 @@ class GymState extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'deploy_lockout' has a value
+     *
+     * @return bool
+     */
+    public function hasDeployLockout()
+    {
+        return $this->deploy_lockout !== null;
+    }
+
+    /**
+     * Get 'deploy_lockout' value
+     *
+     * @return bool
+     */
+    public function getDeployLockout()
+    {
+        return $this->deploy_lockout;
+    }
+
+    /**
+     * Set 'deploy_lockout' value
+     *
+     * @param bool $value
+     */
+    public function setDeployLockout($value = null)
+    {
+        $this->deploy_lockout = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -148,10 +185,12 @@ class GymState extends \Protobuf\AbstractMessage
         $message = new self();
         $values  = array_merge([
             'fort_data' => null,
-            'memberships' => []
+            'memberships' => [],
+            'deploy_lockout' => null
         ], $values);
 
         $message->setFortData($values['fort_data']);
+        $message->setDeployLockout($values['deploy_lockout']);
 
         foreach ($values['memberships'] as $item) {
             $message->addMemberships($item);
@@ -181,6 +220,12 @@ class GymState extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
                     'type_name' => '.POGOProtos.Data.Gym.GymMembership'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 3,
+                    'name' => 'deploy_lockout',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -222,6 +267,11 @@ class GymState extends \Protobuf\AbstractMessage
                 $writer->writeVarint($stream, $val->serializedSize($sizeContext));
                 $val->writeTo($context);
             }
+        }
+
+        if ($this->deploy_lockout !== null) {
+            $writer->writeVarint($stream, 24);
+            $writer->writeBool($stream, $this->deploy_lockout);
         }
 
         if ($this->extensions !== null) {
@@ -292,6 +342,14 @@ class GymState extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 3) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->deploy_lockout = $reader->readBool($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -339,6 +397,11 @@ class GymState extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->deploy_lockout !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -353,6 +416,7 @@ class GymState extends \Protobuf\AbstractMessage
     {
         $this->fort_data = null;
         $this->memberships = null;
+        $this->deploy_lockout = null;
     }
 
     /**
@@ -366,6 +430,7 @@ class GymState extends \Protobuf\AbstractMessage
 
         $this->fort_data = ($message->fort_data !== null) ? $message->fort_data : $this->fort_data;
         $this->memberships = ($message->memberships !== null) ? $message->memberships : $this->memberships;
+        $this->deploy_lockout = ($message->deploy_lockout !== null) ? $message->deploy_lockout : $this->deploy_lockout;
     }
 
 

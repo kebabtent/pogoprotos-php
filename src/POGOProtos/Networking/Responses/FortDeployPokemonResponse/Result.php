@@ -66,6 +66,11 @@ class Result extends \Protobuf\Enum
     const ERROR_POKEMON_IS_BUDDY_VALUE = 9;
 
     /**
+     * ERROR_FORT_DEPLOY_LOCKOUT = 10
+     */
+    const ERROR_FORT_DEPLOY_LOCKOUT_VALUE = 10;
+
+    /**
      * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
     protected static $NO_RESULT_SET = null;
@@ -114,6 +119,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
     protected static $ERROR_POKEMON_IS_BUDDY = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    protected static $ERROR_FORT_DEPLOY_LOCKOUT = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
@@ -236,6 +246,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    public static function ERROR_FORT_DEPLOY_LOCKOUT()
+    {
+        if (self::$ERROR_FORT_DEPLOY_LOCKOUT !== null) {
+            return self::$ERROR_FORT_DEPLOY_LOCKOUT;
+        }
+
+        return self::$ERROR_FORT_DEPLOY_LOCKOUT = new self('ERROR_FORT_DEPLOY_LOCKOUT', self::ERROR_FORT_DEPLOY_LOCKOUT_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
@@ -252,6 +274,7 @@ class Result extends \Protobuf\Enum
             case 7: return self::ERROR_POKEMON_NOT_FULL_HP();
             case 8: return self::ERROR_PLAYER_BELOW_MINIMUM_LEVEL();
             case 9: return self::ERROR_POKEMON_IS_BUDDY();
+            case 10: return self::ERROR_FORT_DEPLOY_LOCKOUT();
             default: return null;
         }
     }

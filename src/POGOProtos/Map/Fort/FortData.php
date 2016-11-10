@@ -53,20 +53,6 @@ class FortData extends \Protobuf\AbstractMessage
     protected $longitude = null;
 
     /**
-     * enabled optional bool = 8
-     *
-     * @var bool
-     */
-    protected $enabled = null;
-
-    /**
-     * type optional enum = 9
-     *
-     * @var \POGOProtos\Map\Fort\FortType
-     */
-    protected $type = null;
-
-    /**
      * owned_by_team optional enum = 5
      *
      * @var \POGOProtos\Enums\TeamColor
@@ -86,6 +72,20 @@ class FortData extends \Protobuf\AbstractMessage
      * @var int
      */
     protected $guard_pokemon_cp = null;
+
+    /**
+     * enabled optional bool = 8
+     *
+     * @var bool
+     */
+    protected $enabled = null;
+
+    /**
+     * type optional enum = 9
+     *
+     * @var \POGOProtos\Map\Fort\FortType
+     */
+    protected $type = null;
 
     /**
      * gym_points optional int64 = 10
@@ -135,6 +135,13 @@ class FortData extends \Protobuf\AbstractMessage
      * @var \POGOProtos\Map\Fort\FortRenderingType
      */
     protected $rendering_type = null;
+
+    /**
+     * deploy_lockout_end_ms optional int64 = 17
+     *
+     * @var int
+     */
+    protected $deploy_lockout_end_ms = null;
 
     /**
      * Check if 'id' has a value
@@ -257,66 +264,6 @@ class FortData extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'enabled' has a value
-     *
-     * @return bool
-     */
-    public function hasEnabled()
-    {
-        return $this->enabled !== null;
-    }
-
-    /**
-     * Get 'enabled' value
-     *
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
-    }
-
-    /**
-     * Set 'enabled' value
-     *
-     * @param bool $value
-     */
-    public function setEnabled($value = null)
-    {
-        $this->enabled = $value;
-    }
-
-    /**
-     * Check if 'type' has a value
-     *
-     * @return bool
-     */
-    public function hasType()
-    {
-        return $this->type !== null;
-    }
-
-    /**
-     * Get 'type' value
-     *
-     * @return \POGOProtos\Map\Fort\FortType
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set 'type' value
-     *
-     * @param \POGOProtos\Map\Fort\FortType $value
-     */
-    public function setType(\POGOProtos\Map\Fort\FortType $value = null)
-    {
-        $this->type = $value;
-    }
-
-    /**
      * Check if 'owned_by_team' has a value
      *
      * @return bool
@@ -404,6 +351,66 @@ class FortData extends \Protobuf\AbstractMessage
     public function setGuardPokemonCp($value = null)
     {
         $this->guard_pokemon_cp = $value;
+    }
+
+    /**
+     * Check if 'enabled' has a value
+     *
+     * @return bool
+     */
+    public function hasEnabled()
+    {
+        return $this->enabled !== null;
+    }
+
+    /**
+     * Get 'enabled' value
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set 'enabled' value
+     *
+     * @param bool $value
+     */
+    public function setEnabled($value = null)
+    {
+        $this->enabled = $value;
+    }
+
+    /**
+     * Check if 'type' has a value
+     *
+     * @return bool
+     */
+    public function hasType()
+    {
+        return $this->type !== null;
+    }
+
+    /**
+     * Get 'type' value
+     *
+     * @return \POGOProtos\Map\Fort\FortType
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set 'type' value
+     *
+     * @param \POGOProtos\Map\Fort\FortType $value
+     */
+    public function setType(\POGOProtos\Map\Fort\FortType $value = null)
+    {
+        $this->type = $value;
     }
 
     /**
@@ -631,6 +638,36 @@ class FortData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'deploy_lockout_end_ms' has a value
+     *
+     * @return bool
+     */
+    public function hasDeployLockoutEndMs()
+    {
+        return $this->deploy_lockout_end_ms !== null;
+    }
+
+    /**
+     * Get 'deploy_lockout_end_ms' value
+     *
+     * @return int
+     */
+    public function getDeployLockoutEndMs()
+    {
+        return $this->deploy_lockout_end_ms;
+    }
+
+    /**
+     * Set 'deploy_lockout_end_ms' value
+     *
+     * @param int $value
+     */
+    public function setDeployLockoutEndMs($value = null)
+    {
+        $this->deploy_lockout_end_ms = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -669,35 +706,37 @@ class FortData extends \Protobuf\AbstractMessage
             'last_modified_timestamp_ms' => null,
             'latitude' => null,
             'longitude' => null,
-            'enabled' => null,
-            'type' => null,
             'owned_by_team' => null,
             'guard_pokemon_id' => null,
             'guard_pokemon_cp' => null,
+            'enabled' => null,
+            'type' => null,
             'gym_points' => null,
             'is_in_battle' => null,
             'active_fort_modifier' => [],
             'lure_info' => null,
             'cooldown_complete_timestamp_ms' => null,
             'sponsor' => null,
-            'rendering_type' => null
+            'rendering_type' => null,
+            'deploy_lockout_end_ms' => null
         ], $values);
 
         $message->setId($values['id']);
         $message->setLastModifiedTimestampMs($values['last_modified_timestamp_ms']);
         $message->setLatitude($values['latitude']);
         $message->setLongitude($values['longitude']);
-        $message->setEnabled($values['enabled']);
-        $message->setType($values['type']);
         $message->setOwnedByTeam($values['owned_by_team']);
         $message->setGuardPokemonId($values['guard_pokemon_id']);
         $message->setGuardPokemonCp($values['guard_pokemon_cp']);
+        $message->setEnabled($values['enabled']);
+        $message->setType($values['type']);
         $message->setGymPoints($values['gym_points']);
         $message->setIsInBattle($values['is_in_battle']);
         $message->setLureInfo($values['lure_info']);
         $message->setCooldownCompleteTimestampMs($values['cooldown_complete_timestamp_ms']);
         $message->setSponsor($values['sponsor']);
         $message->setRenderingType($values['rendering_type']);
+        $message->setDeployLockoutEndMs($values['deploy_lockout_end_ms']);
 
         foreach ($values['active_fort_modifier'] as $item) {
             $message->addActiveFortModifier($item);
@@ -739,19 +778,6 @@ class FortData extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
-                    'number' => 8,
-                    'name' => 'enabled',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
-                ]),
-                \google\protobuf\FieldDescriptorProto::fromArray([
-                    'number' => 9,
-                    'name' => 'type',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
-                    'type_name' => '.POGOProtos.Map.Fort.FortType'
-                ]),
-                \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 5,
                     'name' => 'owned_by_team',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
@@ -770,6 +796,19 @@ class FortData extends \Protobuf\AbstractMessage
                     'name' => 'guard_pokemon_cp',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'enabled',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 9,
+                    'name' => 'type',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Map.Fort.FortType'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 10,
@@ -816,6 +855,12 @@ class FortData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Map.Fort.FortRenderingType'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 17,
+                    'name' => 'deploy_lockout_end_ms',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -865,16 +910,6 @@ class FortData extends \Protobuf\AbstractMessage
             $writer->writeDouble($stream, $this->longitude);
         }
 
-        if ($this->enabled !== null) {
-            $writer->writeVarint($stream, 64);
-            $writer->writeBool($stream, $this->enabled);
-        }
-
-        if ($this->type !== null) {
-            $writer->writeVarint($stream, 72);
-            $writer->writeVarint($stream, $this->type->value());
-        }
-
         if ($this->owned_by_team !== null) {
             $writer->writeVarint($stream, 40);
             $writer->writeVarint($stream, $this->owned_by_team->value());
@@ -888,6 +923,16 @@ class FortData extends \Protobuf\AbstractMessage
         if ($this->guard_pokemon_cp !== null) {
             $writer->writeVarint($stream, 56);
             $writer->writeVarint($stream, $this->guard_pokemon_cp);
+        }
+
+        if ($this->enabled !== null) {
+            $writer->writeVarint($stream, 64);
+            $writer->writeBool($stream, $this->enabled);
+        }
+
+        if ($this->type !== null) {
+            $writer->writeVarint($stream, 72);
+            $writer->writeVarint($stream, $this->type->value());
         }
 
         if ($this->gym_points !== null) {
@@ -926,6 +971,11 @@ class FortData extends \Protobuf\AbstractMessage
         if ($this->rendering_type !== null) {
             $writer->writeVarint($stream, 128);
             $writer->writeVarint($stream, $this->rendering_type->value());
+        }
+
+        if ($this->deploy_lockout_end_ms !== null) {
+            $writer->writeVarint($stream, 136);
+            $writer->writeVarint($stream, $this->deploy_lockout_end_ms);
         }
 
         if ($this->extensions !== null) {
@@ -994,22 +1044,6 @@ class FortData extends \Protobuf\AbstractMessage
                 continue;
             }
 
-            if ($tag === 8) {
-                \Protobuf\WireFormat::assertWireType($wire, 8);
-
-                $this->enabled = $reader->readBool($stream);
-
-                continue;
-            }
-
-            if ($tag === 9) {
-                \Protobuf\WireFormat::assertWireType($wire, 14);
-
-                $this->type = \POGOProtos\Map\Fort\FortType::valueOf($reader->readVarint($stream));
-
-                continue;
-            }
-
             if ($tag === 5) {
                 \Protobuf\WireFormat::assertWireType($wire, 14);
 
@@ -1030,6 +1064,22 @@ class FortData extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 5);
 
                 $this->guard_pokemon_cp = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 8) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->enabled = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 9) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                $this->type = \POGOProtos\Map\Fort\FortType::valueOf($reader->readVarint($stream));
 
                 continue;
             }
@@ -1104,6 +1154,14 @@ class FortData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 17) {
+                \Protobuf\WireFormat::assertWireType($wire, 3);
+
+                $this->deploy_lockout_end_ms = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1153,16 +1211,6 @@ class FortData extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
-        if ($this->enabled !== null) {
-            $size += 1;
-            $size += 1;
-        }
-
-        if ($this->type !== null) {
-            $size += 1;
-            $size += $calculator->computeVarintSize($this->type->value());
-        }
-
         if ($this->owned_by_team !== null) {
             $size += 1;
             $size += $calculator->computeVarintSize($this->owned_by_team->value());
@@ -1176,6 +1224,16 @@ class FortData extends \Protobuf\AbstractMessage
         if ($this->guard_pokemon_cp !== null) {
             $size += 1;
             $size += $calculator->computeVarintSize($this->guard_pokemon_cp);
+        }
+
+        if ($this->enabled !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
+        if ($this->type !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->type->value());
         }
 
         if ($this->gym_points !== null) {
@@ -1218,6 +1276,11 @@ class FortData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->rendering_type->value());
         }
 
+        if ($this->deploy_lockout_end_ms !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->deploy_lockout_end_ms);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1234,11 +1297,11 @@ class FortData extends \Protobuf\AbstractMessage
         $this->last_modified_timestamp_ms = null;
         $this->latitude = null;
         $this->longitude = null;
-        $this->enabled = null;
-        $this->type = null;
         $this->owned_by_team = null;
         $this->guard_pokemon_id = null;
         $this->guard_pokemon_cp = null;
+        $this->enabled = null;
+        $this->type = null;
         $this->gym_points = null;
         $this->is_in_battle = null;
         $this->active_fort_modifier = null;
@@ -1246,6 +1309,7 @@ class FortData extends \Protobuf\AbstractMessage
         $this->cooldown_complete_timestamp_ms = null;
         $this->sponsor = null;
         $this->rendering_type = null;
+        $this->deploy_lockout_end_ms = null;
     }
 
     /**
@@ -1261,11 +1325,11 @@ class FortData extends \Protobuf\AbstractMessage
         $this->last_modified_timestamp_ms = ($message->last_modified_timestamp_ms !== null) ? $message->last_modified_timestamp_ms : $this->last_modified_timestamp_ms;
         $this->latitude = ($message->latitude !== null) ? $message->latitude : $this->latitude;
         $this->longitude = ($message->longitude !== null) ? $message->longitude : $this->longitude;
-        $this->enabled = ($message->enabled !== null) ? $message->enabled : $this->enabled;
-        $this->type = ($message->type !== null) ? $message->type : $this->type;
         $this->owned_by_team = ($message->owned_by_team !== null) ? $message->owned_by_team : $this->owned_by_team;
         $this->guard_pokemon_id = ($message->guard_pokemon_id !== null) ? $message->guard_pokemon_id : $this->guard_pokemon_id;
         $this->guard_pokemon_cp = ($message->guard_pokemon_cp !== null) ? $message->guard_pokemon_cp : $this->guard_pokemon_cp;
+        $this->enabled = ($message->enabled !== null) ? $message->enabled : $this->enabled;
+        $this->type = ($message->type !== null) ? $message->type : $this->type;
         $this->gym_points = ($message->gym_points !== null) ? $message->gym_points : $this->gym_points;
         $this->is_in_battle = ($message->is_in_battle !== null) ? $message->is_in_battle : $this->is_in_battle;
         $this->active_fort_modifier = ($message->active_fort_modifier !== null) ? $message->active_fort_modifier : $this->active_fort_modifier;
@@ -1273,6 +1337,7 @@ class FortData extends \Protobuf\AbstractMessage
         $this->cooldown_complete_timestamp_ms = ($message->cooldown_complete_timestamp_ms !== null) ? $message->cooldown_complete_timestamp_ms : $this->cooldown_complete_timestamp_ms;
         $this->sponsor = ($message->sponsor !== null) ? $message->sponsor : $this->sponsor;
         $this->rendering_type = ($message->rendering_type !== null) ? $message->rendering_type : $this->rendering_type;
+        $this->deploy_lockout_end_ms = ($message->deploy_lockout_end_ms !== null) ? $message->deploy_lockout_end_ms : $this->deploy_lockout_end_ms;
     }
 
 

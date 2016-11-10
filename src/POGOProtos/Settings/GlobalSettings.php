@@ -81,6 +81,20 @@ class GlobalSettings extends \Protobuf\AbstractMessage
     protected $event_settings = null;
 
     /**
+     * max_pokemon_types optional int32 = 10
+     *
+     * @var int
+     */
+    protected $max_pokemon_types = null;
+
+    /**
+     * sfida_settings optional message = 11
+     *
+     * @var \POGOProtos\Settings\SfidaSettings
+     */
+    protected $sfida_settings = null;
+
+    /**
      * Check if 'fort_settings' has a value
      *
      * @return bool
@@ -321,6 +335,66 @@ class GlobalSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'max_pokemon_types' has a value
+     *
+     * @return bool
+     */
+    public function hasMaxPokemonTypes()
+    {
+        return $this->max_pokemon_types !== null;
+    }
+
+    /**
+     * Get 'max_pokemon_types' value
+     *
+     * @return int
+     */
+    public function getMaxPokemonTypes()
+    {
+        return $this->max_pokemon_types;
+    }
+
+    /**
+     * Set 'max_pokemon_types' value
+     *
+     * @param int $value
+     */
+    public function setMaxPokemonTypes($value = null)
+    {
+        $this->max_pokemon_types = $value;
+    }
+
+    /**
+     * Check if 'sfida_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasSfidaSettings()
+    {
+        return $this->sfida_settings !== null;
+    }
+
+    /**
+     * Get 'sfida_settings' value
+     *
+     * @return \POGOProtos\Settings\SfidaSettings
+     */
+    public function getSfidaSettings()
+    {
+        return $this->sfida_settings;
+    }
+
+    /**
+     * Set 'sfida_settings' value
+     *
+     * @param \POGOProtos\Settings\SfidaSettings $value
+     */
+    public function setSfidaSettings(\POGOProtos\Settings\SfidaSettings $value = null)
+    {
+        $this->sfida_settings = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -362,7 +436,9 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             'minimum_client_version' => null,
             'gps_settings' => null,
             'festival_settings' => null,
-            'event_settings' => null
+            'event_settings' => null,
+            'max_pokemon_types' => null,
+            'sfida_settings' => null
         ], $values);
 
         $message->setFortSettings($values['fort_settings']);
@@ -373,6 +449,8 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $message->setGpsSettings($values['gps_settings']);
         $message->setFestivalSettings($values['festival_settings']);
         $message->setEventSettings($values['event_settings']);
+        $message->setMaxPokemonTypes($values['max_pokemon_types']);
+        $message->setSfidaSettings($values['sfida_settings']);
 
         return $message;
     }
@@ -439,6 +517,19 @@ class GlobalSettings extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Settings.EventSettings'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 10,
+                    'name' => 'max_pokemon_types',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 11,
+                    'name' => 'sfida_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.SfidaSettings'
                 ]),
             ],
         ]);
@@ -513,6 +604,17 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 74);
             $writer->writeVarint($stream, $this->event_settings->serializedSize($sizeContext));
             $this->event_settings->writeTo($context);
+        }
+
+        if ($this->max_pokemon_types !== null) {
+            $writer->writeVarint($stream, 80);
+            $writer->writeVarint($stream, $this->max_pokemon_types);
+        }
+
+        if ($this->sfida_settings !== null) {
+            $writer->writeVarint($stream, 90);
+            $writer->writeVarint($stream, $this->sfida_settings->serializedSize($sizeContext));
+            $this->sfida_settings->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -662,6 +764,29 @@ class GlobalSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 10) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->max_pokemon_types = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 11) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\SfidaSettings();
+
+                $this->sfida_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -752,6 +877,19 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->max_pokemon_types !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->max_pokemon_types);
+        }
+
+        if ($this->sfida_settings !== null) {
+            $innerSize = $this->sfida_settings->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -772,6 +910,8 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $this->gps_settings = null;
         $this->festival_settings = null;
         $this->event_settings = null;
+        $this->max_pokemon_types = null;
+        $this->sfida_settings = null;
     }
 
     /**
@@ -791,6 +931,8 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $this->gps_settings = ($message->gps_settings !== null) ? $message->gps_settings : $this->gps_settings;
         $this->festival_settings = ($message->festival_settings !== null) ? $message->festival_settings : $this->festival_settings;
         $this->event_settings = ($message->event_settings !== null) ? $message->event_settings : $this->event_settings;
+        $this->max_pokemon_types = ($message->max_pokemon_types !== null) ? $message->max_pokemon_types : $this->max_pokemon_types;
+        $this->sfida_settings = ($message->sfida_settings !== null) ? $message->sfida_settings : $this->sfida_settings;
     }
 
 

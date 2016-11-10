@@ -116,6 +116,13 @@ class PlayerData extends \Protobuf\AbstractMessage
     protected $buddy_pokemon = null;
 
     /**
+     * battle_lockout_end_ms optional int64 = 17
+     *
+     * @var int
+     */
+    protected $battle_lockout_end_ms = null;
+
+    /**
      * Check if 'creation_timestamp_ms' has a value
      *
      * @return bool
@@ -534,6 +541,36 @@ class PlayerData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'battle_lockout_end_ms' has a value
+     *
+     * @return bool
+     */
+    public function hasBattleLockoutEndMs()
+    {
+        return $this->battle_lockout_end_ms !== null;
+    }
+
+    /**
+     * Get 'battle_lockout_end_ms' value
+     *
+     * @return int
+     */
+    public function getBattleLockoutEndMs()
+    {
+        return $this->battle_lockout_end_ms;
+    }
+
+    /**
+     * Set 'battle_lockout_end_ms' value
+     *
+     * @param int $value
+     */
+    public function setBattleLockoutEndMs($value = null)
+    {
+        $this->battle_lockout_end_ms = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -580,7 +617,8 @@ class PlayerData extends \Protobuf\AbstractMessage
             'contact_settings' => null,
             'currencies' => [],
             'remaining_codename_claims' => null,
-            'buddy_pokemon' => null
+            'buddy_pokemon' => null,
+            'battle_lockout_end_ms' => null
         ], $values);
 
         $message->setCreationTimestampMs($values['creation_timestamp_ms']);
@@ -594,6 +632,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $message->setContactSettings($values['contact_settings']);
         $message->setRemainingCodenameClaims($values['remaining_codename_claims']);
         $message->setBuddyPokemon($values['buddy_pokemon']);
+        $message->setBattleLockoutEndMs($values['battle_lockout_end_ms']);
 
         foreach ($values['tutorial_state'] as $item) {
             $message->addTutorialState($item);
@@ -699,6 +738,12 @@ class PlayerData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.BuddyPokemon'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 17,
+                    'name' => 'battle_lockout_end_ms',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -810,6 +855,11 @@ class PlayerData extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 130);
             $writer->writeVarint($stream, $this->buddy_pokemon->serializedSize($sizeContext));
             $this->buddy_pokemon->writeTo($context);
+        }
+
+        if ($this->battle_lockout_end_ms !== null) {
+            $writer->writeVarint($stream, 136);
+            $writer->writeVarint($stream, $this->battle_lockout_end_ms);
         }
 
         if ($this->extensions !== null) {
@@ -1003,6 +1053,14 @@ class PlayerData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 17) {
+                \Protobuf\WireFormat::assertWireType($wire, 3);
+
+                $this->battle_lockout_end_ms = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1124,6 +1182,11 @@ class PlayerData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->battle_lockout_end_ms !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->battle_lockout_end_ms);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1149,6 +1212,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $this->currencies = null;
         $this->remaining_codename_claims = null;
         $this->buddy_pokemon = null;
+        $this->battle_lockout_end_ms = null;
     }
 
     /**
@@ -1173,6 +1237,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $this->currencies = ($message->currencies !== null) ? $message->currencies : $this->currencies;
         $this->remaining_codename_claims = ($message->remaining_codename_claims !== null) ? $message->remaining_codename_claims : $this->remaining_codename_claims;
         $this->buddy_pokemon = ($message->buddy_pokemon !== null) ? $message->buddy_pokemon : $this->buddy_pokemon;
+        $this->battle_lockout_end_ms = ($message->battle_lockout_end_ms !== null) ? $message->battle_lockout_end_ms : $this->battle_lockout_end_ms;
     }
 
 

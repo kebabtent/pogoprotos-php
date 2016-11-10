@@ -50,6 +50,11 @@ class RequestType extends \Protobuf\Enum
     const DOWNLOAD_REMOTE_CONFIG_VERSION_VALUE = 7;
 
     /**
+     * REGISTER_BACKGROUND_DEVICE = 8
+     */
+    const REGISTER_BACKGROUND_DEVICE_VALUE = 8;
+
+    /**
      * FORT_SEARCH = 101
      */
     const FORT_SEARCH_VALUE = 101;
@@ -423,6 +428,11 @@ class RequestType extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Requests\RequestType
      */
     protected static $DOWNLOAD_REMOTE_CONFIG_VERSION = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $REGISTER_BACKGROUND_DEVICE = null;
 
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
@@ -846,6 +856,18 @@ class RequestType extends \Protobuf\Enum
         }
 
         return self::$DOWNLOAD_REMOTE_CONFIG_VERSION = new self('DOWNLOAD_REMOTE_CONFIG_VERSION', self::DOWNLOAD_REMOTE_CONFIG_VERSION_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function REGISTER_BACKGROUND_DEVICE()
+    {
+        if (self::$REGISTER_BACKGROUND_DEVICE !== null) {
+            return self::$REGISTER_BACKGROUND_DEVICE;
+        }
+
+        return self::$REGISTER_BACKGROUND_DEVICE = new self('REGISTER_BACKGROUND_DEVICE', self::REGISTER_BACKGROUND_DEVICE_VALUE);
     }
 
     /**
@@ -1678,6 +1700,7 @@ class RequestType extends \Protobuf\Enum
             case 5: return self::DOWNLOAD_SETTINGS();
             case 6: return self::DOWNLOAD_ITEM_TEMPLATES();
             case 7: return self::DOWNLOAD_REMOTE_CONFIG_VERSION();
+            case 8: return self::REGISTER_BACKGROUND_DEVICE();
             case 101: return self::FORT_SEARCH();
             case 102: return self::ENCOUNTER();
             case 103: return self::CATCH_POKEMON();

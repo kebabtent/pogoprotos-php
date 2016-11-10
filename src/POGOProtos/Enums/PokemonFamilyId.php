@@ -420,6 +420,266 @@ class PokemonFamilyId extends \Protobuf\Enum
     const FAMILY_MEW_VALUE = 151;
 
     /**
+     * FAMILY_CHIKORITA = 152
+     */
+    const FAMILY_CHIKORITA_VALUE = 152;
+
+    /**
+     * FAMILY_CYNDAQUIL = 155
+     */
+    const FAMILY_CYNDAQUIL_VALUE = 155;
+
+    /**
+     * FAMILY_TOTODILE = 158
+     */
+    const FAMILY_TOTODILE_VALUE = 158;
+
+    /**
+     * FAMILY_SENTRET = 161
+     */
+    const FAMILY_SENTRET_VALUE = 161;
+
+    /**
+     * FAMILY_HOOTHOOT = 163
+     */
+    const FAMILY_HOOTHOOT_VALUE = 163;
+
+    /**
+     * FAMILY_LEDYBA = 165
+     */
+    const FAMILY_LEDYBA_VALUE = 165;
+
+    /**
+     * FAMILY_SPINARAK = 167
+     */
+    const FAMILY_SPINARAK_VALUE = 167;
+
+    /**
+     * FAMILY_CHINCHOU = 170
+     */
+    const FAMILY_CHINCHOU_VALUE = 170;
+
+    /**
+     * FAMILY_TOGEPI = 175
+     */
+    const FAMILY_TOGEPI_VALUE = 175;
+
+    /**
+     * FAMILY_NATU = 177
+     */
+    const FAMILY_NATU_VALUE = 177;
+
+    /**
+     * FAMILY_MAREEP = 179
+     */
+    const FAMILY_MAREEP_VALUE = 179;
+
+    /**
+     * FAMILY_MARILL = 183
+     */
+    const FAMILY_MARILL_VALUE = 183;
+
+    /**
+     * FAMILY_SUDOWOODO = 185
+     */
+    const FAMILY_SUDOWOODO_VALUE = 185;
+
+    /**
+     * FAMILY_HOPPIP = 187
+     */
+    const FAMILY_HOPPIP_VALUE = 187;
+
+    /**
+     * FAMILY_AIPOM = 190
+     */
+    const FAMILY_AIPOM_VALUE = 190;
+
+    /**
+     * FAMILY_SUNKERN = 191
+     */
+    const FAMILY_SUNKERN_VALUE = 191;
+
+    /**
+     * FAMILY_YANMA = 193
+     */
+    const FAMILY_YANMA_VALUE = 193;
+
+    /**
+     * FAMILY_WOOPER = 194
+     */
+    const FAMILY_WOOPER_VALUE = 194;
+
+    /**
+     * FAMILY_MURKROW = 198
+     */
+    const FAMILY_MURKROW_VALUE = 198;
+
+    /**
+     * FAMILY_MISDREAVUS = 200
+     */
+    const FAMILY_MISDREAVUS_VALUE = 200;
+
+    /**
+     * FAMILY_UNOWN = 201
+     */
+    const FAMILY_UNOWN_VALUE = 201;
+
+    /**
+     * FAMILY_WOBBUFFET = 202
+     */
+    const FAMILY_WOBBUFFET_VALUE = 202;
+
+    /**
+     * FAMILY_GIRAFARIG = 203
+     */
+    const FAMILY_GIRAFARIG_VALUE = 203;
+
+    /**
+     * FAMILY_PINECO = 204
+     */
+    const FAMILY_PINECO_VALUE = 204;
+
+    /**
+     * FAMILY_DUNSPARCE = 206
+     */
+    const FAMILY_DUNSPARCE_VALUE = 206;
+
+    /**
+     * FAMILY_GLIGAR = 207
+     */
+    const FAMILY_GLIGAR_VALUE = 207;
+
+    /**
+     * FAMILY_SNUBBULL = 209
+     */
+    const FAMILY_SNUBBULL_VALUE = 209;
+
+    /**
+     * FAMILY_QWILFISH = 211
+     */
+    const FAMILY_QWILFISH_VALUE = 211;
+
+    /**
+     * FAMILY_SHUCKLE = 213
+     */
+    const FAMILY_SHUCKLE_VALUE = 213;
+
+    /**
+     * FAMILY_HERACROSS = 214
+     */
+    const FAMILY_HERACROSS_VALUE = 214;
+
+    /**
+     * FAMILY_SNEASEL = 215
+     */
+    const FAMILY_SNEASEL_VALUE = 215;
+
+    /**
+     * FAMILY_TEDDIURSA = 216
+     */
+    const FAMILY_TEDDIURSA_VALUE = 216;
+
+    /**
+     * FAMILY_SLUGMA = 218
+     */
+    const FAMILY_SLUGMA_VALUE = 218;
+
+    /**
+     * FAMILY_SWINUB = 220
+     */
+    const FAMILY_SWINUB_VALUE = 220;
+
+    /**
+     * FAMILY_CORSOLA = 222
+     */
+    const FAMILY_CORSOLA_VALUE = 222;
+
+    /**
+     * FAMILY_REMORAID = 223
+     */
+    const FAMILY_REMORAID_VALUE = 223;
+
+    /**
+     * FAMILY_DELIBIRD = 225
+     */
+    const FAMILY_DELIBIRD_VALUE = 225;
+
+    /**
+     * FAMILY_MANTINE = 226
+     */
+    const FAMILY_MANTINE_VALUE = 226;
+
+    /**
+     * FAMILY_SKARMORY = 227
+     */
+    const FAMILY_SKARMORY_VALUE = 227;
+
+    /**
+     * FAMILY_HOUNDOUR = 228
+     */
+    const FAMILY_HOUNDOUR_VALUE = 228;
+
+    /**
+     * FAMILY_PHANPY = 231
+     */
+    const FAMILY_PHANPY_VALUE = 231;
+
+    /**
+     * FAMILY_STANTLER = 234
+     */
+    const FAMILY_STANTLER_VALUE = 234;
+
+    /**
+     * FAMILY_SMEARGLE = 235
+     */
+    const FAMILY_SMEARGLE_VALUE = 235;
+
+    /**
+     * FAMILY_TYROGUE = 236
+     */
+    const FAMILY_TYROGUE_VALUE = 236;
+
+    /**
+     * FAMILY_MILTANK = 241
+     */
+    const FAMILY_MILTANK_VALUE = 241;
+
+    /**
+     * FAMILY_RAIKOU = 243
+     */
+    const FAMILY_RAIKOU_VALUE = 243;
+
+    /**
+     * FAMILY_ENTEI = 244
+     */
+    const FAMILY_ENTEI_VALUE = 244;
+
+    /**
+     * FAMILY_SUICUNE = 245
+     */
+    const FAMILY_SUICUNE_VALUE = 245;
+
+    /**
+     * FAMILY_LARVITAR = 246
+     */
+    const FAMILY_LARVITAR_VALUE = 246;
+
+    /**
+     * FAMILY_LUGIA = 249
+     */
+    const FAMILY_LUGIA_VALUE = 249;
+
+    /**
+     * FAMILY_HO_OH = 250
+     */
+    const FAMILY_HO_OH_VALUE = 250;
+
+    /**
+     * FAMILY_CELEBI = 251
+     */
+    const FAMILY_CELEBI_VALUE = 251;
+
+    /**
      * @var \POGOProtos\Enums\PokemonFamilyId
      */
     protected static $FAMILY_UNSET = null;
@@ -823,6 +1083,266 @@ class PokemonFamilyId extends \Protobuf\Enum
      * @var \POGOProtos\Enums\PokemonFamilyId
      */
     protected static $FAMILY_MEW = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_CHIKORITA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_CYNDAQUIL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_TOTODILE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SENTRET = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_HOOTHOOT = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_LEDYBA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SPINARAK = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_CHINCHOU = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_TOGEPI = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_NATU = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_MAREEP = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_MARILL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SUDOWOODO = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_HOPPIP = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_AIPOM = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SUNKERN = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_YANMA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_WOOPER = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_MURKROW = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_MISDREAVUS = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_UNOWN = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_WOBBUFFET = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_GIRAFARIG = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_PINECO = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_DUNSPARCE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_GLIGAR = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SNUBBULL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_QWILFISH = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SHUCKLE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_HERACROSS = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SNEASEL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_TEDDIURSA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SLUGMA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SWINUB = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_CORSOLA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_REMORAID = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_DELIBIRD = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_MANTINE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SKARMORY = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_HOUNDOUR = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_PHANPY = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_STANTLER = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SMEARGLE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_TYROGUE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_MILTANK = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_RAIKOU = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_ENTEI = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_SUICUNE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_LARVITAR = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_LUGIA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_HO_OH = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonFamilyId
+     */
+    protected static $FAMILY_CELEBI = null;
 
     /**
      * @return \POGOProtos\Enums\PokemonFamilyId
@@ -1797,6 +2317,630 @@ class PokemonFamilyId extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_CHIKORITA()
+    {
+        if (self::$FAMILY_CHIKORITA !== null) {
+            return self::$FAMILY_CHIKORITA;
+        }
+
+        return self::$FAMILY_CHIKORITA = new self('FAMILY_CHIKORITA', self::FAMILY_CHIKORITA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_CYNDAQUIL()
+    {
+        if (self::$FAMILY_CYNDAQUIL !== null) {
+            return self::$FAMILY_CYNDAQUIL;
+        }
+
+        return self::$FAMILY_CYNDAQUIL = new self('FAMILY_CYNDAQUIL', self::FAMILY_CYNDAQUIL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_TOTODILE()
+    {
+        if (self::$FAMILY_TOTODILE !== null) {
+            return self::$FAMILY_TOTODILE;
+        }
+
+        return self::$FAMILY_TOTODILE = new self('FAMILY_TOTODILE', self::FAMILY_TOTODILE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SENTRET()
+    {
+        if (self::$FAMILY_SENTRET !== null) {
+            return self::$FAMILY_SENTRET;
+        }
+
+        return self::$FAMILY_SENTRET = new self('FAMILY_SENTRET', self::FAMILY_SENTRET_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_HOOTHOOT()
+    {
+        if (self::$FAMILY_HOOTHOOT !== null) {
+            return self::$FAMILY_HOOTHOOT;
+        }
+
+        return self::$FAMILY_HOOTHOOT = new self('FAMILY_HOOTHOOT', self::FAMILY_HOOTHOOT_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_LEDYBA()
+    {
+        if (self::$FAMILY_LEDYBA !== null) {
+            return self::$FAMILY_LEDYBA;
+        }
+
+        return self::$FAMILY_LEDYBA = new self('FAMILY_LEDYBA', self::FAMILY_LEDYBA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SPINARAK()
+    {
+        if (self::$FAMILY_SPINARAK !== null) {
+            return self::$FAMILY_SPINARAK;
+        }
+
+        return self::$FAMILY_SPINARAK = new self('FAMILY_SPINARAK', self::FAMILY_SPINARAK_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_CHINCHOU()
+    {
+        if (self::$FAMILY_CHINCHOU !== null) {
+            return self::$FAMILY_CHINCHOU;
+        }
+
+        return self::$FAMILY_CHINCHOU = new self('FAMILY_CHINCHOU', self::FAMILY_CHINCHOU_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_TOGEPI()
+    {
+        if (self::$FAMILY_TOGEPI !== null) {
+            return self::$FAMILY_TOGEPI;
+        }
+
+        return self::$FAMILY_TOGEPI = new self('FAMILY_TOGEPI', self::FAMILY_TOGEPI_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_NATU()
+    {
+        if (self::$FAMILY_NATU !== null) {
+            return self::$FAMILY_NATU;
+        }
+
+        return self::$FAMILY_NATU = new self('FAMILY_NATU', self::FAMILY_NATU_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_MAREEP()
+    {
+        if (self::$FAMILY_MAREEP !== null) {
+            return self::$FAMILY_MAREEP;
+        }
+
+        return self::$FAMILY_MAREEP = new self('FAMILY_MAREEP', self::FAMILY_MAREEP_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_MARILL()
+    {
+        if (self::$FAMILY_MARILL !== null) {
+            return self::$FAMILY_MARILL;
+        }
+
+        return self::$FAMILY_MARILL = new self('FAMILY_MARILL', self::FAMILY_MARILL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SUDOWOODO()
+    {
+        if (self::$FAMILY_SUDOWOODO !== null) {
+            return self::$FAMILY_SUDOWOODO;
+        }
+
+        return self::$FAMILY_SUDOWOODO = new self('FAMILY_SUDOWOODO', self::FAMILY_SUDOWOODO_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_HOPPIP()
+    {
+        if (self::$FAMILY_HOPPIP !== null) {
+            return self::$FAMILY_HOPPIP;
+        }
+
+        return self::$FAMILY_HOPPIP = new self('FAMILY_HOPPIP', self::FAMILY_HOPPIP_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_AIPOM()
+    {
+        if (self::$FAMILY_AIPOM !== null) {
+            return self::$FAMILY_AIPOM;
+        }
+
+        return self::$FAMILY_AIPOM = new self('FAMILY_AIPOM', self::FAMILY_AIPOM_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SUNKERN()
+    {
+        if (self::$FAMILY_SUNKERN !== null) {
+            return self::$FAMILY_SUNKERN;
+        }
+
+        return self::$FAMILY_SUNKERN = new self('FAMILY_SUNKERN', self::FAMILY_SUNKERN_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_YANMA()
+    {
+        if (self::$FAMILY_YANMA !== null) {
+            return self::$FAMILY_YANMA;
+        }
+
+        return self::$FAMILY_YANMA = new self('FAMILY_YANMA', self::FAMILY_YANMA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_WOOPER()
+    {
+        if (self::$FAMILY_WOOPER !== null) {
+            return self::$FAMILY_WOOPER;
+        }
+
+        return self::$FAMILY_WOOPER = new self('FAMILY_WOOPER', self::FAMILY_WOOPER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_MURKROW()
+    {
+        if (self::$FAMILY_MURKROW !== null) {
+            return self::$FAMILY_MURKROW;
+        }
+
+        return self::$FAMILY_MURKROW = new self('FAMILY_MURKROW', self::FAMILY_MURKROW_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_MISDREAVUS()
+    {
+        if (self::$FAMILY_MISDREAVUS !== null) {
+            return self::$FAMILY_MISDREAVUS;
+        }
+
+        return self::$FAMILY_MISDREAVUS = new self('FAMILY_MISDREAVUS', self::FAMILY_MISDREAVUS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_UNOWN()
+    {
+        if (self::$FAMILY_UNOWN !== null) {
+            return self::$FAMILY_UNOWN;
+        }
+
+        return self::$FAMILY_UNOWN = new self('FAMILY_UNOWN', self::FAMILY_UNOWN_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_WOBBUFFET()
+    {
+        if (self::$FAMILY_WOBBUFFET !== null) {
+            return self::$FAMILY_WOBBUFFET;
+        }
+
+        return self::$FAMILY_WOBBUFFET = new self('FAMILY_WOBBUFFET', self::FAMILY_WOBBUFFET_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_GIRAFARIG()
+    {
+        if (self::$FAMILY_GIRAFARIG !== null) {
+            return self::$FAMILY_GIRAFARIG;
+        }
+
+        return self::$FAMILY_GIRAFARIG = new self('FAMILY_GIRAFARIG', self::FAMILY_GIRAFARIG_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_PINECO()
+    {
+        if (self::$FAMILY_PINECO !== null) {
+            return self::$FAMILY_PINECO;
+        }
+
+        return self::$FAMILY_PINECO = new self('FAMILY_PINECO', self::FAMILY_PINECO_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_DUNSPARCE()
+    {
+        if (self::$FAMILY_DUNSPARCE !== null) {
+            return self::$FAMILY_DUNSPARCE;
+        }
+
+        return self::$FAMILY_DUNSPARCE = new self('FAMILY_DUNSPARCE', self::FAMILY_DUNSPARCE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_GLIGAR()
+    {
+        if (self::$FAMILY_GLIGAR !== null) {
+            return self::$FAMILY_GLIGAR;
+        }
+
+        return self::$FAMILY_GLIGAR = new self('FAMILY_GLIGAR', self::FAMILY_GLIGAR_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SNUBBULL()
+    {
+        if (self::$FAMILY_SNUBBULL !== null) {
+            return self::$FAMILY_SNUBBULL;
+        }
+
+        return self::$FAMILY_SNUBBULL = new self('FAMILY_SNUBBULL', self::FAMILY_SNUBBULL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_QWILFISH()
+    {
+        if (self::$FAMILY_QWILFISH !== null) {
+            return self::$FAMILY_QWILFISH;
+        }
+
+        return self::$FAMILY_QWILFISH = new self('FAMILY_QWILFISH', self::FAMILY_QWILFISH_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SHUCKLE()
+    {
+        if (self::$FAMILY_SHUCKLE !== null) {
+            return self::$FAMILY_SHUCKLE;
+        }
+
+        return self::$FAMILY_SHUCKLE = new self('FAMILY_SHUCKLE', self::FAMILY_SHUCKLE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_HERACROSS()
+    {
+        if (self::$FAMILY_HERACROSS !== null) {
+            return self::$FAMILY_HERACROSS;
+        }
+
+        return self::$FAMILY_HERACROSS = new self('FAMILY_HERACROSS', self::FAMILY_HERACROSS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SNEASEL()
+    {
+        if (self::$FAMILY_SNEASEL !== null) {
+            return self::$FAMILY_SNEASEL;
+        }
+
+        return self::$FAMILY_SNEASEL = new self('FAMILY_SNEASEL', self::FAMILY_SNEASEL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_TEDDIURSA()
+    {
+        if (self::$FAMILY_TEDDIURSA !== null) {
+            return self::$FAMILY_TEDDIURSA;
+        }
+
+        return self::$FAMILY_TEDDIURSA = new self('FAMILY_TEDDIURSA', self::FAMILY_TEDDIURSA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SLUGMA()
+    {
+        if (self::$FAMILY_SLUGMA !== null) {
+            return self::$FAMILY_SLUGMA;
+        }
+
+        return self::$FAMILY_SLUGMA = new self('FAMILY_SLUGMA', self::FAMILY_SLUGMA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SWINUB()
+    {
+        if (self::$FAMILY_SWINUB !== null) {
+            return self::$FAMILY_SWINUB;
+        }
+
+        return self::$FAMILY_SWINUB = new self('FAMILY_SWINUB', self::FAMILY_SWINUB_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_CORSOLA()
+    {
+        if (self::$FAMILY_CORSOLA !== null) {
+            return self::$FAMILY_CORSOLA;
+        }
+
+        return self::$FAMILY_CORSOLA = new self('FAMILY_CORSOLA', self::FAMILY_CORSOLA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_REMORAID()
+    {
+        if (self::$FAMILY_REMORAID !== null) {
+            return self::$FAMILY_REMORAID;
+        }
+
+        return self::$FAMILY_REMORAID = new self('FAMILY_REMORAID', self::FAMILY_REMORAID_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_DELIBIRD()
+    {
+        if (self::$FAMILY_DELIBIRD !== null) {
+            return self::$FAMILY_DELIBIRD;
+        }
+
+        return self::$FAMILY_DELIBIRD = new self('FAMILY_DELIBIRD', self::FAMILY_DELIBIRD_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_MANTINE()
+    {
+        if (self::$FAMILY_MANTINE !== null) {
+            return self::$FAMILY_MANTINE;
+        }
+
+        return self::$FAMILY_MANTINE = new self('FAMILY_MANTINE', self::FAMILY_MANTINE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SKARMORY()
+    {
+        if (self::$FAMILY_SKARMORY !== null) {
+            return self::$FAMILY_SKARMORY;
+        }
+
+        return self::$FAMILY_SKARMORY = new self('FAMILY_SKARMORY', self::FAMILY_SKARMORY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_HOUNDOUR()
+    {
+        if (self::$FAMILY_HOUNDOUR !== null) {
+            return self::$FAMILY_HOUNDOUR;
+        }
+
+        return self::$FAMILY_HOUNDOUR = new self('FAMILY_HOUNDOUR', self::FAMILY_HOUNDOUR_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_PHANPY()
+    {
+        if (self::$FAMILY_PHANPY !== null) {
+            return self::$FAMILY_PHANPY;
+        }
+
+        return self::$FAMILY_PHANPY = new self('FAMILY_PHANPY', self::FAMILY_PHANPY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_STANTLER()
+    {
+        if (self::$FAMILY_STANTLER !== null) {
+            return self::$FAMILY_STANTLER;
+        }
+
+        return self::$FAMILY_STANTLER = new self('FAMILY_STANTLER', self::FAMILY_STANTLER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SMEARGLE()
+    {
+        if (self::$FAMILY_SMEARGLE !== null) {
+            return self::$FAMILY_SMEARGLE;
+        }
+
+        return self::$FAMILY_SMEARGLE = new self('FAMILY_SMEARGLE', self::FAMILY_SMEARGLE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_TYROGUE()
+    {
+        if (self::$FAMILY_TYROGUE !== null) {
+            return self::$FAMILY_TYROGUE;
+        }
+
+        return self::$FAMILY_TYROGUE = new self('FAMILY_TYROGUE', self::FAMILY_TYROGUE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_MILTANK()
+    {
+        if (self::$FAMILY_MILTANK !== null) {
+            return self::$FAMILY_MILTANK;
+        }
+
+        return self::$FAMILY_MILTANK = new self('FAMILY_MILTANK', self::FAMILY_MILTANK_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_RAIKOU()
+    {
+        if (self::$FAMILY_RAIKOU !== null) {
+            return self::$FAMILY_RAIKOU;
+        }
+
+        return self::$FAMILY_RAIKOU = new self('FAMILY_RAIKOU', self::FAMILY_RAIKOU_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_ENTEI()
+    {
+        if (self::$FAMILY_ENTEI !== null) {
+            return self::$FAMILY_ENTEI;
+        }
+
+        return self::$FAMILY_ENTEI = new self('FAMILY_ENTEI', self::FAMILY_ENTEI_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_SUICUNE()
+    {
+        if (self::$FAMILY_SUICUNE !== null) {
+            return self::$FAMILY_SUICUNE;
+        }
+
+        return self::$FAMILY_SUICUNE = new self('FAMILY_SUICUNE', self::FAMILY_SUICUNE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_LARVITAR()
+    {
+        if (self::$FAMILY_LARVITAR !== null) {
+            return self::$FAMILY_LARVITAR;
+        }
+
+        return self::$FAMILY_LARVITAR = new self('FAMILY_LARVITAR', self::FAMILY_LARVITAR_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_LUGIA()
+    {
+        if (self::$FAMILY_LUGIA !== null) {
+            return self::$FAMILY_LUGIA;
+        }
+
+        return self::$FAMILY_LUGIA = new self('FAMILY_LUGIA', self::FAMILY_LUGIA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_HO_OH()
+    {
+        if (self::$FAMILY_HO_OH !== null) {
+            return self::$FAMILY_HO_OH;
+        }
+
+        return self::$FAMILY_HO_OH = new self('FAMILY_HO_OH', self::FAMILY_HO_OH_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonFamilyId
+     */
+    public static function FAMILY_CELEBI()
+    {
+        if (self::$FAMILY_CELEBI !== null) {
+            return self::$FAMILY_CELEBI;
+        }
+
+        return self::$FAMILY_CELEBI = new self('FAMILY_CELEBI', self::FAMILY_CELEBI_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\PokemonFamilyId
      */
@@ -1884,6 +3028,58 @@ class PokemonFamilyId extends \Protobuf\Enum
             case 147: return self::FAMILY_DRATINI();
             case 150: return self::FAMILY_MEWTWO();
             case 151: return self::FAMILY_MEW();
+            case 152: return self::FAMILY_CHIKORITA();
+            case 155: return self::FAMILY_CYNDAQUIL();
+            case 158: return self::FAMILY_TOTODILE();
+            case 161: return self::FAMILY_SENTRET();
+            case 163: return self::FAMILY_HOOTHOOT();
+            case 165: return self::FAMILY_LEDYBA();
+            case 167: return self::FAMILY_SPINARAK();
+            case 170: return self::FAMILY_CHINCHOU();
+            case 175: return self::FAMILY_TOGEPI();
+            case 177: return self::FAMILY_NATU();
+            case 179: return self::FAMILY_MAREEP();
+            case 183: return self::FAMILY_MARILL();
+            case 185: return self::FAMILY_SUDOWOODO();
+            case 187: return self::FAMILY_HOPPIP();
+            case 190: return self::FAMILY_AIPOM();
+            case 191: return self::FAMILY_SUNKERN();
+            case 193: return self::FAMILY_YANMA();
+            case 194: return self::FAMILY_WOOPER();
+            case 198: return self::FAMILY_MURKROW();
+            case 200: return self::FAMILY_MISDREAVUS();
+            case 201: return self::FAMILY_UNOWN();
+            case 202: return self::FAMILY_WOBBUFFET();
+            case 203: return self::FAMILY_GIRAFARIG();
+            case 204: return self::FAMILY_PINECO();
+            case 206: return self::FAMILY_DUNSPARCE();
+            case 207: return self::FAMILY_GLIGAR();
+            case 209: return self::FAMILY_SNUBBULL();
+            case 211: return self::FAMILY_QWILFISH();
+            case 213: return self::FAMILY_SHUCKLE();
+            case 214: return self::FAMILY_HERACROSS();
+            case 215: return self::FAMILY_SNEASEL();
+            case 216: return self::FAMILY_TEDDIURSA();
+            case 218: return self::FAMILY_SLUGMA();
+            case 220: return self::FAMILY_SWINUB();
+            case 222: return self::FAMILY_CORSOLA();
+            case 223: return self::FAMILY_REMORAID();
+            case 225: return self::FAMILY_DELIBIRD();
+            case 226: return self::FAMILY_MANTINE();
+            case 227: return self::FAMILY_SKARMORY();
+            case 228: return self::FAMILY_HOUNDOUR();
+            case 231: return self::FAMILY_PHANPY();
+            case 234: return self::FAMILY_STANTLER();
+            case 235: return self::FAMILY_SMEARGLE();
+            case 236: return self::FAMILY_TYROGUE();
+            case 241: return self::FAMILY_MILTANK();
+            case 243: return self::FAMILY_RAIKOU();
+            case 244: return self::FAMILY_ENTEI();
+            case 245: return self::FAMILY_SUICUNE();
+            case 246: return self::FAMILY_LARVITAR();
+            case 249: return self::FAMILY_LUGIA();
+            case 250: return self::FAMILY_HO_OH();
+            case 251: return self::FAMILY_CELEBI();
             default: return null;
         }
     }

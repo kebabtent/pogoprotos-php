@@ -40,6 +40,11 @@ class FortSponsor extends \Protobuf\Enum
     const SOFTBANK_VALUE = 4;
 
     /**
+     * GLOBE = 5
+     */
+    const GLOBE_VALUE = 5;
+
+    /**
      * @var \POGOProtos\Map\Fort\FortSponsor
      */
     protected static $UNSET_SPONSOR = null;
@@ -63,6 +68,11 @@ class FortSponsor extends \Protobuf\Enum
      * @var \POGOProtos\Map\Fort\FortSponsor
      */
     protected static $SOFTBANK = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $GLOBE = null;
 
     /**
      * @return \POGOProtos\Map\Fort\FortSponsor
@@ -125,6 +135,18 @@ class FortSponsor extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function GLOBE()
+    {
+        if (self::$GLOBE !== null) {
+            return self::$GLOBE;
+        }
+
+        return self::$GLOBE = new self('GLOBE', self::GLOBE_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Map\Fort\FortSponsor
      */
@@ -136,6 +158,7 @@ class FortSponsor extends \Protobuf\Enum
             case 2: return self::POKEMON_STORE();
             case 3: return self::TOHO();
             case 4: return self::SOFTBANK();
+            case 5: return self::GLOBE();
             default: return null;
         }
     }

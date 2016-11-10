@@ -139,6 +139,13 @@ class ItemTemplate extends \Protobuf\AbstractMessage
     protected $equipped_badges = null;
 
     /**
+     * quest_settings optional message = 20
+     *
+     * @var \POGOProtos\Settings\Master\QuestSettings
+     */
+    protected $quest_settings = null;
+
+    /**
      * Check if 'template_id' has a value
      *
      * @return bool
@@ -619,6 +626,36 @@ class ItemTemplate extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'quest_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasQuestSettings()
+    {
+        return $this->quest_settings !== null;
+    }
+
+    /**
+     * Get 'quest_settings' value
+     *
+     * @return \POGOProtos\Settings\Master\QuestSettings
+     */
+    public function getQuestSettings()
+    {
+        return $this->quest_settings;
+    }
+
+    /**
+     * Set 'quest_settings' value
+     *
+     * @param \POGOProtos\Settings\Master\QuestSettings $value
+     */
+    public function setQuestSettings(\POGOProtos\Settings\Master\QuestSettings $value = null)
+    {
+        $this->quest_settings = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -668,7 +705,8 @@ class ItemTemplate extends \Protobuf\AbstractMessage
             'iap_item_display' => null,
             'iap_settings' => null,
             'pokemon_upgrades' => null,
-            'equipped_badges' => null
+            'equipped_badges' => null,
+            'quest_settings' => null
         ], $values);
 
         $message->setTemplateId($values['template_id']);
@@ -687,6 +725,7 @@ class ItemTemplate extends \Protobuf\AbstractMessage
         $message->setIapSettings($values['iap_settings']);
         $message->setPokemonUpgrades($values['pokemon_upgrades']);
         $message->setEquippedBadges($values['equipped_badges']);
+        $message->setQuestSettings($values['quest_settings']);
 
         return $message;
     }
@@ -810,6 +849,13 @@ class ItemTemplate extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Settings.Master.EquippedBadgeSettings'
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 20,
+                    'name' => 'quest_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.Master.QuestSettings'
+                ]),
             ],
         ]);
     }
@@ -931,6 +977,12 @@ class ItemTemplate extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 154);
             $writer->writeVarint($stream, $this->equipped_badges->serializedSize($sizeContext));
             $this->equipped_badges->writeTo($context);
+        }
+
+        if ($this->quest_settings !== null) {
+            $writer->writeVarint($stream, 162);
+            $writer->writeVarint($stream, $this->quest_settings->serializedSize($sizeContext));
+            $this->quest_settings->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -1200,6 +1252,21 @@ class ItemTemplate extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 20) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\Master\QuestSettings();
+
+                $this->quest_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1354,6 +1421,14 @@ class ItemTemplate extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->quest_settings !== null) {
+            $innerSize = $this->quest_settings->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1382,6 +1457,7 @@ class ItemTemplate extends \Protobuf\AbstractMessage
         $this->iap_settings = null;
         $this->pokemon_upgrades = null;
         $this->equipped_badges = null;
+        $this->quest_settings = null;
     }
 
     /**
@@ -1409,6 +1485,7 @@ class ItemTemplate extends \Protobuf\AbstractMessage
         $this->iap_settings = ($message->iap_settings !== null) ? $message->iap_settings : $this->iap_settings;
         $this->pokemon_upgrades = ($message->pokemon_upgrades !== null) ? $message->pokemon_upgrades : $this->pokemon_upgrades;
         $this->equipped_badges = ($message->equipped_badges !== null) ? $message->equipped_badges : $this->equipped_badges;
+        $this->quest_settings = ($message->quest_settings !== null) ? $message->quest_settings : $this->quest_settings;
     }
 
 

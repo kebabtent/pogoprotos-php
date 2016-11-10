@@ -915,6 +915,11 @@ class PokemonMove extends \Protobuf\Enum
     const ROCK_SMASH_FAST_VALUE = 241;
 
     /**
+     * TRANSFORM_FAST = 242
+     */
+    const TRANSFORM_FAST_VALUE = 242;
+
+    /**
      * @var \POGOProtos\Enums\PokemonMove
      */
     protected static $MOVE_UNSET = null;
@@ -1813,6 +1818,11 @@ class PokemonMove extends \Protobuf\Enum
      * @var \POGOProtos\Enums\PokemonMove
      */
     protected static $ROCK_SMASH_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $TRANSFORM_FAST = null;
 
     /**
      * @return \POGOProtos\Enums\PokemonMove
@@ -3975,6 +3985,18 @@ class PokemonMove extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function TRANSFORM_FAST()
+    {
+        if (self::$TRANSFORM_FAST !== null) {
+            return self::$TRANSFORM_FAST;
+        }
+
+        return self::$TRANSFORM_FAST = new self('TRANSFORM_FAST', self::TRANSFORM_FAST_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\PokemonMove
      */
@@ -4161,6 +4183,7 @@ class PokemonMove extends \Protobuf\Enum
             case 239: return self::STEEL_WING_FAST();
             case 240: return self::FIRE_FANG_FAST();
             case 241: return self::ROCK_SMASH_FAST();
+            case 242: return self::TRANSFORM_FAST();
             default: return null;
         }
     }

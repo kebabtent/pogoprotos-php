@@ -775,6 +775,506 @@ class PokemonId extends \Protobuf\Enum
     const MEW_VALUE = 151;
 
     /**
+     * CHIKORITA = 152
+     */
+    const CHIKORITA_VALUE = 152;
+
+    /**
+     * BAYLEEF = 153
+     */
+    const BAYLEEF_VALUE = 153;
+
+    /**
+     * MEGANIUM = 154
+     */
+    const MEGANIUM_VALUE = 154;
+
+    /**
+     * CYNDAQUIL = 155
+     */
+    const CYNDAQUIL_VALUE = 155;
+
+    /**
+     * QUILAVA = 156
+     */
+    const QUILAVA_VALUE = 156;
+
+    /**
+     * TYPHLOSION = 157
+     */
+    const TYPHLOSION_VALUE = 157;
+
+    /**
+     * TOTODILE = 158
+     */
+    const TOTODILE_VALUE = 158;
+
+    /**
+     * CROCONAW = 159
+     */
+    const CROCONAW_VALUE = 159;
+
+    /**
+     * FERALIGATR = 160
+     */
+    const FERALIGATR_VALUE = 160;
+
+    /**
+     * SENTRET = 161
+     */
+    const SENTRET_VALUE = 161;
+
+    /**
+     * FURRET = 162
+     */
+    const FURRET_VALUE = 162;
+
+    /**
+     * HOOTHOOT = 163
+     */
+    const HOOTHOOT_VALUE = 163;
+
+    /**
+     * NOCTOWL = 164
+     */
+    const NOCTOWL_VALUE = 164;
+
+    /**
+     * LEDYBA = 165
+     */
+    const LEDYBA_VALUE = 165;
+
+    /**
+     * LEDIAN = 166
+     */
+    const LEDIAN_VALUE = 166;
+
+    /**
+     * SPINARAK = 167
+     */
+    const SPINARAK_VALUE = 167;
+
+    /**
+     * ARIADOS = 168
+     */
+    const ARIADOS_VALUE = 168;
+
+    /**
+     * CROBAT = 169
+     */
+    const CROBAT_VALUE = 169;
+
+    /**
+     * CHINCHOU = 170
+     */
+    const CHINCHOU_VALUE = 170;
+
+    /**
+     * LANTURN = 171
+     */
+    const LANTURN_VALUE = 171;
+
+    /**
+     * PICHU = 172
+     */
+    const PICHU_VALUE = 172;
+
+    /**
+     * CLEFFA = 173
+     */
+    const CLEFFA_VALUE = 173;
+
+    /**
+     * IGGLYBUFF = 174
+     */
+    const IGGLYBUFF_VALUE = 174;
+
+    /**
+     * TOGEPI = 175
+     */
+    const TOGEPI_VALUE = 175;
+
+    /**
+     * TOGETIC = 176
+     */
+    const TOGETIC_VALUE = 176;
+
+    /**
+     * NATU = 177
+     */
+    const NATU_VALUE = 177;
+
+    /**
+     * XATU = 178
+     */
+    const XATU_VALUE = 178;
+
+    /**
+     * MAREEP = 179
+     */
+    const MAREEP_VALUE = 179;
+
+    /**
+     * FLAAFFY = 180
+     */
+    const FLAAFFY_VALUE = 180;
+
+    /**
+     * AMPHAROS = 181
+     */
+    const AMPHAROS_VALUE = 181;
+
+    /**
+     * BELLOSSOM = 182
+     */
+    const BELLOSSOM_VALUE = 182;
+
+    /**
+     * MARILL = 183
+     */
+    const MARILL_VALUE = 183;
+
+    /**
+     * AZUMARILL = 184
+     */
+    const AZUMARILL_VALUE = 184;
+
+    /**
+     * SUDOWOODO = 185
+     */
+    const SUDOWOODO_VALUE = 185;
+
+    /**
+     * POLITOED = 186
+     */
+    const POLITOED_VALUE = 186;
+
+    /**
+     * HOPPIP = 187
+     */
+    const HOPPIP_VALUE = 187;
+
+    /**
+     * SKIPLOOM = 188
+     */
+    const SKIPLOOM_VALUE = 188;
+
+    /**
+     * JUMPLUFF = 189
+     */
+    const JUMPLUFF_VALUE = 189;
+
+    /**
+     * AIPOM = 190
+     */
+    const AIPOM_VALUE = 190;
+
+    /**
+     * SUNKERN = 191
+     */
+    const SUNKERN_VALUE = 191;
+
+    /**
+     * SUNFLORA = 192
+     */
+    const SUNFLORA_VALUE = 192;
+
+    /**
+     * YANMA = 193
+     */
+    const YANMA_VALUE = 193;
+
+    /**
+     * WOOPER = 194
+     */
+    const WOOPER_VALUE = 194;
+
+    /**
+     * QUAGSIRE = 195
+     */
+    const QUAGSIRE_VALUE = 195;
+
+    /**
+     * ESPEON = 196
+     */
+    const ESPEON_VALUE = 196;
+
+    /**
+     * UMBREON = 197
+     */
+    const UMBREON_VALUE = 197;
+
+    /**
+     * MURKROW = 198
+     */
+    const MURKROW_VALUE = 198;
+
+    /**
+     * SLOWKING = 199
+     */
+    const SLOWKING_VALUE = 199;
+
+    /**
+     * MISDREAVUS = 200
+     */
+    const MISDREAVUS_VALUE = 200;
+
+    /**
+     * UNOWN = 201
+     */
+    const UNOWN_VALUE = 201;
+
+    /**
+     * WOBBUFFET = 202
+     */
+    const WOBBUFFET_VALUE = 202;
+
+    /**
+     * GIRAFARIG = 203
+     */
+    const GIRAFARIG_VALUE = 203;
+
+    /**
+     * PINECO = 204
+     */
+    const PINECO_VALUE = 204;
+
+    /**
+     * FORRETRESS = 205
+     */
+    const FORRETRESS_VALUE = 205;
+
+    /**
+     * DUNSPARCE = 206
+     */
+    const DUNSPARCE_VALUE = 206;
+
+    /**
+     * GLIGAR = 207
+     */
+    const GLIGAR_VALUE = 207;
+
+    /**
+     * STEELIX = 208
+     */
+    const STEELIX_VALUE = 208;
+
+    /**
+     * SNUBBULL = 209
+     */
+    const SNUBBULL_VALUE = 209;
+
+    /**
+     * GRANBULL = 210
+     */
+    const GRANBULL_VALUE = 210;
+
+    /**
+     * QWILFISH = 211
+     */
+    const QWILFISH_VALUE = 211;
+
+    /**
+     * SCIZOR = 212
+     */
+    const SCIZOR_VALUE = 212;
+
+    /**
+     * SHUCKLE = 213
+     */
+    const SHUCKLE_VALUE = 213;
+
+    /**
+     * HERACROSS = 214
+     */
+    const HERACROSS_VALUE = 214;
+
+    /**
+     * SNEASEL = 215
+     */
+    const SNEASEL_VALUE = 215;
+
+    /**
+     * TEDDIURSA = 216
+     */
+    const TEDDIURSA_VALUE = 216;
+
+    /**
+     * URSARING = 217
+     */
+    const URSARING_VALUE = 217;
+
+    /**
+     * SLUGMA = 218
+     */
+    const SLUGMA_VALUE = 218;
+
+    /**
+     * MAGCARGO = 219
+     */
+    const MAGCARGO_VALUE = 219;
+
+    /**
+     * SWINUB = 220
+     */
+    const SWINUB_VALUE = 220;
+
+    /**
+     * PILOSWINE = 221
+     */
+    const PILOSWINE_VALUE = 221;
+
+    /**
+     * CORSOLA = 222
+     */
+    const CORSOLA_VALUE = 222;
+
+    /**
+     * REMORAID = 223
+     */
+    const REMORAID_VALUE = 223;
+
+    /**
+     * OCTILLERY = 224
+     */
+    const OCTILLERY_VALUE = 224;
+
+    /**
+     * DELIBIRD = 225
+     */
+    const DELIBIRD_VALUE = 225;
+
+    /**
+     * MANTINE = 226
+     */
+    const MANTINE_VALUE = 226;
+
+    /**
+     * SKARMORY = 227
+     */
+    const SKARMORY_VALUE = 227;
+
+    /**
+     * HOUNDOUR = 228
+     */
+    const HOUNDOUR_VALUE = 228;
+
+    /**
+     * HOUNDOOM = 229
+     */
+    const HOUNDOOM_VALUE = 229;
+
+    /**
+     * KINGDRA = 230
+     */
+    const KINGDRA_VALUE = 230;
+
+    /**
+     * PHANPY = 231
+     */
+    const PHANPY_VALUE = 231;
+
+    /**
+     * DONPHAN = 232
+     */
+    const DONPHAN_VALUE = 232;
+
+    /**
+     * PORYGON2 = 233
+     */
+    const PORYGON2_VALUE = 233;
+
+    /**
+     * STANTLER = 234
+     */
+    const STANTLER_VALUE = 234;
+
+    /**
+     * SMEARGLE = 235
+     */
+    const SMEARGLE_VALUE = 235;
+
+    /**
+     * TYROGUE = 236
+     */
+    const TYROGUE_VALUE = 236;
+
+    /**
+     * HITMONTOP = 237
+     */
+    const HITMONTOP_VALUE = 237;
+
+    /**
+     * SMOOCHUM = 238
+     */
+    const SMOOCHUM_VALUE = 238;
+
+    /**
+     * ELEKID = 239
+     */
+    const ELEKID_VALUE = 239;
+
+    /**
+     * MAGBY = 240
+     */
+    const MAGBY_VALUE = 240;
+
+    /**
+     * MILTANK = 241
+     */
+    const MILTANK_VALUE = 241;
+
+    /**
+     * BLISSEY = 242
+     */
+    const BLISSEY_VALUE = 242;
+
+    /**
+     * RAIKOU = 243
+     */
+    const RAIKOU_VALUE = 243;
+
+    /**
+     * ENTEI = 244
+     */
+    const ENTEI_VALUE = 244;
+
+    /**
+     * SUICUNE = 245
+     */
+    const SUICUNE_VALUE = 245;
+
+    /**
+     * LARVITAR = 246
+     */
+    const LARVITAR_VALUE = 246;
+
+    /**
+     * PUPITAR = 247
+     */
+    const PUPITAR_VALUE = 247;
+
+    /**
+     * TYRANITAR = 248
+     */
+    const TYRANITAR_VALUE = 248;
+
+    /**
+     * LUGIA = 249
+     */
+    const LUGIA_VALUE = 249;
+
+    /**
+     * HO_OH = 250
+     */
+    const HO_OH_VALUE = 250;
+
+    /**
+     * CELEBI = 251
+     */
+    const CELEBI_VALUE = 251;
+
+    /**
      * @var \POGOProtos\Enums\PokemonId
      */
     protected static $MISSINGNO = null;
@@ -1533,6 +2033,506 @@ class PokemonId extends \Protobuf\Enum
      * @var \POGOProtos\Enums\PokemonId
      */
     protected static $MEW = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $CHIKORITA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $BAYLEEF = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $MEGANIUM = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $CYNDAQUIL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $QUILAVA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $TYPHLOSION = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $TOTODILE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $CROCONAW = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $FERALIGATR = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SENTRET = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $FURRET = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $HOOTHOOT = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $NOCTOWL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $LEDYBA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $LEDIAN = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SPINARAK = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $ARIADOS = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $CROBAT = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $CHINCHOU = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $LANTURN = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $PICHU = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $CLEFFA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $IGGLYBUFF = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $TOGEPI = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $TOGETIC = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $NATU = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $XATU = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $MAREEP = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $FLAAFFY = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $AMPHAROS = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $BELLOSSOM = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $MARILL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $AZUMARILL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SUDOWOODO = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $POLITOED = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $HOPPIP = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SKIPLOOM = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $JUMPLUFF = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $AIPOM = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SUNKERN = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SUNFLORA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $YANMA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $WOOPER = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $QUAGSIRE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $ESPEON = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $UMBREON = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $MURKROW = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SLOWKING = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $MISDREAVUS = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $UNOWN = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $WOBBUFFET = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $GIRAFARIG = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $PINECO = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $FORRETRESS = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $DUNSPARCE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $GLIGAR = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $STEELIX = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SNUBBULL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $GRANBULL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $QWILFISH = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SCIZOR = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SHUCKLE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $HERACROSS = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SNEASEL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $TEDDIURSA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $URSARING = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SLUGMA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $MAGCARGO = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SWINUB = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $PILOSWINE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $CORSOLA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $REMORAID = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $OCTILLERY = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $DELIBIRD = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $MANTINE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SKARMORY = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $HOUNDOUR = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $HOUNDOOM = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $KINGDRA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $PHANPY = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $DONPHAN = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $PORYGON2 = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $STANTLER = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SMEARGLE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $TYROGUE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $HITMONTOP = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SMOOCHUM = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $ELEKID = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $MAGBY = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $MILTANK = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $BLISSEY = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $RAIKOU = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $ENTEI = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $SUICUNE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $LARVITAR = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $PUPITAR = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $TYRANITAR = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $LUGIA = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $HO_OH = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonId
+     */
+    protected static $CELEBI = null;
 
     /**
      * @return \POGOProtos\Enums\PokemonId
@@ -3359,6 +4359,1206 @@ class PokemonId extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function CHIKORITA()
+    {
+        if (self::$CHIKORITA !== null) {
+            return self::$CHIKORITA;
+        }
+
+        return self::$CHIKORITA = new self('CHIKORITA', self::CHIKORITA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function BAYLEEF()
+    {
+        if (self::$BAYLEEF !== null) {
+            return self::$BAYLEEF;
+        }
+
+        return self::$BAYLEEF = new self('BAYLEEF', self::BAYLEEF_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function MEGANIUM()
+    {
+        if (self::$MEGANIUM !== null) {
+            return self::$MEGANIUM;
+        }
+
+        return self::$MEGANIUM = new self('MEGANIUM', self::MEGANIUM_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function CYNDAQUIL()
+    {
+        if (self::$CYNDAQUIL !== null) {
+            return self::$CYNDAQUIL;
+        }
+
+        return self::$CYNDAQUIL = new self('CYNDAQUIL', self::CYNDAQUIL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function QUILAVA()
+    {
+        if (self::$QUILAVA !== null) {
+            return self::$QUILAVA;
+        }
+
+        return self::$QUILAVA = new self('QUILAVA', self::QUILAVA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function TYPHLOSION()
+    {
+        if (self::$TYPHLOSION !== null) {
+            return self::$TYPHLOSION;
+        }
+
+        return self::$TYPHLOSION = new self('TYPHLOSION', self::TYPHLOSION_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function TOTODILE()
+    {
+        if (self::$TOTODILE !== null) {
+            return self::$TOTODILE;
+        }
+
+        return self::$TOTODILE = new self('TOTODILE', self::TOTODILE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function CROCONAW()
+    {
+        if (self::$CROCONAW !== null) {
+            return self::$CROCONAW;
+        }
+
+        return self::$CROCONAW = new self('CROCONAW', self::CROCONAW_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function FERALIGATR()
+    {
+        if (self::$FERALIGATR !== null) {
+            return self::$FERALIGATR;
+        }
+
+        return self::$FERALIGATR = new self('FERALIGATR', self::FERALIGATR_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SENTRET()
+    {
+        if (self::$SENTRET !== null) {
+            return self::$SENTRET;
+        }
+
+        return self::$SENTRET = new self('SENTRET', self::SENTRET_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function FURRET()
+    {
+        if (self::$FURRET !== null) {
+            return self::$FURRET;
+        }
+
+        return self::$FURRET = new self('FURRET', self::FURRET_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function HOOTHOOT()
+    {
+        if (self::$HOOTHOOT !== null) {
+            return self::$HOOTHOOT;
+        }
+
+        return self::$HOOTHOOT = new self('HOOTHOOT', self::HOOTHOOT_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function NOCTOWL()
+    {
+        if (self::$NOCTOWL !== null) {
+            return self::$NOCTOWL;
+        }
+
+        return self::$NOCTOWL = new self('NOCTOWL', self::NOCTOWL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function LEDYBA()
+    {
+        if (self::$LEDYBA !== null) {
+            return self::$LEDYBA;
+        }
+
+        return self::$LEDYBA = new self('LEDYBA', self::LEDYBA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function LEDIAN()
+    {
+        if (self::$LEDIAN !== null) {
+            return self::$LEDIAN;
+        }
+
+        return self::$LEDIAN = new self('LEDIAN', self::LEDIAN_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SPINARAK()
+    {
+        if (self::$SPINARAK !== null) {
+            return self::$SPINARAK;
+        }
+
+        return self::$SPINARAK = new self('SPINARAK', self::SPINARAK_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function ARIADOS()
+    {
+        if (self::$ARIADOS !== null) {
+            return self::$ARIADOS;
+        }
+
+        return self::$ARIADOS = new self('ARIADOS', self::ARIADOS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function CROBAT()
+    {
+        if (self::$CROBAT !== null) {
+            return self::$CROBAT;
+        }
+
+        return self::$CROBAT = new self('CROBAT', self::CROBAT_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function CHINCHOU()
+    {
+        if (self::$CHINCHOU !== null) {
+            return self::$CHINCHOU;
+        }
+
+        return self::$CHINCHOU = new self('CHINCHOU', self::CHINCHOU_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function LANTURN()
+    {
+        if (self::$LANTURN !== null) {
+            return self::$LANTURN;
+        }
+
+        return self::$LANTURN = new self('LANTURN', self::LANTURN_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function PICHU()
+    {
+        if (self::$PICHU !== null) {
+            return self::$PICHU;
+        }
+
+        return self::$PICHU = new self('PICHU', self::PICHU_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function CLEFFA()
+    {
+        if (self::$CLEFFA !== null) {
+            return self::$CLEFFA;
+        }
+
+        return self::$CLEFFA = new self('CLEFFA', self::CLEFFA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function IGGLYBUFF()
+    {
+        if (self::$IGGLYBUFF !== null) {
+            return self::$IGGLYBUFF;
+        }
+
+        return self::$IGGLYBUFF = new self('IGGLYBUFF', self::IGGLYBUFF_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function TOGEPI()
+    {
+        if (self::$TOGEPI !== null) {
+            return self::$TOGEPI;
+        }
+
+        return self::$TOGEPI = new self('TOGEPI', self::TOGEPI_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function TOGETIC()
+    {
+        if (self::$TOGETIC !== null) {
+            return self::$TOGETIC;
+        }
+
+        return self::$TOGETIC = new self('TOGETIC', self::TOGETIC_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function NATU()
+    {
+        if (self::$NATU !== null) {
+            return self::$NATU;
+        }
+
+        return self::$NATU = new self('NATU', self::NATU_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function XATU()
+    {
+        if (self::$XATU !== null) {
+            return self::$XATU;
+        }
+
+        return self::$XATU = new self('XATU', self::XATU_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function MAREEP()
+    {
+        if (self::$MAREEP !== null) {
+            return self::$MAREEP;
+        }
+
+        return self::$MAREEP = new self('MAREEP', self::MAREEP_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function FLAAFFY()
+    {
+        if (self::$FLAAFFY !== null) {
+            return self::$FLAAFFY;
+        }
+
+        return self::$FLAAFFY = new self('FLAAFFY', self::FLAAFFY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function AMPHAROS()
+    {
+        if (self::$AMPHAROS !== null) {
+            return self::$AMPHAROS;
+        }
+
+        return self::$AMPHAROS = new self('AMPHAROS', self::AMPHAROS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function BELLOSSOM()
+    {
+        if (self::$BELLOSSOM !== null) {
+            return self::$BELLOSSOM;
+        }
+
+        return self::$BELLOSSOM = new self('BELLOSSOM', self::BELLOSSOM_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function MARILL()
+    {
+        if (self::$MARILL !== null) {
+            return self::$MARILL;
+        }
+
+        return self::$MARILL = new self('MARILL', self::MARILL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function AZUMARILL()
+    {
+        if (self::$AZUMARILL !== null) {
+            return self::$AZUMARILL;
+        }
+
+        return self::$AZUMARILL = new self('AZUMARILL', self::AZUMARILL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SUDOWOODO()
+    {
+        if (self::$SUDOWOODO !== null) {
+            return self::$SUDOWOODO;
+        }
+
+        return self::$SUDOWOODO = new self('SUDOWOODO', self::SUDOWOODO_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function POLITOED()
+    {
+        if (self::$POLITOED !== null) {
+            return self::$POLITOED;
+        }
+
+        return self::$POLITOED = new self('POLITOED', self::POLITOED_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function HOPPIP()
+    {
+        if (self::$HOPPIP !== null) {
+            return self::$HOPPIP;
+        }
+
+        return self::$HOPPIP = new self('HOPPIP', self::HOPPIP_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SKIPLOOM()
+    {
+        if (self::$SKIPLOOM !== null) {
+            return self::$SKIPLOOM;
+        }
+
+        return self::$SKIPLOOM = new self('SKIPLOOM', self::SKIPLOOM_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function JUMPLUFF()
+    {
+        if (self::$JUMPLUFF !== null) {
+            return self::$JUMPLUFF;
+        }
+
+        return self::$JUMPLUFF = new self('JUMPLUFF', self::JUMPLUFF_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function AIPOM()
+    {
+        if (self::$AIPOM !== null) {
+            return self::$AIPOM;
+        }
+
+        return self::$AIPOM = new self('AIPOM', self::AIPOM_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SUNKERN()
+    {
+        if (self::$SUNKERN !== null) {
+            return self::$SUNKERN;
+        }
+
+        return self::$SUNKERN = new self('SUNKERN', self::SUNKERN_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SUNFLORA()
+    {
+        if (self::$SUNFLORA !== null) {
+            return self::$SUNFLORA;
+        }
+
+        return self::$SUNFLORA = new self('SUNFLORA', self::SUNFLORA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function YANMA()
+    {
+        if (self::$YANMA !== null) {
+            return self::$YANMA;
+        }
+
+        return self::$YANMA = new self('YANMA', self::YANMA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function WOOPER()
+    {
+        if (self::$WOOPER !== null) {
+            return self::$WOOPER;
+        }
+
+        return self::$WOOPER = new self('WOOPER', self::WOOPER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function QUAGSIRE()
+    {
+        if (self::$QUAGSIRE !== null) {
+            return self::$QUAGSIRE;
+        }
+
+        return self::$QUAGSIRE = new self('QUAGSIRE', self::QUAGSIRE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function ESPEON()
+    {
+        if (self::$ESPEON !== null) {
+            return self::$ESPEON;
+        }
+
+        return self::$ESPEON = new self('ESPEON', self::ESPEON_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function UMBREON()
+    {
+        if (self::$UMBREON !== null) {
+            return self::$UMBREON;
+        }
+
+        return self::$UMBREON = new self('UMBREON', self::UMBREON_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function MURKROW()
+    {
+        if (self::$MURKROW !== null) {
+            return self::$MURKROW;
+        }
+
+        return self::$MURKROW = new self('MURKROW', self::MURKROW_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SLOWKING()
+    {
+        if (self::$SLOWKING !== null) {
+            return self::$SLOWKING;
+        }
+
+        return self::$SLOWKING = new self('SLOWKING', self::SLOWKING_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function MISDREAVUS()
+    {
+        if (self::$MISDREAVUS !== null) {
+            return self::$MISDREAVUS;
+        }
+
+        return self::$MISDREAVUS = new self('MISDREAVUS', self::MISDREAVUS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function UNOWN()
+    {
+        if (self::$UNOWN !== null) {
+            return self::$UNOWN;
+        }
+
+        return self::$UNOWN = new self('UNOWN', self::UNOWN_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function WOBBUFFET()
+    {
+        if (self::$WOBBUFFET !== null) {
+            return self::$WOBBUFFET;
+        }
+
+        return self::$WOBBUFFET = new self('WOBBUFFET', self::WOBBUFFET_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function GIRAFARIG()
+    {
+        if (self::$GIRAFARIG !== null) {
+            return self::$GIRAFARIG;
+        }
+
+        return self::$GIRAFARIG = new self('GIRAFARIG', self::GIRAFARIG_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function PINECO()
+    {
+        if (self::$PINECO !== null) {
+            return self::$PINECO;
+        }
+
+        return self::$PINECO = new self('PINECO', self::PINECO_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function FORRETRESS()
+    {
+        if (self::$FORRETRESS !== null) {
+            return self::$FORRETRESS;
+        }
+
+        return self::$FORRETRESS = new self('FORRETRESS', self::FORRETRESS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function DUNSPARCE()
+    {
+        if (self::$DUNSPARCE !== null) {
+            return self::$DUNSPARCE;
+        }
+
+        return self::$DUNSPARCE = new self('DUNSPARCE', self::DUNSPARCE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function GLIGAR()
+    {
+        if (self::$GLIGAR !== null) {
+            return self::$GLIGAR;
+        }
+
+        return self::$GLIGAR = new self('GLIGAR', self::GLIGAR_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function STEELIX()
+    {
+        if (self::$STEELIX !== null) {
+            return self::$STEELIX;
+        }
+
+        return self::$STEELIX = new self('STEELIX', self::STEELIX_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SNUBBULL()
+    {
+        if (self::$SNUBBULL !== null) {
+            return self::$SNUBBULL;
+        }
+
+        return self::$SNUBBULL = new self('SNUBBULL', self::SNUBBULL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function GRANBULL()
+    {
+        if (self::$GRANBULL !== null) {
+            return self::$GRANBULL;
+        }
+
+        return self::$GRANBULL = new self('GRANBULL', self::GRANBULL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function QWILFISH()
+    {
+        if (self::$QWILFISH !== null) {
+            return self::$QWILFISH;
+        }
+
+        return self::$QWILFISH = new self('QWILFISH', self::QWILFISH_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SCIZOR()
+    {
+        if (self::$SCIZOR !== null) {
+            return self::$SCIZOR;
+        }
+
+        return self::$SCIZOR = new self('SCIZOR', self::SCIZOR_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SHUCKLE()
+    {
+        if (self::$SHUCKLE !== null) {
+            return self::$SHUCKLE;
+        }
+
+        return self::$SHUCKLE = new self('SHUCKLE', self::SHUCKLE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function HERACROSS()
+    {
+        if (self::$HERACROSS !== null) {
+            return self::$HERACROSS;
+        }
+
+        return self::$HERACROSS = new self('HERACROSS', self::HERACROSS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SNEASEL()
+    {
+        if (self::$SNEASEL !== null) {
+            return self::$SNEASEL;
+        }
+
+        return self::$SNEASEL = new self('SNEASEL', self::SNEASEL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function TEDDIURSA()
+    {
+        if (self::$TEDDIURSA !== null) {
+            return self::$TEDDIURSA;
+        }
+
+        return self::$TEDDIURSA = new self('TEDDIURSA', self::TEDDIURSA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function URSARING()
+    {
+        if (self::$URSARING !== null) {
+            return self::$URSARING;
+        }
+
+        return self::$URSARING = new self('URSARING', self::URSARING_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SLUGMA()
+    {
+        if (self::$SLUGMA !== null) {
+            return self::$SLUGMA;
+        }
+
+        return self::$SLUGMA = new self('SLUGMA', self::SLUGMA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function MAGCARGO()
+    {
+        if (self::$MAGCARGO !== null) {
+            return self::$MAGCARGO;
+        }
+
+        return self::$MAGCARGO = new self('MAGCARGO', self::MAGCARGO_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SWINUB()
+    {
+        if (self::$SWINUB !== null) {
+            return self::$SWINUB;
+        }
+
+        return self::$SWINUB = new self('SWINUB', self::SWINUB_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function PILOSWINE()
+    {
+        if (self::$PILOSWINE !== null) {
+            return self::$PILOSWINE;
+        }
+
+        return self::$PILOSWINE = new self('PILOSWINE', self::PILOSWINE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function CORSOLA()
+    {
+        if (self::$CORSOLA !== null) {
+            return self::$CORSOLA;
+        }
+
+        return self::$CORSOLA = new self('CORSOLA', self::CORSOLA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function REMORAID()
+    {
+        if (self::$REMORAID !== null) {
+            return self::$REMORAID;
+        }
+
+        return self::$REMORAID = new self('REMORAID', self::REMORAID_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function OCTILLERY()
+    {
+        if (self::$OCTILLERY !== null) {
+            return self::$OCTILLERY;
+        }
+
+        return self::$OCTILLERY = new self('OCTILLERY', self::OCTILLERY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function DELIBIRD()
+    {
+        if (self::$DELIBIRD !== null) {
+            return self::$DELIBIRD;
+        }
+
+        return self::$DELIBIRD = new self('DELIBIRD', self::DELIBIRD_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function MANTINE()
+    {
+        if (self::$MANTINE !== null) {
+            return self::$MANTINE;
+        }
+
+        return self::$MANTINE = new self('MANTINE', self::MANTINE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SKARMORY()
+    {
+        if (self::$SKARMORY !== null) {
+            return self::$SKARMORY;
+        }
+
+        return self::$SKARMORY = new self('SKARMORY', self::SKARMORY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function HOUNDOUR()
+    {
+        if (self::$HOUNDOUR !== null) {
+            return self::$HOUNDOUR;
+        }
+
+        return self::$HOUNDOUR = new self('HOUNDOUR', self::HOUNDOUR_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function HOUNDOOM()
+    {
+        if (self::$HOUNDOOM !== null) {
+            return self::$HOUNDOOM;
+        }
+
+        return self::$HOUNDOOM = new self('HOUNDOOM', self::HOUNDOOM_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function KINGDRA()
+    {
+        if (self::$KINGDRA !== null) {
+            return self::$KINGDRA;
+        }
+
+        return self::$KINGDRA = new self('KINGDRA', self::KINGDRA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function PHANPY()
+    {
+        if (self::$PHANPY !== null) {
+            return self::$PHANPY;
+        }
+
+        return self::$PHANPY = new self('PHANPY', self::PHANPY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function DONPHAN()
+    {
+        if (self::$DONPHAN !== null) {
+            return self::$DONPHAN;
+        }
+
+        return self::$DONPHAN = new self('DONPHAN', self::DONPHAN_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function PORYGON2()
+    {
+        if (self::$PORYGON2 !== null) {
+            return self::$PORYGON2;
+        }
+
+        return self::$PORYGON2 = new self('PORYGON2', self::PORYGON2_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function STANTLER()
+    {
+        if (self::$STANTLER !== null) {
+            return self::$STANTLER;
+        }
+
+        return self::$STANTLER = new self('STANTLER', self::STANTLER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SMEARGLE()
+    {
+        if (self::$SMEARGLE !== null) {
+            return self::$SMEARGLE;
+        }
+
+        return self::$SMEARGLE = new self('SMEARGLE', self::SMEARGLE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function TYROGUE()
+    {
+        if (self::$TYROGUE !== null) {
+            return self::$TYROGUE;
+        }
+
+        return self::$TYROGUE = new self('TYROGUE', self::TYROGUE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function HITMONTOP()
+    {
+        if (self::$HITMONTOP !== null) {
+            return self::$HITMONTOP;
+        }
+
+        return self::$HITMONTOP = new self('HITMONTOP', self::HITMONTOP_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SMOOCHUM()
+    {
+        if (self::$SMOOCHUM !== null) {
+            return self::$SMOOCHUM;
+        }
+
+        return self::$SMOOCHUM = new self('SMOOCHUM', self::SMOOCHUM_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function ELEKID()
+    {
+        if (self::$ELEKID !== null) {
+            return self::$ELEKID;
+        }
+
+        return self::$ELEKID = new self('ELEKID', self::ELEKID_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function MAGBY()
+    {
+        if (self::$MAGBY !== null) {
+            return self::$MAGBY;
+        }
+
+        return self::$MAGBY = new self('MAGBY', self::MAGBY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function MILTANK()
+    {
+        if (self::$MILTANK !== null) {
+            return self::$MILTANK;
+        }
+
+        return self::$MILTANK = new self('MILTANK', self::MILTANK_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function BLISSEY()
+    {
+        if (self::$BLISSEY !== null) {
+            return self::$BLISSEY;
+        }
+
+        return self::$BLISSEY = new self('BLISSEY', self::BLISSEY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function RAIKOU()
+    {
+        if (self::$RAIKOU !== null) {
+            return self::$RAIKOU;
+        }
+
+        return self::$RAIKOU = new self('RAIKOU', self::RAIKOU_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function ENTEI()
+    {
+        if (self::$ENTEI !== null) {
+            return self::$ENTEI;
+        }
+
+        return self::$ENTEI = new self('ENTEI', self::ENTEI_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function SUICUNE()
+    {
+        if (self::$SUICUNE !== null) {
+            return self::$SUICUNE;
+        }
+
+        return self::$SUICUNE = new self('SUICUNE', self::SUICUNE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function LARVITAR()
+    {
+        if (self::$LARVITAR !== null) {
+            return self::$LARVITAR;
+        }
+
+        return self::$LARVITAR = new self('LARVITAR', self::LARVITAR_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function PUPITAR()
+    {
+        if (self::$PUPITAR !== null) {
+            return self::$PUPITAR;
+        }
+
+        return self::$PUPITAR = new self('PUPITAR', self::PUPITAR_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function TYRANITAR()
+    {
+        if (self::$TYRANITAR !== null) {
+            return self::$TYRANITAR;
+        }
+
+        return self::$TYRANITAR = new self('TYRANITAR', self::TYRANITAR_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function LUGIA()
+    {
+        if (self::$LUGIA !== null) {
+            return self::$LUGIA;
+        }
+
+        return self::$LUGIA = new self('LUGIA', self::LUGIA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function HO_OH()
+    {
+        if (self::$HO_OH !== null) {
+            return self::$HO_OH;
+        }
+
+        return self::$HO_OH = new self('HO_OH', self::HO_OH_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonId
+     */
+    public static function CELEBI()
+    {
+        if (self::$CELEBI !== null) {
+            return self::$CELEBI;
+        }
+
+        return self::$CELEBI = new self('CELEBI', self::CELEBI_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\PokemonId
      */
@@ -3517,6 +5717,106 @@ class PokemonId extends \Protobuf\Enum
             case 149: return self::DRAGONITE();
             case 150: return self::MEWTWO();
             case 151: return self::MEW();
+            case 152: return self::CHIKORITA();
+            case 153: return self::BAYLEEF();
+            case 154: return self::MEGANIUM();
+            case 155: return self::CYNDAQUIL();
+            case 156: return self::QUILAVA();
+            case 157: return self::TYPHLOSION();
+            case 158: return self::TOTODILE();
+            case 159: return self::CROCONAW();
+            case 160: return self::FERALIGATR();
+            case 161: return self::SENTRET();
+            case 162: return self::FURRET();
+            case 163: return self::HOOTHOOT();
+            case 164: return self::NOCTOWL();
+            case 165: return self::LEDYBA();
+            case 166: return self::LEDIAN();
+            case 167: return self::SPINARAK();
+            case 168: return self::ARIADOS();
+            case 169: return self::CROBAT();
+            case 170: return self::CHINCHOU();
+            case 171: return self::LANTURN();
+            case 172: return self::PICHU();
+            case 173: return self::CLEFFA();
+            case 174: return self::IGGLYBUFF();
+            case 175: return self::TOGEPI();
+            case 176: return self::TOGETIC();
+            case 177: return self::NATU();
+            case 178: return self::XATU();
+            case 179: return self::MAREEP();
+            case 180: return self::FLAAFFY();
+            case 181: return self::AMPHAROS();
+            case 182: return self::BELLOSSOM();
+            case 183: return self::MARILL();
+            case 184: return self::AZUMARILL();
+            case 185: return self::SUDOWOODO();
+            case 186: return self::POLITOED();
+            case 187: return self::HOPPIP();
+            case 188: return self::SKIPLOOM();
+            case 189: return self::JUMPLUFF();
+            case 190: return self::AIPOM();
+            case 191: return self::SUNKERN();
+            case 192: return self::SUNFLORA();
+            case 193: return self::YANMA();
+            case 194: return self::WOOPER();
+            case 195: return self::QUAGSIRE();
+            case 196: return self::ESPEON();
+            case 197: return self::UMBREON();
+            case 198: return self::MURKROW();
+            case 199: return self::SLOWKING();
+            case 200: return self::MISDREAVUS();
+            case 201: return self::UNOWN();
+            case 202: return self::WOBBUFFET();
+            case 203: return self::GIRAFARIG();
+            case 204: return self::PINECO();
+            case 205: return self::FORRETRESS();
+            case 206: return self::DUNSPARCE();
+            case 207: return self::GLIGAR();
+            case 208: return self::STEELIX();
+            case 209: return self::SNUBBULL();
+            case 210: return self::GRANBULL();
+            case 211: return self::QWILFISH();
+            case 212: return self::SCIZOR();
+            case 213: return self::SHUCKLE();
+            case 214: return self::HERACROSS();
+            case 215: return self::SNEASEL();
+            case 216: return self::TEDDIURSA();
+            case 217: return self::URSARING();
+            case 218: return self::SLUGMA();
+            case 219: return self::MAGCARGO();
+            case 220: return self::SWINUB();
+            case 221: return self::PILOSWINE();
+            case 222: return self::CORSOLA();
+            case 223: return self::REMORAID();
+            case 224: return self::OCTILLERY();
+            case 225: return self::DELIBIRD();
+            case 226: return self::MANTINE();
+            case 227: return self::SKARMORY();
+            case 228: return self::HOUNDOUR();
+            case 229: return self::HOUNDOOM();
+            case 230: return self::KINGDRA();
+            case 231: return self::PHANPY();
+            case 232: return self::DONPHAN();
+            case 233: return self::PORYGON2();
+            case 234: return self::STANTLER();
+            case 235: return self::SMEARGLE();
+            case 236: return self::TYROGUE();
+            case 237: return self::HITMONTOP();
+            case 238: return self::SMOOCHUM();
+            case 239: return self::ELEKID();
+            case 240: return self::MAGBY();
+            case 241: return self::MILTANK();
+            case 242: return self::BLISSEY();
+            case 243: return self::RAIKOU();
+            case 244: return self::ENTEI();
+            case 245: return self::SUICUNE();
+            case 246: return self::LARVITAR();
+            case 247: return self::PUPITAR();
+            case 248: return self::TYRANITAR();
+            case 249: return self::LUGIA();
+            case 250: return self::HO_OH();
+            case 251: return self::CELEBI();
             default: return null;
         }
     }

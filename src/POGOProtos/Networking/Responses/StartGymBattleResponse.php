@@ -67,6 +67,13 @@ class StartGymBattleResponse extends \Protobuf\AbstractMessage
     protected $battle_log = null;
 
     /**
+     * attacker optional message = 7
+     *
+     * @var \POGOProtos\Data\Battle\BattleParticipant
+     */
+    protected $attacker = null;
+
+    /**
      * Check if 'result' has a value
      *
      * @return bool
@@ -247,6 +254,36 @@ class StartGymBattleResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'attacker' has a value
+     *
+     * @return bool
+     */
+    public function hasAttacker()
+    {
+        return $this->attacker !== null;
+    }
+
+    /**
+     * Get 'attacker' value
+     *
+     * @return \POGOProtos\Data\Battle\BattleParticipant
+     */
+    public function getAttacker()
+    {
+        return $this->attacker;
+    }
+
+    /**
+     * Set 'attacker' value
+     *
+     * @param \POGOProtos\Data\Battle\BattleParticipant $value
+     */
+    public function setAttacker(\POGOProtos\Data\Battle\BattleParticipant $value = null)
+    {
+        $this->attacker = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -286,7 +323,8 @@ class StartGymBattleResponse extends \Protobuf\AbstractMessage
             'battle_end_timestamp_ms' => null,
             'battle_id' => null,
             'defender' => null,
-            'battle_log' => null
+            'battle_log' => null,
+            'attacker' => null
         ], $values);
 
         $message->setResult($values['result']);
@@ -295,6 +333,7 @@ class StartGymBattleResponse extends \Protobuf\AbstractMessage
         $message->setBattleId($values['battle_id']);
         $message->setDefender($values['defender']);
         $message->setBattleLog($values['battle_log']);
+        $message->setAttacker($values['attacker']);
 
         return $message;
     }
@@ -345,6 +384,13 @@ class StartGymBattleResponse extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Battle.BattleLog'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'attacker',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.Battle.BattleParticipant'
                 ]),
             ],
         ]);
@@ -404,6 +450,12 @@ class StartGymBattleResponse extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 50);
             $writer->writeVarint($stream, $this->battle_log->serializedSize($sizeContext));
             $this->battle_log->writeTo($context);
+        }
+
+        if ($this->attacker !== null) {
+            $writer->writeVarint($stream, 58);
+            $writer->writeVarint($stream, $this->attacker->serializedSize($sizeContext));
+            $this->attacker->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -502,6 +554,21 @@ class StartGymBattleResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 7) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Battle\BattleParticipant();
+
+                $this->attacker = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -567,6 +634,14 @@ class StartGymBattleResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->attacker !== null) {
+            $innerSize = $this->attacker->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -585,6 +660,7 @@ class StartGymBattleResponse extends \Protobuf\AbstractMessage
         $this->battle_id = null;
         $this->defender = null;
         $this->battle_log = null;
+        $this->attacker = null;
     }
 
     /**
@@ -602,6 +678,7 @@ class StartGymBattleResponse extends \Protobuf\AbstractMessage
         $this->battle_id = ($message->battle_id !== null) ? $message->battle_id : $this->battle_id;
         $this->defender = ($message->defender !== null) ? $message->defender : $this->defender;
         $this->battle_log = ($message->battle_log !== null) ? $message->battle_log : $this->battle_log;
+        $this->attacker = ($message->attacker !== null) ? $message->attacker : $this->attacker;
     }
 
 
