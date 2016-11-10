@@ -30,6 +30,7 @@ class GetPlayerMessage_PlayerLocale extends \Google\Protobuf\Internal\Message
 {
     private $country = '';
     private $language = '';
+    private $timezone = '';
 
     public function getCountry()
     {
@@ -53,20 +54,32 @@ class GetPlayerMessage_PlayerLocale extends \Google\Protobuf\Internal\Message
         $this->language = $var;
     }
 
+    public function getTimezone()
+    {
+        return $this->timezone;
+    }
+
+    public function setTimezone($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->timezone = $var;
+    }
+
 }
 
 $pool = DescriptorPool::getGeneratedPool();
 
 $pool->internalAddGeneratedFile(hex2bin(
-    "0a98020a3e504f474f50726f746f732f4e6574776f726b696e672f526571" .
+    "0aaa020a3e504f474f50726f746f732f4e6574776f726b696e672f526571" .
     "75657374732f4d657373616765732f476574506c617965724d6573736167" .
     "652e70726f746f1227504f474f50726f746f732e4e6574776f726b696e67" .
-    "2e52657175657374732e4d6573736167657322a4010a10476574506c6179" .
+    "2e52657175657374732e4d6573736167657322b6010a10476574506c6179" .
     "65724d657373616765125d0a0d706c617965725f6c6f63616c6518012001" .
     "280b32462e504f474f50726f746f732e4e6574776f726b696e672e526571" .
     "75657374732e4d657373616765732e476574506c617965724d6573736167" .
-    "652e506c617965724c6f63616c651a310a0c506c617965724c6f63616c65" .
+    "652e506c617965724c6f63616c651a430a0c506c617965724c6f63616c65" .
     "120f0a07636f756e74727918012001280912100a086c616e677561676518" .
-    "0220012809620670726f746f33"
+    "022001280912100a0874696d657a6f6e65180320012809620670726f746f" .
+    "33"
 ));
 

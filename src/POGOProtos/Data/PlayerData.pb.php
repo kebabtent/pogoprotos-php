@@ -32,6 +32,7 @@ class PlayerData extends \Google\Protobuf\Internal\Message
     private $currencies;
     private $remaining_codename_claims = 0;
     private $buddy_pokemon = null;
+    private $battle_lockout_end_ms = 0;
 
     public function getCreationTimestampMs()
     {
@@ -176,12 +177,23 @@ class PlayerData extends \Google\Protobuf\Internal\Message
         $this->buddy_pokemon = $var;
     }
 
+    public function getBattleLockoutEndMs()
+    {
+        return $this->battle_lockout_end_ms;
+    }
+
+    public function setBattleLockoutEndMs($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->battle_lockout_end_ms = $var;
+    }
+
 }
 
 $pool = DescriptorPool::getGeneratedPool();
 
 $pool->internalAddGeneratedFile(hex2bin(
-    "0adb070a20504f474f50726f746f732f446174612f506c61796572446174" .
+    "0afa070a20504f474f50726f746f732f446174612f506c61796572446174" .
     "612e70726f746f120f504f474f50726f746f732e446174611a24504f474f" .
     "50726f746f732f456e756d732f5475746f7269616c53746174652e70726f" .
     "746f1a29504f474f50726f746f732f446174612f506c617965722f506c61" .
@@ -193,7 +205,7 @@ $pool->internalAddGeneratedFile(hex2bin(
     "474f50726f746f732f446174612f506c617965722f43757272656e63792e" .
     "70726f746f1a22504f474f50726f746f732f446174612f4275646479506f" .
     "6b656d6f6e2e70726f746f1a20504f474f50726f746f732f456e756d732f" .
-    "5465616d436f6c6f722e70726f746f22dc040a0a506c6179657244617461" .
+    "5465616d436f6c6f722e70726f746f22fb040a0a506c6179657244617461" .
     "121d0a156372656174696f6e5f74696d657374616d705f6d731801200128" .
     "0312100a08757365726e616d6518022001280912290a047465616d180520" .
     "01280e321b2e504f474f50726f746f732e456e756d732e5465616d436f6c" .
@@ -213,6 +225,8 @@ $pool->internalAddGeneratedFile(hex2bin(
     "6f732e446174612e506c617965722e43757272656e637912210a1972656d" .
     "61696e696e675f636f64656e616d655f636c61696d73180f200128051234" .
     "0a0d62756464795f706f6b656d6f6e18102001280b321d2e504f474f5072" .
-    "6f746f732e446174612e4275646479506f6b656d6f6e620670726f746f33"
+    "6f746f732e446174612e4275646479506f6b656d6f6e121d0a1562617474" .
+    "6c655f6c6f636b6f75745f656e645f6d73181120012803620670726f746f" .
+    "33"
 ));
 

@@ -22,11 +22,11 @@ class FortData extends \Google\Protobuf\Internal\Message
     private $last_modified_timestamp_ms = 0;
     private $latitude = 0.0;
     private $longitude = 0.0;
-    private $enabled = false;
-    private $type = 0;
     private $owned_by_team = 0;
     private $guard_pokemon_id = 0;
     private $guard_pokemon_cp = 0;
+    private $enabled = false;
+    private $type = 0;
     private $gym_points = 0;
     private $is_in_battle = false;
     private $active_fort_modifier;
@@ -34,6 +34,7 @@ class FortData extends \Google\Protobuf\Internal\Message
     private $cooldown_complete_timestamp_ms = 0;
     private $sponsor = 0;
     private $rendering_type = 0;
+    private $deploy_lockout_end_ms = 0;
 
     public function getId()
     {
@@ -79,28 +80,6 @@ class FortData extends \Google\Protobuf\Internal\Message
         $this->longitude = $var;
     }
 
-    public function getEnabled()
-    {
-        return $this->enabled;
-    }
-
-    public function setEnabled($var)
-    {
-        GPBUtil::checkBool($var);
-        $this->enabled = $var;
-    }
-
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    public function setType($var)
-    {
-        GPBUtil::checkEnum($var, \POGOProtos\Map\Fort\FortType::class);
-        $this->type = $var;
-    }
-
     public function getOwnedByTeam()
     {
         return $this->owned_by_team;
@@ -132,6 +111,28 @@ class FortData extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt32($var);
         $this->guard_pokemon_cp = $var;
+    }
+
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->enabled = $var;
+    }
+
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function setType($var)
+    {
+        GPBUtil::checkEnum($var, \POGOProtos\Map\Fort\FortType::class);
+        $this->type = $var;
     }
 
     public function getGymPoints()
@@ -211,12 +212,23 @@ class FortData extends \Google\Protobuf\Internal\Message
         $this->rendering_type = $var;
     }
 
+    public function getDeployLockoutEndMs()
+    {
+        return $this->deploy_lockout_end_ms;
+    }
+
+    public function setDeployLockoutEndMs($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->deploy_lockout_end_ms = $var;
+    }
+
 }
 
 $pool = DescriptorPool::getGeneratedPool();
 
 $pool->internalAddGeneratedFile(hex2bin(
-    "0aae070a22504f474f50726f746f732f4d61702f466f72742f466f727444" .
+    "0acd070a22504f474f50726f746f732f4d61702f466f72742f466f727444" .
     "6174612e70726f746f1213504f474f50726f746f732e4d61702e466f7274" .
     "1a20504f474f50726f746f732f456e756d732f506f6b656d6f6e49642e70" .
     "726f746f1a20504f474f50726f746f732f456e756d732f5465616d436f6c" .
@@ -226,17 +238,17 @@ $pool->internalAddGeneratedFile(hex2bin(
     "50726f746f732f4d61702f466f72742f466f727453706f6e736f722e7072" .
     "6f746f1a2b504f474f50726f746f732f4d61702f466f72742f466f727452" .
     "656e646572696e67547970652e70726f746f1a26504f474f50726f746f73" .
-    "2f4d61702f466f72742f466f72744c757265496e666f2e70726f746f22de" .
+    "2f4d61702f466f72742f466f72744c757265496e666f2e70726f746f22fd" .
     "040a08466f727444617461120a0a02696418012001280912220a1a6c6173" .
     "745f6d6f6469666965645f74696d657374616d705f6d7318022001280312" .
     "100a086c6174697475646518032001280112110a096c6f6e676974756465" .
-    "180420012801120f0a07656e61626c6564180820012808122b0a04747970" .
-    "6518092001280e321d2e504f474f50726f746f732e4d61702e466f72742e" .
-    "466f72745479706512320a0d6f776e65645f62795f7465616d1805200128" .
-    "0e321b2e504f474f50726f746f732e456e756d732e5465616d436f6c6f72" .
-    "12350a1067756172645f706f6b656d6f6e5f696418062001280e321b2e50" .
-    "4f474f50726f746f732e456e756d732e506f6b656d6f6e496412180a1067" .
-    "756172645f706f6b656d6f6e5f637018072001280512120a0a67796d5f70" .
+    "18042001280112320a0d6f776e65645f62795f7465616d18052001280e32" .
+    "1b2e504f474f50726f746f732e456e756d732e5465616d436f6c6f721235" .
+    "0a1067756172645f706f6b656d6f6e5f696418062001280e321b2e504f47" .
+    "4f50726f746f732e456e756d732e506f6b656d6f6e496412180a10677561" .
+    "72645f706f6b656d6f6e5f6370180720012805120f0a07656e61626c6564" .
+    "180820012808122b0a047479706518092001280e321d2e504f474f50726f" .
+    "746f732e4d61702e466f72742e466f72745479706512120a0a67796d5f70" .
     "6f696e7473180a2001280312140a0c69735f696e5f626174746c65180b20" .
     "012808123f0a146163746976655f666f72745f6d6f646966696572180c20" .
     "03280e32212e504f474f50726f746f732e496e76656e746f72792e497465" .
@@ -247,6 +259,7 @@ $pool->internalAddGeneratedFile(hex2bin(
     "202e504f474f50726f746f732e4d61702e466f72742e466f727453706f6e" .
     "736f72123e0a0e72656e646572696e675f7479706518102001280e32262e" .
     "504f474f50726f746f732e4d61702e466f72742e466f727452656e646572" .
-    "696e6754797065620670726f746f33"
+    "696e6754797065121d0a156465706c6f795f6c6f636b6f75745f656e645f" .
+    "6d73181120012803620670726f746f33"
 ));
 
