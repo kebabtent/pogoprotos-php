@@ -27,6 +27,117 @@ class DownloadItemTemplatesMessage extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
+     * paginate optional bool = 1
+     *
+     * @var bool
+     */
+    protected $paginate = null;
+
+    /**
+     * page_offset optional int32 = 2
+     *
+     * @var int
+     */
+    protected $page_offset = null;
+
+    /**
+     * page_timestamp optional uint64 = 3
+     *
+     * @var int
+     */
+    protected $page_timestamp = null;
+
+    /**
+     * Check if 'paginate' has a value
+     *
+     * @return bool
+     */
+    public function hasPaginate()
+    {
+        return $this->paginate !== null;
+    }
+
+    /**
+     * Get 'paginate' value
+     *
+     * @return bool
+     */
+    public function getPaginate()
+    {
+        return $this->paginate;
+    }
+
+    /**
+     * Set 'paginate' value
+     *
+     * @param bool $value
+     */
+    public function setPaginate($value = null)
+    {
+        $this->paginate = $value;
+    }
+
+    /**
+     * Check if 'page_offset' has a value
+     *
+     * @return bool
+     */
+    public function hasPageOffset()
+    {
+        return $this->page_offset !== null;
+    }
+
+    /**
+     * Get 'page_offset' value
+     *
+     * @return int
+     */
+    public function getPageOffset()
+    {
+        return $this->page_offset;
+    }
+
+    /**
+     * Set 'page_offset' value
+     *
+     * @param int $value
+     */
+    public function setPageOffset($value = null)
+    {
+        $this->page_offset = $value;
+    }
+
+    /**
+     * Check if 'page_timestamp' has a value
+     *
+     * @return bool
+     */
+    public function hasPageTimestamp()
+    {
+        return $this->page_timestamp !== null;
+    }
+
+    /**
+     * Get 'page_timestamp' value
+     *
+     * @return int
+     */
+    public function getPageTimestamp()
+    {
+        return $this->page_timestamp;
+    }
+
+    /**
+     * Set 'page_timestamp' value
+     *
+     * @param int $value
+     */
+    public function setPageTimestamp($value = null)
+    {
+        $this->page_timestamp = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -61,7 +172,14 @@ class DownloadItemTemplatesMessage extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
+            'paginate' => null,
+            'page_offset' => null,
+            'page_timestamp' => null
         ], $values);
+
+        $message->setPaginate($values['paginate']);
+        $message->setPageOffset($values['page_offset']);
+        $message->setPageTimestamp($values['page_timestamp']);
 
         return $message;
     }
@@ -73,6 +191,26 @@ class DownloadItemTemplatesMessage extends \Protobuf\AbstractMessage
     {
         return \google\protobuf\DescriptorProto::fromArray([
             'name'      => 'DownloadItemTemplatesMessage',
+            'field'     => [
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 1,
+                    'name' => 'paginate',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 2,
+                    'name' => 'page_offset',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 3,
+                    'name' => 'page_timestamp',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+            ],
         ]);
     }
 
@@ -99,6 +237,21 @@ class DownloadItemTemplatesMessage extends \Protobuf\AbstractMessage
         $stream      = $context->getStream();
         $writer      = $context->getWriter();
         $sizeContext = $context->getComputeSizeContext();
+
+        if ($this->paginate !== null) {
+            $writer->writeVarint($stream, 8);
+            $writer->writeBool($stream, $this->paginate);
+        }
+
+        if ($this->page_offset !== null) {
+            $writer->writeVarint($stream, 16);
+            $writer->writeVarint($stream, $this->page_offset);
+        }
+
+        if ($this->page_timestamp !== null) {
+            $writer->writeVarint($stream, 24);
+            $writer->writeVarint($stream, $this->page_timestamp);
+        }
 
         if ($this->extensions !== null) {
             $this->extensions->writeTo($context);
@@ -134,6 +287,30 @@ class DownloadItemTemplatesMessage extends \Protobuf\AbstractMessage
                 break;
             }
 
+            if ($tag === 1) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->paginate = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 2) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->page_offset = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 3) {
+                \Protobuf\WireFormat::assertWireType($wire, 4);
+
+                $this->page_timestamp = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -163,6 +340,21 @@ class DownloadItemTemplatesMessage extends \Protobuf\AbstractMessage
         $calculator = $context->getSizeCalculator();
         $size       = 0;
 
+        if ($this->paginate !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
+        if ($this->page_offset !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->page_offset);
+        }
+
+        if ($this->page_timestamp !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->page_timestamp);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -175,6 +367,9 @@ class DownloadItemTemplatesMessage extends \Protobuf\AbstractMessage
      */
     public function clear()
     {
+        $this->paginate = null;
+        $this->page_offset = null;
+        $this->page_timestamp = null;
     }
 
     /**
@@ -185,6 +380,10 @@ class DownloadItemTemplatesMessage extends \Protobuf\AbstractMessage
         if ( ! $message instanceof \POGOProtos\Networking\Requests\Messages\DownloadItemTemplatesMessage) {
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
+
+        $this->paginate = ($message->paginate !== null) ? $message->paginate : $this->paginate;
+        $this->page_offset = ($message->page_offset !== null) ? $message->page_offset : $this->page_offset;
+        $this->page_timestamp = ($message->page_timestamp !== null) ? $message->page_timestamp : $this->page_timestamp;
     }
 
 

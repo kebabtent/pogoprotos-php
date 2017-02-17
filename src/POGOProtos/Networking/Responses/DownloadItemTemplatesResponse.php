@@ -26,11 +26,11 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
     protected $extensions = null;
 
     /**
-     * success optional bool = 1
+     * result optional enum = 1
      *
-     * @var bool
+     * @var \POGOProtos\Networking\Responses\DownloadItemTemplatesResponse\Result
      */
-    protected $success = null;
+    protected $result = null;
 
     /**
      * item_templates repeated message = 2
@@ -47,33 +47,40 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
     protected $timestamp_ms = null;
 
     /**
-     * Check if 'success' has a value
+     * page_offset optional int32 = 4
+     *
+     * @var int
+     */
+    protected $page_offset = null;
+
+    /**
+     * Check if 'result' has a value
      *
      * @return bool
      */
-    public function hasSuccess()
+    public function hasResult()
     {
-        return $this->success !== null;
+        return $this->result !== null;
     }
 
     /**
-     * Get 'success' value
+     * Get 'result' value
      *
-     * @return bool
+     * @return \POGOProtos\Networking\Responses\DownloadItemTemplatesResponse\Result
      */
-    public function getSuccess()
+    public function getResult()
     {
-        return $this->success;
+        return $this->result;
     }
 
     /**
-     * Set 'success' value
+     * Set 'result' value
      *
-     * @param bool $value
+     * @param \POGOProtos\Networking\Responses\DownloadItemTemplatesResponse\Result $value
      */
-    public function setSuccess($value = null)
+    public function setResult(\POGOProtos\Networking\Responses\DownloadItemTemplatesResponse\Result $value = null)
     {
-        $this->success = $value;
+        $this->result = $value;
     }
 
     /**
@@ -153,6 +160,36 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'page_offset' has a value
+     *
+     * @return bool
+     */
+    public function hasPageOffset()
+    {
+        return $this->page_offset !== null;
+    }
+
+    /**
+     * Get 'page_offset' value
+     *
+     * @return int
+     */
+    public function getPageOffset()
+    {
+        return $this->page_offset;
+    }
+
+    /**
+     * Set 'page_offset' value
+     *
+     * @param int $value
+     */
+    public function setPageOffset($value = null)
+    {
+        $this->page_offset = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -187,13 +224,15 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'success' => null,
+            'result' => null,
             'item_templates' => [],
-            'timestamp_ms' => null
+            'timestamp_ms' => null,
+            'page_offset' => null
         ], $values);
 
-        $message->setSuccess($values['success']);
+        $message->setResult($values['result']);
         $message->setTimestampMs($values['timestamp_ms']);
+        $message->setPageOffset($values['page_offset']);
 
         foreach ($values['item_templates'] as $item) {
             $message->addItemTemplates($item);
@@ -212,9 +251,10 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
             'field'     => [
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 1,
-                    'name' => 'success',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                    'name' => 'result',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.Result'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 2,
@@ -227,6 +267,12 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
                     'number' => 3,
                     'name' => 'timestamp_ms',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'page_offset',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -257,9 +303,9 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
         $writer      = $context->getWriter();
         $sizeContext = $context->getComputeSizeContext();
 
-        if ($this->success !== null) {
+        if ($this->result !== null) {
             $writer->writeVarint($stream, 8);
-            $writer->writeBool($stream, $this->success);
+            $writer->writeVarint($stream, $this->result->value());
         }
 
         if ($this->item_templates !== null) {
@@ -273,6 +319,11 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
         if ($this->timestamp_ms !== null) {
             $writer->writeVarint($stream, 24);
             $writer->writeVarint($stream, $this->timestamp_ms);
+        }
+
+        if ($this->page_offset !== null) {
+            $writer->writeVarint($stream, 32);
+            $writer->writeVarint($stream, $this->page_offset);
         }
 
         if ($this->extensions !== null) {
@@ -310,9 +361,9 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
             }
 
             if ($tag === 1) {
-                \Protobuf\WireFormat::assertWireType($wire, 8);
+                \Protobuf\WireFormat::assertWireType($wire, 14);
 
-                $this->success = $reader->readBool($stream);
+                $this->result = \POGOProtos\Networking\Responses\DownloadItemTemplatesResponse\Result::valueOf($reader->readVarint($stream));
 
                 continue;
             }
@@ -340,6 +391,14 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 4);
 
                 $this->timestamp_ms = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->page_offset = $reader->readVarint($stream);
 
                 continue;
             }
@@ -373,9 +432,9 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
         $calculator = $context->getSizeCalculator();
         $size       = 0;
 
-        if ($this->success !== null) {
+        if ($this->result !== null) {
             $size += 1;
-            $size += 1;
+            $size += $calculator->computeVarintSize($this->result->value());
         }
 
         if ($this->item_templates !== null) {
@@ -393,6 +452,11 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->timestamp_ms);
         }
 
+        if ($this->page_offset !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->page_offset);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -405,9 +469,10 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
      */
     public function clear()
     {
-        $this->success = null;
+        $this->result = null;
         $this->item_templates = null;
         $this->timestamp_ms = null;
+        $this->page_offset = null;
     }
 
     /**
@@ -419,9 +484,10 @@ class DownloadItemTemplatesResponse extends \Protobuf\AbstractMessage
             throw new \InvalidArgumentException(sprintf('Argument 1 passed to %s must be a %s, %s given', __METHOD__, __CLASS__, get_class($message)));
         }
 
-        $this->success = ($message->success !== null) ? $message->success : $this->success;
+        $this->result = ($message->result !== null) ? $message->result : $this->result;
         $this->item_templates = ($message->item_templates !== null) ? $message->item_templates : $this->item_templates;
         $this->timestamp_ms = ($message->timestamp_ms !== null) ? $message->timestamp_ms : $this->timestamp_ms;
+        $this->page_offset = ($message->page_offset !== null) ? $message->page_offset : $this->page_offset;
     }
 
 

@@ -40,6 +40,11 @@ class HoloIapItemCategory extends \Protobuf\Enum
     const IAP_CATEGORY_POKECOINS_VALUE = 4;
 
     /**
+     * IAP_CATEGORY_AVATAR = 5
+     */
+    const IAP_CATEGORY_AVATAR_VALUE = 5;
+
+    /**
      * @var \POGOProtos\Enums\HoloIapItemCategory
      */
     protected static $IAP_CATEGORY_NONE = null;
@@ -63,6 +68,11 @@ class HoloIapItemCategory extends \Protobuf\Enum
      * @var \POGOProtos\Enums\HoloIapItemCategory
      */
     protected static $IAP_CATEGORY_POKECOINS = null;
+
+    /**
+     * @var \POGOProtos\Enums\HoloIapItemCategory
+     */
+    protected static $IAP_CATEGORY_AVATAR = null;
 
     /**
      * @return \POGOProtos\Enums\HoloIapItemCategory
@@ -125,6 +135,18 @@ class HoloIapItemCategory extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\HoloIapItemCategory
+     */
+    public static function IAP_CATEGORY_AVATAR()
+    {
+        if (self::$IAP_CATEGORY_AVATAR !== null) {
+            return self::$IAP_CATEGORY_AVATAR;
+        }
+
+        return self::$IAP_CATEGORY_AVATAR = new self('IAP_CATEGORY_AVATAR', self::IAP_CATEGORY_AVATAR_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\HoloIapItemCategory
      */
@@ -136,6 +158,7 @@ class HoloIapItemCategory extends \Protobuf\Enum
             case 2: return self::IAP_CATEGORY_ITEMS();
             case 3: return self::IAP_CATEGORY_UPGRADES();
             case 4: return self::IAP_CATEGORY_POKECOINS();
+            case 5: return self::IAP_CATEGORY_AVATAR();
             default: return null;
         }
     }

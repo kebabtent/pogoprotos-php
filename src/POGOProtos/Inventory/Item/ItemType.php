@@ -80,6 +80,11 @@ class ItemType extends \Protobuf\Enum
     const ITEM_TYPE_INVENTORY_UPGRADE_VALUE = 12;
 
     /**
+     * ITEM_TYPE_EVOLUTION_REQUIREMENT = 13
+     */
+    const ITEM_TYPE_EVOLUTION_REQUIREMENT_VALUE = 13;
+
+    /**
      * @var \POGOProtos\Inventory\Item\ItemType
      */
     protected static $ITEM_TYPE_NONE = null;
@@ -143,6 +148,11 @@ class ItemType extends \Protobuf\Enum
      * @var \POGOProtos\Inventory\Item\ItemType
      */
     protected static $ITEM_TYPE_INVENTORY_UPGRADE = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemType
+     */
+    protected static $ITEM_TYPE_EVOLUTION_REQUIREMENT = null;
 
     /**
      * @return \POGOProtos\Inventory\Item\ItemType
@@ -301,6 +311,18 @@ class ItemType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Inventory\Item\ItemType
+     */
+    public static function ITEM_TYPE_EVOLUTION_REQUIREMENT()
+    {
+        if (self::$ITEM_TYPE_EVOLUTION_REQUIREMENT !== null) {
+            return self::$ITEM_TYPE_EVOLUTION_REQUIREMENT;
+        }
+
+        return self::$ITEM_TYPE_EVOLUTION_REQUIREMENT = new self('ITEM_TYPE_EVOLUTION_REQUIREMENT', self::ITEM_TYPE_EVOLUTION_REQUIREMENT_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Inventory\Item\ItemType
      */
@@ -320,6 +342,7 @@ class ItemType extends \Protobuf\Enum
             case 10: return self::ITEM_TYPE_INCENSE();
             case 11: return self::ITEM_TYPE_XP_BOOST();
             case 12: return self::ITEM_TYPE_INVENTORY_UPGRADE();
+            case 13: return self::ITEM_TYPE_EVOLUTION_REQUIREMENT();
             default: return null;
         }
     }

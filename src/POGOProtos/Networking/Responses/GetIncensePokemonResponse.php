@@ -75,6 +75,13 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
     protected $disappear_timestamp_ms = null;
 
     /**
+     * pokemon_display optional message = 8
+     *
+     * @var \POGOProtos\Data\PokemonDisplay
+     */
+    protected $pokemon_display = null;
+
+    /**
      * Check if 'result' has a value
      *
      * @return bool
@@ -285,6 +292,36 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'pokemon_display' has a value
+     *
+     * @return bool
+     */
+    public function hasPokemonDisplay()
+    {
+        return $this->pokemon_display !== null;
+    }
+
+    /**
+     * Get 'pokemon_display' value
+     *
+     * @return \POGOProtos\Data\PokemonDisplay
+     */
+    public function getPokemonDisplay()
+    {
+        return $this->pokemon_display;
+    }
+
+    /**
+     * Set 'pokemon_display' value
+     *
+     * @param \POGOProtos\Data\PokemonDisplay $value
+     */
+    public function setPokemonDisplay(\POGOProtos\Data\PokemonDisplay $value = null)
+    {
+        $this->pokemon_display = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -325,7 +362,8 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
             'longitude' => null,
             'encounter_location' => null,
             'encounter_id' => null,
-            'disappear_timestamp_ms' => null
+            'disappear_timestamp_ms' => null,
+            'pokemon_display' => null
         ], $values);
 
         $message->setResult($values['result']);
@@ -335,6 +373,7 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
         $message->setEncounterLocation($values['encounter_location']);
         $message->setEncounterId($values['encounter_id']);
         $message->setDisappearTimestampMs($values['disappear_timestamp_ms']);
+        $message->setPokemonDisplay($values['pokemon_display']);
 
         return $message;
     }
@@ -390,6 +429,13 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
                     'name' => 'disappear_timestamp_ms',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'pokemon_display',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.PokemonDisplay'
                 ]),
             ],
         ]);
@@ -452,6 +498,12 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
         if ($this->disappear_timestamp_ms !== null) {
             $writer->writeVarint($stream, 56);
             $writer->writeVarint($stream, $this->disappear_timestamp_ms);
+        }
+
+        if ($this->pokemon_display !== null) {
+            $writer->writeVarint($stream, 66);
+            $writer->writeVarint($stream, $this->pokemon_display->serializedSize($sizeContext));
+            $this->pokemon_display->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -544,6 +596,21 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 8) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PokemonDisplay();
+
+                $this->pokemon_display = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -608,6 +675,14 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->disappear_timestamp_ms);
         }
 
+        if ($this->pokemon_display !== null) {
+            $innerSize = $this->pokemon_display->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -627,6 +702,7 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
         $this->encounter_location = null;
         $this->encounter_id = null;
         $this->disappear_timestamp_ms = null;
+        $this->pokemon_display = null;
     }
 
     /**
@@ -645,6 +721,7 @@ class GetIncensePokemonResponse extends \Protobuf\AbstractMessage
         $this->encounter_location = ($message->encounter_location !== null) ? $message->encounter_location : $this->encounter_location;
         $this->encounter_id = ($message->encounter_id !== null) ? $message->encounter_id : $this->encounter_id;
         $this->disappear_timestamp_ms = ($message->disappear_timestamp_ms !== null) ? $message->disappear_timestamp_ms : $this->disappear_timestamp_ms;
+        $this->pokemon_display = ($message->pokemon_display !== null) ? $message->pokemon_display : $this->pokemon_display;
     }
 
 

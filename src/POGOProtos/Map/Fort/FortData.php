@@ -144,6 +144,13 @@ class FortData extends \Protobuf\AbstractMessage
     protected $deploy_lockout_end_ms = null;
 
     /**
+     * guard_pokemon_display optional message = 18
+     *
+     * @var \POGOProtos\Data\PokemonDisplay
+     */
+    protected $guard_pokemon_display = null;
+
+    /**
      * Check if 'id' has a value
      *
      * @return bool
@@ -668,6 +675,36 @@ class FortData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'guard_pokemon_display' has a value
+     *
+     * @return bool
+     */
+    public function hasGuardPokemonDisplay()
+    {
+        return $this->guard_pokemon_display !== null;
+    }
+
+    /**
+     * Get 'guard_pokemon_display' value
+     *
+     * @return \POGOProtos\Data\PokemonDisplay
+     */
+    public function getGuardPokemonDisplay()
+    {
+        return $this->guard_pokemon_display;
+    }
+
+    /**
+     * Set 'guard_pokemon_display' value
+     *
+     * @param \POGOProtos\Data\PokemonDisplay $value
+     */
+    public function setGuardPokemonDisplay(\POGOProtos\Data\PokemonDisplay $value = null)
+    {
+        $this->guard_pokemon_display = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -718,7 +755,8 @@ class FortData extends \Protobuf\AbstractMessage
             'cooldown_complete_timestamp_ms' => null,
             'sponsor' => null,
             'rendering_type' => null,
-            'deploy_lockout_end_ms' => null
+            'deploy_lockout_end_ms' => null,
+            'guard_pokemon_display' => null
         ], $values);
 
         $message->setId($values['id']);
@@ -737,6 +775,7 @@ class FortData extends \Protobuf\AbstractMessage
         $message->setSponsor($values['sponsor']);
         $message->setRenderingType($values['rendering_type']);
         $message->setDeployLockoutEndMs($values['deploy_lockout_end_ms']);
+        $message->setGuardPokemonDisplay($values['guard_pokemon_display']);
 
         foreach ($values['active_fort_modifier'] as $item) {
             $message->addActiveFortModifier($item);
@@ -862,6 +901,13 @@ class FortData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 18,
+                    'name' => 'guard_pokemon_display',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.PokemonDisplay'
+                ]),
             ],
         ]);
     }
@@ -976,6 +1022,12 @@ class FortData extends \Protobuf\AbstractMessage
         if ($this->deploy_lockout_end_ms !== null) {
             $writer->writeVarint($stream, 136);
             $writer->writeVarint($stream, $this->deploy_lockout_end_ms);
+        }
+
+        if ($this->guard_pokemon_display !== null) {
+            $writer->writeVarint($stream, 146);
+            $writer->writeVarint($stream, $this->guard_pokemon_display->serializedSize($sizeContext));
+            $this->guard_pokemon_display->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -1162,6 +1214,21 @@ class FortData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 18) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PokemonDisplay();
+
+                $this->guard_pokemon_display = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1281,6 +1348,14 @@ class FortData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->deploy_lockout_end_ms);
         }
 
+        if ($this->guard_pokemon_display !== null) {
+            $innerSize = $this->guard_pokemon_display->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1310,6 +1385,7 @@ class FortData extends \Protobuf\AbstractMessage
         $this->sponsor = null;
         $this->rendering_type = null;
         $this->deploy_lockout_end_ms = null;
+        $this->guard_pokemon_display = null;
     }
 
     /**
@@ -1338,6 +1414,7 @@ class FortData extends \Protobuf\AbstractMessage
         $this->sponsor = ($message->sponsor !== null) ? $message->sponsor : $this->sponsor;
         $this->rendering_type = ($message->rendering_type !== null) ? $message->rendering_type : $this->rendering_type;
         $this->deploy_lockout_end_ms = ($message->deploy_lockout_end_ms !== null) ? $message->deploy_lockout_end_ms : $this->deploy_lockout_end_ms;
+        $this->guard_pokemon_display = ($message->guard_pokemon_display !== null) ? $message->guard_pokemon_display : $this->guard_pokemon_display;
     }
 
 

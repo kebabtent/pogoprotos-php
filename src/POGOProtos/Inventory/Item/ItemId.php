@@ -165,6 +165,31 @@ class ItemId extends \Protobuf\Enum
     const ITEM_ITEM_STORAGE_UPGRADE_VALUE = 1002;
 
     /**
+     * ITEM_SUN_STONE = 1101
+     */
+    const ITEM_SUN_STONE_VALUE = 1101;
+
+    /**
+     * ITEM_KINGS_ROCK = 1102
+     */
+    const ITEM_KINGS_ROCK_VALUE = 1102;
+
+    /**
+     * ITEM_METAL_COAT = 1103
+     */
+    const ITEM_METAL_COAT_VALUE = 1103;
+
+    /**
+     * ITEM_DRAGON_SCALE = 1104
+     */
+    const ITEM_DRAGON_SCALE_VALUE = 1104;
+
+    /**
+     * ITEM_UP_GRADE = 1105
+     */
+    const ITEM_UP_GRADE_VALUE = 1105;
+
+    /**
      * @var \POGOProtos\Inventory\Item\ItemId
      */
     protected static $ITEM_UNKNOWN = null;
@@ -313,6 +338,31 @@ class ItemId extends \Protobuf\Enum
      * @var \POGOProtos\Inventory\Item\ItemId
      */
     protected static $ITEM_ITEM_STORAGE_UPGRADE = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_SUN_STONE = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_KINGS_ROCK = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_METAL_COAT = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_DRAGON_SCALE = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_UP_GRADE = null;
 
     /**
      * @return \POGOProtos\Inventory\Item\ItemId
@@ -675,6 +725,66 @@ class ItemId extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_SUN_STONE()
+    {
+        if (self::$ITEM_SUN_STONE !== null) {
+            return self::$ITEM_SUN_STONE;
+        }
+
+        return self::$ITEM_SUN_STONE = new self('ITEM_SUN_STONE', self::ITEM_SUN_STONE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_KINGS_ROCK()
+    {
+        if (self::$ITEM_KINGS_ROCK !== null) {
+            return self::$ITEM_KINGS_ROCK;
+        }
+
+        return self::$ITEM_KINGS_ROCK = new self('ITEM_KINGS_ROCK', self::ITEM_KINGS_ROCK_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_METAL_COAT()
+    {
+        if (self::$ITEM_METAL_COAT !== null) {
+            return self::$ITEM_METAL_COAT;
+        }
+
+        return self::$ITEM_METAL_COAT = new self('ITEM_METAL_COAT', self::ITEM_METAL_COAT_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_DRAGON_SCALE()
+    {
+        if (self::$ITEM_DRAGON_SCALE !== null) {
+            return self::$ITEM_DRAGON_SCALE;
+        }
+
+        return self::$ITEM_DRAGON_SCALE = new self('ITEM_DRAGON_SCALE', self::ITEM_DRAGON_SCALE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_UP_GRADE()
+    {
+        if (self::$ITEM_UP_GRADE !== null) {
+            return self::$ITEM_UP_GRADE;
+        }
+
+        return self::$ITEM_UP_GRADE = new self('ITEM_UP_GRADE', self::ITEM_UP_GRADE_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Inventory\Item\ItemId
      */
@@ -711,6 +821,11 @@ class ItemId extends \Protobuf\Enum
             case 902: return self::ITEM_INCUBATOR_BASIC();
             case 1001: return self::ITEM_POKEMON_STORAGE_UPGRADE();
             case 1002: return self::ITEM_ITEM_STORAGE_UPGRADE();
+            case 1101: return self::ITEM_SUN_STONE();
+            case 1102: return self::ITEM_KINGS_ROCK();
+            case 1103: return self::ITEM_METAL_COAT();
+            case 1104: return self::ITEM_DRAGON_SCALE();
+            case 1105: return self::ITEM_UP_GRADE();
             default: return null;
         }
     }

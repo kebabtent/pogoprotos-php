@@ -88,6 +88,69 @@ class EncounterAttributes extends \Protobuf\AbstractMessage
     protected $attack_timer_s = null;
 
     /**
+     * bonus_candy_capture_reward optional int32 = 10
+     *
+     * @var int
+     */
+    protected $bonus_candy_capture_reward = null;
+
+    /**
+     * bonus_stardust_capture_reward optional int32 = 11
+     *
+     * @var int
+     */
+    protected $bonus_stardust_capture_reward = null;
+
+    /**
+     * attack_probability optional float = 12
+     *
+     * @var float
+     */
+    protected $attack_probability = null;
+
+    /**
+     * dodge_probability optional float = 13
+     *
+     * @var float
+     */
+    protected $dodge_probability = null;
+
+    /**
+     * dodge_duration_s optional float = 14
+     *
+     * @var float
+     */
+    protected $dodge_duration_s = null;
+
+    /**
+     * dodge_distance optional float = 15
+     *
+     * @var float
+     */
+    protected $dodge_distance = null;
+
+    /**
+     * camera_distance optional float = 16
+     *
+     * @var float
+     */
+    protected $camera_distance = null;
+
+    /**
+     * min_pokemon_action_frequency_s optional float = 17
+     *
+     * @var float
+     */
+    protected $min_pokemon_action_frequency_s = null;
+
+    /**
+     * max_pokemon_action_frequency_s optional float = 18
+     *
+     * @var float
+     */
+    protected $max_pokemon_action_frequency_s = null;
+
+    /**
      * Check if 'base_capture_rate' has a value
      *
      * @return bool
@@ -358,6 +421,276 @@ class EncounterAttributes extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'bonus_candy_capture_reward' has a value
+     *
+     * @return bool
+     */
+    public function hasBonusCandyCaptureReward()
+    {
+        return $this->bonus_candy_capture_reward !== null;
+    }
+
+    /**
+     * Get 'bonus_candy_capture_reward' value
+     *
+     * @return int
+     */
+    public function getBonusCandyCaptureReward()
+    {
+        return $this->bonus_candy_capture_reward;
+    }
+
+    /**
+     * Set 'bonus_candy_capture_reward' value
+     *
+     * @param int $value
+     */
+    public function setBonusCandyCaptureReward($value = null)
+    {
+        $this->bonus_candy_capture_reward = $value;
+    }
+
+    /**
+     * Check if 'bonus_stardust_capture_reward' has a value
+     *
+     * @return bool
+     */
+    public function hasBonusStardustCaptureReward()
+    {
+        return $this->bonus_stardust_capture_reward !== null;
+    }
+
+    /**
+     * Get 'bonus_stardust_capture_reward' value
+     *
+     * @return int
+     */
+    public function getBonusStardustCaptureReward()
+    {
+        return $this->bonus_stardust_capture_reward;
+    }
+
+    /**
+     * Set 'bonus_stardust_capture_reward' value
+     *
+     * @param int $value
+     */
+    public function setBonusStardustCaptureReward($value = null)
+    {
+        $this->bonus_stardust_capture_reward = $value;
+    }
+
+    /**
+     * Check if 'attack_probability' has a value
+     *
+     * @return bool
+     */
+    public function hasAttackProbability()
+    {
+        return $this->attack_probability !== null;
+    }
+
+    /**
+     * Get 'attack_probability' value
+     *
+     * @return float
+     */
+    public function getAttackProbability()
+    {
+        return $this->attack_probability;
+    }
+
+    /**
+     * Set 'attack_probability' value
+     *
+     * @param float $value
+     */
+    public function setAttackProbability($value = null)
+    {
+        $this->attack_probability = $value;
+    }
+
+    /**
+     * Check if 'dodge_probability' has a value
+     *
+     * @return bool
+     */
+    public function hasDodgeProbability()
+    {
+        return $this->dodge_probability !== null;
+    }
+
+    /**
+     * Get 'dodge_probability' value
+     *
+     * @return float
+     */
+    public function getDodgeProbability()
+    {
+        return $this->dodge_probability;
+    }
+
+    /**
+     * Set 'dodge_probability' value
+     *
+     * @param float $value
+     */
+    public function setDodgeProbability($value = null)
+    {
+        $this->dodge_probability = $value;
+    }
+
+    /**
+     * Check if 'dodge_duration_s' has a value
+     *
+     * @return bool
+     */
+    public function hasDodgeDurationS()
+    {
+        return $this->dodge_duration_s !== null;
+    }
+
+    /**
+     * Get 'dodge_duration_s' value
+     *
+     * @return float
+     */
+    public function getDodgeDurationS()
+    {
+        return $this->dodge_duration_s;
+    }
+
+    /**
+     * Set 'dodge_duration_s' value
+     *
+     * @param float $value
+     */
+    public function setDodgeDurationS($value = null)
+    {
+        $this->dodge_duration_s = $value;
+    }
+
+    /**
+     * Check if 'dodge_distance' has a value
+     *
+     * @return bool
+     */
+    public function hasDodgeDistance()
+    {
+        return $this->dodge_distance !== null;
+    }
+
+    /**
+     * Get 'dodge_distance' value
+     *
+     * @return float
+     */
+    public function getDodgeDistance()
+    {
+        return $this->dodge_distance;
+    }
+
+    /**
+     * Set 'dodge_distance' value
+     *
+     * @param float $value
+     */
+    public function setDodgeDistance($value = null)
+    {
+        $this->dodge_distance = $value;
+    }
+
+    /**
+     * Check if 'camera_distance' has a value
+     *
+     * @return bool
+     */
+    public function hasCameraDistance()
+    {
+        return $this->camera_distance !== null;
+    }
+
+    /**
+     * Get 'camera_distance' value
+     *
+     * @return float
+     */
+    public function getCameraDistance()
+    {
+        return $this->camera_distance;
+    }
+
+    /**
+     * Set 'camera_distance' value
+     *
+     * @param float $value
+     */
+    public function setCameraDistance($value = null)
+    {
+        $this->camera_distance = $value;
+    }
+
+    /**
+     * Check if 'min_pokemon_action_frequency_s' has a value
+     *
+     * @return bool
+     */
+    public function hasMinPokemonActionFrequencyS()
+    {
+        return $this->min_pokemon_action_frequency_s !== null;
+    }
+
+    /**
+     * Get 'min_pokemon_action_frequency_s' value
+     *
+     * @return float
+     */
+    public function getMinPokemonActionFrequencyS()
+    {
+        return $this->min_pokemon_action_frequency_s;
+    }
+
+    /**
+     * Set 'min_pokemon_action_frequency_s' value
+     *
+     * @param float $value
+     */
+    public function setMinPokemonActionFrequencyS($value = null)
+    {
+        $this->min_pokemon_action_frequency_s = $value;
+    }
+
+    /**
+     * Check if 'max_pokemon_action_frequency_s' has a value
+     *
+     * @return bool
+     */
+    public function hasMaxPokemonActionFrequencyS()
+    {
+        return $this->max_pokemon_action_frequency_s !== null;
+    }
+
+    /**
+     * Get 'max_pokemon_action_frequency_s' value
+     *
+     * @return float
+     */
+    public function getMaxPokemonActionFrequencyS()
+    {
+        return $this->max_pokemon_action_frequency_s;
+    }
+
+    /**
+     * Set 'max_pokemon_action_frequency_s' value
+     *
+     * @param float $value
+     */
+    public function setMaxPokemonActionFrequencyS($value = null)
+    {
+        $this->max_pokemon_action_frequency_s = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -400,7 +733,16 @@ class EncounterAttributes extends \Protobuf\AbstractMessage
             'movement_type' => null,
             'movement_timer_s' => null,
             'jump_time_s' => null,
-            'attack_timer_s' => null
+            'attack_timer_s' => null,
+            'bonus_candy_capture_reward' => null,
+            'bonus_stardust_capture_reward' => null,
+            'attack_probability' => null,
+            'dodge_probability' => null,
+            'dodge_duration_s' => null,
+            'dodge_distance' => null,
+            'camera_distance' => null,
+            'min_pokemon_action_frequency_s' => null,
+            'max_pokemon_action_frequency_s' => null
         ], $values);
 
         $message->setBaseCaptureRate($values['base_capture_rate']);
@@ -412,6 +754,15 @@ class EncounterAttributes extends \Protobuf\AbstractMessage
         $message->setMovementTimerS($values['movement_timer_s']);
         $message->setJumpTimeS($values['jump_time_s']);
         $message->setAttackTimerS($values['attack_timer_s']);
+        $message->setBonusCandyCaptureReward($values['bonus_candy_capture_reward']);
+        $message->setBonusStardustCaptureReward($values['bonus_stardust_capture_reward']);
+        $message->setAttackProbability($values['attack_probability']);
+        $message->setDodgeProbability($values['dodge_probability']);
+        $message->setDodgeDurationS($values['dodge_duration_s']);
+        $message->setDodgeDistance($values['dodge_distance']);
+        $message->setCameraDistance($values['camera_distance']);
+        $message->setMinPokemonActionFrequencyS($values['min_pokemon_action_frequency_s']);
+        $message->setMaxPokemonActionFrequencyS($values['max_pokemon_action_frequency_s']);
 
         return $message;
     }
@@ -476,6 +827,60 @@ class EncounterAttributes extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 9,
                     'name' => 'attack_timer_s',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 10,
+                    'name' => 'bonus_candy_capture_reward',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 11,
+                    'name' => 'bonus_stardust_capture_reward',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 12,
+                    'name' => 'attack_probability',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 13,
+                    'name' => 'dodge_probability',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 14,
+                    'name' => 'dodge_duration_s',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 15,
+                    'name' => 'dodge_distance',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 16,
+                    'name' => 'camera_distance',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 17,
+                    'name' => 'min_pokemon_action_frequency_s',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 18,
+                    'name' => 'max_pokemon_action_frequency_s',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -550,6 +955,51 @@ class EncounterAttributes extends \Protobuf\AbstractMessage
         if ($this->attack_timer_s !== null) {
             $writer->writeVarint($stream, 77);
             $writer->writeFloat($stream, $this->attack_timer_s);
+        }
+
+        if ($this->bonus_candy_capture_reward !== null) {
+            $writer->writeVarint($stream, 80);
+            $writer->writeVarint($stream, $this->bonus_candy_capture_reward);
+        }
+
+        if ($this->bonus_stardust_capture_reward !== null) {
+            $writer->writeVarint($stream, 88);
+            $writer->writeVarint($stream, $this->bonus_stardust_capture_reward);
+        }
+
+        if ($this->attack_probability !== null) {
+            $writer->writeVarint($stream, 101);
+            $writer->writeFloat($stream, $this->attack_probability);
+        }
+
+        if ($this->dodge_probability !== null) {
+            $writer->writeVarint($stream, 109);
+            $writer->writeFloat($stream, $this->dodge_probability);
+        }
+
+        if ($this->dodge_duration_s !== null) {
+            $writer->writeVarint($stream, 117);
+            $writer->writeFloat($stream, $this->dodge_duration_s);
+        }
+
+        if ($this->dodge_distance !== null) {
+            $writer->writeVarint($stream, 125);
+            $writer->writeFloat($stream, $this->dodge_distance);
+        }
+
+        if ($this->camera_distance !== null) {
+            $writer->writeVarint($stream, 133);
+            $writer->writeFloat($stream, $this->camera_distance);
+        }
+
+        if ($this->min_pokemon_action_frequency_s !== null) {
+            $writer->writeVarint($stream, 141);
+            $writer->writeFloat($stream, $this->min_pokemon_action_frequency_s);
+        }
+
+        if ($this->max_pokemon_action_frequency_s !== null) {
+            $writer->writeVarint($stream, 149);
+            $writer->writeFloat($stream, $this->max_pokemon_action_frequency_s);
         }
 
         if ($this->extensions !== null) {
@@ -658,6 +1108,78 @@ class EncounterAttributes extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 10) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->bonus_candy_capture_reward = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 11) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->bonus_stardust_capture_reward = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 12) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->attack_probability = $reader->readFloat($stream);
+
+                continue;
+            }
+
+            if ($tag === 13) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->dodge_probability = $reader->readFloat($stream);
+
+                continue;
+            }
+
+            if ($tag === 14) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->dodge_duration_s = $reader->readFloat($stream);
+
+                continue;
+            }
+
+            if ($tag === 15) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->dodge_distance = $reader->readFloat($stream);
+
+                continue;
+            }
+
+            if ($tag === 16) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->camera_distance = $reader->readFloat($stream);
+
+                continue;
+            }
+
+            if ($tag === 17) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->min_pokemon_action_frequency_s = $reader->readFloat($stream);
+
+                continue;
+            }
+
+            if ($tag === 18) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->max_pokemon_action_frequency_s = $reader->readFloat($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -732,6 +1254,51 @@ class EncounterAttributes extends \Protobuf\AbstractMessage
             $size += 4;
         }
 
+        if ($this->bonus_candy_capture_reward !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->bonus_candy_capture_reward);
+        }
+
+        if ($this->bonus_stardust_capture_reward !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->bonus_stardust_capture_reward);
+        }
+
+        if ($this->attack_probability !== null) {
+            $size += 1;
+            $size += 4;
+        }
+
+        if ($this->dodge_probability !== null) {
+            $size += 1;
+            $size += 4;
+        }
+
+        if ($this->dodge_duration_s !== null) {
+            $size += 1;
+            $size += 4;
+        }
+
+        if ($this->dodge_distance !== null) {
+            $size += 1;
+            $size += 4;
+        }
+
+        if ($this->camera_distance !== null) {
+            $size += 2;
+            $size += 4;
+        }
+
+        if ($this->min_pokemon_action_frequency_s !== null) {
+            $size += 2;
+            $size += 4;
+        }
+
+        if ($this->max_pokemon_action_frequency_s !== null) {
+            $size += 2;
+            $size += 4;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -753,6 +1320,15 @@ class EncounterAttributes extends \Protobuf\AbstractMessage
         $this->movement_timer_s = null;
         $this->jump_time_s = null;
         $this->attack_timer_s = null;
+        $this->bonus_candy_capture_reward = null;
+        $this->bonus_stardust_capture_reward = null;
+        $this->attack_probability = null;
+        $this->dodge_probability = null;
+        $this->dodge_duration_s = null;
+        $this->dodge_distance = null;
+        $this->camera_distance = null;
+        $this->min_pokemon_action_frequency_s = null;
+        $this->max_pokemon_action_frequency_s = null;
     }
 
     /**
@@ -773,6 +1349,15 @@ class EncounterAttributes extends \Protobuf\AbstractMessage
         $this->movement_timer_s = ($message->movement_timer_s !== null) ? $message->movement_timer_s : $this->movement_timer_s;
         $this->jump_time_s = ($message->jump_time_s !== null) ? $message->jump_time_s : $this->jump_time_s;
         $this->attack_timer_s = ($message->attack_timer_s !== null) ? $message->attack_timer_s : $this->attack_timer_s;
+        $this->bonus_candy_capture_reward = ($message->bonus_candy_capture_reward !== null) ? $message->bonus_candy_capture_reward : $this->bonus_candy_capture_reward;
+        $this->bonus_stardust_capture_reward = ($message->bonus_stardust_capture_reward !== null) ? $message->bonus_stardust_capture_reward : $this->bonus_stardust_capture_reward;
+        $this->attack_probability = ($message->attack_probability !== null) ? $message->attack_probability : $this->attack_probability;
+        $this->dodge_probability = ($message->dodge_probability !== null) ? $message->dodge_probability : $this->dodge_probability;
+        $this->dodge_duration_s = ($message->dodge_duration_s !== null) ? $message->dodge_duration_s : $this->dodge_duration_s;
+        $this->dodge_distance = ($message->dodge_distance !== null) ? $message->dodge_distance : $this->dodge_distance;
+        $this->camera_distance = ($message->camera_distance !== null) ? $message->camera_distance : $this->camera_distance;
+        $this->min_pokemon_action_frequency_s = ($message->min_pokemon_action_frequency_s !== null) ? $message->min_pokemon_action_frequency_s : $this->min_pokemon_action_frequency_s;
+        $this->max_pokemon_action_frequency_s = ($message->max_pokemon_action_frequency_s !== null) ? $message->max_pokemon_action_frequency_s : $this->max_pokemon_action_frequency_s;
     }
 
 

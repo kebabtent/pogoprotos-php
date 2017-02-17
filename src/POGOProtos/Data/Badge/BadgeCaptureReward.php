@@ -32,6 +32,13 @@ class BadgeCaptureReward extends \Protobuf\AbstractMessage
     protected $capture_reward_multiplier = null;
 
     /**
+     * avatar_template_ids repeated string = 2
+     *
+     * @var \Protobuf\Collection
+     */
+    protected $avatar_template_ids = null;
+
+    /**
      * Check if 'capture_reward_multiplier' has a value
      *
      * @return bool
@@ -59,6 +66,50 @@ class BadgeCaptureReward extends \Protobuf\AbstractMessage
     public function setCaptureRewardMultiplier($value = null)
     {
         $this->capture_reward_multiplier = $value;
+    }
+
+    /**
+     * Check if 'avatar_template_ids' has a value
+     *
+     * @return bool
+     */
+    public function hasAvatarTemplateIdsList()
+    {
+        return $this->avatar_template_ids !== null;
+    }
+
+    /**
+     * Get 'avatar_template_ids' value
+     *
+     * @return \Protobuf\Collection
+     */
+    public function getAvatarTemplateIdsList()
+    {
+        return $this->avatar_template_ids;
+    }
+
+    /**
+     * Set 'avatar_template_ids' value
+     *
+     * @param \Protobuf\Collection $value
+     */
+    public function setAvatarTemplateIdsList(\Protobuf\Collection $value = null)
+    {
+        $this->avatar_template_ids = $value;
+    }
+
+    /**
+     * Add a new element to 'avatar_template_ids'
+     *
+     * @param string $value
+     */
+    public function addAvatarTemplateIds($value)
+    {
+        if ($this->avatar_template_ids === null) {
+            $this->avatar_template_ids = new \Protobuf\ScalarCollection();
+        }
+
+        $this->avatar_template_ids->add($value);
     }
 
     /**
@@ -96,10 +147,15 @@ class BadgeCaptureReward extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'capture_reward_multiplier' => null
+            'capture_reward_multiplier' => null,
+            'avatar_template_ids' => []
         ], $values);
 
         $message->setCaptureRewardMultiplier($values['capture_reward_multiplier']);
+
+        foreach ($values['avatar_template_ids'] as $item) {
+            $message->addAvatarTemplateIds($item);
+        }
 
         return $message;
     }
@@ -117,6 +173,12 @@ class BadgeCaptureReward extends \Protobuf\AbstractMessage
                     'name' => 'capture_reward_multiplier',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 2,
+                    'name' => 'avatar_template_ids',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
             ],
         ]);
@@ -149,6 +211,13 @@ class BadgeCaptureReward extends \Protobuf\AbstractMessage
         if ($this->capture_reward_multiplier !== null) {
             $writer->writeVarint($stream, 13);
             $writer->writeFloat($stream, $this->capture_reward_multiplier);
+        }
+
+        if ($this->avatar_template_ids !== null) {
+            foreach ($this->avatar_template_ids as $val) {
+                $writer->writeVarint($stream, 18);
+                $writer->writeString($stream, $val);
+            }
         }
 
         if ($this->extensions !== null) {
@@ -193,6 +262,18 @@ class BadgeCaptureReward extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 2) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                if ($this->avatar_template_ids === null) {
+                    $this->avatar_template_ids = new \Protobuf\ScalarCollection();
+                }
+
+                $this->avatar_template_ids->add($reader->readString($stream));
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -227,6 +308,13 @@ class BadgeCaptureReward extends \Protobuf\AbstractMessage
             $size += 4;
         }
 
+        if ($this->avatar_template_ids !== null) {
+            foreach ($this->avatar_template_ids as $val) {
+                $size += 1;
+                $size += $calculator->computeStringSize($val);
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -240,6 +328,7 @@ class BadgeCaptureReward extends \Protobuf\AbstractMessage
     public function clear()
     {
         $this->capture_reward_multiplier = null;
+        $this->avatar_template_ids = null;
     }
 
     /**
@@ -252,6 +341,7 @@ class BadgeCaptureReward extends \Protobuf\AbstractMessage
         }
 
         $this->capture_reward_multiplier = ($message->capture_reward_multiplier !== null) ? $message->capture_reward_multiplier : $this->capture_reward_multiplier;
+        $this->avatar_template_ids = ($message->avatar_template_ids !== null) ? $message->avatar_template_ids : $this->avatar_template_ids;
     }
 
 

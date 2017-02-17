@@ -31,6 +31,11 @@ class CaptureReason extends \Protobuf\Enum
     const ELEMENTAL_BADGE_VALUE = 2;
 
     /**
+     * CRITICAL_CATCH = 3
+     */
+    const CRITICAL_CATCH_VALUE = 3;
+
+    /**
      * @var \POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason
      */
     protected static $UNSET = null;
@@ -44,6 +49,11 @@ class CaptureReason extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason
      */
     protected static $ELEMENTAL_BADGE = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason
+     */
+    protected static $CRITICAL_CATCH = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason
@@ -82,6 +92,18 @@ class CaptureReason extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason
+     */
+    public static function CRITICAL_CATCH()
+    {
+        if (self::$CRITICAL_CATCH !== null) {
+            return self::$CRITICAL_CATCH;
+        }
+
+        return self::$CRITICAL_CATCH = new self('CRITICAL_CATCH', self::CRITICAL_CATCH_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\CatchPokemonResponse\CaptureReason
      */
@@ -91,6 +113,7 @@ class CaptureReason extends \Protobuf\Enum
             case 0: return self::UNSET();
             case 1: return self::DEFAULT();
             case 2: return self::ELEMENTAL_BADGE();
+            case 3: return self::CRITICAL_CATCH();
             default: return null;
         }
     }

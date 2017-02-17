@@ -920,6 +920,201 @@ class PokemonMove extends \Protobuf\Enum
     const TRANSFORM_FAST_VALUE = 242;
 
     /**
+     * COUNTER_FAST = 243
+     */
+    const COUNTER_FAST_VALUE = 243;
+
+    /**
+     * POWDER_SNOW_FAST = 244
+     */
+    const POWDER_SNOW_FAST_VALUE = 244;
+
+    /**
+     * CLOSE_COMBAT = 245
+     */
+    const CLOSE_COMBAT_VALUE = 245;
+
+    /**
+     * DYNAMIC_PUNCH = 246
+     */
+    const DYNAMIC_PUNCH_VALUE = 246;
+
+    /**
+     * FOCUS_BLAST = 247
+     */
+    const FOCUS_BLAST_VALUE = 247;
+
+    /**
+     * AURORA_BEAM = 248
+     */
+    const AURORA_BEAM_VALUE = 248;
+
+    /**
+     * CHARGE_BEAM_FAST = 249
+     */
+    const CHARGE_BEAM_FAST_VALUE = 249;
+
+    /**
+     * VOLT_SWITCH_FAST = 250
+     */
+    const VOLT_SWITCH_FAST_VALUE = 250;
+
+    /**
+     * WILD_CHARGE = 251
+     */
+    const WILD_CHARGE_VALUE = 251;
+
+    /**
+     * ZAP_CANNON = 252
+     */
+    const ZAP_CANNON_VALUE = 252;
+
+    /**
+     * DRAGON_TAIL_FAST = 253
+     */
+    const DRAGON_TAIL_FAST_VALUE = 253;
+
+    /**
+     * AVALANCHE = 254
+     */
+    const AVALANCHE_VALUE = 254;
+
+    /**
+     * AIR_SLASH_FAST = 255
+     */
+    const AIR_SLASH_FAST_VALUE = 255;
+
+    /**
+     * BRAVE_BIRD = 256
+     */
+    const BRAVE_BIRD_VALUE = 256;
+
+    /**
+     * SKY_ATTACK = 257
+     */
+    const SKY_ATTACK_VALUE = 257;
+
+    /**
+     * SAND_TOMB = 258
+     */
+    const SAND_TOMB_VALUE = 258;
+
+    /**
+     * ROCK_BLAST = 259
+     */
+    const ROCK_BLAST_VALUE = 259;
+
+    /**
+     * INFESTATION_FAST = 260
+     */
+    const INFESTATION_FAST_VALUE = 260;
+
+    /**
+     * STRUGGLE_BUG_FAST = 261
+     */
+    const STRUGGLE_BUG_FAST_VALUE = 261;
+
+    /**
+     * SILVER_WIND = 262
+     */
+    const SILVER_WIND_VALUE = 262;
+
+    /**
+     * ASTONISH_FAST = 263
+     */
+    const ASTONISH_FAST_VALUE = 263;
+
+    /**
+     * HEX_FAST = 264
+     */
+    const HEX_FAST_VALUE = 264;
+
+    /**
+     * NIGHT_SHADE = 265
+     */
+    const NIGHT_SHADE_VALUE = 265;
+
+    /**
+     * IRON_TAIL_FAST = 266
+     */
+    const IRON_TAIL_FAST_VALUE = 266;
+
+    /**
+     * GYRO_BALL = 267
+     */
+    const GYRO_BALL_VALUE = 267;
+
+    /**
+     * HEAVY_SLAM = 268
+     */
+    const HEAVY_SLAM_VALUE = 268;
+
+    /**
+     * FIRE_SPIN_FAST = 269
+     */
+    const FIRE_SPIN_FAST_VALUE = 269;
+
+    /**
+     * OVERHEAT = 270
+     */
+    const OVERHEAT_VALUE = 270;
+
+    /**
+     * BULLET_SEED_FAST = 271
+     */
+    const BULLET_SEED_FAST_VALUE = 271;
+
+    /**
+     * GRASS_KNOT = 272
+     */
+    const GRASS_KNOT_VALUE = 272;
+
+    /**
+     * ENERGY_BALL = 273
+     */
+    const ENERGY_BALL_VALUE = 273;
+
+    /**
+     * EXTRASENSORY_FAST = 274
+     */
+    const EXTRASENSORY_FAST_VALUE = 274;
+
+    /**
+     * FUTURESIGHT = 275
+     */
+    const FUTURESIGHT_VALUE = 275;
+
+    /**
+     * MIRROR_COAT = 276
+     */
+    const MIRROR_COAT_VALUE = 276;
+
+    /**
+     * OUTRAGE = 277
+     */
+    const OUTRAGE_VALUE = 277;
+
+    /**
+     * SNARL_FAST = 278
+     */
+    const SNARL_FAST_VALUE = 278;
+
+    /**
+     * CRUNCH = 279
+     */
+    const CRUNCH_VALUE = 279;
+
+    /**
+     * FOUL_PLAY = 280
+     */
+    const FOUL_PLAY_VALUE = 280;
+
+    /**
+     * HIDDEN_POWER_FAST = 281
+     */
+    const HIDDEN_POWER_FAST_VALUE = 281;
+
+    /**
      * @var \POGOProtos\Enums\PokemonMove
      */
     protected static $MOVE_UNSET = null;
@@ -1823,6 +2018,201 @@ class PokemonMove extends \Protobuf\Enum
      * @var \POGOProtos\Enums\PokemonMove
      */
     protected static $TRANSFORM_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $COUNTER_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $POWDER_SNOW_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $CLOSE_COMBAT = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $DYNAMIC_PUNCH = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $FOCUS_BLAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $AURORA_BEAM = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $CHARGE_BEAM_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $VOLT_SWITCH_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $WILD_CHARGE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $ZAP_CANNON = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $DRAGON_TAIL_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $AVALANCHE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $AIR_SLASH_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $BRAVE_BIRD = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $SKY_ATTACK = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $SAND_TOMB = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $ROCK_BLAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $INFESTATION_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $STRUGGLE_BUG_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $SILVER_WIND = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $ASTONISH_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $HEX_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $NIGHT_SHADE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $IRON_TAIL_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $GYRO_BALL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $HEAVY_SLAM = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $FIRE_SPIN_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $OVERHEAT = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $BULLET_SEED_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $GRASS_KNOT = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $ENERGY_BALL = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $EXTRASENSORY_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $FUTURESIGHT = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $MIRROR_COAT = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $OUTRAGE = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $SNARL_FAST = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $CRUNCH = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $FOUL_PLAY = null;
+
+    /**
+     * @var \POGOProtos\Enums\PokemonMove
+     */
+    protected static $HIDDEN_POWER_FAST = null;
 
     /**
      * @return \POGOProtos\Enums\PokemonMove
@@ -3997,6 +4387,474 @@ class PokemonMove extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function COUNTER_FAST()
+    {
+        if (self::$COUNTER_FAST !== null) {
+            return self::$COUNTER_FAST;
+        }
+
+        return self::$COUNTER_FAST = new self('COUNTER_FAST', self::COUNTER_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function POWDER_SNOW_FAST()
+    {
+        if (self::$POWDER_SNOW_FAST !== null) {
+            return self::$POWDER_SNOW_FAST;
+        }
+
+        return self::$POWDER_SNOW_FAST = new self('POWDER_SNOW_FAST', self::POWDER_SNOW_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function CLOSE_COMBAT()
+    {
+        if (self::$CLOSE_COMBAT !== null) {
+            return self::$CLOSE_COMBAT;
+        }
+
+        return self::$CLOSE_COMBAT = new self('CLOSE_COMBAT', self::CLOSE_COMBAT_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function DYNAMIC_PUNCH()
+    {
+        if (self::$DYNAMIC_PUNCH !== null) {
+            return self::$DYNAMIC_PUNCH;
+        }
+
+        return self::$DYNAMIC_PUNCH = new self('DYNAMIC_PUNCH', self::DYNAMIC_PUNCH_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function FOCUS_BLAST()
+    {
+        if (self::$FOCUS_BLAST !== null) {
+            return self::$FOCUS_BLAST;
+        }
+
+        return self::$FOCUS_BLAST = new self('FOCUS_BLAST', self::FOCUS_BLAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function AURORA_BEAM()
+    {
+        if (self::$AURORA_BEAM !== null) {
+            return self::$AURORA_BEAM;
+        }
+
+        return self::$AURORA_BEAM = new self('AURORA_BEAM', self::AURORA_BEAM_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function CHARGE_BEAM_FAST()
+    {
+        if (self::$CHARGE_BEAM_FAST !== null) {
+            return self::$CHARGE_BEAM_FAST;
+        }
+
+        return self::$CHARGE_BEAM_FAST = new self('CHARGE_BEAM_FAST', self::CHARGE_BEAM_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function VOLT_SWITCH_FAST()
+    {
+        if (self::$VOLT_SWITCH_FAST !== null) {
+            return self::$VOLT_SWITCH_FAST;
+        }
+
+        return self::$VOLT_SWITCH_FAST = new self('VOLT_SWITCH_FAST', self::VOLT_SWITCH_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function WILD_CHARGE()
+    {
+        if (self::$WILD_CHARGE !== null) {
+            return self::$WILD_CHARGE;
+        }
+
+        return self::$WILD_CHARGE = new self('WILD_CHARGE', self::WILD_CHARGE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function ZAP_CANNON()
+    {
+        if (self::$ZAP_CANNON !== null) {
+            return self::$ZAP_CANNON;
+        }
+
+        return self::$ZAP_CANNON = new self('ZAP_CANNON', self::ZAP_CANNON_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function DRAGON_TAIL_FAST()
+    {
+        if (self::$DRAGON_TAIL_FAST !== null) {
+            return self::$DRAGON_TAIL_FAST;
+        }
+
+        return self::$DRAGON_TAIL_FAST = new self('DRAGON_TAIL_FAST', self::DRAGON_TAIL_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function AVALANCHE()
+    {
+        if (self::$AVALANCHE !== null) {
+            return self::$AVALANCHE;
+        }
+
+        return self::$AVALANCHE = new self('AVALANCHE', self::AVALANCHE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function AIR_SLASH_FAST()
+    {
+        if (self::$AIR_SLASH_FAST !== null) {
+            return self::$AIR_SLASH_FAST;
+        }
+
+        return self::$AIR_SLASH_FAST = new self('AIR_SLASH_FAST', self::AIR_SLASH_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function BRAVE_BIRD()
+    {
+        if (self::$BRAVE_BIRD !== null) {
+            return self::$BRAVE_BIRD;
+        }
+
+        return self::$BRAVE_BIRD = new self('BRAVE_BIRD', self::BRAVE_BIRD_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function SKY_ATTACK()
+    {
+        if (self::$SKY_ATTACK !== null) {
+            return self::$SKY_ATTACK;
+        }
+
+        return self::$SKY_ATTACK = new self('SKY_ATTACK', self::SKY_ATTACK_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function SAND_TOMB()
+    {
+        if (self::$SAND_TOMB !== null) {
+            return self::$SAND_TOMB;
+        }
+
+        return self::$SAND_TOMB = new self('SAND_TOMB', self::SAND_TOMB_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function ROCK_BLAST()
+    {
+        if (self::$ROCK_BLAST !== null) {
+            return self::$ROCK_BLAST;
+        }
+
+        return self::$ROCK_BLAST = new self('ROCK_BLAST', self::ROCK_BLAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function INFESTATION_FAST()
+    {
+        if (self::$INFESTATION_FAST !== null) {
+            return self::$INFESTATION_FAST;
+        }
+
+        return self::$INFESTATION_FAST = new self('INFESTATION_FAST', self::INFESTATION_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function STRUGGLE_BUG_FAST()
+    {
+        if (self::$STRUGGLE_BUG_FAST !== null) {
+            return self::$STRUGGLE_BUG_FAST;
+        }
+
+        return self::$STRUGGLE_BUG_FAST = new self('STRUGGLE_BUG_FAST', self::STRUGGLE_BUG_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function SILVER_WIND()
+    {
+        if (self::$SILVER_WIND !== null) {
+            return self::$SILVER_WIND;
+        }
+
+        return self::$SILVER_WIND = new self('SILVER_WIND', self::SILVER_WIND_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function ASTONISH_FAST()
+    {
+        if (self::$ASTONISH_FAST !== null) {
+            return self::$ASTONISH_FAST;
+        }
+
+        return self::$ASTONISH_FAST = new self('ASTONISH_FAST', self::ASTONISH_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function HEX_FAST()
+    {
+        if (self::$HEX_FAST !== null) {
+            return self::$HEX_FAST;
+        }
+
+        return self::$HEX_FAST = new self('HEX_FAST', self::HEX_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function NIGHT_SHADE()
+    {
+        if (self::$NIGHT_SHADE !== null) {
+            return self::$NIGHT_SHADE;
+        }
+
+        return self::$NIGHT_SHADE = new self('NIGHT_SHADE', self::NIGHT_SHADE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function IRON_TAIL_FAST()
+    {
+        if (self::$IRON_TAIL_FAST !== null) {
+            return self::$IRON_TAIL_FAST;
+        }
+
+        return self::$IRON_TAIL_FAST = new self('IRON_TAIL_FAST', self::IRON_TAIL_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function GYRO_BALL()
+    {
+        if (self::$GYRO_BALL !== null) {
+            return self::$GYRO_BALL;
+        }
+
+        return self::$GYRO_BALL = new self('GYRO_BALL', self::GYRO_BALL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function HEAVY_SLAM()
+    {
+        if (self::$HEAVY_SLAM !== null) {
+            return self::$HEAVY_SLAM;
+        }
+
+        return self::$HEAVY_SLAM = new self('HEAVY_SLAM', self::HEAVY_SLAM_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function FIRE_SPIN_FAST()
+    {
+        if (self::$FIRE_SPIN_FAST !== null) {
+            return self::$FIRE_SPIN_FAST;
+        }
+
+        return self::$FIRE_SPIN_FAST = new self('FIRE_SPIN_FAST', self::FIRE_SPIN_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function OVERHEAT()
+    {
+        if (self::$OVERHEAT !== null) {
+            return self::$OVERHEAT;
+        }
+
+        return self::$OVERHEAT = new self('OVERHEAT', self::OVERHEAT_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function BULLET_SEED_FAST()
+    {
+        if (self::$BULLET_SEED_FAST !== null) {
+            return self::$BULLET_SEED_FAST;
+        }
+
+        return self::$BULLET_SEED_FAST = new self('BULLET_SEED_FAST', self::BULLET_SEED_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function GRASS_KNOT()
+    {
+        if (self::$GRASS_KNOT !== null) {
+            return self::$GRASS_KNOT;
+        }
+
+        return self::$GRASS_KNOT = new self('GRASS_KNOT', self::GRASS_KNOT_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function ENERGY_BALL()
+    {
+        if (self::$ENERGY_BALL !== null) {
+            return self::$ENERGY_BALL;
+        }
+
+        return self::$ENERGY_BALL = new self('ENERGY_BALL', self::ENERGY_BALL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function EXTRASENSORY_FAST()
+    {
+        if (self::$EXTRASENSORY_FAST !== null) {
+            return self::$EXTRASENSORY_FAST;
+        }
+
+        return self::$EXTRASENSORY_FAST = new self('EXTRASENSORY_FAST', self::EXTRASENSORY_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function FUTURESIGHT()
+    {
+        if (self::$FUTURESIGHT !== null) {
+            return self::$FUTURESIGHT;
+        }
+
+        return self::$FUTURESIGHT = new self('FUTURESIGHT', self::FUTURESIGHT_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function MIRROR_COAT()
+    {
+        if (self::$MIRROR_COAT !== null) {
+            return self::$MIRROR_COAT;
+        }
+
+        return self::$MIRROR_COAT = new self('MIRROR_COAT', self::MIRROR_COAT_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function OUTRAGE()
+    {
+        if (self::$OUTRAGE !== null) {
+            return self::$OUTRAGE;
+        }
+
+        return self::$OUTRAGE = new self('OUTRAGE', self::OUTRAGE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function SNARL_FAST()
+    {
+        if (self::$SNARL_FAST !== null) {
+            return self::$SNARL_FAST;
+        }
+
+        return self::$SNARL_FAST = new self('SNARL_FAST', self::SNARL_FAST_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function CRUNCH()
+    {
+        if (self::$CRUNCH !== null) {
+            return self::$CRUNCH;
+        }
+
+        return self::$CRUNCH = new self('CRUNCH', self::CRUNCH_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function FOUL_PLAY()
+    {
+        if (self::$FOUL_PLAY !== null) {
+            return self::$FOUL_PLAY;
+        }
+
+        return self::$FOUL_PLAY = new self('FOUL_PLAY', self::FOUL_PLAY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\PokemonMove
+     */
+    public static function HIDDEN_POWER_FAST()
+    {
+        if (self::$HIDDEN_POWER_FAST !== null) {
+            return self::$HIDDEN_POWER_FAST;
+        }
+
+        return self::$HIDDEN_POWER_FAST = new self('HIDDEN_POWER_FAST', self::HIDDEN_POWER_FAST_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\PokemonMove
      */
@@ -4184,6 +5042,45 @@ class PokemonMove extends \Protobuf\Enum
             case 240: return self::FIRE_FANG_FAST();
             case 241: return self::ROCK_SMASH_FAST();
             case 242: return self::TRANSFORM_FAST();
+            case 243: return self::COUNTER_FAST();
+            case 244: return self::POWDER_SNOW_FAST();
+            case 245: return self::CLOSE_COMBAT();
+            case 246: return self::DYNAMIC_PUNCH();
+            case 247: return self::FOCUS_BLAST();
+            case 248: return self::AURORA_BEAM();
+            case 249: return self::CHARGE_BEAM_FAST();
+            case 250: return self::VOLT_SWITCH_FAST();
+            case 251: return self::WILD_CHARGE();
+            case 252: return self::ZAP_CANNON();
+            case 253: return self::DRAGON_TAIL_FAST();
+            case 254: return self::AVALANCHE();
+            case 255: return self::AIR_SLASH_FAST();
+            case 256: return self::BRAVE_BIRD();
+            case 257: return self::SKY_ATTACK();
+            case 258: return self::SAND_TOMB();
+            case 259: return self::ROCK_BLAST();
+            case 260: return self::INFESTATION_FAST();
+            case 261: return self::STRUGGLE_BUG_FAST();
+            case 262: return self::SILVER_WIND();
+            case 263: return self::ASTONISH_FAST();
+            case 264: return self::HEX_FAST();
+            case 265: return self::NIGHT_SHADE();
+            case 266: return self::IRON_TAIL_FAST();
+            case 267: return self::GYRO_BALL();
+            case 268: return self::HEAVY_SLAM();
+            case 269: return self::FIRE_SPIN_FAST();
+            case 270: return self::OVERHEAT();
+            case 271: return self::BULLET_SEED_FAST();
+            case 272: return self::GRASS_KNOT();
+            case 273: return self::ENERGY_BALL();
+            case 274: return self::EXTRASENSORY_FAST();
+            case 275: return self::FUTURESIGHT();
+            case 276: return self::MIRROR_COAT();
+            case 277: return self::OUTRAGE();
+            case 278: return self::SNARL_FAST();
+            case 279: return self::CRUNCH();
+            case 280: return self::FOUL_PLAY();
+            case 281: return self::HIDDEN_POWER_FAST();
             default: return null;
         }
     }

@@ -33,6 +33,13 @@ class EvolvePokemonMessage extends \Protobuf\AbstractMessage
     protected $pokemon_id = null;
 
     /**
+     * evolution_item_requirement optional enum = 2
+     *
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected $evolution_item_requirement = null;
+
+    /**
      * Check if 'pokemon_id' has a value
      *
      * @return bool
@@ -60,6 +67,36 @@ class EvolvePokemonMessage extends \Protobuf\AbstractMessage
     public function setPokemonId($value = null)
     {
         $this->pokemon_id = $value;
+    }
+
+    /**
+     * Check if 'evolution_item_requirement' has a value
+     *
+     * @return bool
+     */
+    public function hasEvolutionItemRequirement()
+    {
+        return $this->evolution_item_requirement !== null;
+    }
+
+    /**
+     * Get 'evolution_item_requirement' value
+     *
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public function getEvolutionItemRequirement()
+    {
+        return $this->evolution_item_requirement;
+    }
+
+    /**
+     * Set 'evolution_item_requirement' value
+     *
+     * @param \POGOProtos\Inventory\Item\ItemId $value
+     */
+    public function setEvolutionItemRequirement(\POGOProtos\Inventory\Item\ItemId $value = null)
+    {
+        $this->evolution_item_requirement = $value;
     }
 
     /**
@@ -97,10 +134,12 @@ class EvolvePokemonMessage extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'pokemon_id' => null
+            'pokemon_id' => null,
+            'evolution_item_requirement' => null
         ], $values);
 
         $message->setPokemonId($values['pokemon_id']);
+        $message->setEvolutionItemRequirement($values['evolution_item_requirement']);
 
         return $message;
     }
@@ -118,6 +157,13 @@ class EvolvePokemonMessage extends \Protobuf\AbstractMessage
                     'name' => 'pokemon_id',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 2,
+                    'name' => 'evolution_item_requirement',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Inventory.Item.ItemId'
                 ]),
             ],
         ]);
@@ -150,6 +196,11 @@ class EvolvePokemonMessage extends \Protobuf\AbstractMessage
         if ($this->pokemon_id !== null) {
             $writer->writeVarint($stream, 9);
             $writer->writeFixed64($stream, $this->pokemon_id);
+        }
+
+        if ($this->evolution_item_requirement !== null) {
+            $writer->writeVarint($stream, 16);
+            $writer->writeVarint($stream, $this->evolution_item_requirement->value());
         }
 
         if ($this->extensions !== null) {
@@ -194,6 +245,14 @@ class EvolvePokemonMessage extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 2) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                $this->evolution_item_requirement = \POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream));
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -228,6 +287,11 @@ class EvolvePokemonMessage extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
+        if ($this->evolution_item_requirement !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->evolution_item_requirement->value());
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -241,6 +305,7 @@ class EvolvePokemonMessage extends \Protobuf\AbstractMessage
     public function clear()
     {
         $this->pokemon_id = null;
+        $this->evolution_item_requirement = null;
     }
 
     /**
@@ -253,6 +318,7 @@ class EvolvePokemonMessage extends \Protobuf\AbstractMessage
         }
 
         $this->pokemon_id = ($message->pokemon_id !== null) ? $message->pokemon_id : $this->pokemon_id;
+        $this->evolution_item_requirement = ($message->evolution_item_requirement !== null) ? $message->evolution_item_requirement : $this->evolution_item_requirement;
     }
 
 

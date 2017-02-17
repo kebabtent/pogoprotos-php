@@ -39,6 +39,13 @@ class ItemAward extends \Protobuf\AbstractMessage
     protected $item_count = null;
 
     /**
+     * bonus_count optional int32 = 3
+     *
+     * @var int
+     */
+    protected $bonus_count = null;
+
+    /**
      * Check if 'item_id' has a value
      *
      * @return bool
@@ -99,6 +106,36 @@ class ItemAward extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'bonus_count' has a value
+     *
+     * @return bool
+     */
+    public function hasBonusCount()
+    {
+        return $this->bonus_count !== null;
+    }
+
+    /**
+     * Get 'bonus_count' value
+     *
+     * @return int
+     */
+    public function getBonusCount()
+    {
+        return $this->bonus_count;
+    }
+
+    /**
+     * Set 'bonus_count' value
+     *
+     * @param int $value
+     */
+    public function setBonusCount($value = null)
+    {
+        $this->bonus_count = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -134,11 +171,13 @@ class ItemAward extends \Protobuf\AbstractMessage
         $message = new self();
         $values  = array_merge([
             'item_id' => null,
-            'item_count' => null
+            'item_count' => null,
+            'bonus_count' => null
         ], $values);
 
         $message->setItemId($values['item_id']);
         $message->setItemCount($values['item_count']);
+        $message->setBonusCount($values['bonus_count']);
 
         return $message;
     }
@@ -161,6 +200,12 @@ class ItemAward extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 2,
                     'name' => 'item_count',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 3,
+                    'name' => 'bonus_count',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -200,6 +245,11 @@ class ItemAward extends \Protobuf\AbstractMessage
         if ($this->item_count !== null) {
             $writer->writeVarint($stream, 16);
             $writer->writeVarint($stream, $this->item_count);
+        }
+
+        if ($this->bonus_count !== null) {
+            $writer->writeVarint($stream, 24);
+            $writer->writeVarint($stream, $this->bonus_count);
         }
 
         if ($this->extensions !== null) {
@@ -252,6 +302,14 @@ class ItemAward extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 3) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->bonus_count = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -291,6 +349,11 @@ class ItemAward extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->item_count);
         }
 
+        if ($this->bonus_count !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->bonus_count);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -305,6 +368,7 @@ class ItemAward extends \Protobuf\AbstractMessage
     {
         $this->item_id = null;
         $this->item_count = null;
+        $this->bonus_count = null;
     }
 
     /**
@@ -318,6 +382,7 @@ class ItemAward extends \Protobuf\AbstractMessage
 
         $this->item_id = ($message->item_id !== null) ? $message->item_id : $this->item_id;
         $this->item_count = ($message->item_count !== null) ? $message->item_count : $this->item_count;
+        $this->bonus_count = ($message->bonus_count !== null) ? $message->bonus_count : $this->bonus_count;
     }
 
 

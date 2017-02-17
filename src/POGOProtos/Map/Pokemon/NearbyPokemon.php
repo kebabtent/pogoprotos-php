@@ -60,6 +60,13 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
     protected $fort_image_url = null;
 
     /**
+     * pokemon_display optional message = 6
+     *
+     * @var \POGOProtos\Data\PokemonDisplay
+     */
+    protected $pokemon_display = null;
+
+    /**
      * Check if 'pokemon_id' has a value
      *
      * @return bool
@@ -210,6 +217,36 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'pokemon_display' has a value
+     *
+     * @return bool
+     */
+    public function hasPokemonDisplay()
+    {
+        return $this->pokemon_display !== null;
+    }
+
+    /**
+     * Get 'pokemon_display' value
+     *
+     * @return \POGOProtos\Data\PokemonDisplay
+     */
+    public function getPokemonDisplay()
+    {
+        return $this->pokemon_display;
+    }
+
+    /**
+     * Set 'pokemon_display' value
+     *
+     * @param \POGOProtos\Data\PokemonDisplay $value
+     */
+    public function setPokemonDisplay(\POGOProtos\Data\PokemonDisplay $value = null)
+    {
+        $this->pokemon_display = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -248,7 +285,8 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
             'distance_in_meters' => null,
             'encounter_id' => null,
             'fort_id' => null,
-            'fort_image_url' => null
+            'fort_image_url' => null,
+            'pokemon_display' => null
         ], $values);
 
         $message->setPokemonId($values['pokemon_id']);
@@ -256,6 +294,7 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
         $message->setEncounterId($values['encounter_id']);
         $message->setFortId($values['fort_id']);
         $message->setFortImageUrl($values['fort_image_url']);
+        $message->setPokemonDisplay($values['pokemon_display']);
 
         return $message;
     }
@@ -298,6 +337,13 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
                     'name' => 'fort_image_url',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'pokemon_display',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.PokemonDisplay'
                 ]),
             ],
         ]);
@@ -350,6 +396,12 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
         if ($this->fort_image_url !== null) {
             $writer->writeVarint($stream, 42);
             $writer->writeString($stream, $this->fort_image_url);
+        }
+
+        if ($this->pokemon_display !== null) {
+            $writer->writeVarint($stream, 50);
+            $writer->writeVarint($stream, $this->pokemon_display->serializedSize($sizeContext));
+            $this->pokemon_display->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -426,6 +478,21 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 6) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PokemonDisplay();
+
+                $this->pokemon_display = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -480,6 +547,14 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
             $size += $calculator->computeStringSize($this->fort_image_url);
         }
 
+        if ($this->pokemon_display !== null) {
+            $innerSize = $this->pokemon_display->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -497,6 +572,7 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
         $this->encounter_id = null;
         $this->fort_id = null;
         $this->fort_image_url = null;
+        $this->pokemon_display = null;
     }
 
     /**
@@ -513,6 +589,7 @@ class NearbyPokemon extends \Protobuf\AbstractMessage
         $this->encounter_id = ($message->encounter_id !== null) ? $message->encounter_id : $this->encounter_id;
         $this->fort_id = ($message->fort_id !== null) ? $message->fort_id : $this->fort_id;
         $this->fort_image_url = ($message->fort_image_url !== null) ? $message->fort_image_url : $this->fort_image_url;
+        $this->pokemon_display = ($message->pokemon_display !== null) ? $message->pokemon_display : $this->pokemon_display;
     }
 
 

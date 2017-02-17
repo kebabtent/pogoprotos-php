@@ -25,6 +25,11 @@ class FestivalType extends \Protobuf\Enum
     const HALLOWEEN_VALUE = 1;
 
     /**
+     * HOLIDAY = 2
+     */
+    const HOLIDAY_VALUE = 2;
+
+    /**
      * @var \POGOProtos\Settings\FestivalSettings\FestivalType
      */
     protected static $NONE = null;
@@ -33,6 +38,11 @@ class FestivalType extends \Protobuf\Enum
      * @var \POGOProtos\Settings\FestivalSettings\FestivalType
      */
     protected static $HALLOWEEN = null;
+
+    /**
+     * @var \POGOProtos\Settings\FestivalSettings\FestivalType
+     */
+    protected static $HOLIDAY = null;
 
     /**
      * @return \POGOProtos\Settings\FestivalSettings\FestivalType
@@ -59,6 +69,18 @@ class FestivalType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Settings\FestivalSettings\FestivalType
+     */
+    public static function HOLIDAY()
+    {
+        if (self::$HOLIDAY !== null) {
+            return self::$HOLIDAY;
+        }
+
+        return self::$HOLIDAY = new self('HOLIDAY', self::HOLIDAY_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Settings\FestivalSettings\FestivalType
      */
@@ -67,6 +89,7 @@ class FestivalType extends \Protobuf\Enum
         switch ($value) {
             case 0: return self::NONE();
             case 1: return self::HALLOWEEN();
+            case 2: return self::HOLIDAY();
             default: return null;
         }
     }

@@ -35,6 +35,11 @@ class BuddySize extends \Protobuf\Enum
     const BUDDY_FLYING_VALUE = 3;
 
     /**
+     * BUDDY_BABY = 4
+     */
+    const BUDDY_BABY_VALUE = 4;
+
+    /**
      * @var \POGOProtos\Settings\Master\PokemonSettings\BuddySize
      */
     protected static $BUDDY_MEDIUM = null;
@@ -53,6 +58,11 @@ class BuddySize extends \Protobuf\Enum
      * @var \POGOProtos\Settings\Master\PokemonSettings\BuddySize
      */
     protected static $BUDDY_FLYING = null;
+
+    /**
+     * @var \POGOProtos\Settings\Master\PokemonSettings\BuddySize
+     */
+    protected static $BUDDY_BABY = null;
 
     /**
      * @return \POGOProtos\Settings\Master\PokemonSettings\BuddySize
@@ -103,6 +113,18 @@ class BuddySize extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Settings\Master\PokemonSettings\BuddySize
+     */
+    public static function BUDDY_BABY()
+    {
+        if (self::$BUDDY_BABY !== null) {
+            return self::$BUDDY_BABY;
+        }
+
+        return self::$BUDDY_BABY = new self('BUDDY_BABY', self::BUDDY_BABY_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Settings\Master\PokemonSettings\BuddySize
      */
@@ -113,6 +135,7 @@ class BuddySize extends \Protobuf\Enum
             case 1: return self::BUDDY_SHOULDER();
             case 2: return self::BUDDY_BIG();
             case 3: return self::BUDDY_FLYING();
+            case 4: return self::BUDDY_BABY();
             default: return null;
         }
     }

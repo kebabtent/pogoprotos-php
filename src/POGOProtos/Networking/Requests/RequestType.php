@@ -20,11 +20,6 @@ class RequestType extends \Protobuf\Enum
     const METHOD_UNSET_VALUE = 0;
 
     /**
-     * PLAYER_UPDATE = 1
-     */
-    const PLAYER_UPDATE_VALUE = 1;
-
-    /**
      * GET_PLAYER = 2
      */
     const GET_PLAYER_VALUE = 2;
@@ -75,11 +70,6 @@ class RequestType extends \Protobuf\Enum
     const FORT_DETAILS_VALUE = 104;
 
     /**
-     * ITEM_USE = 105
-     */
-    const ITEM_USE_VALUE = 105;
-
-    /**
      * GET_MAP_OBJECTS = 106
      */
     const GET_MAP_OBJECTS_VALUE = 106;
@@ -120,44 +110,9 @@ class RequestType extends \Protobuf\Enum
     const USE_ITEM_REVIVE_VALUE = 116;
 
     /**
-     * TRADE_SEARCH = 117
-     */
-    const TRADE_SEARCH_VALUE = 117;
-
-    /**
-     * TRADE_OFFER = 118
-     */
-    const TRADE_OFFER_VALUE = 118;
-
-    /**
-     * TRADE_RESPONSE = 119
-     */
-    const TRADE_RESPONSE_VALUE = 119;
-
-    /**
-     * TRADE_RESULT = 120
-     */
-    const TRADE_RESULT_VALUE = 120;
-
-    /**
      * GET_PLAYER_PROFILE = 121
      */
     const GET_PLAYER_PROFILE_VALUE = 121;
-
-    /**
-     * GET_ITEM_PACK = 122
-     */
-    const GET_ITEM_PACK_VALUE = 122;
-
-    /**
-     * BUY_ITEM_PACK = 123
-     */
-    const BUY_ITEM_PACK_VALUE = 123;
-
-    /**
-     * BUY_GEM_PACK = 124
-     */
-    const BUY_GEM_PACK_VALUE = 124;
 
     /**
      * EVOLVE_POKEMON = 125
@@ -290,6 +245,11 @@ class RequestType extends \Protobuf\Enum
     const GET_BUDDY_WALKED_VALUE = 153;
 
     /**
+     * USE_ITEM_ENCOUNTER = 154
+     */
+    const USE_ITEM_ENCOUNTER_VALUE = 154;
+
+    /**
      * GET_ASSET_DIGEST = 300
      */
     const GET_ASSET_DIGEST_VALUE = 300;
@@ -298,16 +258,6 @@ class RequestType extends \Protobuf\Enum
      * GET_DOWNLOAD_URLS = 301
      */
     const GET_DOWNLOAD_URLS_VALUE = 301;
-
-    /**
-     * GET_SUGGESTED_CODENAMES = 401
-     */
-    const GET_SUGGESTED_CODENAMES_VALUE = 401;
-
-    /**
-     * CHECK_CODENAME_AVAILABLE = 402
-     */
-    const CHECK_CODENAME_AVAILABLE_VALUE = 402;
 
     /**
      * CLAIM_CODENAME = 403
@@ -330,11 +280,6 @@ class RequestType extends \Protobuf\Enum
     const MARK_TUTORIAL_COMPLETE_VALUE = 406;
 
     /**
-     * LOAD_SPAWN_POINTS = 500
-     */
-    const LOAD_SPAWN_POINTS_VALUE = 500;
-
-    /**
      * CHECK_CHALLENGE = 600
      */
     const CHECK_CHALLENGE_VALUE = 600;
@@ -348,16 +293,6 @@ class RequestType extends \Protobuf\Enum
      * ECHO = 666
      */
     const ECHO_VALUE = 666;
-
-    /**
-     * DEBUG_UPDATE_INVENTORY = 700
-     */
-    const DEBUG_UPDATE_INVENTORY_VALUE = 700;
-
-    /**
-     * DEBUG_DELETE_PLAYER = 701
-     */
-    const DEBUG_DELETE_PLAYER_VALUE = 701;
 
     /**
      * SFIDA_REGISTRATION = 800
@@ -395,14 +330,19 @@ class RequestType extends \Protobuf\Enum
     const SFIDA_CAPTURE_VALUE = 806;
 
     /**
-     * @var \POGOProtos\Networking\Requests\RequestType
+     * LIST_AVATAR_CUSTOMIZATIONS = 807
      */
-    protected static $METHOD_UNSET = null;
+    const LIST_AVATAR_CUSTOMIZATIONS_VALUE = 807;
+
+    /**
+     * SET_AVATAR_ITEM_AS_VIEWED = 808
+     */
+    const SET_AVATAR_ITEM_AS_VIEWED_VALUE = 808;
 
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
      */
-    protected static $PLAYER_UPDATE = null;
+    protected static $METHOD_UNSET = null;
 
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
@@ -457,11 +397,6 @@ class RequestType extends \Protobuf\Enum
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
      */
-    protected static $ITEM_USE = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
     protected static $GET_MAP_OBJECTS = null;
 
     /**
@@ -502,42 +437,7 @@ class RequestType extends \Protobuf\Enum
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
      */
-    protected static $TRADE_SEARCH = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
-    protected static $TRADE_OFFER = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
-    protected static $TRADE_RESPONSE = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
-    protected static $TRADE_RESULT = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
     protected static $GET_PLAYER_PROFILE = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
-    protected static $GET_ITEM_PACK = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
-    protected static $BUY_ITEM_PACK = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
-    protected static $BUY_GEM_PACK = null;
 
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
@@ -672,22 +572,17 @@ class RequestType extends \Protobuf\Enum
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
      */
+    protected static $USE_ITEM_ENCOUNTER = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
     protected static $GET_ASSET_DIGEST = null;
 
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
      */
     protected static $GET_DOWNLOAD_URLS = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
-    protected static $GET_SUGGESTED_CODENAMES = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
-    protected static $CHECK_CODENAME_AVAILABLE = null;
 
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
@@ -712,11 +607,6 @@ class RequestType extends \Protobuf\Enum
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
      */
-    protected static $LOAD_SPAWN_POINTS = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
     protected static $CHECK_CHALLENGE = null;
 
     /**
@@ -728,16 +618,6 @@ class RequestType extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Requests\RequestType
      */
     protected static $ECHO = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
-    protected static $DEBUG_UPDATE_INVENTORY = null;
-
-    /**
-     * @var \POGOProtos\Networking\Requests\RequestType
-     */
-    protected static $DEBUG_DELETE_PLAYER = null;
 
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
@@ -775,6 +655,16 @@ class RequestType extends \Protobuf\Enum
     protected static $SFIDA_CAPTURE = null;
 
     /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $LIST_AVATAR_CUSTOMIZATIONS = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $SET_AVATAR_ITEM_AS_VIEWED = null;
+
+    /**
      * @return \POGOProtos\Networking\Requests\RequestType
      */
     public static function METHOD_UNSET()
@@ -784,18 +674,6 @@ class RequestType extends \Protobuf\Enum
         }
 
         return self::$METHOD_UNSET = new self('METHOD_UNSET', self::METHOD_UNSET_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function PLAYER_UPDATE()
-    {
-        if (self::$PLAYER_UPDATE !== null) {
-            return self::$PLAYER_UPDATE;
-        }
-
-        return self::$PLAYER_UPDATE = new self('PLAYER_UPDATE', self::PLAYER_UPDATE_VALUE);
     }
 
     /**
@@ -921,18 +799,6 @@ class RequestType extends \Protobuf\Enum
     /**
      * @return \POGOProtos\Networking\Requests\RequestType
      */
-    public static function ITEM_USE()
-    {
-        if (self::$ITEM_USE !== null) {
-            return self::$ITEM_USE;
-        }
-
-        return self::$ITEM_USE = new self('ITEM_USE', self::ITEM_USE_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
     public static function GET_MAP_OBJECTS()
     {
         if (self::$GET_MAP_OBJECTS !== null) {
@@ -1029,54 +895,6 @@ class RequestType extends \Protobuf\Enum
     /**
      * @return \POGOProtos\Networking\Requests\RequestType
      */
-    public static function TRADE_SEARCH()
-    {
-        if (self::$TRADE_SEARCH !== null) {
-            return self::$TRADE_SEARCH;
-        }
-
-        return self::$TRADE_SEARCH = new self('TRADE_SEARCH', self::TRADE_SEARCH_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function TRADE_OFFER()
-    {
-        if (self::$TRADE_OFFER !== null) {
-            return self::$TRADE_OFFER;
-        }
-
-        return self::$TRADE_OFFER = new self('TRADE_OFFER', self::TRADE_OFFER_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function TRADE_RESPONSE()
-    {
-        if (self::$TRADE_RESPONSE !== null) {
-            return self::$TRADE_RESPONSE;
-        }
-
-        return self::$TRADE_RESPONSE = new self('TRADE_RESPONSE', self::TRADE_RESPONSE_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function TRADE_RESULT()
-    {
-        if (self::$TRADE_RESULT !== null) {
-            return self::$TRADE_RESULT;
-        }
-
-        return self::$TRADE_RESULT = new self('TRADE_RESULT', self::TRADE_RESULT_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
     public static function GET_PLAYER_PROFILE()
     {
         if (self::$GET_PLAYER_PROFILE !== null) {
@@ -1084,42 +902,6 @@ class RequestType extends \Protobuf\Enum
         }
 
         return self::$GET_PLAYER_PROFILE = new self('GET_PLAYER_PROFILE', self::GET_PLAYER_PROFILE_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function GET_ITEM_PACK()
-    {
-        if (self::$GET_ITEM_PACK !== null) {
-            return self::$GET_ITEM_PACK;
-        }
-
-        return self::$GET_ITEM_PACK = new self('GET_ITEM_PACK', self::GET_ITEM_PACK_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function BUY_ITEM_PACK()
-    {
-        if (self::$BUY_ITEM_PACK !== null) {
-            return self::$BUY_ITEM_PACK;
-        }
-
-        return self::$BUY_ITEM_PACK = new self('BUY_ITEM_PACK', self::BUY_ITEM_PACK_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function BUY_GEM_PACK()
-    {
-        if (self::$BUY_GEM_PACK !== null) {
-            return self::$BUY_GEM_PACK;
-        }
-
-        return self::$BUY_GEM_PACK = new self('BUY_GEM_PACK', self::BUY_GEM_PACK_VALUE);
     }
 
     /**
@@ -1437,6 +1219,18 @@ class RequestType extends \Protobuf\Enum
     /**
      * @return \POGOProtos\Networking\Requests\RequestType
      */
+    public static function USE_ITEM_ENCOUNTER()
+    {
+        if (self::$USE_ITEM_ENCOUNTER !== null) {
+            return self::$USE_ITEM_ENCOUNTER;
+        }
+
+        return self::$USE_ITEM_ENCOUNTER = new self('USE_ITEM_ENCOUNTER', self::USE_ITEM_ENCOUNTER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
     public static function GET_ASSET_DIGEST()
     {
         if (self::$GET_ASSET_DIGEST !== null) {
@@ -1456,30 +1250,6 @@ class RequestType extends \Protobuf\Enum
         }
 
         return self::$GET_DOWNLOAD_URLS = new self('GET_DOWNLOAD_URLS', self::GET_DOWNLOAD_URLS_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function GET_SUGGESTED_CODENAMES()
-    {
-        if (self::$GET_SUGGESTED_CODENAMES !== null) {
-            return self::$GET_SUGGESTED_CODENAMES;
-        }
-
-        return self::$GET_SUGGESTED_CODENAMES = new self('GET_SUGGESTED_CODENAMES', self::GET_SUGGESTED_CODENAMES_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function CHECK_CODENAME_AVAILABLE()
-    {
-        if (self::$CHECK_CODENAME_AVAILABLE !== null) {
-            return self::$CHECK_CODENAME_AVAILABLE;
-        }
-
-        return self::$CHECK_CODENAME_AVAILABLE = new self('CHECK_CODENAME_AVAILABLE', self::CHECK_CODENAME_AVAILABLE_VALUE);
     }
 
     /**
@@ -1533,18 +1303,6 @@ class RequestType extends \Protobuf\Enum
     /**
      * @return \POGOProtos\Networking\Requests\RequestType
      */
-    public static function LOAD_SPAWN_POINTS()
-    {
-        if (self::$LOAD_SPAWN_POINTS !== null) {
-            return self::$LOAD_SPAWN_POINTS;
-        }
-
-        return self::$LOAD_SPAWN_POINTS = new self('LOAD_SPAWN_POINTS', self::LOAD_SPAWN_POINTS_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
     public static function CHECK_CHALLENGE()
     {
         if (self::$CHECK_CHALLENGE !== null) {
@@ -1576,30 +1334,6 @@ class RequestType extends \Protobuf\Enum
         }
 
         return self::$ECHO = new self('ECHO', self::ECHO_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function DEBUG_UPDATE_INVENTORY()
-    {
-        if (self::$DEBUG_UPDATE_INVENTORY !== null) {
-            return self::$DEBUG_UPDATE_INVENTORY;
-        }
-
-        return self::$DEBUG_UPDATE_INVENTORY = new self('DEBUG_UPDATE_INVENTORY', self::DEBUG_UPDATE_INVENTORY_VALUE);
-    }
-
-    /**
-     * @return \POGOProtos\Networking\Requests\RequestType
-     */
-    public static function DEBUG_DELETE_PLAYER()
-    {
-        if (self::$DEBUG_DELETE_PLAYER !== null) {
-            return self::$DEBUG_DELETE_PLAYER;
-        }
-
-        return self::$DEBUG_DELETE_PLAYER = new self('DEBUG_DELETE_PLAYER', self::DEBUG_DELETE_PLAYER_VALUE);
     }
 
     /**
@@ -1687,6 +1421,30 @@ class RequestType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function LIST_AVATAR_CUSTOMIZATIONS()
+    {
+        if (self::$LIST_AVATAR_CUSTOMIZATIONS !== null) {
+            return self::$LIST_AVATAR_CUSTOMIZATIONS;
+        }
+
+        return self::$LIST_AVATAR_CUSTOMIZATIONS = new self('LIST_AVATAR_CUSTOMIZATIONS', self::LIST_AVATAR_CUSTOMIZATIONS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function SET_AVATAR_ITEM_AS_VIEWED()
+    {
+        if (self::$SET_AVATAR_ITEM_AS_VIEWED !== null) {
+            return self::$SET_AVATAR_ITEM_AS_VIEWED;
+        }
+
+        return self::$SET_AVATAR_ITEM_AS_VIEWED = new self('SET_AVATAR_ITEM_AS_VIEWED', self::SET_AVATAR_ITEM_AS_VIEWED_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Requests\RequestType
      */
@@ -1694,7 +1452,6 @@ class RequestType extends \Protobuf\Enum
     {
         switch ($value) {
             case 0: return self::METHOD_UNSET();
-            case 1: return self::PLAYER_UPDATE();
             case 2: return self::GET_PLAYER();
             case 4: return self::GET_INVENTORY();
             case 5: return self::DOWNLOAD_SETTINGS();
@@ -1705,7 +1462,6 @@ class RequestType extends \Protobuf\Enum
             case 102: return self::ENCOUNTER();
             case 103: return self::CATCH_POKEMON();
             case 104: return self::FORT_DETAILS();
-            case 105: return self::ITEM_USE();
             case 106: return self::GET_MAP_OBJECTS();
             case 110: return self::FORT_DEPLOY_POKEMON();
             case 111: return self::FORT_RECALL_POKEMON();
@@ -1714,14 +1470,7 @@ class RequestType extends \Protobuf\Enum
             case 114: return self::USE_ITEM_CAPTURE();
             case 115: return self::USE_ITEM_FLEE();
             case 116: return self::USE_ITEM_REVIVE();
-            case 117: return self::TRADE_SEARCH();
-            case 118: return self::TRADE_OFFER();
-            case 119: return self::TRADE_RESPONSE();
-            case 120: return self::TRADE_RESULT();
             case 121: return self::GET_PLAYER_PROFILE();
-            case 122: return self::GET_ITEM_PACK();
-            case 123: return self::BUY_ITEM_PACK();
-            case 124: return self::BUY_GEM_PACK();
             case 125: return self::EVOLVE_POKEMON();
             case 126: return self::GET_HATCHED_EGGS();
             case 127: return self::ENCOUNTER_TUTORIAL_COMPLETE();
@@ -1748,20 +1497,16 @@ class RequestType extends \Protobuf\Enum
             case 151: return self::SET_CONTACT_SETTINGS();
             case 152: return self::SET_BUDDY_POKEMON();
             case 153: return self::GET_BUDDY_WALKED();
+            case 154: return self::USE_ITEM_ENCOUNTER();
             case 300: return self::GET_ASSET_DIGEST();
             case 301: return self::GET_DOWNLOAD_URLS();
-            case 401: return self::GET_SUGGESTED_CODENAMES();
-            case 402: return self::CHECK_CODENAME_AVAILABLE();
             case 403: return self::CLAIM_CODENAME();
             case 404: return self::SET_AVATAR();
             case 405: return self::SET_PLAYER_TEAM();
             case 406: return self::MARK_TUTORIAL_COMPLETE();
-            case 500: return self::LOAD_SPAWN_POINTS();
             case 600: return self::CHECK_CHALLENGE();
             case 601: return self::VERIFY_CHALLENGE();
             case 666: return self::ECHO();
-            case 700: return self::DEBUG_UPDATE_INVENTORY();
-            case 701: return self::DEBUG_DELETE_PLAYER();
             case 800: return self::SFIDA_REGISTRATION();
             case 801: return self::SFIDA_ACTION_LOG();
             case 802: return self::SFIDA_CERTIFICATION();
@@ -1769,6 +1514,8 @@ class RequestType extends \Protobuf\Enum
             case 804: return self::SFIDA_ACTION();
             case 805: return self::SFIDA_DOWSER();
             case 806: return self::SFIDA_CAPTURE();
+            case 807: return self::LIST_AVATAR_CUSTOMIZATIONS();
+            case 808: return self::SET_AVATAR_ITEM_AS_VIEWED();
             default: return null;
         }
     }

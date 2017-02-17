@@ -46,6 +46,13 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
     protected $items_unlocked = null;
 
     /**
+     * avatar_template_ids repeated string = 5
+     *
+     * @var \Protobuf\Collection
+     */
+    protected $avatar_template_ids = null;
+
+    /**
      * Check if 'result' has a value
      *
      * @return bool
@@ -164,6 +171,50 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'avatar_template_ids' has a value
+     *
+     * @return bool
+     */
+    public function hasAvatarTemplateIdsList()
+    {
+        return $this->avatar_template_ids !== null;
+    }
+
+    /**
+     * Get 'avatar_template_ids' value
+     *
+     * @return \Protobuf\Collection
+     */
+    public function getAvatarTemplateIdsList()
+    {
+        return $this->avatar_template_ids;
+    }
+
+    /**
+     * Set 'avatar_template_ids' value
+     *
+     * @param \Protobuf\Collection $value
+     */
+    public function setAvatarTemplateIdsList(\Protobuf\Collection $value = null)
+    {
+        $this->avatar_template_ids = $value;
+    }
+
+    /**
+     * Add a new element to 'avatar_template_ids'
+     *
+     * @param string $value
+     */
+    public function addAvatarTemplateIds($value)
+    {
+        if ($this->avatar_template_ids === null) {
+            $this->avatar_template_ids = new \Protobuf\ScalarCollection();
+        }
+
+        $this->avatar_template_ids->add($value);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -200,7 +251,8 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'result' => null,
             'items_awarded' => [],
-            'items_unlocked' => []
+            'items_unlocked' => [],
+            'avatar_template_ids' => []
         ], $values);
 
         $message->setResult($values['result']);
@@ -211,6 +263,10 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
 
         foreach ($values['items_unlocked'] as $item) {
             $message->addItemsUnlocked($item);
+        }
+
+        foreach ($values['avatar_template_ids'] as $item) {
+            $message->addAvatarTemplateIds($item);
         }
 
         return $message;
@@ -244,6 +300,12 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
                     'type_name' => '.POGOProtos.Inventory.Item.ItemId'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'avatar_template_ids',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
             ],
         ]);
@@ -290,6 +352,13 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
             foreach ($this->items_unlocked as $val) {
                 $writer->writeVarint($stream, 32);
                 $writer->writeVarint($stream, $val->value());
+            }
+        }
+
+        if ($this->avatar_template_ids !== null) {
+            foreach ($this->avatar_template_ids as $val) {
+                $writer->writeVarint($stream, 42);
+                $writer->writeString($stream, $val);
             }
         }
 
@@ -369,6 +438,18 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                if ($this->avatar_template_ids === null) {
+                    $this->avatar_template_ids = new \Protobuf\ScalarCollection();
+                }
+
+                $this->avatar_template_ids->add($reader->readString($stream));
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -420,6 +501,13 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->avatar_template_ids !== null) {
+            foreach ($this->avatar_template_ids as $val) {
+                $size += 1;
+                $size += $calculator->computeStringSize($val);
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -435,6 +523,7 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
         $this->result = null;
         $this->items_awarded = null;
         $this->items_unlocked = null;
+        $this->avatar_template_ids = null;
     }
 
     /**
@@ -449,6 +538,7 @@ class LevelUpRewardsResponse extends \Protobuf\AbstractMessage
         $this->result = ($message->result !== null) ? $message->result : $this->result;
         $this->items_awarded = ($message->items_awarded !== null) ? $message->items_awarded : $this->items_awarded;
         $this->items_unlocked = ($message->items_unlocked !== null) ? $message->items_unlocked : $this->items_unlocked;
+        $this->avatar_template_ids = ($message->avatar_template_ids !== null) ? $message->avatar_template_ids : $this->avatar_template_ids;
     }
 
 

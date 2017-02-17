@@ -45,6 +45,11 @@ class PlatformRequestType extends \Protobuf\Enum
     const SEND_ENCRYPTED_SIGNATURE_VALUE = 6;
 
     /**
+     * UNKNOWN_PTR_8 = 8
+     */
+    const UNKNOWN_PTR_8_VALUE = 8;
+
+    /**
      * @var \POGOProtos\Networking\Platform\PlatformRequestType
      */
     protected static $METHOD_UNSET = null;
@@ -73,6 +78,11 @@ class PlatformRequestType extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Platform\PlatformRequestType
      */
     protected static $SEND_ENCRYPTED_SIGNATURE = null;
+
+    /**
+     * @var \POGOProtos\Networking\Platform\PlatformRequestType
+     */
+    protected static $UNKNOWN_PTR_8 = null;
 
     /**
      * @return \POGOProtos\Networking\Platform\PlatformRequestType
@@ -147,6 +157,18 @@ class PlatformRequestType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Platform\PlatformRequestType
+     */
+    public static function UNKNOWN_PTR_8()
+    {
+        if (self::$UNKNOWN_PTR_8 !== null) {
+            return self::$UNKNOWN_PTR_8;
+        }
+
+        return self::$UNKNOWN_PTR_8 = new self('UNKNOWN_PTR_8', self::UNKNOWN_PTR_8_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Platform\PlatformRequestType
      */
@@ -159,6 +181,7 @@ class PlatformRequestType extends \Protobuf\Enum
             case 4: return self::BUY_ITEM_IOS();
             case 5: return self::GET_STORE_ITEMS();
             case 6: return self::SEND_ENCRYPTED_SIGNATURE();
+            case 8: return self::UNKNOWN_PTR_8();
             default: return null;
         }
     }

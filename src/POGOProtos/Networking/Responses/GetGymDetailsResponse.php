@@ -60,6 +60,13 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
     protected $description = null;
 
     /**
+     * secondary_url repeated string = 6
+     *
+     * @var \Protobuf\Collection
+     */
+    protected $secondary_url = null;
+
+    /**
      * Check if 'gym_state' has a value
      *
      * @return bool
@@ -224,6 +231,50 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'secondary_url' has a value
+     *
+     * @return bool
+     */
+    public function hasSecondaryUrlList()
+    {
+        return $this->secondary_url !== null;
+    }
+
+    /**
+     * Get 'secondary_url' value
+     *
+     * @return \Protobuf\Collection
+     */
+    public function getSecondaryUrlList()
+    {
+        return $this->secondary_url;
+    }
+
+    /**
+     * Set 'secondary_url' value
+     *
+     * @param \Protobuf\Collection $value
+     */
+    public function setSecondaryUrlList(\Protobuf\Collection $value = null)
+    {
+        $this->secondary_url = $value;
+    }
+
+    /**
+     * Add a new element to 'secondary_url'
+     *
+     * @param string $value
+     */
+    public function addSecondaryUrl($value)
+    {
+        if ($this->secondary_url === null) {
+            $this->secondary_url = new \Protobuf\ScalarCollection();
+        }
+
+        $this->secondary_url->add($value);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -262,7 +313,8 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
             'name' => null,
             'urls' => [],
             'result' => null,
-            'description' => null
+            'description' => null,
+            'secondary_url' => []
         ], $values);
 
         $message->setGymState($values['gym_state']);
@@ -272,6 +324,10 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
 
         foreach ($values['urls'] as $item) {
             $message->addUrls($item);
+        }
+
+        foreach ($values['secondary_url'] as $item) {
+            $message->addSecondaryUrl($item);
         }
 
         return $message;
@@ -316,6 +372,12 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
                     'name' => 'description',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'secondary_url',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
             ],
         ]);
@@ -371,6 +433,13 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
         if ($this->description !== null) {
             $writer->writeVarint($stream, 42);
             $writer->writeString($stream, $this->description);
+        }
+
+        if ($this->secondary_url !== null) {
+            foreach ($this->secondary_url as $val) {
+                $writer->writeVarint($stream, 50);
+                $writer->writeString($stream, $val);
+            }
         }
 
         if ($this->extensions !== null) {
@@ -458,6 +527,18 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 6) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                if ($this->secondary_url === null) {
+                    $this->secondary_url = new \Protobuf\ScalarCollection();
+                }
+
+                $this->secondary_url->add($reader->readString($stream));
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -517,6 +598,13 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeStringSize($this->description);
         }
 
+        if ($this->secondary_url !== null) {
+            foreach ($this->secondary_url as $val) {
+                $size += 1;
+                $size += $calculator->computeStringSize($val);
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -534,6 +622,7 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
         $this->urls = null;
         $this->result = null;
         $this->description = null;
+        $this->secondary_url = null;
     }
 
     /**
@@ -550,6 +639,7 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
         $this->urls = ($message->urls !== null) ? $message->urls : $this->urls;
         $this->result = ($message->result !== null) ? $message->result : $this->result;
         $this->description = ($message->description !== null) ? $message->description : $this->description;
+        $this->secondary_url = ($message->secondary_url !== null) ? $message->secondary_url : $this->secondary_url;
     }
 
 

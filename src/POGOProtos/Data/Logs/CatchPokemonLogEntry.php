@@ -53,6 +53,13 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
     protected $pokemon_data_id = null;
 
     /**
+     * pokemon_display optional message = 5
+     *
+     * @var \POGOProtos\Data\PokemonDisplay
+     */
+    protected $pokemon_display = null;
+
+    /**
      * Check if 'result' has a value
      *
      * @return bool
@@ -173,6 +180,36 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'pokemon_display' has a value
+     *
+     * @return bool
+     */
+    public function hasPokemonDisplay()
+    {
+        return $this->pokemon_display !== null;
+    }
+
+    /**
+     * Get 'pokemon_display' value
+     *
+     * @return \POGOProtos\Data\PokemonDisplay
+     */
+    public function getPokemonDisplay()
+    {
+        return $this->pokemon_display;
+    }
+
+    /**
+     * Set 'pokemon_display' value
+     *
+     * @param \POGOProtos\Data\PokemonDisplay $value
+     */
+    public function setPokemonDisplay(\POGOProtos\Data\PokemonDisplay $value = null)
+    {
+        $this->pokemon_display = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -210,13 +247,15 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
             'result' => null,
             'pokemon_id' => null,
             'combat_points' => null,
-            'pokemon_data_id' => null
+            'pokemon_data_id' => null,
+            'pokemon_display' => null
         ], $values);
 
         $message->setResult($values['result']);
         $message->setPokemonId($values['pokemon_id']);
         $message->setCombatPoints($values['combat_points']);
         $message->setPokemonDataId($values['pokemon_data_id']);
+        $message->setPokemonDisplay($values['pokemon_display']);
 
         return $message;
     }
@@ -254,6 +293,13 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
                     'name' => 'pokemon_data_id',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'pokemon_display',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.PokemonDisplay'
                 ]),
             ],
         ]);
@@ -301,6 +347,12 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
         if ($this->pokemon_data_id !== null) {
             $writer->writeVarint($stream, 33);
             $writer->writeFixed64($stream, $this->pokemon_data_id);
+        }
+
+        if ($this->pokemon_display !== null) {
+            $writer->writeVarint($stream, 42);
+            $writer->writeVarint($stream, $this->pokemon_display->serializedSize($sizeContext));
+            $this->pokemon_display->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -369,6 +421,21 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PokemonDisplay();
+
+                $this->pokemon_display = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -418,6 +485,14 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
+        if ($this->pokemon_display !== null) {
+            $innerSize = $this->pokemon_display->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -434,6 +509,7 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
         $this->pokemon_id = null;
         $this->combat_points = null;
         $this->pokemon_data_id = null;
+        $this->pokemon_display = null;
     }
 
     /**
@@ -449,6 +525,7 @@ class CatchPokemonLogEntry extends \Protobuf\AbstractMessage
         $this->pokemon_id = ($message->pokemon_id !== null) ? $message->pokemon_id : $this->pokemon_id;
         $this->combat_points = ($message->combat_points !== null) ? $message->combat_points : $this->combat_points;
         $this->pokemon_data_id = ($message->pokemon_data_id !== null) ? $message->pokemon_data_id : $this->pokemon_data_id;
+        $this->pokemon_display = ($message->pokemon_display !== null) ? $message->pokemon_display : $this->pokemon_display;
     }
 
 

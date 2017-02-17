@@ -74,6 +74,13 @@ class MapSettings extends \Protobuf\AbstractMessage
     protected $google_maps_api_key = null;
 
     /**
+     * min_nearby_hide_sightings optional int32 = 8
+     *
+     * @var int
+     */
+    protected $min_nearby_hide_sightings = null;
+
+    /**
      * Check if 'pokemon_visible_range' has a value
      *
      * @return bool
@@ -284,6 +291,36 @@ class MapSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'min_nearby_hide_sightings' has a value
+     *
+     * @return bool
+     */
+    public function hasMinNearbyHideSightings()
+    {
+        return $this->min_nearby_hide_sightings !== null;
+    }
+
+    /**
+     * Get 'min_nearby_hide_sightings' value
+     *
+     * @return int
+     */
+    public function getMinNearbyHideSightings()
+    {
+        return $this->min_nearby_hide_sightings;
+    }
+
+    /**
+     * Set 'min_nearby_hide_sightings' value
+     *
+     * @param int $value
+     */
+    public function setMinNearbyHideSightings($value = null)
+    {
+        $this->min_nearby_hide_sightings = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -324,7 +361,8 @@ class MapSettings extends \Protobuf\AbstractMessage
             'get_map_objects_min_refresh_seconds' => null,
             'get_map_objects_max_refresh_seconds' => null,
             'get_map_objects_min_distance_meters' => null,
-            'google_maps_api_key' => null
+            'google_maps_api_key' => null,
+            'min_nearby_hide_sightings' => null
         ], $values);
 
         $message->setPokemonVisibleRange($values['pokemon_visible_range']);
@@ -334,6 +372,7 @@ class MapSettings extends \Protobuf\AbstractMessage
         $message->setGetMapObjectsMaxRefreshSeconds($values['get_map_objects_max_refresh_seconds']);
         $message->setGetMapObjectsMinDistanceMeters($values['get_map_objects_min_distance_meters']);
         $message->setGoogleMapsApiKey($values['google_maps_api_key']);
+        $message->setMinNearbyHideSightings($values['min_nearby_hide_sightings']);
 
         return $message;
     }
@@ -386,6 +425,12 @@ class MapSettings extends \Protobuf\AbstractMessage
                     'number' => 7,
                     'name' => 'google_maps_api_key',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'min_nearby_hide_sightings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -449,6 +494,11 @@ class MapSettings extends \Protobuf\AbstractMessage
         if ($this->google_maps_api_key !== null) {
             $writer->writeVarint($stream, 58);
             $writer->writeString($stream, $this->google_maps_api_key);
+        }
+
+        if ($this->min_nearby_hide_sightings !== null) {
+            $writer->writeVarint($stream, 64);
+            $writer->writeVarint($stream, $this->min_nearby_hide_sightings);
         }
 
         if ($this->extensions !== null) {
@@ -541,6 +591,14 @@ class MapSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 8) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->min_nearby_hide_sightings = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -605,6 +663,11 @@ class MapSettings extends \Protobuf\AbstractMessage
             $size += $calculator->computeStringSize($this->google_maps_api_key);
         }
 
+        if ($this->min_nearby_hide_sightings !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->min_nearby_hide_sightings);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -624,6 +687,7 @@ class MapSettings extends \Protobuf\AbstractMessage
         $this->get_map_objects_max_refresh_seconds = null;
         $this->get_map_objects_min_distance_meters = null;
         $this->google_maps_api_key = null;
+        $this->min_nearby_hide_sightings = null;
     }
 
     /**
@@ -642,6 +706,7 @@ class MapSettings extends \Protobuf\AbstractMessage
         $this->get_map_objects_max_refresh_seconds = ($message->get_map_objects_max_refresh_seconds !== null) ? $message->get_map_objects_max_refresh_seconds : $this->get_map_objects_max_refresh_seconds;
         $this->get_map_objects_min_distance_meters = ($message->get_map_objects_min_distance_meters !== null) ? $message->get_map_objects_min_distance_meters : $this->get_map_objects_min_distance_meters;
         $this->google_maps_api_key = ($message->google_maps_api_key !== null) ? $message->google_maps_api_key : $this->google_maps_api_key;
+        $this->min_nearby_hide_sightings = ($message->min_nearby_hide_sightings !== null) ? $message->min_nearby_hide_sightings : $this->min_nearby_hide_sightings;
     }
 
 

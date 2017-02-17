@@ -146,6 +146,27 @@ class ItemTemplate extends \Protobuf\AbstractMessage
     protected $quest_settings = null;
 
     /**
+     * avatar_customization optional message = 21
+     *
+     * @var \POGOProtos\Settings\Master\AvatarCustomizationSettings
+     */
+    protected $avatar_customization = null;
+
+    /**
+     * form_settings optional message = 22
+     *
+     * @var \POGOProtos\Settings\Master\FormSettings
+     */
+    protected $form_settings = null;
+
+    /**
+     * gender_settings optional message = 23
+     *
+     * @var \POGOProtos\Settings\Master\GenderSettings
+     */
+    protected $gender_settings = null;
+
+    /**
      * Check if 'template_id' has a value
      *
      * @return bool
@@ -656,6 +677,96 @@ class ItemTemplate extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'avatar_customization' has a value
+     *
+     * @return bool
+     */
+    public function hasAvatarCustomization()
+    {
+        return $this->avatar_customization !== null;
+    }
+
+    /**
+     * Get 'avatar_customization' value
+     *
+     * @return \POGOProtos\Settings\Master\AvatarCustomizationSettings
+     */
+    public function getAvatarCustomization()
+    {
+        return $this->avatar_customization;
+    }
+
+    /**
+     * Set 'avatar_customization' value
+     *
+     * @param \POGOProtos\Settings\Master\AvatarCustomizationSettings $value
+     */
+    public function setAvatarCustomization(\POGOProtos\Settings\Master\AvatarCustomizationSettings $value = null)
+    {
+        $this->avatar_customization = $value;
+    }
+
+    /**
+     * Check if 'form_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasFormSettings()
+    {
+        return $this->form_settings !== null;
+    }
+
+    /**
+     * Get 'form_settings' value
+     *
+     * @return \POGOProtos\Settings\Master\FormSettings
+     */
+    public function getFormSettings()
+    {
+        return $this->form_settings;
+    }
+
+    /**
+     * Set 'form_settings' value
+     *
+     * @param \POGOProtos\Settings\Master\FormSettings $value
+     */
+    public function setFormSettings(\POGOProtos\Settings\Master\FormSettings $value = null)
+    {
+        $this->form_settings = $value;
+    }
+
+    /**
+     * Check if 'gender_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasGenderSettings()
+    {
+        return $this->gender_settings !== null;
+    }
+
+    /**
+     * Get 'gender_settings' value
+     *
+     * @return \POGOProtos\Settings\Master\GenderSettings
+     */
+    public function getGenderSettings()
+    {
+        return $this->gender_settings;
+    }
+
+    /**
+     * Set 'gender_settings' value
+     *
+     * @param \POGOProtos\Settings\Master\GenderSettings $value
+     */
+    public function setGenderSettings(\POGOProtos\Settings\Master\GenderSettings $value = null)
+    {
+        $this->gender_settings = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -706,7 +817,10 @@ class ItemTemplate extends \Protobuf\AbstractMessage
             'iap_settings' => null,
             'pokemon_upgrades' => null,
             'equipped_badges' => null,
-            'quest_settings' => null
+            'quest_settings' => null,
+            'avatar_customization' => null,
+            'form_settings' => null,
+            'gender_settings' => null
         ], $values);
 
         $message->setTemplateId($values['template_id']);
@@ -726,6 +840,9 @@ class ItemTemplate extends \Protobuf\AbstractMessage
         $message->setPokemonUpgrades($values['pokemon_upgrades']);
         $message->setEquippedBadges($values['equipped_badges']);
         $message->setQuestSettings($values['quest_settings']);
+        $message->setAvatarCustomization($values['avatar_customization']);
+        $message->setFormSettings($values['form_settings']);
+        $message->setGenderSettings($values['gender_settings']);
 
         return $message;
     }
@@ -856,6 +973,27 @@ class ItemTemplate extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Settings.Master.QuestSettings'
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 21,
+                    'name' => 'avatar_customization',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.Master.AvatarCustomizationSettings'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 22,
+                    'name' => 'form_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.Master.FormSettings'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 23,
+                    'name' => 'gender_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.Master.GenderSettings'
+                ]),
             ],
         ]);
     }
@@ -983,6 +1121,24 @@ class ItemTemplate extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 162);
             $writer->writeVarint($stream, $this->quest_settings->serializedSize($sizeContext));
             $this->quest_settings->writeTo($context);
+        }
+
+        if ($this->avatar_customization !== null) {
+            $writer->writeVarint($stream, 170);
+            $writer->writeVarint($stream, $this->avatar_customization->serializedSize($sizeContext));
+            $this->avatar_customization->writeTo($context);
+        }
+
+        if ($this->form_settings !== null) {
+            $writer->writeVarint($stream, 178);
+            $writer->writeVarint($stream, $this->form_settings->serializedSize($sizeContext));
+            $this->form_settings->writeTo($context);
+        }
+
+        if ($this->gender_settings !== null) {
+            $writer->writeVarint($stream, 186);
+            $writer->writeVarint($stream, $this->gender_settings->serializedSize($sizeContext));
+            $this->gender_settings->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -1267,6 +1423,51 @@ class ItemTemplate extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 21) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\Master\AvatarCustomizationSettings();
+
+                $this->avatar_customization = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 22) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\Master\FormSettings();
+
+                $this->form_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 23) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\Master\GenderSettings();
+
+                $this->gender_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1429,6 +1630,30 @@ class ItemTemplate extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->avatar_customization !== null) {
+            $innerSize = $this->avatar_customization->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->form_settings !== null) {
+            $innerSize = $this->form_settings->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->gender_settings !== null) {
+            $innerSize = $this->gender_settings->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1458,6 +1683,9 @@ class ItemTemplate extends \Protobuf\AbstractMessage
         $this->pokemon_upgrades = null;
         $this->equipped_badges = null;
         $this->quest_settings = null;
+        $this->avatar_customization = null;
+        $this->form_settings = null;
+        $this->gender_settings = null;
     }
 
     /**
@@ -1486,6 +1714,9 @@ class ItemTemplate extends \Protobuf\AbstractMessage
         $this->pokemon_upgrades = ($message->pokemon_upgrades !== null) ? $message->pokemon_upgrades : $this->pokemon_upgrades;
         $this->equipped_badges = ($message->equipped_badges !== null) ? $message->equipped_badges : $this->equipped_badges;
         $this->quest_settings = ($message->quest_settings !== null) ? $message->quest_settings : $this->quest_settings;
+        $this->avatar_customization = ($message->avatar_customization !== null) ? $message->avatar_customization : $this->avatar_customization;
+        $this->form_settings = ($message->form_settings !== null) ? $message->form_settings : $this->form_settings;
+        $this->gender_settings = ($message->gender_settings !== null) ? $message->gender_settings : $this->gender_settings;
     }
 
 

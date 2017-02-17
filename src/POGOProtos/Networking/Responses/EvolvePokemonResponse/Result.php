@@ -45,6 +45,11 @@ class Result extends \Protobuf\Enum
     const FAILED_POKEMON_IS_DEPLOYED_VALUE = 5;
 
     /**
+     * FAILED_INVALID_ITEM_REQUIREMENT = 6
+     */
+    const FAILED_INVALID_ITEM_REQUIREMENT_VALUE = 6;
+
+    /**
      * @var \POGOProtos\Networking\Responses\EvolvePokemonResponse\Result
      */
     protected static $UNSET = null;
@@ -73,6 +78,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\EvolvePokemonResponse\Result
      */
     protected static $FAILED_POKEMON_IS_DEPLOYED = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\EvolvePokemonResponse\Result
+     */
+    protected static $FAILED_INVALID_ITEM_REQUIREMENT = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\EvolvePokemonResponse\Result
@@ -147,6 +157,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\EvolvePokemonResponse\Result
+     */
+    public static function FAILED_INVALID_ITEM_REQUIREMENT()
+    {
+        if (self::$FAILED_INVALID_ITEM_REQUIREMENT !== null) {
+            return self::$FAILED_INVALID_ITEM_REQUIREMENT;
+        }
+
+        return self::$FAILED_INVALID_ITEM_REQUIREMENT = new self('FAILED_INVALID_ITEM_REQUIREMENT', self::FAILED_INVALID_ITEM_REQUIREMENT_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\EvolvePokemonResponse\Result
      */
@@ -159,6 +181,7 @@ class Result extends \Protobuf\Enum
             case 3: return self::FAILED_INSUFFICIENT_RESOURCES();
             case 4: return self::FAILED_POKEMON_CANNOT_EVOLVE();
             case 5: return self::FAILED_POKEMON_IS_DEPLOYED();
+            case 6: return self::FAILED_INVALID_ITEM_REQUIREMENT();
             default: return null;
         }
     }

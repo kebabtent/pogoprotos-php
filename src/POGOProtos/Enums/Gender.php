@@ -15,14 +15,29 @@ class Gender extends \Protobuf\Enum
 {
 
     /**
-     * MALE = 0
+     * GENDER_UNSET = 0
      */
-    const MALE_VALUE = 0;
+    const GENDER_UNSET_VALUE = 0;
 
     /**
-     * FEMALE = 1
+     * MALE = 1
      */
-    const FEMALE_VALUE = 1;
+    const MALE_VALUE = 1;
+
+    /**
+     * FEMALE = 2
+     */
+    const FEMALE_VALUE = 2;
+
+    /**
+     * GENDERLESS = 3
+     */
+    const GENDERLESS_VALUE = 3;
+
+    /**
+     * @var \POGOProtos\Enums\Gender
+     */
+    protected static $GENDER_UNSET = null;
 
     /**
      * @var \POGOProtos\Enums\Gender
@@ -33,6 +48,23 @@ class Gender extends \Protobuf\Enum
      * @var \POGOProtos\Enums\Gender
      */
     protected static $FEMALE = null;
+
+    /**
+     * @var \POGOProtos\Enums\Gender
+     */
+    protected static $GENDERLESS = null;
+
+    /**
+     * @return \POGOProtos\Enums\Gender
+     */
+    public static function GENDER_UNSET()
+    {
+        if (self::$GENDER_UNSET !== null) {
+            return self::$GENDER_UNSET;
+        }
+
+        return self::$GENDER_UNSET = new self('GENDER_UNSET', self::GENDER_UNSET_VALUE);
+    }
 
     /**
      * @return \POGOProtos\Enums\Gender
@@ -59,14 +91,28 @@ class Gender extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\Gender
+     */
+    public static function GENDERLESS()
+    {
+        if (self::$GENDERLESS !== null) {
+            return self::$GENDERLESS;
+        }
+
+        return self::$GENDERLESS = new self('GENDERLESS', self::GENDERLESS_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\Gender
      */
     public static function valueOf($value)
     {
         switch ($value) {
-            case 0: return self::MALE();
-            case 1: return self::FEMALE();
+            case 0: return self::GENDER_UNSET();
+            case 1: return self::MALE();
+            case 2: return self::FEMALE();
+            case 3: return self::GENDERLESS();
             default: return null;
         }
     }

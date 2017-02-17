@@ -75,6 +75,11 @@ class ItemCategory extends \Protobuf\Enum
     const ITEM_CATEGORY_INVENTORY_UPGRADE_VALUE = 11;
 
     /**
+     * ITEM_CATEGORY_EVOLUTION_REQUIREMENT = 12
+     */
+    const ITEM_CATEGORY_EVOLUTION_REQUIREMENT_VALUE = 12;
+
+    /**
      * @var \POGOProtos\Enums\ItemCategory
      */
     protected static $ITEM_CATEGORY_NONE = null;
@@ -133,6 +138,11 @@ class ItemCategory extends \Protobuf\Enum
      * @var \POGOProtos\Enums\ItemCategory
      */
     protected static $ITEM_CATEGORY_INVENTORY_UPGRADE = null;
+
+    /**
+     * @var \POGOProtos\Enums\ItemCategory
+     */
+    protected static $ITEM_CATEGORY_EVOLUTION_REQUIREMENT = null;
 
     /**
      * @return \POGOProtos\Enums\ItemCategory
@@ -279,6 +289,18 @@ class ItemCategory extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\ItemCategory
+     */
+    public static function ITEM_CATEGORY_EVOLUTION_REQUIREMENT()
+    {
+        if (self::$ITEM_CATEGORY_EVOLUTION_REQUIREMENT !== null) {
+            return self::$ITEM_CATEGORY_EVOLUTION_REQUIREMENT;
+        }
+
+        return self::$ITEM_CATEGORY_EVOLUTION_REQUIREMENT = new self('ITEM_CATEGORY_EVOLUTION_REQUIREMENT', self::ITEM_CATEGORY_EVOLUTION_REQUIREMENT_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\ItemCategory
      */
@@ -297,6 +319,7 @@ class ItemCategory extends \Protobuf\Enum
             case 9: return self::ITEM_CATEGORY_INCENSE();
             case 10: return self::ITEM_CATEGORY_XP_BOOST();
             case 11: return self::ITEM_CATEGORY_INVENTORY_UPGRADE();
+            case 12: return self::ITEM_CATEGORY_EVOLUTION_REQUIREMENT();
             default: return null;
         }
     }
