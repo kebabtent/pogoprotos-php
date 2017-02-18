@@ -60,6 +60,62 @@ class PokedexEntry extends \Protobuf\AbstractMessage
     protected $evolution_stones = null;
 
     /**
+     * captured_costumes repeated enum = 6
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Enums\Costume>
+     */
+    protected $captured_costumes = null;
+
+    /**
+     * captured_forms repeated enum = 7
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Enums\Form>
+     */
+    protected $captured_forms = null;
+
+    /**
+     * captured_genders repeated enum = 8
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Enums\Gender>
+     */
+    protected $captured_genders = null;
+
+    /**
+     * captured_shiny optional bool = 9
+     *
+     * @var bool
+     */
+    protected $captured_shiny = null;
+
+    /**
+     * encountered_costumes repeated enum = 10
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Enums\Costume>
+     */
+    protected $encountered_costumes = null;
+
+    /**
+     * encountered_forms repeated enum = 11
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Enums\Form>
+     */
+    protected $encountered_forms = null;
+
+    /**
+     * encountered_genders repeated enum = 12
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Enums\Gender>
+     */
+    protected $encountered_genders = null;
+
+    /**
+     * encountered_shiny optional bool = 13
+     *
+     * @var bool
+     */
+    protected $encountered_shiny = null;
+
+    /**
      * Check if 'pokemon_id' has a value
      *
      * @return bool
@@ -210,6 +266,330 @@ class PokedexEntry extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'captured_costumes' has a value
+     *
+     * @return bool
+     */
+    public function hasCapturedCostumesList()
+    {
+        return $this->captured_costumes !== null;
+    }
+
+    /**
+     * Get 'captured_costumes' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Enums\Costume>
+     */
+    public function getCapturedCostumesList()
+    {
+        return $this->captured_costumes;
+    }
+
+    /**
+     * Set 'captured_costumes' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Enums\Costume> $value
+     */
+    public function setCapturedCostumesList(\Protobuf\Collection $value = null)
+    {
+        $this->captured_costumes = $value;
+    }
+
+    /**
+     * Add a new element to 'captured_costumes'
+     *
+     * @param \POGOProtos\Enums\Costume $value
+     */
+    public function addCapturedCostumes(\POGOProtos\Enums\Costume $value)
+    {
+        if ($this->captured_costumes === null) {
+            $this->captured_costumes = new \Protobuf\EnumCollection();
+        }
+
+        $this->captured_costumes->add($value);
+    }
+
+    /**
+     * Check if 'captured_forms' has a value
+     *
+     * @return bool
+     */
+    public function hasCapturedFormsList()
+    {
+        return $this->captured_forms !== null;
+    }
+
+    /**
+     * Get 'captured_forms' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Enums\Form>
+     */
+    public function getCapturedFormsList()
+    {
+        return $this->captured_forms;
+    }
+
+    /**
+     * Set 'captured_forms' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Enums\Form> $value
+     */
+    public function setCapturedFormsList(\Protobuf\Collection $value = null)
+    {
+        $this->captured_forms = $value;
+    }
+
+    /**
+     * Add a new element to 'captured_forms'
+     *
+     * @param \POGOProtos\Enums\Form $value
+     */
+    public function addCapturedForms(\POGOProtos\Enums\Form $value)
+    {
+        if ($this->captured_forms === null) {
+            $this->captured_forms = new \Protobuf\EnumCollection();
+        }
+
+        $this->captured_forms->add($value);
+    }
+
+    /**
+     * Check if 'captured_genders' has a value
+     *
+     * @return bool
+     */
+    public function hasCapturedGendersList()
+    {
+        return $this->captured_genders !== null;
+    }
+
+    /**
+     * Get 'captured_genders' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Enums\Gender>
+     */
+    public function getCapturedGendersList()
+    {
+        return $this->captured_genders;
+    }
+
+    /**
+     * Set 'captured_genders' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Enums\Gender> $value
+     */
+    public function setCapturedGendersList(\Protobuf\Collection $value = null)
+    {
+        $this->captured_genders = $value;
+    }
+
+    /**
+     * Add a new element to 'captured_genders'
+     *
+     * @param \POGOProtos\Enums\Gender $value
+     */
+    public function addCapturedGenders(\POGOProtos\Enums\Gender $value)
+    {
+        if ($this->captured_genders === null) {
+            $this->captured_genders = new \Protobuf\EnumCollection();
+        }
+
+        $this->captured_genders->add($value);
+    }
+
+    /**
+     * Check if 'captured_shiny' has a value
+     *
+     * @return bool
+     */
+    public function hasCapturedShiny()
+    {
+        return $this->captured_shiny !== null;
+    }
+
+    /**
+     * Get 'captured_shiny' value
+     *
+     * @return bool
+     */
+    public function getCapturedShiny()
+    {
+        return $this->captured_shiny;
+    }
+
+    /**
+     * Set 'captured_shiny' value
+     *
+     * @param bool $value
+     */
+    public function setCapturedShiny($value = null)
+    {
+        $this->captured_shiny = $value;
+    }
+
+    /**
+     * Check if 'encountered_costumes' has a value
+     *
+     * @return bool
+     */
+    public function hasEncounteredCostumesList()
+    {
+        return $this->encountered_costumes !== null;
+    }
+
+    /**
+     * Get 'encountered_costumes' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Enums\Costume>
+     */
+    public function getEncounteredCostumesList()
+    {
+        return $this->encountered_costumes;
+    }
+
+    /**
+     * Set 'encountered_costumes' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Enums\Costume> $value
+     */
+    public function setEncounteredCostumesList(\Protobuf\Collection $value = null)
+    {
+        $this->encountered_costumes = $value;
+    }
+
+    /**
+     * Add a new element to 'encountered_costumes'
+     *
+     * @param \POGOProtos\Enums\Costume $value
+     */
+    public function addEncounteredCostumes(\POGOProtos\Enums\Costume $value)
+    {
+        if ($this->encountered_costumes === null) {
+            $this->encountered_costumes = new \Protobuf\EnumCollection();
+        }
+
+        $this->encountered_costumes->add($value);
+    }
+
+    /**
+     * Check if 'encountered_forms' has a value
+     *
+     * @return bool
+     */
+    public function hasEncounteredFormsList()
+    {
+        return $this->encountered_forms !== null;
+    }
+
+    /**
+     * Get 'encountered_forms' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Enums\Form>
+     */
+    public function getEncounteredFormsList()
+    {
+        return $this->encountered_forms;
+    }
+
+    /**
+     * Set 'encountered_forms' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Enums\Form> $value
+     */
+    public function setEncounteredFormsList(\Protobuf\Collection $value = null)
+    {
+        $this->encountered_forms = $value;
+    }
+
+    /**
+     * Add a new element to 'encountered_forms'
+     *
+     * @param \POGOProtos\Enums\Form $value
+     */
+    public function addEncounteredForms(\POGOProtos\Enums\Form $value)
+    {
+        if ($this->encountered_forms === null) {
+            $this->encountered_forms = new \Protobuf\EnumCollection();
+        }
+
+        $this->encountered_forms->add($value);
+    }
+
+    /**
+     * Check if 'encountered_genders' has a value
+     *
+     * @return bool
+     */
+    public function hasEncounteredGendersList()
+    {
+        return $this->encountered_genders !== null;
+    }
+
+    /**
+     * Get 'encountered_genders' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Enums\Gender>
+     */
+    public function getEncounteredGendersList()
+    {
+        return $this->encountered_genders;
+    }
+
+    /**
+     * Set 'encountered_genders' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Enums\Gender> $value
+     */
+    public function setEncounteredGendersList(\Protobuf\Collection $value = null)
+    {
+        $this->encountered_genders = $value;
+    }
+
+    /**
+     * Add a new element to 'encountered_genders'
+     *
+     * @param \POGOProtos\Enums\Gender $value
+     */
+    public function addEncounteredGenders(\POGOProtos\Enums\Gender $value)
+    {
+        if ($this->encountered_genders === null) {
+            $this->encountered_genders = new \Protobuf\EnumCollection();
+        }
+
+        $this->encountered_genders->add($value);
+    }
+
+    /**
+     * Check if 'encountered_shiny' has a value
+     *
+     * @return bool
+     */
+    public function hasEncounteredShiny()
+    {
+        return $this->encountered_shiny !== null;
+    }
+
+    /**
+     * Get 'encountered_shiny' value
+     *
+     * @return bool
+     */
+    public function getEncounteredShiny()
+    {
+        return $this->encountered_shiny;
+    }
+
+    /**
+     * Set 'encountered_shiny' value
+     *
+     * @param bool $value
+     */
+    public function setEncounteredShiny($value = null)
+    {
+        $this->encountered_shiny = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -248,7 +628,15 @@ class PokedexEntry extends \Protobuf\AbstractMessage
             'times_encountered' => null,
             'times_captured' => null,
             'evolution_stone_pieces' => null,
-            'evolution_stones' => null
+            'evolution_stones' => null,
+            'captured_costumes' => [],
+            'captured_forms' => [],
+            'captured_genders' => [],
+            'captured_shiny' => null,
+            'encountered_costumes' => [],
+            'encountered_forms' => [],
+            'encountered_genders' => [],
+            'encountered_shiny' => null
         ], $values);
 
         $message->setPokemonId($values['pokemon_id']);
@@ -256,6 +644,32 @@ class PokedexEntry extends \Protobuf\AbstractMessage
         $message->setTimesCaptured($values['times_captured']);
         $message->setEvolutionStonePieces($values['evolution_stone_pieces']);
         $message->setEvolutionStones($values['evolution_stones']);
+        $message->setCapturedShiny($values['captured_shiny']);
+        $message->setEncounteredShiny($values['encountered_shiny']);
+
+        foreach ($values['captured_costumes'] as $item) {
+            $message->addCapturedCostumes($item);
+        }
+
+        foreach ($values['captured_forms'] as $item) {
+            $message->addCapturedForms($item);
+        }
+
+        foreach ($values['captured_genders'] as $item) {
+            $message->addCapturedGenders($item);
+        }
+
+        foreach ($values['encountered_costumes'] as $item) {
+            $message->addEncounteredCostumes($item);
+        }
+
+        foreach ($values['encountered_forms'] as $item) {
+            $message->addEncounteredForms($item);
+        }
+
+        foreach ($values['encountered_genders'] as $item) {
+            $message->addEncounteredGenders($item);
+        }
 
         return $message;
     }
@@ -297,6 +711,60 @@ class PokedexEntry extends \Protobuf\AbstractMessage
                     'number' => 5,
                     'name' => 'evolution_stones',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'captured_costumes',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Enums.Costume'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'captured_forms',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Enums.Form'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'captured_genders',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Enums.Gender'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 9,
+                    'name' => 'captured_shiny',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 10,
+                    'name' => 'encountered_costumes',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Enums.Costume'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 11,
+                    'name' => 'encountered_forms',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Enums.Form'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 12,
+                    'name' => 'encountered_genders',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Enums.Gender'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 13,
+                    'name' => 'encountered_shiny',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -350,6 +818,58 @@ class PokedexEntry extends \Protobuf\AbstractMessage
         if ($this->evolution_stones !== null) {
             $writer->writeVarint($stream, 40);
             $writer->writeVarint($stream, $this->evolution_stones);
+        }
+
+        if ($this->captured_costumes !== null) {
+            foreach ($this->captured_costumes as $val) {
+                $writer->writeVarint($stream, 48);
+                $writer->writeVarint($stream, $val->value());
+            }
+        }
+
+        if ($this->captured_forms !== null) {
+            foreach ($this->captured_forms as $val) {
+                $writer->writeVarint($stream, 56);
+                $writer->writeVarint($stream, $val->value());
+            }
+        }
+
+        if ($this->captured_genders !== null) {
+            foreach ($this->captured_genders as $val) {
+                $writer->writeVarint($stream, 64);
+                $writer->writeVarint($stream, $val->value());
+            }
+        }
+
+        if ($this->captured_shiny !== null) {
+            $writer->writeVarint($stream, 72);
+            $writer->writeBool($stream, $this->captured_shiny);
+        }
+
+        if ($this->encountered_costumes !== null) {
+            foreach ($this->encountered_costumes as $val) {
+                $writer->writeVarint($stream, 80);
+                $writer->writeVarint($stream, $val->value());
+            }
+        }
+
+        if ($this->encountered_forms !== null) {
+            foreach ($this->encountered_forms as $val) {
+                $writer->writeVarint($stream, 88);
+                $writer->writeVarint($stream, $val->value());
+            }
+        }
+
+        if ($this->encountered_genders !== null) {
+            foreach ($this->encountered_genders as $val) {
+                $writer->writeVarint($stream, 96);
+                $writer->writeVarint($stream, $val->value());
+            }
+        }
+
+        if ($this->encountered_shiny !== null) {
+            $writer->writeVarint($stream, 104);
+            $writer->writeBool($stream, $this->encountered_shiny);
         }
 
         if ($this->extensions !== null) {
@@ -426,6 +946,112 @@ class PokedexEntry extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 6) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->captured_costumes === null) {
+                    $this->captured_costumes = new \Protobuf\EnumCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->captured_costumes->add(\POGOProtos\Enums\Costume::valueOf($reader->readVarint($stream)));
+                }
+
+                continue;
+            }
+
+            if ($tag === 7) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->captured_forms === null) {
+                    $this->captured_forms = new \Protobuf\EnumCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->captured_forms->add(\POGOProtos\Enums\Form::valueOf($reader->readVarint($stream)));
+                }
+
+                continue;
+            }
+
+            if ($tag === 8) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->captured_genders === null) {
+                    $this->captured_genders = new \Protobuf\EnumCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->captured_genders->add(\POGOProtos\Enums\Gender::valueOf($reader->readVarint($stream)));
+                }
+
+                continue;
+            }
+
+            if ($tag === 9) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->captured_shiny = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 10) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->encountered_costumes === null) {
+                    $this->encountered_costumes = new \Protobuf\EnumCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->encountered_costumes->add(\POGOProtos\Enums\Costume::valueOf($reader->readVarint($stream)));
+                }
+
+                continue;
+            }
+
+            if ($tag === 11) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->encountered_forms === null) {
+                    $this->encountered_forms = new \Protobuf\EnumCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->encountered_forms->add(\POGOProtos\Enums\Form::valueOf($reader->readVarint($stream)));
+                }
+
+                continue;
+            }
+
+            if ($tag === 12) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->encountered_genders === null) {
+                    $this->encountered_genders = new \Protobuf\EnumCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->encountered_genders->add(\POGOProtos\Enums\Gender::valueOf($reader->readVarint($stream)));
+                }
+
+                continue;
+            }
+
+            if ($tag === 13) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->encountered_shiny = $reader->readBool($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -480,6 +1106,58 @@ class PokedexEntry extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->evolution_stones);
         }
 
+        if ($this->captured_costumes !== null) {
+            foreach ($this->captured_costumes as $val) {
+                $size += 1;
+                $size += $calculator->computeVarintSize($val->value());
+            }
+        }
+
+        if ($this->captured_forms !== null) {
+            foreach ($this->captured_forms as $val) {
+                $size += 1;
+                $size += $calculator->computeVarintSize($val->value());
+            }
+        }
+
+        if ($this->captured_genders !== null) {
+            foreach ($this->captured_genders as $val) {
+                $size += 1;
+                $size += $calculator->computeVarintSize($val->value());
+            }
+        }
+
+        if ($this->captured_shiny !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
+        if ($this->encountered_costumes !== null) {
+            foreach ($this->encountered_costumes as $val) {
+                $size += 1;
+                $size += $calculator->computeVarintSize($val->value());
+            }
+        }
+
+        if ($this->encountered_forms !== null) {
+            foreach ($this->encountered_forms as $val) {
+                $size += 1;
+                $size += $calculator->computeVarintSize($val->value());
+            }
+        }
+
+        if ($this->encountered_genders !== null) {
+            foreach ($this->encountered_genders as $val) {
+                $size += 1;
+                $size += $calculator->computeVarintSize($val->value());
+            }
+        }
+
+        if ($this->encountered_shiny !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -497,6 +1175,14 @@ class PokedexEntry extends \Protobuf\AbstractMessage
         $this->times_captured = null;
         $this->evolution_stone_pieces = null;
         $this->evolution_stones = null;
+        $this->captured_costumes = null;
+        $this->captured_forms = null;
+        $this->captured_genders = null;
+        $this->captured_shiny = null;
+        $this->encountered_costumes = null;
+        $this->encountered_forms = null;
+        $this->encountered_genders = null;
+        $this->encountered_shiny = null;
     }
 
     /**
@@ -513,6 +1199,14 @@ class PokedexEntry extends \Protobuf\AbstractMessage
         $this->times_captured = ($message->times_captured !== null) ? $message->times_captured : $this->times_captured;
         $this->evolution_stone_pieces = ($message->evolution_stone_pieces !== null) ? $message->evolution_stone_pieces : $this->evolution_stone_pieces;
         $this->evolution_stones = ($message->evolution_stones !== null) ? $message->evolution_stones : $this->evolution_stones;
+        $this->captured_costumes = ($message->captured_costumes !== null) ? $message->captured_costumes : $this->captured_costumes;
+        $this->captured_forms = ($message->captured_forms !== null) ? $message->captured_forms : $this->captured_forms;
+        $this->captured_genders = ($message->captured_genders !== null) ? $message->captured_genders : $this->captured_genders;
+        $this->captured_shiny = ($message->captured_shiny !== null) ? $message->captured_shiny : $this->captured_shiny;
+        $this->encountered_costumes = ($message->encountered_costumes !== null) ? $message->encountered_costumes : $this->encountered_costumes;
+        $this->encountered_forms = ($message->encountered_forms !== null) ? $message->encountered_forms : $this->encountered_forms;
+        $this->encountered_genders = ($message->encountered_genders !== null) ? $message->encountered_genders : $this->encountered_genders;
+        $this->encountered_shiny = ($message->encountered_shiny !== null) ? $message->encountered_shiny : $this->encountered_shiny;
     }
 
 

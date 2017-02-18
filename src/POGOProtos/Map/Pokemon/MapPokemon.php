@@ -67,6 +67,13 @@ class MapPokemon extends \Protobuf\AbstractMessage
     protected $longitude = null;
 
     /**
+     * pokemon_display optional message = 7
+     *
+     * @var \POGOProtos\Data\PokemonDisplay
+     */
+    protected $pokemon_display = null;
+
+    /**
      * Check if 'spawn_point_id' has a value
      *
      * @return bool
@@ -247,6 +254,36 @@ class MapPokemon extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'pokemon_display' has a value
+     *
+     * @return bool
+     */
+    public function hasPokemonDisplay()
+    {
+        return $this->pokemon_display !== null;
+    }
+
+    /**
+     * Get 'pokemon_display' value
+     *
+     * @return \POGOProtos\Data\PokemonDisplay
+     */
+    public function getPokemonDisplay()
+    {
+        return $this->pokemon_display;
+    }
+
+    /**
+     * Set 'pokemon_display' value
+     *
+     * @param \POGOProtos\Data\PokemonDisplay $value
+     */
+    public function setPokemonDisplay(\POGOProtos\Data\PokemonDisplay $value = null)
+    {
+        $this->pokemon_display = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -286,7 +323,8 @@ class MapPokemon extends \Protobuf\AbstractMessage
             'pokemon_id' => null,
             'expiration_timestamp_ms' => null,
             'latitude' => null,
-            'longitude' => null
+            'longitude' => null,
+            'pokemon_display' => null
         ], $values);
 
         $message->setSpawnPointId($values['spawn_point_id']);
@@ -295,6 +333,7 @@ class MapPokemon extends \Protobuf\AbstractMessage
         $message->setExpirationTimestampMs($values['expiration_timestamp_ms']);
         $message->setLatitude($values['latitude']);
         $message->setLongitude($values['longitude']);
+        $message->setPokemonDisplay($values['pokemon_display']);
 
         return $message;
     }
@@ -343,6 +382,13 @@ class MapPokemon extends \Protobuf\AbstractMessage
                     'name' => 'longitude',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'pokemon_display',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.PokemonDisplay'
                 ]),
             ],
         ]);
@@ -400,6 +446,12 @@ class MapPokemon extends \Protobuf\AbstractMessage
         if ($this->longitude !== null) {
             $writer->writeVarint($stream, 49);
             $writer->writeDouble($stream, $this->longitude);
+        }
+
+        if ($this->pokemon_display !== null) {
+            $writer->writeVarint($stream, 58);
+            $writer->writeVarint($stream, $this->pokemon_display->serializedSize($sizeContext));
+            $this->pokemon_display->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -484,6 +536,21 @@ class MapPokemon extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 7) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PokemonDisplay();
+
+                $this->pokemon_display = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -543,6 +610,14 @@ class MapPokemon extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
+        if ($this->pokemon_display !== null) {
+            $innerSize = $this->pokemon_display->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -561,6 +636,7 @@ class MapPokemon extends \Protobuf\AbstractMessage
         $this->expiration_timestamp_ms = null;
         $this->latitude = null;
         $this->longitude = null;
+        $this->pokemon_display = null;
     }
 
     /**
@@ -578,6 +654,7 @@ class MapPokemon extends \Protobuf\AbstractMessage
         $this->expiration_timestamp_ms = ($message->expiration_timestamp_ms !== null) ? $message->expiration_timestamp_ms : $this->expiration_timestamp_ms;
         $this->latitude = ($message->latitude !== null) ? $message->latitude : $this->latitude;
         $this->longitude = ($message->longitude !== null) ? $message->longitude : $this->longitude;
+        $this->pokemon_display = ($message->pokemon_display !== null) ? $message->pokemon_display : $this->pokemon_display;
     }
 
 

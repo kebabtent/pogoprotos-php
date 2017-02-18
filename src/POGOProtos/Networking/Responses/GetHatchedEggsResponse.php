@@ -67,6 +67,13 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
     protected $egg_km_walked = null;
 
     /**
+     * hatched_pokemon repeated message = 7
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Data\PokemonData>
+     */
+    protected $hatched_pokemon = null;
+
+    /**
      * Check if 'success' has a value
      *
      * @return bool
@@ -317,6 +324,50 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'hatched_pokemon' has a value
+     *
+     * @return bool
+     */
+    public function hasHatchedPokemonList()
+    {
+        return $this->hatched_pokemon !== null;
+    }
+
+    /**
+     * Get 'hatched_pokemon' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Data\PokemonData>
+     */
+    public function getHatchedPokemonList()
+    {
+        return $this->hatched_pokemon;
+    }
+
+    /**
+     * Set 'hatched_pokemon' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Data\PokemonData> $value
+     */
+    public function setHatchedPokemonList(\Protobuf\Collection $value = null)
+    {
+        $this->hatched_pokemon = $value;
+    }
+
+    /**
+     * Add a new element to 'hatched_pokemon'
+     *
+     * @param \POGOProtos\Data\PokemonData $value
+     */
+    public function addHatchedPokemon(\POGOProtos\Data\PokemonData $value)
+    {
+        if ($this->hatched_pokemon === null) {
+            $this->hatched_pokemon = new \Protobuf\MessageCollection();
+        }
+
+        $this->hatched_pokemon->add($value);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -356,7 +407,8 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
             'experience_awarded' => [],
             'candy_awarded' => [],
             'stardust_awarded' => [],
-            'egg_km_walked' => []
+            'egg_km_walked' => [],
+            'hatched_pokemon' => []
         ], $values);
 
         $message->setSuccess($values['success']);
@@ -379,6 +431,10 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
 
         foreach ($values['egg_km_walked'] as $item) {
             $message->addEggKmWalked($item);
+        }
+
+        foreach ($values['hatched_pokemon'] as $item) {
+            $message->addHatchedPokemon($item);
         }
 
         return $message;
@@ -427,6 +483,13 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
                     'name' => 'egg_km_walked',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'hatched_pokemon',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Data.PokemonData'
                 ]),
             ],
         ]);
@@ -502,6 +565,14 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
             foreach ($this->egg_km_walked as $val) {
                 $writer->writeVarint($stream, 53);
                 $writer->writeFloat($stream, $val);
+            }
+        }
+
+        if ($this->hatched_pokemon !== null) {
+            foreach ($this->hatched_pokemon as $val) {
+                $writer->writeVarint($stream, 58);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
             }
         }
 
@@ -622,6 +693,25 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 7) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PokemonData();
+
+                if ($this->hatched_pokemon === null) {
+                    $this->hatched_pokemon = new \Protobuf\MessageCollection();
+                }
+
+                $this->hatched_pokemon->add($innerMessage);
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -696,6 +786,16 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->hatched_pokemon !== null) {
+            foreach ($this->hatched_pokemon as $val) {
+                $innerSize = $val->serializedSize($context);
+
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -714,6 +814,7 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
         $this->candy_awarded = null;
         $this->stardust_awarded = null;
         $this->egg_km_walked = null;
+        $this->hatched_pokemon = null;
     }
 
     /**
@@ -731,6 +832,7 @@ class GetHatchedEggsResponse extends \Protobuf\AbstractMessage
         $this->candy_awarded = ($message->candy_awarded !== null) ? $message->candy_awarded : $this->candy_awarded;
         $this->stardust_awarded = ($message->stardust_awarded !== null) ? $message->stardust_awarded : $this->stardust_awarded;
         $this->egg_km_walked = ($message->egg_km_walked !== null) ? $message->egg_km_walked : $this->egg_km_walked;
+        $this->hatched_pokemon = ($message->hatched_pokemon !== null) ? $message->hatched_pokemon : $this->hatched_pokemon;
     }
 
 

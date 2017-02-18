@@ -123,6 +123,13 @@ class PlayerData extends \Protobuf\AbstractMessage
     protected $battle_lockout_end_ms = null;
 
     /**
+     * secondary_player_avatar optional message = 18
+     *
+     * @var \POGOProtos\Data\Player\PlayerAvatar
+     */
+    protected $secondary_player_avatar = null;
+
+    /**
      * Check if 'creation_timestamp_ms' has a value
      *
      * @return bool
@@ -571,6 +578,36 @@ class PlayerData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'secondary_player_avatar' has a value
+     *
+     * @return bool
+     */
+    public function hasSecondaryPlayerAvatar()
+    {
+        return $this->secondary_player_avatar !== null;
+    }
+
+    /**
+     * Get 'secondary_player_avatar' value
+     *
+     * @return \POGOProtos\Data\Player\PlayerAvatar
+     */
+    public function getSecondaryPlayerAvatar()
+    {
+        return $this->secondary_player_avatar;
+    }
+
+    /**
+     * Set 'secondary_player_avatar' value
+     *
+     * @param \POGOProtos\Data\Player\PlayerAvatar $value
+     */
+    public function setSecondaryPlayerAvatar(\POGOProtos\Data\Player\PlayerAvatar $value = null)
+    {
+        $this->secondary_player_avatar = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -618,7 +655,8 @@ class PlayerData extends \Protobuf\AbstractMessage
             'currencies' => [],
             'remaining_codename_claims' => null,
             'buddy_pokemon' => null,
-            'battle_lockout_end_ms' => null
+            'battle_lockout_end_ms' => null,
+            'secondary_player_avatar' => null
         ], $values);
 
         $message->setCreationTimestampMs($values['creation_timestamp_ms']);
@@ -633,6 +671,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $message->setRemainingCodenameClaims($values['remaining_codename_claims']);
         $message->setBuddyPokemon($values['buddy_pokemon']);
         $message->setBattleLockoutEndMs($values['battle_lockout_end_ms']);
+        $message->setSecondaryPlayerAvatar($values['secondary_player_avatar']);
 
         foreach ($values['tutorial_state'] as $item) {
             $message->addTutorialState($item);
@@ -744,6 +783,13 @@ class PlayerData extends \Protobuf\AbstractMessage
                     'name' => 'battle_lockout_end_ms',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 18,
+                    'name' => 'secondary_player_avatar',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.Player.PlayerAvatar'
                 ]),
             ],
         ]);
@@ -860,6 +906,12 @@ class PlayerData extends \Protobuf\AbstractMessage
         if ($this->battle_lockout_end_ms !== null) {
             $writer->writeVarint($stream, 136);
             $writer->writeVarint($stream, $this->battle_lockout_end_ms);
+        }
+
+        if ($this->secondary_player_avatar !== null) {
+            $writer->writeVarint($stream, 146);
+            $writer->writeVarint($stream, $this->secondary_player_avatar->serializedSize($sizeContext));
+            $this->secondary_player_avatar->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -1061,6 +1113,21 @@ class PlayerData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 18) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Player\PlayerAvatar();
+
+                $this->secondary_player_avatar = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1187,6 +1254,14 @@ class PlayerData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->battle_lockout_end_ms);
         }
 
+        if ($this->secondary_player_avatar !== null) {
+            $innerSize = $this->secondary_player_avatar->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1213,6 +1288,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $this->remaining_codename_claims = null;
         $this->buddy_pokemon = null;
         $this->battle_lockout_end_ms = null;
+        $this->secondary_player_avatar = null;
     }
 
     /**
@@ -1238,6 +1314,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $this->remaining_codename_claims = ($message->remaining_codename_claims !== null) ? $message->remaining_codename_claims : $this->remaining_codename_claims;
         $this->buddy_pokemon = ($message->buddy_pokemon !== null) ? $message->buddy_pokemon : $this->buddy_pokemon;
         $this->battle_lockout_end_ms = ($message->battle_lockout_end_ms !== null) ? $message->battle_lockout_end_ms : $this->battle_lockout_end_ms;
+        $this->secondary_player_avatar = ($message->secondary_player_avatar !== null) ? $message->secondary_player_avatar : $this->secondary_player_avatar;
     }
 
 

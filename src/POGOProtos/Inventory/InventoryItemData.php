@@ -102,6 +102,13 @@ class InventoryItemData extends \Protobuf\AbstractMessage
     protected $quest = null;
 
     /**
+     * avatar_item optional message = 12
+     *
+     * @var \POGOProtos\Data\Avatar\AvatarItem
+     */
+    protected $avatar_item = null;
+
+    /**
      * Check if 'pokemon_data' has a value
      *
      * @return bool
@@ -432,6 +439,36 @@ class InventoryItemData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'avatar_item' has a value
+     *
+     * @return bool
+     */
+    public function hasAvatarItem()
+    {
+        return $this->avatar_item !== null;
+    }
+
+    /**
+     * Get 'avatar_item' value
+     *
+     * @return \POGOProtos\Data\Avatar\AvatarItem
+     */
+    public function getAvatarItem()
+    {
+        return $this->avatar_item;
+    }
+
+    /**
+     * Set 'avatar_item' value
+     *
+     * @param \POGOProtos\Data\Avatar\AvatarItem $value
+     */
+    public function setAvatarItem(\POGOProtos\Data\Avatar\AvatarItem $value = null)
+    {
+        $this->avatar_item = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -476,7 +513,8 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             'applied_items' => null,
             'egg_incubators' => null,
             'candy' => null,
-            'quest' => null
+            'quest' => null,
+            'avatar_item' => null
         ], $values);
 
         $message->setPokemonData($values['pokemon_data']);
@@ -490,6 +528,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $message->setEggIncubators($values['egg_incubators']);
         $message->setCandy($values['candy']);
         $message->setQuest($values['quest']);
+        $message->setAvatarItem($values['avatar_item']);
 
         return $message;
     }
@@ -578,6 +617,13 @@ class InventoryItemData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Quests.Quest'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 12,
+                    'name' => 'avatar_item',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.Avatar.AvatarItem'
                 ]),
             ],
         ]);
@@ -671,6 +717,12 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 90);
             $writer->writeVarint($stream, $this->quest->serializedSize($sizeContext));
             $this->quest->writeTo($context);
+        }
+
+        if ($this->avatar_item !== null) {
+            $writer->writeVarint($stream, 98);
+            $writer->writeVarint($stream, $this->avatar_item->serializedSize($sizeContext));
+            $this->avatar_item->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -872,6 +924,21 @@ class InventoryItemData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 12) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Avatar\AvatarItem();
+
+                $this->avatar_item = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -989,6 +1056,14 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->avatar_item !== null) {
+            $innerSize = $this->avatar_item->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1012,6 +1087,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $this->egg_incubators = null;
         $this->candy = null;
         $this->quest = null;
+        $this->avatar_item = null;
     }
 
     /**
@@ -1034,6 +1110,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $this->egg_incubators = ($message->egg_incubators !== null) ? $message->egg_incubators : $this->egg_incubators;
         $this->candy = ($message->candy !== null) ? $message->candy : $this->candy;
         $this->quest = ($message->quest !== null) ? $message->quest : $this->quest;
+        $this->avatar_item = ($message->avatar_item !== null) ? $message->avatar_item : $this->avatar_item;
     }
 
 

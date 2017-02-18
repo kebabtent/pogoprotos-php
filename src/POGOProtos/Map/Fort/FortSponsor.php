@@ -45,6 +45,76 @@ class FortSponsor extends \Protobuf\Enum
     const GLOBE_VALUE = 5;
 
     /**
+     * SPATULA = 6
+     */
+    const SPATULA_VALUE = 6;
+
+    /**
+     * THERMOMETER = 7
+     */
+    const THERMOMETER_VALUE = 7;
+
+    /**
+     * KNIFE = 8
+     */
+    const KNIFE_VALUE = 8;
+
+    /**
+     * GRILL = 9
+     */
+    const GRILL_VALUE = 9;
+
+    /**
+     * SMOKER = 10
+     */
+    const SMOKER_VALUE = 10;
+
+    /**
+     * PAN = 11
+     */
+    const PAN_VALUE = 11;
+
+    /**
+     * BBQ = 12
+     */
+    const BBQ_VALUE = 12;
+
+    /**
+     * FRYER = 13
+     */
+    const FRYER_VALUE = 13;
+
+    /**
+     * STEAMER = 14
+     */
+    const STEAMER_VALUE = 14;
+
+    /**
+     * HOOD = 15
+     */
+    const HOOD_VALUE = 15;
+
+    /**
+     * SLOWCOOKER = 16
+     */
+    const SLOWCOOKER_VALUE = 16;
+
+    /**
+     * MIXER = 17
+     */
+    const MIXER_VALUE = 17;
+
+    /**
+     * SCOOPER = 18
+     */
+    const SCOOPER_VALUE = 18;
+
+    /**
+     * MUFFINTIN = 19
+     */
+    const MUFFINTIN_VALUE = 19;
+
+    /**
      * @var \POGOProtos\Map\Fort\FortSponsor
      */
     protected static $UNSET_SPONSOR = null;
@@ -73,6 +143,76 @@ class FortSponsor extends \Protobuf\Enum
      * @var \POGOProtos\Map\Fort\FortSponsor
      */
     protected static $GLOBE = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $SPATULA = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $THERMOMETER = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $KNIFE = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $GRILL = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $SMOKER = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $PAN = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $BBQ = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $FRYER = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $STEAMER = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $HOOD = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $SLOWCOOKER = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $MIXER = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $SCOOPER = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $MUFFINTIN = null;
 
     /**
      * @return \POGOProtos\Map\Fort\FortSponsor
@@ -147,6 +287,174 @@ class FortSponsor extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function SPATULA()
+    {
+        if (self::$SPATULA !== null) {
+            return self::$SPATULA;
+        }
+
+        return self::$SPATULA = new self('SPATULA', self::SPATULA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function THERMOMETER()
+    {
+        if (self::$THERMOMETER !== null) {
+            return self::$THERMOMETER;
+        }
+
+        return self::$THERMOMETER = new self('THERMOMETER', self::THERMOMETER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function KNIFE()
+    {
+        if (self::$KNIFE !== null) {
+            return self::$KNIFE;
+        }
+
+        return self::$KNIFE = new self('KNIFE', self::KNIFE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function GRILL()
+    {
+        if (self::$GRILL !== null) {
+            return self::$GRILL;
+        }
+
+        return self::$GRILL = new self('GRILL', self::GRILL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function SMOKER()
+    {
+        if (self::$SMOKER !== null) {
+            return self::$SMOKER;
+        }
+
+        return self::$SMOKER = new self('SMOKER', self::SMOKER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function PAN()
+    {
+        if (self::$PAN !== null) {
+            return self::$PAN;
+        }
+
+        return self::$PAN = new self('PAN', self::PAN_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function BBQ()
+    {
+        if (self::$BBQ !== null) {
+            return self::$BBQ;
+        }
+
+        return self::$BBQ = new self('BBQ', self::BBQ_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function FRYER()
+    {
+        if (self::$FRYER !== null) {
+            return self::$FRYER;
+        }
+
+        return self::$FRYER = new self('FRYER', self::FRYER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function STEAMER()
+    {
+        if (self::$STEAMER !== null) {
+            return self::$STEAMER;
+        }
+
+        return self::$STEAMER = new self('STEAMER', self::STEAMER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function HOOD()
+    {
+        if (self::$HOOD !== null) {
+            return self::$HOOD;
+        }
+
+        return self::$HOOD = new self('HOOD', self::HOOD_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function SLOWCOOKER()
+    {
+        if (self::$SLOWCOOKER !== null) {
+            return self::$SLOWCOOKER;
+        }
+
+        return self::$SLOWCOOKER = new self('SLOWCOOKER', self::SLOWCOOKER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function MIXER()
+    {
+        if (self::$MIXER !== null) {
+            return self::$MIXER;
+        }
+
+        return self::$MIXER = new self('MIXER', self::MIXER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function SCOOPER()
+    {
+        if (self::$SCOOPER !== null) {
+            return self::$SCOOPER;
+        }
+
+        return self::$SCOOPER = new self('SCOOPER', self::SCOOPER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function MUFFINTIN()
+    {
+        if (self::$MUFFINTIN !== null) {
+            return self::$MUFFINTIN;
+        }
+
+        return self::$MUFFINTIN = new self('MUFFINTIN', self::MUFFINTIN_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Map\Fort\FortSponsor
      */
@@ -159,6 +467,20 @@ class FortSponsor extends \Protobuf\Enum
             case 3: return self::TOHO();
             case 4: return self::SOFTBANK();
             case 5: return self::GLOBE();
+            case 6: return self::SPATULA();
+            case 7: return self::THERMOMETER();
+            case 8: return self::KNIFE();
+            case 9: return self::GRILL();
+            case 10: return self::SMOKER();
+            case 11: return self::PAN();
+            case 12: return self::BBQ();
+            case 13: return self::FRYER();
+            case 14: return self::STEAMER();
+            case 15: return self::HOOD();
+            case 16: return self::SLOWCOOKER();
+            case 17: return self::MIXER();
+            case 18: return self::SCOOPER();
+            case 19: return self::MUFFINTIN();
             default: return null;
         }
     }

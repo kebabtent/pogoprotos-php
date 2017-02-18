@@ -47,6 +47,13 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
     protected $awarded_badge_levels = null;
 
     /**
+     * avatar_template_ids repeated string = 4
+     *
+     * @var \Protobuf\Collection
+     */
+    protected $avatar_template_ids = null;
+
+    /**
      * Check if 'success' has a value
      *
      * @return bool
@@ -165,6 +172,50 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'avatar_template_ids' has a value
+     *
+     * @return bool
+     */
+    public function hasAvatarTemplateIdsList()
+    {
+        return $this->avatar_template_ids !== null;
+    }
+
+    /**
+     * Get 'avatar_template_ids' value
+     *
+     * @return \Protobuf\Collection
+     */
+    public function getAvatarTemplateIdsList()
+    {
+        return $this->avatar_template_ids;
+    }
+
+    /**
+     * Set 'avatar_template_ids' value
+     *
+     * @param \Protobuf\Collection $value
+     */
+    public function setAvatarTemplateIdsList(\Protobuf\Collection $value = null)
+    {
+        $this->avatar_template_ids = $value;
+    }
+
+    /**
+     * Add a new element to 'avatar_template_ids'
+     *
+     * @param string $value
+     */
+    public function addAvatarTemplateIds($value)
+    {
+        if ($this->avatar_template_ids === null) {
+            $this->avatar_template_ids = new \Protobuf\ScalarCollection();
+        }
+
+        $this->avatar_template_ids->add($value);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -201,7 +252,8 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'success' => null,
             'awarded_badges' => [],
-            'awarded_badge_levels' => []
+            'awarded_badge_levels' => [],
+            'avatar_template_ids' => []
         ], $values);
 
         $message->setSuccess($values['success']);
@@ -212,6 +264,10 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
 
         foreach ($values['awarded_badge_levels'] as $item) {
             $message->addAwardedBadgeLevels($item);
+        }
+
+        foreach ($values['avatar_template_ids'] as $item) {
+            $message->addAvatarTemplateIds($item);
         }
 
         return $message;
@@ -242,6 +298,12 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
                     'number' => 3,
                     'name' => 'awarded_badge_levels',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'avatar_template_ids',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
             ],
@@ -288,6 +350,13 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
             foreach ($this->awarded_badge_levels as $val) {
                 $writer->writeVarint($stream, 24);
                 $writer->writeVarint($stream, $val);
+            }
+        }
+
+        if ($this->avatar_template_ids !== null) {
+            foreach ($this->avatar_template_ids as $val) {
+                $writer->writeVarint($stream, 34);
+                $writer->writeString($stream, $val);
             }
         }
 
@@ -363,6 +432,18 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                if ($this->avatar_template_ids === null) {
+                    $this->avatar_template_ids = new \Protobuf\ScalarCollection();
+                }
+
+                $this->avatar_template_ids->add($reader->readString($stream));
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -411,6 +492,13 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->avatar_template_ids !== null) {
+            foreach ($this->avatar_template_ids as $val) {
+                $size += 1;
+                $size += $calculator->computeStringSize($val);
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -426,6 +514,7 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
         $this->success = null;
         $this->awarded_badges = null;
         $this->awarded_badge_levels = null;
+        $this->avatar_template_ids = null;
     }
 
     /**
@@ -440,6 +529,7 @@ class CheckAwardedBadgesResponse extends \Protobuf\AbstractMessage
         $this->success = ($message->success !== null) ? $message->success : $this->success;
         $this->awarded_badges = ($message->awarded_badges !== null) ? $message->awarded_badges : $this->awarded_badges;
         $this->awarded_badge_levels = ($message->awarded_badge_levels !== null) ? $message->awarded_badge_levels : $this->awarded_badge_levels;
+        $this->avatar_template_ids = ($message->avatar_template_ids !== null) ? $message->avatar_template_ids : $this->avatar_template_ids;
     }
 
 

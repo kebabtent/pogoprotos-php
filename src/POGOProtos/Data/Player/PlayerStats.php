@@ -186,6 +186,20 @@ class PlayerStats extends \Protobuf\AbstractMessage
     protected $small_rattata_caught = null;
 
     /**
+     * used_km_pool optional double = 24
+     *
+     * @var float
+     */
+    protected $used_km_pool = null;
+
+    /**
+     * last_km_refill_ms optional int64 = 25
+     *
+     * @var int
+     */
+    protected $last_km_refill_ms = null;
+
+    /**
      * Check if 'level' has a value
      *
      * @return bool
@@ -890,6 +904,66 @@ class PlayerStats extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'used_km_pool' has a value
+     *
+     * @return bool
+     */
+    public function hasUsedKmPool()
+    {
+        return $this->used_km_pool !== null;
+    }
+
+    /**
+     * Get 'used_km_pool' value
+     *
+     * @return float
+     */
+    public function getUsedKmPool()
+    {
+        return $this->used_km_pool;
+    }
+
+    /**
+     * Set 'used_km_pool' value
+     *
+     * @param float $value
+     */
+    public function setUsedKmPool($value = null)
+    {
+        $this->used_km_pool = $value;
+    }
+
+    /**
+     * Check if 'last_km_refill_ms' has a value
+     *
+     * @return bool
+     */
+    public function hasLastKmRefillMs()
+    {
+        return $this->last_km_refill_ms !== null;
+    }
+
+    /**
+     * Get 'last_km_refill_ms' value
+     *
+     * @return int
+     */
+    public function getLastKmRefillMs()
+    {
+        return $this->last_km_refill_ms;
+    }
+
+    /**
+     * Set 'last_km_refill_ms' value
+     *
+     * @param int $value
+     */
+    public function setLastKmRefillMs($value = null)
+    {
+        $this->last_km_refill_ms = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -946,7 +1020,9 @@ class PlayerStats extends \Protobuf\AbstractMessage
             'prestige_dropped_total' => null,
             'pokemon_deployed' => null,
             'pokemon_caught_by_type' => [],
-            'small_rattata_caught' => null
+            'small_rattata_caught' => null,
+            'used_km_pool' => null,
+            'last_km_refill_ms' => null
         ], $values);
 
         $message->setLevel($values['level']);
@@ -971,6 +1047,8 @@ class PlayerStats extends \Protobuf\AbstractMessage
         $message->setPrestigeDroppedTotal($values['prestige_dropped_total']);
         $message->setPokemonDeployed($values['pokemon_deployed']);
         $message->setSmallRattataCaught($values['small_rattata_caught']);
+        $message->setUsedKmPool($values['used_km_pool']);
+        $message->setLastKmRefillMs($values['last_km_refill_ms']);
 
         foreach ($values['pokemon_caught_by_type'] as $item) {
             $message->addPokemonCaughtByType($item);
@@ -1125,6 +1203,18 @@ class PlayerStats extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 24,
+                    'name' => 'used_km_pool',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 25,
+                    'name' => 'last_km_refill_ms',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
             ],
         ]);
     }
@@ -1268,6 +1358,16 @@ class PlayerStats extends \Protobuf\AbstractMessage
         if ($this->small_rattata_caught !== null) {
             $writer->writeVarint($stream, 184);
             $writer->writeVarint($stream, $this->small_rattata_caught);
+        }
+
+        if ($this->used_km_pool !== null) {
+            $writer->writeVarint($stream, 193);
+            $writer->writeDouble($stream, $this->used_km_pool);
+        }
+
+        if ($this->last_km_refill_ms !== null) {
+            $writer->writeVarint($stream, 200);
+            $writer->writeVarint($stream, $this->last_km_refill_ms);
         }
 
         if ($this->extensions !== null) {
@@ -1495,6 +1595,22 @@ class PlayerStats extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 24) {
+                \Protobuf\WireFormat::assertWireType($wire, 1);
+
+                $this->used_km_pool = $reader->readDouble($stream);
+
+                continue;
+            }
+
+            if ($tag === 25) {
+                \Protobuf\WireFormat::assertWireType($wire, 3);
+
+                $this->last_km_refill_ms = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1641,6 +1757,16 @@ class PlayerStats extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->small_rattata_caught);
         }
 
+        if ($this->used_km_pool !== null) {
+            $size += 2;
+            $size += 8;
+        }
+
+        if ($this->last_km_refill_ms !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->last_km_refill_ms);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1676,6 +1802,8 @@ class PlayerStats extends \Protobuf\AbstractMessage
         $this->pokemon_deployed = null;
         $this->pokemon_caught_by_type = null;
         $this->small_rattata_caught = null;
+        $this->used_km_pool = null;
+        $this->last_km_refill_ms = null;
     }
 
     /**
@@ -1710,6 +1838,8 @@ class PlayerStats extends \Protobuf\AbstractMessage
         $this->pokemon_deployed = ($message->pokemon_deployed !== null) ? $message->pokemon_deployed : $this->pokemon_deployed;
         $this->pokemon_caught_by_type = ($message->pokemon_caught_by_type !== null) ? $message->pokemon_caught_by_type : $this->pokemon_caught_by_type;
         $this->small_rattata_caught = ($message->small_rattata_caught !== null) ? $message->small_rattata_caught : $this->small_rattata_caught;
+        $this->used_km_pool = ($message->used_km_pool !== null) ? $message->used_km_pool : $this->used_km_pool;
+        $this->last_km_refill_ms = ($message->last_km_refill_ms !== null) ? $message->last_km_refill_ms : $this->last_km_refill_ms;
     }
 
 

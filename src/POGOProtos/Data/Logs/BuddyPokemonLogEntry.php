@@ -46,6 +46,20 @@ class BuddyPokemonLogEntry extends \Protobuf\AbstractMessage
     protected $amount = null;
 
     /**
+     * pokemon_display optional message = 4
+     *
+     * @var \POGOProtos\Data\PokemonDisplay
+     */
+    protected $pokemon_display = null;
+
+    /**
+     * pokemon optional fixed64 = 5
+     *
+     * @var int
+     */
+    protected $pokemon = null;
+
+    /**
      * Check if 'result' has a value
      *
      * @return bool
@@ -136,6 +150,66 @@ class BuddyPokemonLogEntry extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'pokemon_display' has a value
+     *
+     * @return bool
+     */
+    public function hasPokemonDisplay()
+    {
+        return $this->pokemon_display !== null;
+    }
+
+    /**
+     * Get 'pokemon_display' value
+     *
+     * @return \POGOProtos\Data\PokemonDisplay
+     */
+    public function getPokemonDisplay()
+    {
+        return $this->pokemon_display;
+    }
+
+    /**
+     * Set 'pokemon_display' value
+     *
+     * @param \POGOProtos\Data\PokemonDisplay $value
+     */
+    public function setPokemonDisplay(\POGOProtos\Data\PokemonDisplay $value = null)
+    {
+        $this->pokemon_display = $value;
+    }
+
+    /**
+     * Check if 'pokemon' has a value
+     *
+     * @return bool
+     */
+    public function hasPokemon()
+    {
+        return $this->pokemon !== null;
+    }
+
+    /**
+     * Get 'pokemon' value
+     *
+     * @return int
+     */
+    public function getPokemon()
+    {
+        return $this->pokemon;
+    }
+
+    /**
+     * Set 'pokemon' value
+     *
+     * @param int $value
+     */
+    public function setPokemon($value = null)
+    {
+        $this->pokemon = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -172,12 +246,16 @@ class BuddyPokemonLogEntry extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'result' => null,
             'pokemon_id' => null,
-            'amount' => null
+            'amount' => null,
+            'pokemon_display' => null,
+            'pokemon' => null
         ], $values);
 
         $message->setResult($values['result']);
         $message->setPokemonId($values['pokemon_id']);
         $message->setAmount($values['amount']);
+        $message->setPokemonDisplay($values['pokemon_display']);
+        $message->setPokemon($values['pokemon']);
 
         return $message;
     }
@@ -208,6 +286,19 @@ class BuddyPokemonLogEntry extends \Protobuf\AbstractMessage
                     'number' => 3,
                     'name' => 'amount',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'pokemon_display',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.PokemonDisplay'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'pokemon',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -251,6 +342,17 @@ class BuddyPokemonLogEntry extends \Protobuf\AbstractMessage
         if ($this->amount !== null) {
             $writer->writeVarint($stream, 24);
             $writer->writeVarint($stream, $this->amount);
+        }
+
+        if ($this->pokemon_display !== null) {
+            $writer->writeVarint($stream, 34);
+            $writer->writeVarint($stream, $this->pokemon_display->serializedSize($sizeContext));
+            $this->pokemon_display->writeTo($context);
+        }
+
+        if ($this->pokemon !== null) {
+            $writer->writeVarint($stream, 41);
+            $writer->writeFixed64($stream, $this->pokemon);
         }
 
         if ($this->extensions !== null) {
@@ -311,6 +413,29 @@ class BuddyPokemonLogEntry extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PokemonDisplay();
+
+                $this->pokemon_display = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 6);
+
+                $this->pokemon = $reader->readFixed64($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -355,6 +480,19 @@ class BuddyPokemonLogEntry extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->amount);
         }
 
+        if ($this->pokemon_display !== null) {
+            $innerSize = $this->pokemon_display->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->pokemon !== null) {
+            $size += 1;
+            $size += 8;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -370,6 +508,8 @@ class BuddyPokemonLogEntry extends \Protobuf\AbstractMessage
         $this->result = null;
         $this->pokemon_id = null;
         $this->amount = null;
+        $this->pokemon_display = null;
+        $this->pokemon = null;
     }
 
     /**
@@ -384,6 +524,8 @@ class BuddyPokemonLogEntry extends \Protobuf\AbstractMessage
         $this->result = ($message->result !== null) ? $message->result : $this->result;
         $this->pokemon_id = ($message->pokemon_id !== null) ? $message->pokemon_id : $this->pokemon_id;
         $this->amount = ($message->amount !== null) ? $message->amount : $this->amount;
+        $this->pokemon_display = ($message->pokemon_display !== null) ? $message->pokemon_display : $this->pokemon_display;
+        $this->pokemon = ($message->pokemon !== null) ? $message->pokemon : $this->pokemon;
     }
 
 

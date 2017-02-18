@@ -205,6 +205,16 @@ class BadgeType extends \Protobuf\Enum
     const BADGE_PIKACHU_VALUE = 37;
 
     /**
+     * BADGE_UNOWN = 38
+     */
+    const BADGE_UNOWN_VALUE = 38;
+
+    /**
+     * BADGE_POKEDEX_ENTRIES_GEN2 = 39
+     */
+    const BADGE_POKEDEX_ENTRIES_GEN2_VALUE = 39;
+
+    /**
      * @var \POGOProtos\Enums\BadgeType
      */
     protected static $BADGE_UNSET = null;
@@ -393,6 +403,16 @@ class BadgeType extends \Protobuf\Enum
      * @var \POGOProtos\Enums\BadgeType
      */
     protected static $BADGE_PIKACHU = null;
+
+    /**
+     * @var \POGOProtos\Enums\BadgeType
+     */
+    protected static $BADGE_UNOWN = null;
+
+    /**
+     * @var \POGOProtos\Enums\BadgeType
+     */
+    protected static $BADGE_POKEDEX_ENTRIES_GEN2 = null;
 
     /**
      * @return \POGOProtos\Enums\BadgeType
@@ -851,6 +871,30 @@ class BadgeType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\BadgeType
+     */
+    public static function BADGE_UNOWN()
+    {
+        if (self::$BADGE_UNOWN !== null) {
+            return self::$BADGE_UNOWN;
+        }
+
+        return self::$BADGE_UNOWN = new self('BADGE_UNOWN', self::BADGE_UNOWN_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\BadgeType
+     */
+    public static function BADGE_POKEDEX_ENTRIES_GEN2()
+    {
+        if (self::$BADGE_POKEDEX_ENTRIES_GEN2 !== null) {
+            return self::$BADGE_POKEDEX_ENTRIES_GEN2;
+        }
+
+        return self::$BADGE_POKEDEX_ENTRIES_GEN2 = new self('BADGE_POKEDEX_ENTRIES_GEN2', self::BADGE_POKEDEX_ENTRIES_GEN2_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\BadgeType
      */
@@ -895,6 +939,8 @@ class BadgeType extends \Protobuf\Enum
             case 35: return self::BADGE_TYPE_FAIRY();
             case 36: return self::BADGE_SMALL_RATTATA();
             case 37: return self::BADGE_PIKACHU();
+            case 38: return self::BADGE_UNOWN();
+            case 39: return self::BADGE_POKEDEX_ENTRIES_GEN2();
             default: return null;
         }
     }

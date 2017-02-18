@@ -71,6 +71,11 @@ class Result extends \Protobuf\Enum
     const ERROR_FORT_DEPLOY_LOCKOUT_VALUE = 10;
 
     /**
+     * ERROR_PLAYER_HAS_NO_NICKNAME = 11
+     */
+    const ERROR_PLAYER_HAS_NO_NICKNAME_VALUE = 11;
+
+    /**
      * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
     protected static $NO_RESULT_SET = null;
@@ -124,6 +129,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
     protected static $ERROR_FORT_DEPLOY_LOCKOUT = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    protected static $ERROR_PLAYER_HAS_NO_NICKNAME = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
@@ -258,6 +268,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    public static function ERROR_PLAYER_HAS_NO_NICKNAME()
+    {
+        if (self::$ERROR_PLAYER_HAS_NO_NICKNAME !== null) {
+            return self::$ERROR_PLAYER_HAS_NO_NICKNAME;
+        }
+
+        return self::$ERROR_PLAYER_HAS_NO_NICKNAME = new self('ERROR_PLAYER_HAS_NO_NICKNAME', self::ERROR_PLAYER_HAS_NO_NICKNAME_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
@@ -275,6 +297,7 @@ class Result extends \Protobuf\Enum
             case 8: return self::ERROR_PLAYER_BELOW_MINIMUM_LEVEL();
             case 9: return self::ERROR_POKEMON_IS_BUDDY();
             case 10: return self::ERROR_FORT_DEPLOY_LOCKOUT();
+            case 11: return self::ERROR_PLAYER_HAS_NO_NICKNAME();
             default: return null;
         }
     }

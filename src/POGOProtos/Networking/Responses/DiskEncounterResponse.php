@@ -46,6 +46,13 @@ class DiskEncounterResponse extends \Protobuf\AbstractMessage
     protected $capture_probability = null;
 
     /**
+     * active_item optional enum = 4
+     *
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected $active_item = null;
+
+    /**
      * Check if 'result' has a value
      *
      * @return bool
@@ -136,6 +143,36 @@ class DiskEncounterResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'active_item' has a value
+     *
+     * @return bool
+     */
+    public function hasActiveItem()
+    {
+        return $this->active_item !== null;
+    }
+
+    /**
+     * Get 'active_item' value
+     *
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public function getActiveItem()
+    {
+        return $this->active_item;
+    }
+
+    /**
+     * Set 'active_item' value
+     *
+     * @param \POGOProtos\Inventory\Item\ItemId $value
+     */
+    public function setActiveItem(\POGOProtos\Inventory\Item\ItemId $value = null)
+    {
+        $this->active_item = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -172,12 +209,14 @@ class DiskEncounterResponse extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'result' => null,
             'pokemon_data' => null,
-            'capture_probability' => null
+            'capture_probability' => null,
+            'active_item' => null
         ], $values);
 
         $message->setResult($values['result']);
         $message->setPokemonData($values['pokemon_data']);
         $message->setCaptureProbability($values['capture_probability']);
+        $message->setActiveItem($values['active_item']);
 
         return $message;
     }
@@ -210,6 +249,13 @@ class DiskEncounterResponse extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Capture.CaptureProbability'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'active_item',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Inventory.Item.ItemId'
                 ]),
             ],
         ]);
@@ -254,6 +300,11 @@ class DiskEncounterResponse extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 26);
             $writer->writeVarint($stream, $this->capture_probability->serializedSize($sizeContext));
             $this->capture_probability->writeTo($context);
+        }
+
+        if ($this->active_item !== null) {
+            $writer->writeVarint($stream, 32);
+            $writer->writeVarint($stream, $this->active_item->value());
         }
 
         if ($this->extensions !== null) {
@@ -328,6 +379,14 @@ class DiskEncounterResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                $this->active_item = \POGOProtos\Inventory\Item\ItemId::valueOf($reader->readVarint($stream));
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -378,6 +437,11 @@ class DiskEncounterResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->active_item !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->active_item->value());
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -393,6 +457,7 @@ class DiskEncounterResponse extends \Protobuf\AbstractMessage
         $this->result = null;
         $this->pokemon_data = null;
         $this->capture_probability = null;
+        $this->active_item = null;
     }
 
     /**
@@ -407,6 +472,7 @@ class DiskEncounterResponse extends \Protobuf\AbstractMessage
         $this->result = ($message->result !== null) ? $message->result : $this->result;
         $this->pokemon_data = ($message->pokemon_data !== null) ? $message->pokemon_data : $this->pokemon_data;
         $this->capture_probability = ($message->capture_probability !== null) ? $message->capture_probability : $this->capture_probability;
+        $this->active_item = ($message->active_item !== null) ? $message->active_item : $this->active_item;
     }
 
 

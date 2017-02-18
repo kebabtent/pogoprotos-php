@@ -102,6 +102,13 @@ class InventoryKey extends \Protobuf\AbstractMessage
     protected $quest_type = null;
 
     /**
+     * avatar_template_id optional string = 12
+     *
+     * @var string
+     */
+    protected $avatar_template_id = null;
+
+    /**
      * Check if 'pokemon_id' has a value
      *
      * @return bool
@@ -432,6 +439,36 @@ class InventoryKey extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'avatar_template_id' has a value
+     *
+     * @return bool
+     */
+    public function hasAvatarTemplateId()
+    {
+        return $this->avatar_template_id !== null;
+    }
+
+    /**
+     * Get 'avatar_template_id' value
+     *
+     * @return string
+     */
+    public function getAvatarTemplateId()
+    {
+        return $this->avatar_template_id;
+    }
+
+    /**
+     * Set 'avatar_template_id' value
+     *
+     * @param string $value
+     */
+    public function setAvatarTemplateId($value = null)
+    {
+        $this->avatar_template_id = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -476,7 +513,8 @@ class InventoryKey extends \Protobuf\AbstractMessage
             'applied_items' => null,
             'egg_incubators' => null,
             'pokemon_family_id' => null,
-            'quest_type' => null
+            'quest_type' => null,
+            'avatar_template_id' => null
         ], $values);
 
         $message->setPokemonId($values['pokemon_id']);
@@ -490,6 +528,7 @@ class InventoryKey extends \Protobuf\AbstractMessage
         $message->setEggIncubators($values['egg_incubators']);
         $message->setPokemonFamilyId($values['pokemon_family_id']);
         $message->setQuestType($values['quest_type']);
+        $message->setAvatarTemplateId($values['avatar_template_id']);
 
         return $message;
     }
@@ -570,6 +609,12 @@ class InventoryKey extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Enums.QuestType'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 12,
+                    'name' => 'avatar_template_id',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -652,6 +697,11 @@ class InventoryKey extends \Protobuf\AbstractMessage
         if ($this->quest_type !== null) {
             $writer->writeVarint($stream, 88);
             $writer->writeVarint($stream, $this->quest_type->value());
+        }
+
+        if ($this->avatar_template_id !== null) {
+            $writer->writeVarint($stream, 98);
+            $writer->writeString($stream, $this->avatar_template_id);
         }
 
         if ($this->extensions !== null) {
@@ -776,6 +826,14 @@ class InventoryKey extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 12) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->avatar_template_id = $reader->readString($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -860,6 +918,11 @@ class InventoryKey extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->quest_type->value());
         }
 
+        if ($this->avatar_template_id !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->avatar_template_id);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -883,6 +946,7 @@ class InventoryKey extends \Protobuf\AbstractMessage
         $this->egg_incubators = null;
         $this->pokemon_family_id = null;
         $this->quest_type = null;
+        $this->avatar_template_id = null;
     }
 
     /**
@@ -905,6 +969,7 @@ class InventoryKey extends \Protobuf\AbstractMessage
         $this->egg_incubators = ($message->egg_incubators !== null) ? $message->egg_incubators : $this->egg_incubators;
         $this->pokemon_family_id = ($message->pokemon_family_id !== null) ? $message->pokemon_family_id : $this->pokemon_family_id;
         $this->quest_type = ($message->quest_type !== null) ? $message->quest_type : $this->quest_type;
+        $this->avatar_template_id = ($message->avatar_template_id !== null) ? $message->avatar_template_id : $this->avatar_template_id;
     }
 
 

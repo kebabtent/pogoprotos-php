@@ -39,6 +39,13 @@ class GetMapObjectsResponse extends \Protobuf\AbstractMessage
     protected $status = null;
 
     /**
+     * time_of_day optional enum = 3
+     *
+     * @var \POGOProtos\Networking\Responses\GetMapObjectsResponse\TimeOfDay
+     */
+    protected $time_of_day = null;
+
+    /**
      * Check if 'map_cells' has a value
      *
      * @return bool
@@ -113,6 +120,36 @@ class GetMapObjectsResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'time_of_day' has a value
+     *
+     * @return bool
+     */
+    public function hasTimeOfDay()
+    {
+        return $this->time_of_day !== null;
+    }
+
+    /**
+     * Get 'time_of_day' value
+     *
+     * @return \POGOProtos\Networking\Responses\GetMapObjectsResponse\TimeOfDay
+     */
+    public function getTimeOfDay()
+    {
+        return $this->time_of_day;
+    }
+
+    /**
+     * Set 'time_of_day' value
+     *
+     * @param \POGOProtos\Networking\Responses\GetMapObjectsResponse\TimeOfDay $value
+     */
+    public function setTimeOfDay(\POGOProtos\Networking\Responses\GetMapObjectsResponse\TimeOfDay $value = null)
+    {
+        $this->time_of_day = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -148,10 +185,12 @@ class GetMapObjectsResponse extends \Protobuf\AbstractMessage
         $message = new self();
         $values  = array_merge([
             'map_cells' => [],
-            'status' => null
+            'status' => null,
+            'time_of_day' => null
         ], $values);
 
         $message->setStatus($values['status']);
+        $message->setTimeOfDay($values['time_of_day']);
 
         foreach ($values['map_cells'] as $item) {
             $message->addMapCells($item);
@@ -181,6 +220,13 @@ class GetMapObjectsResponse extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Map.MapObjectsStatus'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 3,
+                    'name' => 'time_of_day',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Networking.Responses.GetMapObjectsResponse.TimeOfDay'
                 ]),
             ],
         ]);
@@ -221,6 +267,11 @@ class GetMapObjectsResponse extends \Protobuf\AbstractMessage
         if ($this->status !== null) {
             $writer->writeVarint($stream, 16);
             $writer->writeVarint($stream, $this->status->value());
+        }
+
+        if ($this->time_of_day !== null) {
+            $writer->writeVarint($stream, 24);
+            $writer->writeVarint($stream, $this->time_of_day->value());
         }
 
         if ($this->extensions !== null) {
@@ -284,6 +335,14 @@ class GetMapObjectsResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 3) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                $this->time_of_day = \POGOProtos\Networking\Responses\GetMapObjectsResponse\TimeOfDay::valueOf($reader->readVarint($stream));
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -328,6 +387,11 @@ class GetMapObjectsResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->status->value());
         }
 
+        if ($this->time_of_day !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->time_of_day->value());
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -342,6 +406,7 @@ class GetMapObjectsResponse extends \Protobuf\AbstractMessage
     {
         $this->map_cells = null;
         $this->status = null;
+        $this->time_of_day = null;
     }
 
     /**
@@ -355,6 +420,7 @@ class GetMapObjectsResponse extends \Protobuf\AbstractMessage
 
         $this->map_cells = ($message->map_cells !== null) ? $message->map_cells : $this->map_cells;
         $this->status = ($message->status !== null) ? $message->status : $this->status;
+        $this->time_of_day = ($message->time_of_day !== null) ? $message->time_of_day : $this->time_of_day;
     }
 
 

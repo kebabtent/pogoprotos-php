@@ -90,6 +90,11 @@ class ItemEffect extends \Protobuf\Enum
     const ITEM_EFFECT_CAP_CHANCE_SINGLE_THROW_VALUE = 1014;
 
     /**
+     * ITEM_EFFECT_CANDY_AWARD = 1015
+     */
+    const ITEM_EFFECT_CANDY_AWARD_VALUE = 1015;
+
+    /**
      * @var \POGOProtos\Enums\ItemEffect
      */
     protected static $ITEM_EFFECT_NONE = null;
@@ -163,6 +168,11 @@ class ItemEffect extends \Protobuf\Enum
      * @var \POGOProtos\Enums\ItemEffect
      */
     protected static $ITEM_EFFECT_CAP_CHANCE_SINGLE_THROW = null;
+
+    /**
+     * @var \POGOProtos\Enums\ItemEffect
+     */
+    protected static $ITEM_EFFECT_CANDY_AWARD = null;
 
     /**
      * @return \POGOProtos\Enums\ItemEffect
@@ -345,6 +355,18 @@ class ItemEffect extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\ItemEffect
+     */
+    public static function ITEM_EFFECT_CANDY_AWARD()
+    {
+        if (self::$ITEM_EFFECT_CANDY_AWARD !== null) {
+            return self::$ITEM_EFFECT_CANDY_AWARD;
+        }
+
+        return self::$ITEM_EFFECT_CANDY_AWARD = new self('ITEM_EFFECT_CANDY_AWARD', self::ITEM_EFFECT_CANDY_AWARD_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\ItemEffect
      */
@@ -366,6 +388,7 @@ class ItemEffect extends \Protobuf\Enum
             case 1012: return self::ITEM_EFFECT_CAP_CHANCE_MULTI_THROW();
             case 1013: return self::ITEM_EFFECT_CAP_CHANCE_ALWAYS();
             case 1014: return self::ITEM_EFFECT_CAP_CHANCE_SINGLE_THROW();
+            case 1015: return self::ITEM_EFFECT_CANDY_AWARD();
             default: return null;
         }
     }

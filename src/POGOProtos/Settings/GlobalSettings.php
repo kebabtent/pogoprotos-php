@@ -95,6 +95,13 @@ class GlobalSettings extends \Protobuf\AbstractMessage
     protected $sfida_settings = null;
 
     /**
+     * news_settings optional message = 12
+     *
+     * @var \POGOProtos\Settings\NewsSettings
+     */
+    protected $news_settings = null;
+
+    /**
      * Check if 'fort_settings' has a value
      *
      * @return bool
@@ -395,6 +402,36 @@ class GlobalSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'news_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasNewsSettings()
+    {
+        return $this->news_settings !== null;
+    }
+
+    /**
+     * Get 'news_settings' value
+     *
+     * @return \POGOProtos\Settings\NewsSettings
+     */
+    public function getNewsSettings()
+    {
+        return $this->news_settings;
+    }
+
+    /**
+     * Set 'news_settings' value
+     *
+     * @param \POGOProtos\Settings\NewsSettings $value
+     */
+    public function setNewsSettings(\POGOProtos\Settings\NewsSettings $value = null)
+    {
+        $this->news_settings = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -438,7 +475,8 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             'festival_settings' => null,
             'event_settings' => null,
             'max_pokemon_types' => null,
-            'sfida_settings' => null
+            'sfida_settings' => null,
+            'news_settings' => null
         ], $values);
 
         $message->setFortSettings($values['fort_settings']);
@@ -451,6 +489,7 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $message->setEventSettings($values['event_settings']);
         $message->setMaxPokemonTypes($values['max_pokemon_types']);
         $message->setSfidaSettings($values['sfida_settings']);
+        $message->setNewsSettings($values['news_settings']);
 
         return $message;
     }
@@ -530,6 +569,13 @@ class GlobalSettings extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Settings.SfidaSettings'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 12,
+                    'name' => 'news_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.NewsSettings'
                 ]),
             ],
         ]);
@@ -615,6 +661,12 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 90);
             $writer->writeVarint($stream, $this->sfida_settings->serializedSize($sizeContext));
             $this->sfida_settings->writeTo($context);
+        }
+
+        if ($this->news_settings !== null) {
+            $writer->writeVarint($stream, 98);
+            $writer->writeVarint($stream, $this->news_settings->serializedSize($sizeContext));
+            $this->news_settings->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -787,6 +839,21 @@ class GlobalSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 12) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\NewsSettings();
+
+                $this->news_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -890,6 +957,14 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->news_settings !== null) {
+            $innerSize = $this->news_settings->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -912,6 +987,7 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $this->event_settings = null;
         $this->max_pokemon_types = null;
         $this->sfida_settings = null;
+        $this->news_settings = null;
     }
 
     /**
@@ -933,6 +1009,7 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $this->event_settings = ($message->event_settings !== null) ? $message->event_settings : $this->event_settings;
         $this->max_pokemon_types = ($message->max_pokemon_types !== null) ? $message->max_pokemon_types : $this->max_pokemon_types;
         $this->sfida_settings = ($message->sfida_settings !== null) ? $message->sfida_settings : $this->sfida_settings;
+        $this->news_settings = ($message->news_settings !== null) ? $message->news_settings : $this->news_settings;
     }
 
 

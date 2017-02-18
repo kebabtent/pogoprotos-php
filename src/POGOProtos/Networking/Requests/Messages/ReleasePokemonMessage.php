@@ -33,6 +33,13 @@ class ReleasePokemonMessage extends \Protobuf\AbstractMessage
     protected $pokemon_id = null;
 
     /**
+     * pokemon_ids repeated fixed64 = 2
+     *
+     * @var \Protobuf\Collection
+     */
+    protected $pokemon_ids = null;
+
+    /**
      * Check if 'pokemon_id' has a value
      *
      * @return bool
@@ -60,6 +67,50 @@ class ReleasePokemonMessage extends \Protobuf\AbstractMessage
     public function setPokemonId($value = null)
     {
         $this->pokemon_id = $value;
+    }
+
+    /**
+     * Check if 'pokemon_ids' has a value
+     *
+     * @return bool
+     */
+    public function hasPokemonIdsList()
+    {
+        return $this->pokemon_ids !== null;
+    }
+
+    /**
+     * Get 'pokemon_ids' value
+     *
+     * @return \Protobuf\Collection
+     */
+    public function getPokemonIdsList()
+    {
+        return $this->pokemon_ids;
+    }
+
+    /**
+     * Set 'pokemon_ids' value
+     *
+     * @param \Protobuf\Collection $value
+     */
+    public function setPokemonIdsList(\Protobuf\Collection $value = null)
+    {
+        $this->pokemon_ids = $value;
+    }
+
+    /**
+     * Add a new element to 'pokemon_ids'
+     *
+     * @param int $value
+     */
+    public function addPokemonIds($value)
+    {
+        if ($this->pokemon_ids === null) {
+            $this->pokemon_ids = new \Protobuf\ScalarCollection();
+        }
+
+        $this->pokemon_ids->add($value);
     }
 
     /**
@@ -97,10 +148,15 @@ class ReleasePokemonMessage extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'pokemon_id' => null
+            'pokemon_id' => null,
+            'pokemon_ids' => []
         ], $values);
 
         $message->setPokemonId($values['pokemon_id']);
+
+        foreach ($values['pokemon_ids'] as $item) {
+            $message->addPokemonIds($item);
+        }
 
         return $message;
     }
@@ -118,6 +174,12 @@ class ReleasePokemonMessage extends \Protobuf\AbstractMessage
                     'name' => 'pokemon_id',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 2,
+                    'name' => 'pokemon_ids',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FIXED64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
             ],
         ]);
@@ -150,6 +212,13 @@ class ReleasePokemonMessage extends \Protobuf\AbstractMessage
         if ($this->pokemon_id !== null) {
             $writer->writeVarint($stream, 9);
             $writer->writeFixed64($stream, $this->pokemon_id);
+        }
+
+        if ($this->pokemon_ids !== null) {
+            foreach ($this->pokemon_ids as $val) {
+                $writer->writeVarint($stream, 17);
+                $writer->writeFixed64($stream, $val);
+            }
         }
 
         if ($this->extensions !== null) {
@@ -194,6 +263,21 @@ class ReleasePokemonMessage extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 2) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->pokemon_ids === null) {
+                    $this->pokemon_ids = new \Protobuf\ScalarCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->pokemon_ids->add($reader->readFixed64($stream));
+                }
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -228,6 +312,13 @@ class ReleasePokemonMessage extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
+        if ($this->pokemon_ids !== null) {
+            foreach ($this->pokemon_ids as $val) {
+                $size += 1;
+                $size += 8;
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -241,6 +332,7 @@ class ReleasePokemonMessage extends \Protobuf\AbstractMessage
     public function clear()
     {
         $this->pokemon_id = null;
+        $this->pokemon_ids = null;
     }
 
     /**
@@ -253,6 +345,7 @@ class ReleasePokemonMessage extends \Protobuf\AbstractMessage
         }
 
         $this->pokemon_id = ($message->pokemon_id !== null) ? $message->pokemon_id : $this->pokemon_id;
+        $this->pokemon_ids = ($message->pokemon_ids !== null) ? $message->pokemon_ids : $this->pokemon_ids;
     }
 
 

@@ -193,6 +193,13 @@ class PokemonSettings extends \Protobuf\AbstractMessage
     protected $model_height = null;
 
     /**
+     * evolution_branch repeated message = 26
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Settings\Master\Pokemon\EvolutionBranch>
+     */
+    protected $evolution_branch = null;
+
+    /**
      * Check if 'pokemon_id' has a value
      *
      * @return bool
@@ -969,6 +976,50 @@ class PokemonSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'evolution_branch' has a value
+     *
+     * @return bool
+     */
+    public function hasEvolutionBranchList()
+    {
+        return $this->evolution_branch !== null;
+    }
+
+    /**
+     * Get 'evolution_branch' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Settings\Master\Pokemon\EvolutionBranch>
+     */
+    public function getEvolutionBranchList()
+    {
+        return $this->evolution_branch;
+    }
+
+    /**
+     * Set 'evolution_branch' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Settings\Master\Pokemon\EvolutionBranch> $value
+     */
+    public function setEvolutionBranchList(\Protobuf\Collection $value = null)
+    {
+        $this->evolution_branch = $value;
+    }
+
+    /**
+     * Add a new element to 'evolution_branch'
+     *
+     * @param \POGOProtos\Settings\Master\Pokemon\EvolutionBranch $value
+     */
+    public function addEvolutionBranch(\POGOProtos\Settings\Master\Pokemon\EvolutionBranch $value)
+    {
+        if ($this->evolution_branch === null) {
+            $this->evolution_branch = new \Protobuf\MessageCollection();
+        }
+
+        $this->evolution_branch->add($value);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -1026,7 +1077,8 @@ class PokemonSettings extends \Protobuf\AbstractMessage
             'candy_to_evolve' => null,
             'km_buddy_distance' => null,
             'buddy_size' => null,
-            'model_height' => null
+            'model_height' => null,
+            'evolution_branch' => []
         ], $values);
 
         $message->setPokemonId($values['pokemon_id']);
@@ -1064,6 +1116,10 @@ class PokemonSettings extends \Protobuf\AbstractMessage
 
         foreach ($values['evolution_ids'] as $item) {
             $message->addEvolutionIds($item);
+        }
+
+        foreach ($values['evolution_branch'] as $item) {
+            $message->addEvolutionBranch($item);
         }
 
         return $message;
@@ -1234,6 +1290,13 @@ class PokemonSettings extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 26,
+                    'name' => 'evolution_branch',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Settings.Master.Pokemon.EvolutionBranch'
+                ]),
             ],
         ]);
     }
@@ -1391,6 +1454,14 @@ class PokemonSettings extends \Protobuf\AbstractMessage
         if ($this->model_height !== null) {
             $writer->writeVarint($stream, 205);
             $writer->writeFloat($stream, $this->model_height);
+        }
+
+        if ($this->evolution_branch !== null) {
+            foreach ($this->evolution_branch as $val) {
+                $writer->writeVarint($stream, 210);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
+            }
         }
 
         if ($this->extensions !== null) {
@@ -1668,6 +1739,25 @@ class PokemonSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 26) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\Master\Pokemon\EvolutionBranch();
+
+                if ($this->evolution_branch === null) {
+                    $this->evolution_branch = new \Protobuf\MessageCollection();
+                }
+
+                $this->evolution_branch->add($innerMessage);
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1834,6 +1924,16 @@ class PokemonSettings extends \Protobuf\AbstractMessage
             $size += 4;
         }
 
+        if ($this->evolution_branch !== null) {
+            foreach ($this->evolution_branch as $val) {
+                $innerSize = $val->serializedSize($context);
+
+                $size += 2;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1870,6 +1970,7 @@ class PokemonSettings extends \Protobuf\AbstractMessage
         $this->km_buddy_distance = null;
         $this->buddy_size = null;
         $this->model_height = null;
+        $this->evolution_branch = null;
     }
 
     /**
@@ -1905,6 +2006,7 @@ class PokemonSettings extends \Protobuf\AbstractMessage
         $this->km_buddy_distance = ($message->km_buddy_distance !== null) ? $message->km_buddy_distance : $this->km_buddy_distance;
         $this->buddy_size = ($message->buddy_size !== null) ? $message->buddy_size : $this->buddy_size;
         $this->model_height = ($message->model_height !== null) ? $message->model_height : $this->model_height;
+        $this->evolution_branch = ($message->evolution_branch !== null) ? $message->evolution_branch : $this->evolution_branch;
     }
 
 

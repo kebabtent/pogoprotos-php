@@ -35,6 +35,21 @@ class Status extends \Protobuf\Enum
     const FAILURE_VALUE = 3;
 
     /**
+     * SLOT_NOT_ALLOWED = 4
+     */
+    const SLOT_NOT_ALLOWED_VALUE = 4;
+
+    /**
+     * ITEM_NOT_OWNED = 5
+     */
+    const ITEM_NOT_OWNED_VALUE = 5;
+
+    /**
+     * INVALID_AVATAR_TYPE = 6
+     */
+    const INVALID_AVATAR_TYPE_VALUE = 6;
+
+    /**
      * @var \POGOProtos\Networking\Responses\SetAvatarResponse\Status
      */
     protected static $UNSET = null;
@@ -53,6 +68,21 @@ class Status extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\SetAvatarResponse\Status
      */
     protected static $FAILURE = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\SetAvatarResponse\Status
+     */
+    protected static $SLOT_NOT_ALLOWED = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\SetAvatarResponse\Status
+     */
+    protected static $ITEM_NOT_OWNED = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\SetAvatarResponse\Status
+     */
+    protected static $INVALID_AVATAR_TYPE = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\SetAvatarResponse\Status
@@ -103,6 +133,42 @@ class Status extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\SetAvatarResponse\Status
+     */
+    public static function SLOT_NOT_ALLOWED()
+    {
+        if (self::$SLOT_NOT_ALLOWED !== null) {
+            return self::$SLOT_NOT_ALLOWED;
+        }
+
+        return self::$SLOT_NOT_ALLOWED = new self('SLOT_NOT_ALLOWED', self::SLOT_NOT_ALLOWED_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Responses\SetAvatarResponse\Status
+     */
+    public static function ITEM_NOT_OWNED()
+    {
+        if (self::$ITEM_NOT_OWNED !== null) {
+            return self::$ITEM_NOT_OWNED;
+        }
+
+        return self::$ITEM_NOT_OWNED = new self('ITEM_NOT_OWNED', self::ITEM_NOT_OWNED_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Responses\SetAvatarResponse\Status
+     */
+    public static function INVALID_AVATAR_TYPE()
+    {
+        if (self::$INVALID_AVATAR_TYPE !== null) {
+            return self::$INVALID_AVATAR_TYPE;
+        }
+
+        return self::$INVALID_AVATAR_TYPE = new self('INVALID_AVATAR_TYPE', self::INVALID_AVATAR_TYPE_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\SetAvatarResponse\Status
      */
@@ -113,6 +179,9 @@ class Status extends \Protobuf\Enum
             case 1: return self::SUCCESS();
             case 2: return self::AVATAR_ALREADY_SET();
             case 3: return self::FAILURE();
+            case 4: return self::SLOT_NOT_ALLOWED();
+            case 5: return self::ITEM_NOT_OWNED();
+            case 6: return self::INVALID_AVATAR_TYPE();
             default: return null;
         }
     }

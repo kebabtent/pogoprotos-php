@@ -263,6 +263,13 @@ class PokemonData extends \Protobuf\AbstractMessage
     protected $display_cp = null;
 
     /**
+     * pokemon_display optional message = 36
+     *
+     * @var \POGOProtos\Data\PokemonDisplay
+     */
+    protected $pokemon_display = null;
+
+    /**
      * Check if 'id' has a value
      *
      * @return bool
@@ -1283,6 +1290,36 @@ class PokemonData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'pokemon_display' has a value
+     *
+     * @return bool
+     */
+    public function hasPokemonDisplay()
+    {
+        return $this->pokemon_display !== null;
+    }
+
+    /**
+     * Get 'pokemon_display' value
+     *
+     * @return \POGOProtos\Data\PokemonDisplay
+     */
+    public function getPokemonDisplay()
+    {
+        return $this->pokemon_display;
+    }
+
+    /**
+     * Set 'pokemon_display' value
+     *
+     * @param \POGOProtos\Data\PokemonDisplay $value
+     */
+    public function setPokemonDisplay(\POGOProtos\Data\PokemonDisplay $value = null)
+    {
+        $this->pokemon_display = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -1350,7 +1387,8 @@ class PokemonData extends \Protobuf\AbstractMessage
             'buddy_candy_awarded' => null,
             'buddy_total_km_walked' => null,
             'display_pokemon_id' => null,
-            'display_cp' => null
+            'display_cp' => null,
+            'pokemon_display' => null
         ], $values);
 
         $message->setId($values['id']);
@@ -1387,6 +1425,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $message->setBuddyTotalKmWalked($values['buddy_total_km_walked']);
         $message->setDisplayPokemonId($values['display_pokemon_id']);
         $message->setDisplayCp($values['display_cp']);
+        $message->setPokemonDisplay($values['pokemon_display']);
 
         return $message;
     }
@@ -1607,6 +1646,13 @@ class PokemonData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 36,
+                    'name' => 'pokemon_display',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.PokemonDisplay'
+                ]),
             ],
         ]);
     }
@@ -1803,6 +1849,12 @@ class PokemonData extends \Protobuf\AbstractMessage
         if ($this->display_cp !== null) {
             $writer->writeVarint($stream, 280);
             $writer->writeVarint($stream, $this->display_cp);
+        }
+
+        if ($this->pokemon_display !== null) {
+            $writer->writeVarint($stream, 290);
+            $writer->writeVarint($stream, $this->pokemon_display->serializedSize($sizeContext));
+            $this->pokemon_display->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -2111,6 +2163,21 @@ class PokemonData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 36) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PokemonDisplay();
+
+                $this->pokemon_display = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -2310,6 +2377,14 @@ class PokemonData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->display_cp);
         }
 
+        if ($this->pokemon_display !== null) {
+            $innerSize = $this->pokemon_display->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -2356,6 +2431,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $this->buddy_total_km_walked = null;
         $this->display_pokemon_id = null;
         $this->display_cp = null;
+        $this->pokemon_display = null;
     }
 
     /**
@@ -2401,6 +2477,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $this->buddy_total_km_walked = ($message->buddy_total_km_walked !== null) ? $message->buddy_total_km_walked : $this->buddy_total_km_walked;
         $this->display_pokemon_id = ($message->display_pokemon_id !== null) ? $message->display_pokemon_id : $this->display_pokemon_id;
         $this->display_cp = ($message->display_cp !== null) ? $message->display_cp : $this->display_cp;
+        $this->pokemon_display = ($message->pokemon_display !== null) ? $message->pokemon_display : $this->pokemon_display;
     }
 
 

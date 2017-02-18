@@ -40,6 +40,11 @@ class Platform extends \Protobuf\Enum
     const WINDOWS_VALUE = 4;
 
     /**
+     * APPLE_WATCH = 5
+     */
+    const APPLE_WATCH_VALUE = 5;
+
+    /**
      * @var \POGOProtos\Enums\Platform
      */
     protected static $UNSET = null;
@@ -63,6 +68,11 @@ class Platform extends \Protobuf\Enum
      * @var \POGOProtos\Enums\Platform
      */
     protected static $WINDOWS = null;
+
+    /**
+     * @var \POGOProtos\Enums\Platform
+     */
+    protected static $APPLE_WATCH = null;
 
     /**
      * @return \POGOProtos\Enums\Platform
@@ -125,6 +135,18 @@ class Platform extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\Platform
+     */
+    public static function APPLE_WATCH()
+    {
+        if (self::$APPLE_WATCH !== null) {
+            return self::$APPLE_WATCH;
+        }
+
+        return self::$APPLE_WATCH = new self('APPLE_WATCH', self::APPLE_WATCH_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\Platform
      */
@@ -136,6 +158,7 @@ class Platform extends \Protobuf\Enum
             case 2: return self::ANDROID();
             case 3: return self::OSX();
             case 4: return self::WINDOWS();
+            case 5: return self::APPLE_WATCH();
             default: return null;
         }
     }
