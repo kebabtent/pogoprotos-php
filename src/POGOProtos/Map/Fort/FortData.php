@@ -151,6 +151,55 @@ class FortData extends \Protobuf\AbstractMessage
     protected $guard_pokemon_display = null;
 
     /**
+     * closed optional bool = 19
+     *
+     * @var bool
+     */
+    protected $closed = null;
+
+    /**
+     * raid_info optional message = 20
+     *
+     * @var \POGOProtos\Data\Raid\RaidInfo
+     */
+    protected $raid_info = null;
+
+    /**
+     * gym_display optional message = 21
+     *
+     * @var \POGOProtos\Map\Fort\GymDisplay
+     */
+    protected $gym_display = null;
+
+    /**
+     * visited optional bool = 22
+     *
+     * @var bool
+     */
+    protected $visited = null;
+
+    /**
+     * same_team_deploy_lockout_end_ms optional int64 = 23
+     *
+     * @var int
+     */
+    protected $same_team_deploy_lockout_end_ms = null;
+
+    /**
+     * allow_checkin optional bool = 24
+     *
+     * @var bool
+     */
+    protected $allow_checkin = null;
+
+    /**
+     * image_url optional string = 25
+     *
+     * @var string
+     */
+    protected $image_url = null;
+
+    /**
      * Check if 'id' has a value
      *
      * @return bool
@@ -705,6 +754,216 @@ class FortData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'closed' has a value
+     *
+     * @return bool
+     */
+    public function hasClosed()
+    {
+        return $this->closed !== null;
+    }
+
+    /**
+     * Get 'closed' value
+     *
+     * @return bool
+     */
+    public function getClosed()
+    {
+        return $this->closed;
+    }
+
+    /**
+     * Set 'closed' value
+     *
+     * @param bool $value
+     */
+    public function setClosed($value = null)
+    {
+        $this->closed = $value;
+    }
+
+    /**
+     * Check if 'raid_info' has a value
+     *
+     * @return bool
+     */
+    public function hasRaidInfo()
+    {
+        return $this->raid_info !== null;
+    }
+
+    /**
+     * Get 'raid_info' value
+     *
+     * @return \POGOProtos\Data\Raid\RaidInfo
+     */
+    public function getRaidInfo()
+    {
+        return $this->raid_info;
+    }
+
+    /**
+     * Set 'raid_info' value
+     *
+     * @param \POGOProtos\Data\Raid\RaidInfo $value
+     */
+    public function setRaidInfo(\POGOProtos\Data\Raid\RaidInfo $value = null)
+    {
+        $this->raid_info = $value;
+    }
+
+    /**
+     * Check if 'gym_display' has a value
+     *
+     * @return bool
+     */
+    public function hasGymDisplay()
+    {
+        return $this->gym_display !== null;
+    }
+
+    /**
+     * Get 'gym_display' value
+     *
+     * @return \POGOProtos\Map\Fort\GymDisplay
+     */
+    public function getGymDisplay()
+    {
+        return $this->gym_display;
+    }
+
+    /**
+     * Set 'gym_display' value
+     *
+     * @param \POGOProtos\Map\Fort\GymDisplay $value
+     */
+    public function setGymDisplay(\POGOProtos\Map\Fort\GymDisplay $value = null)
+    {
+        $this->gym_display = $value;
+    }
+
+    /**
+     * Check if 'visited' has a value
+     *
+     * @return bool
+     */
+    public function hasVisited()
+    {
+        return $this->visited !== null;
+    }
+
+    /**
+     * Get 'visited' value
+     *
+     * @return bool
+     */
+    public function getVisited()
+    {
+        return $this->visited;
+    }
+
+    /**
+     * Set 'visited' value
+     *
+     * @param bool $value
+     */
+    public function setVisited($value = null)
+    {
+        $this->visited = $value;
+    }
+
+    /**
+     * Check if 'same_team_deploy_lockout_end_ms' has a value
+     *
+     * @return bool
+     */
+    public function hasSameTeamDeployLockoutEndMs()
+    {
+        return $this->same_team_deploy_lockout_end_ms !== null;
+    }
+
+    /**
+     * Get 'same_team_deploy_lockout_end_ms' value
+     *
+     * @return int
+     */
+    public function getSameTeamDeployLockoutEndMs()
+    {
+        return $this->same_team_deploy_lockout_end_ms;
+    }
+
+    /**
+     * Set 'same_team_deploy_lockout_end_ms' value
+     *
+     * @param int $value
+     */
+    public function setSameTeamDeployLockoutEndMs($value = null)
+    {
+        $this->same_team_deploy_lockout_end_ms = $value;
+    }
+
+    /**
+     * Check if 'allow_checkin' has a value
+     *
+     * @return bool
+     */
+    public function hasAllowCheckin()
+    {
+        return $this->allow_checkin !== null;
+    }
+
+    /**
+     * Get 'allow_checkin' value
+     *
+     * @return bool
+     */
+    public function getAllowCheckin()
+    {
+        return $this->allow_checkin;
+    }
+
+    /**
+     * Set 'allow_checkin' value
+     *
+     * @param bool $value
+     */
+    public function setAllowCheckin($value = null)
+    {
+        $this->allow_checkin = $value;
+    }
+
+    /**
+     * Check if 'image_url' has a value
+     *
+     * @return bool
+     */
+    public function hasImageUrl()
+    {
+        return $this->image_url !== null;
+    }
+
+    /**
+     * Get 'image_url' value
+     *
+     * @return string
+     */
+    public function getImageUrl()
+    {
+        return $this->image_url;
+    }
+
+    /**
+     * Set 'image_url' value
+     *
+     * @param string $value
+     */
+    public function setImageUrl($value = null)
+    {
+        $this->image_url = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -756,7 +1015,14 @@ class FortData extends \Protobuf\AbstractMessage
             'sponsor' => null,
             'rendering_type' => null,
             'deploy_lockout_end_ms' => null,
-            'guard_pokemon_display' => null
+            'guard_pokemon_display' => null,
+            'closed' => null,
+            'raid_info' => null,
+            'gym_display' => null,
+            'visited' => null,
+            'same_team_deploy_lockout_end_ms' => null,
+            'allow_checkin' => null,
+            'image_url' => null
         ], $values);
 
         $message->setId($values['id']);
@@ -776,6 +1042,13 @@ class FortData extends \Protobuf\AbstractMessage
         $message->setRenderingType($values['rendering_type']);
         $message->setDeployLockoutEndMs($values['deploy_lockout_end_ms']);
         $message->setGuardPokemonDisplay($values['guard_pokemon_display']);
+        $message->setClosed($values['closed']);
+        $message->setRaidInfo($values['raid_info']);
+        $message->setGymDisplay($values['gym_display']);
+        $message->setVisited($values['visited']);
+        $message->setSameTeamDeployLockoutEndMs($values['same_team_deploy_lockout_end_ms']);
+        $message->setAllowCheckin($values['allow_checkin']);
+        $message->setImageUrl($values['image_url']);
 
         foreach ($values['active_fort_modifier'] as $item) {
             $message->addActiveFortModifier($item);
@@ -908,6 +1181,50 @@ class FortData extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.PokemonDisplay'
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 19,
+                    'name' => 'closed',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 20,
+                    'name' => 'raid_info',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.Raid.RaidInfo'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 21,
+                    'name' => 'gym_display',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Map.Fort.GymDisplay'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 22,
+                    'name' => 'visited',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 23,
+                    'name' => 'same_team_deploy_lockout_end_ms',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 24,
+                    'name' => 'allow_checkin',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 25,
+                    'name' => 'image_url',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
             ],
         ]);
     }
@@ -1028,6 +1345,43 @@ class FortData extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 146);
             $writer->writeVarint($stream, $this->guard_pokemon_display->serializedSize($sizeContext));
             $this->guard_pokemon_display->writeTo($context);
+        }
+
+        if ($this->closed !== null) {
+            $writer->writeVarint($stream, 152);
+            $writer->writeBool($stream, $this->closed);
+        }
+
+        if ($this->raid_info !== null) {
+            $writer->writeVarint($stream, 162);
+            $writer->writeVarint($stream, $this->raid_info->serializedSize($sizeContext));
+            $this->raid_info->writeTo($context);
+        }
+
+        if ($this->gym_display !== null) {
+            $writer->writeVarint($stream, 170);
+            $writer->writeVarint($stream, $this->gym_display->serializedSize($sizeContext));
+            $this->gym_display->writeTo($context);
+        }
+
+        if ($this->visited !== null) {
+            $writer->writeVarint($stream, 176);
+            $writer->writeBool($stream, $this->visited);
+        }
+
+        if ($this->same_team_deploy_lockout_end_ms !== null) {
+            $writer->writeVarint($stream, 184);
+            $writer->writeVarint($stream, $this->same_team_deploy_lockout_end_ms);
+        }
+
+        if ($this->allow_checkin !== null) {
+            $writer->writeVarint($stream, 192);
+            $writer->writeBool($stream, $this->allow_checkin);
+        }
+
+        if ($this->image_url !== null) {
+            $writer->writeVarint($stream, 202);
+            $writer->writeString($stream, $this->image_url);
         }
 
         if ($this->extensions !== null) {
@@ -1229,6 +1583,76 @@ class FortData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 19) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->closed = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 20) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Raid\RaidInfo();
+
+                $this->raid_info = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 21) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Map\Fort\GymDisplay();
+
+                $this->gym_display = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 22) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->visited = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 23) {
+                \Protobuf\WireFormat::assertWireType($wire, 3);
+
+                $this->same_team_deploy_lockout_end_ms = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 24) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->allow_checkin = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 25) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->image_url = $reader->readString($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1356,6 +1780,47 @@ class FortData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->closed !== null) {
+            $size += 2;
+            $size += 1;
+        }
+
+        if ($this->raid_info !== null) {
+            $innerSize = $this->raid_info->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->gym_display !== null) {
+            $innerSize = $this->gym_display->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->visited !== null) {
+            $size += 2;
+            $size += 1;
+        }
+
+        if ($this->same_team_deploy_lockout_end_ms !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->same_team_deploy_lockout_end_ms);
+        }
+
+        if ($this->allow_checkin !== null) {
+            $size += 2;
+            $size += 1;
+        }
+
+        if ($this->image_url !== null) {
+            $size += 2;
+            $size += $calculator->computeStringSize($this->image_url);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1386,6 +1851,13 @@ class FortData extends \Protobuf\AbstractMessage
         $this->rendering_type = null;
         $this->deploy_lockout_end_ms = null;
         $this->guard_pokemon_display = null;
+        $this->closed = null;
+        $this->raid_info = null;
+        $this->gym_display = null;
+        $this->visited = null;
+        $this->same_team_deploy_lockout_end_ms = null;
+        $this->allow_checkin = null;
+        $this->image_url = null;
     }
 
     /**
@@ -1415,6 +1887,13 @@ class FortData extends \Protobuf\AbstractMessage
         $this->rendering_type = ($message->rendering_type !== null) ? $message->rendering_type : $this->rendering_type;
         $this->deploy_lockout_end_ms = ($message->deploy_lockout_end_ms !== null) ? $message->deploy_lockout_end_ms : $this->deploy_lockout_end_ms;
         $this->guard_pokemon_display = ($message->guard_pokemon_display !== null) ? $message->guard_pokemon_display : $this->guard_pokemon_display;
+        $this->closed = ($message->closed !== null) ? $message->closed : $this->closed;
+        $this->raid_info = ($message->raid_info !== null) ? $message->raid_info : $this->raid_info;
+        $this->gym_display = ($message->gym_display !== null) ? $message->gym_display : $this->gym_display;
+        $this->visited = ($message->visited !== null) ? $message->visited : $this->visited;
+        $this->same_team_deploy_lockout_end_ms = ($message->same_team_deploy_lockout_end_ms !== null) ? $message->same_team_deploy_lockout_end_ms : $this->same_team_deploy_lockout_end_ms;
+        $this->allow_checkin = ($message->allow_checkin !== null) ? $message->allow_checkin : $this->allow_checkin;
+        $this->image_url = ($message->image_url !== null) ? $message->image_url : $this->image_url;
     }
 
 

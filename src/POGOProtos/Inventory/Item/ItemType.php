@@ -85,6 +85,21 @@ class ItemType extends \Protobuf\Enum
     const ITEM_TYPE_EVOLUTION_REQUIREMENT_VALUE = 13;
 
     /**
+     * ITEM_TYPE_MOVE_REROLL = 14
+     */
+    const ITEM_TYPE_MOVE_REROLL_VALUE = 14;
+
+    /**
+     * ITEM_TYPE_CANDY = 15
+     */
+    const ITEM_TYPE_CANDY_VALUE = 15;
+
+    /**
+     * ITEM_TYPE_RAID_TICKET = 16
+     */
+    const ITEM_TYPE_RAID_TICKET_VALUE = 16;
+
+    /**
      * @var \POGOProtos\Inventory\Item\ItemType
      */
     protected static $ITEM_TYPE_NONE = null;
@@ -153,6 +168,21 @@ class ItemType extends \Protobuf\Enum
      * @var \POGOProtos\Inventory\Item\ItemType
      */
     protected static $ITEM_TYPE_EVOLUTION_REQUIREMENT = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemType
+     */
+    protected static $ITEM_TYPE_MOVE_REROLL = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemType
+     */
+    protected static $ITEM_TYPE_CANDY = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemType
+     */
+    protected static $ITEM_TYPE_RAID_TICKET = null;
 
     /**
      * @return \POGOProtos\Inventory\Item\ItemType
@@ -323,6 +353,42 @@ class ItemType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Inventory\Item\ItemType
+     */
+    public static function ITEM_TYPE_MOVE_REROLL()
+    {
+        if (self::$ITEM_TYPE_MOVE_REROLL !== null) {
+            return self::$ITEM_TYPE_MOVE_REROLL;
+        }
+
+        return self::$ITEM_TYPE_MOVE_REROLL = new self('ITEM_TYPE_MOVE_REROLL', self::ITEM_TYPE_MOVE_REROLL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemType
+     */
+    public static function ITEM_TYPE_CANDY()
+    {
+        if (self::$ITEM_TYPE_CANDY !== null) {
+            return self::$ITEM_TYPE_CANDY;
+        }
+
+        return self::$ITEM_TYPE_CANDY = new self('ITEM_TYPE_CANDY', self::ITEM_TYPE_CANDY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemType
+     */
+    public static function ITEM_TYPE_RAID_TICKET()
+    {
+        if (self::$ITEM_TYPE_RAID_TICKET !== null) {
+            return self::$ITEM_TYPE_RAID_TICKET;
+        }
+
+        return self::$ITEM_TYPE_RAID_TICKET = new self('ITEM_TYPE_RAID_TICKET', self::ITEM_TYPE_RAID_TICKET_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Inventory\Item\ItemType
      */
@@ -343,6 +409,9 @@ class ItemType extends \Protobuf\Enum
             case 11: return self::ITEM_TYPE_XP_BOOST();
             case 12: return self::ITEM_TYPE_INVENTORY_UPGRADE();
             case 13: return self::ITEM_TYPE_EVOLUTION_REQUIREMENT();
+            case 14: return self::ITEM_TYPE_MOVE_REROLL();
+            case 15: return self::ITEM_TYPE_CANDY();
+            case 16: return self::ITEM_TYPE_RAID_TICKET();
             default: return null;
         }
     }

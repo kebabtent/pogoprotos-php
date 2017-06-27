@@ -40,6 +40,11 @@ class Result extends \Protobuf\Enum
     const NO_ITEM_IN_INVENTORY_VALUE = 4;
 
     /**
+     * POI_INACCESSIBLE = 5
+     */
+    const POI_INACCESSIBLE_VALUE = 5;
+
+    /**
      * @var \POGOProtos\Networking\Responses\AddFortModifierResponse\Result
      */
     protected static $NO_RESULT_SET = null;
@@ -63,6 +68,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\AddFortModifierResponse\Result
      */
     protected static $NO_ITEM_IN_INVENTORY = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\AddFortModifierResponse\Result
+     */
+    protected static $POI_INACCESSIBLE = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\AddFortModifierResponse\Result
@@ -125,6 +135,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\AddFortModifierResponse\Result
+     */
+    public static function POI_INACCESSIBLE()
+    {
+        if (self::$POI_INACCESSIBLE !== null) {
+            return self::$POI_INACCESSIBLE;
+        }
+
+        return self::$POI_INACCESSIBLE = new self('POI_INACCESSIBLE', self::POI_INACCESSIBLE_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\AddFortModifierResponse\Result
      */
@@ -136,6 +158,7 @@ class Result extends \Protobuf\Enum
             case 2: return self::FORT_ALREADY_HAS_MODIFIER();
             case 3: return self::TOO_FAR_AWAY();
             case 4: return self::NO_ITEM_IN_INVENTORY();
+            case 5: return self::POI_INACCESSIBLE();
             default: return null;
         }
     }

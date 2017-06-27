@@ -30,6 +30,11 @@ class EncounterType extends \Protobuf\Enum
     const DISK_VALUE = 2;
 
     /**
+     * POST_RAID = 3
+     */
+    const POST_RAID_VALUE = 3;
+
+    /**
      * @var \POGOProtos\Enums\EncounterType
      */
     protected static $SPAWN_POINT = null;
@@ -43,6 +48,11 @@ class EncounterType extends \Protobuf\Enum
      * @var \POGOProtos\Enums\EncounterType
      */
     protected static $DISK = null;
+
+    /**
+     * @var \POGOProtos\Enums\EncounterType
+     */
+    protected static $POST_RAID = null;
 
     /**
      * @return \POGOProtos\Enums\EncounterType
@@ -81,6 +91,18 @@ class EncounterType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\EncounterType
+     */
+    public static function POST_RAID()
+    {
+        if (self::$POST_RAID !== null) {
+            return self::$POST_RAID;
+        }
+
+        return self::$POST_RAID = new self('POST_RAID', self::POST_RAID_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\EncounterType
      */
@@ -90,6 +112,7 @@ class EncounterType extends \Protobuf\Enum
             case 0: return self::SPAWN_POINT();
             case 1: return self::INCENSE();
             case 2: return self::DISK();
+            case 3: return self::POST_RAID();
             default: return null;
         }
     }

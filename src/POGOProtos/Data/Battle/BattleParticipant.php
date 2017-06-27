@@ -53,6 +53,20 @@ class BattleParticipant extends \Protobuf\AbstractMessage
     protected $defeated_pokemon = null;
 
     /**
+     * lobby_pokemon repeated message = 5
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Map\Pokemon\LobbyPokemon>
+     */
+    protected $lobby_pokemon = null;
+
+    /**
+     * damage_dealt optional int32 = 6
+     *
+     * @var int
+     */
+    protected $damage_dealt = null;
+
+    /**
      * Check if 'active_pokemon' has a value
      *
      * @return bool
@@ -201,6 +215,80 @@ class BattleParticipant extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'lobby_pokemon' has a value
+     *
+     * @return bool
+     */
+    public function hasLobbyPokemonList()
+    {
+        return $this->lobby_pokemon !== null;
+    }
+
+    /**
+     * Get 'lobby_pokemon' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Map\Pokemon\LobbyPokemon>
+     */
+    public function getLobbyPokemonList()
+    {
+        return $this->lobby_pokemon;
+    }
+
+    /**
+     * Set 'lobby_pokemon' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Map\Pokemon\LobbyPokemon> $value
+     */
+    public function setLobbyPokemonList(\Protobuf\Collection $value = null)
+    {
+        $this->lobby_pokemon = $value;
+    }
+
+    /**
+     * Add a new element to 'lobby_pokemon'
+     *
+     * @param \POGOProtos\Map\Pokemon\LobbyPokemon $value
+     */
+    public function addLobbyPokemon(\POGOProtos\Map\Pokemon\LobbyPokemon $value)
+    {
+        if ($this->lobby_pokemon === null) {
+            $this->lobby_pokemon = new \Protobuf\MessageCollection();
+        }
+
+        $this->lobby_pokemon->add($value);
+    }
+
+    /**
+     * Check if 'damage_dealt' has a value
+     *
+     * @return bool
+     */
+    public function hasDamageDealt()
+    {
+        return $this->damage_dealt !== null;
+    }
+
+    /**
+     * Get 'damage_dealt' value
+     *
+     * @return int
+     */
+    public function getDamageDealt()
+    {
+        return $this->damage_dealt;
+    }
+
+    /**
+     * Set 'damage_dealt' value
+     *
+     * @param int $value
+     */
+    public function setDamageDealt($value = null)
+    {
+        $this->damage_dealt = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -238,11 +326,14 @@ class BattleParticipant extends \Protobuf\AbstractMessage
             'active_pokemon' => null,
             'trainer_public_profile' => null,
             'reverse_pokemon' => [],
-            'defeated_pokemon' => []
+            'defeated_pokemon' => [],
+            'lobby_pokemon' => [],
+            'damage_dealt' => null
         ], $values);
 
         $message->setActivePokemon($values['active_pokemon']);
         $message->setTrainerPublicProfile($values['trainer_public_profile']);
+        $message->setDamageDealt($values['damage_dealt']);
 
         foreach ($values['reverse_pokemon'] as $item) {
             $message->addReversePokemon($item);
@@ -250,6 +341,10 @@ class BattleParticipant extends \Protobuf\AbstractMessage
 
         foreach ($values['defeated_pokemon'] as $item) {
             $message->addDefeatedPokemon($item);
+        }
+
+        foreach ($values['lobby_pokemon'] as $item) {
+            $message->addLobbyPokemon($item);
         }
 
         return $message;
@@ -290,6 +385,19 @@ class BattleParticipant extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
                     'type_name' => '.POGOProtos.Data.Battle.BattlePokemonInfo'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'lobby_pokemon',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Map.Pokemon.LobbyPokemon'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'damage_dealt',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -345,6 +453,19 @@ class BattleParticipant extends \Protobuf\AbstractMessage
                 $writer->writeVarint($stream, $val->serializedSize($sizeContext));
                 $val->writeTo($context);
             }
+        }
+
+        if ($this->lobby_pokemon !== null) {
+            foreach ($this->lobby_pokemon as $val) {
+                $writer->writeVarint($stream, 42);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
+            }
+        }
+
+        if ($this->damage_dealt !== null) {
+            $writer->writeVarint($stream, 48);
+            $writer->writeVarint($stream, $this->damage_dealt);
         }
 
         if ($this->extensions !== null) {
@@ -449,6 +570,33 @@ class BattleParticipant extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Map\Pokemon\LobbyPokemon();
+
+                if ($this->lobby_pokemon === null) {
+                    $this->lobby_pokemon = new \Protobuf\MessageCollection();
+                }
+
+                $this->lobby_pokemon->add($innerMessage);
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 6) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->damage_dealt = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -514,6 +662,21 @@ class BattleParticipant extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->lobby_pokemon !== null) {
+            foreach ($this->lobby_pokemon as $val) {
+                $innerSize = $val->serializedSize($context);
+
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
+        }
+
+        if ($this->damage_dealt !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->damage_dealt);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -530,6 +693,8 @@ class BattleParticipant extends \Protobuf\AbstractMessage
         $this->trainer_public_profile = null;
         $this->reverse_pokemon = null;
         $this->defeated_pokemon = null;
+        $this->lobby_pokemon = null;
+        $this->damage_dealt = null;
     }
 
     /**
@@ -545,6 +710,8 @@ class BattleParticipant extends \Protobuf\AbstractMessage
         $this->trainer_public_profile = ($message->trainer_public_profile !== null) ? $message->trainer_public_profile : $this->trainer_public_profile;
         $this->reverse_pokemon = ($message->reverse_pokemon !== null) ? $message->reverse_pokemon : $this->reverse_pokemon;
         $this->defeated_pokemon = ($message->defeated_pokemon !== null) ? $message->defeated_pokemon : $this->defeated_pokemon;
+        $this->lobby_pokemon = ($message->lobby_pokemon !== null) ? $message->lobby_pokemon : $this->lobby_pokemon;
+        $this->damage_dealt = ($message->damage_dealt !== null) ? $message->damage_dealt : $this->damage_dealt;
     }
 
 

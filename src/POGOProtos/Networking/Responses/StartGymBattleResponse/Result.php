@@ -85,6 +85,11 @@ class Result extends \Protobuf\Enum
     const ERROR_NOT_IN_RANGE_VALUE = 13;
 
     /**
+     * ERROR_POI_INACCESSIBLE = 14
+     */
+    const ERROR_POI_INACCESSIBLE_VALUE = 14;
+
+    /**
      * @var \POGOProtos\Networking\Responses\StartGymBattleResponse\Result
      */
     protected static $UNSET = null;
@@ -153,6 +158,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\StartGymBattleResponse\Result
      */
     protected static $ERROR_NOT_IN_RANGE = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\StartGymBattleResponse\Result
+     */
+    protected static $ERROR_POI_INACCESSIBLE = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\StartGymBattleResponse\Result
@@ -323,6 +333,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\StartGymBattleResponse\Result
+     */
+    public static function ERROR_POI_INACCESSIBLE()
+    {
+        if (self::$ERROR_POI_INACCESSIBLE !== null) {
+            return self::$ERROR_POI_INACCESSIBLE;
+        }
+
+        return self::$ERROR_POI_INACCESSIBLE = new self('ERROR_POI_INACCESSIBLE', self::ERROR_POI_INACCESSIBLE_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\StartGymBattleResponse\Result
      */
@@ -343,6 +365,7 @@ class Result extends \Protobuf\Enum
             case 11: return self::ERROR_GYM_BATTLE_LOCKOUT();
             case 12: return self::ERROR_PLAYER_BELOW_MINIMUM_LEVEL();
             case 13: return self::ERROR_NOT_IN_RANGE();
+            case 14: return self::ERROR_POI_INACCESSIBLE();
             default: return null;
         }
     }

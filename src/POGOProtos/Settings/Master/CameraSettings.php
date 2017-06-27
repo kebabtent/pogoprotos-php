@@ -53,11 +53,11 @@ class CameraSettings extends \Protobuf\AbstractMessage
     protected $ease_in_speed = null;
 
     /**
-     * east_out_speed repeated float = 5
+     * ease_out_speed repeated float = 5
      *
      * @var \Protobuf\Collection
      */
-    protected $east_out_speed = null;
+    protected $ease_out_speed = null;
 
     /**
      * duration_seconds repeated float = 6
@@ -299,47 +299,47 @@ class CameraSettings extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'east_out_speed' has a value
+     * Check if 'ease_out_speed' has a value
      *
      * @return bool
      */
-    public function hasEastOutSpeedList()
+    public function hasEaseOutSpeedList()
     {
-        return $this->east_out_speed !== null;
+        return $this->ease_out_speed !== null;
     }
 
     /**
-     * Get 'east_out_speed' value
+     * Get 'ease_out_speed' value
      *
      * @return \Protobuf\Collection
      */
-    public function getEastOutSpeedList()
+    public function getEaseOutSpeedList()
     {
-        return $this->east_out_speed;
+        return $this->ease_out_speed;
     }
 
     /**
-     * Set 'east_out_speed' value
+     * Set 'ease_out_speed' value
      *
      * @param \Protobuf\Collection $value
      */
-    public function setEastOutSpeedList(\Protobuf\Collection $value = null)
+    public function setEaseOutSpeedList(\Protobuf\Collection $value = null)
     {
-        $this->east_out_speed = $value;
+        $this->ease_out_speed = $value;
     }
 
     /**
-     * Add a new element to 'east_out_speed'
+     * Add a new element to 'ease_out_speed'
      *
      * @param float $value
      */
-    public function addEastOutSpeed($value)
+    public function addEaseOutSpeed($value)
     {
-        if ($this->east_out_speed === null) {
-            $this->east_out_speed = new \Protobuf\ScalarCollection();
+        if ($this->ease_out_speed === null) {
+            $this->ease_out_speed = new \Protobuf\ScalarCollection();
         }
 
-        $this->east_out_speed->add($value);
+        $this->ease_out_speed->add($value);
     }
 
     /**
@@ -865,7 +865,7 @@ class CameraSettings extends \Protobuf\AbstractMessage
             'interpolation' => [],
             'target_type' => [],
             'ease_in_speed' => [],
-            'east_out_speed' => [],
+            'ease_out_speed' => [],
             'duration_seconds' => [],
             'wait_seconds' => [],
             'transition_seconds' => [],
@@ -893,8 +893,8 @@ class CameraSettings extends \Protobuf\AbstractMessage
             $message->addEaseInSpeed($item);
         }
 
-        foreach ($values['east_out_speed'] as $item) {
-            $message->addEastOutSpeed($item);
+        foreach ($values['ease_out_speed'] as $item) {
+            $message->addEaseOutSpeed($item);
         }
 
         foreach ($values['duration_seconds'] as $item) {
@@ -980,7 +980,7 @@ class CameraSettings extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 5,
-                    'name' => 'east_out_speed',
+                    'name' => 'ease_out_speed',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
                 ]),
@@ -1104,8 +1104,8 @@ class CameraSettings extends \Protobuf\AbstractMessage
             }
         }
 
-        if ($this->east_out_speed !== null) {
-            foreach ($this->east_out_speed as $val) {
+        if ($this->ease_out_speed !== null) {
+            foreach ($this->ease_out_speed as $val) {
                 $writer->writeVarint($stream, 45);
                 $writer->writeFloat($stream, $val);
             }
@@ -1279,12 +1279,12 @@ class CameraSettings extends \Protobuf\AbstractMessage
                 $innerSize  = $reader->readVarint($stream);
                 $innerLimit = $stream->tell() + $innerSize;
 
-                if ($this->east_out_speed === null) {
-                    $this->east_out_speed = new \Protobuf\ScalarCollection();
+                if ($this->ease_out_speed === null) {
+                    $this->ease_out_speed = new \Protobuf\ScalarCollection();
                 }
 
                 while ($stream->tell() < $innerLimit) {
-                    $this->east_out_speed->add($reader->readFloat($stream));
+                    $this->ease_out_speed->add($reader->readFloat($stream));
                 }
 
                 continue;
@@ -1510,8 +1510,8 @@ class CameraSettings extends \Protobuf\AbstractMessage
             }
         }
 
-        if ($this->east_out_speed !== null) {
-            foreach ($this->east_out_speed as $val) {
+        if ($this->ease_out_speed !== null) {
+            foreach ($this->ease_out_speed as $val) {
                 $size += 1;
                 $size += 4;
             }
@@ -1610,7 +1610,7 @@ class CameraSettings extends \Protobuf\AbstractMessage
         $this->interpolation = null;
         $this->target_type = null;
         $this->ease_in_speed = null;
-        $this->east_out_speed = null;
+        $this->ease_out_speed = null;
         $this->duration_seconds = null;
         $this->wait_seconds = null;
         $this->transition_seconds = null;
@@ -1637,7 +1637,7 @@ class CameraSettings extends \Protobuf\AbstractMessage
         $this->interpolation = ($message->interpolation !== null) ? $message->interpolation : $this->interpolation;
         $this->target_type = ($message->target_type !== null) ? $message->target_type : $this->target_type;
         $this->ease_in_speed = ($message->ease_in_speed !== null) ? $message->ease_in_speed : $this->ease_in_speed;
-        $this->east_out_speed = ($message->east_out_speed !== null) ? $message->east_out_speed : $this->east_out_speed;
+        $this->ease_out_speed = ($message->ease_out_speed !== null) ? $message->ease_out_speed : $this->ease_out_speed;
         $this->duration_seconds = ($message->duration_seconds !== null) ? $message->duration_seconds : $this->duration_seconds;
         $this->wait_seconds = ($message->wait_seconds !== null) ? $message->wait_seconds : $this->wait_seconds;
         $this->transition_seconds = ($message->transition_seconds !== null) ? $message->transition_seconds : $this->transition_seconds;

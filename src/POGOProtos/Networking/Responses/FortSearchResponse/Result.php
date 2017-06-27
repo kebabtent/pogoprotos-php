@@ -45,6 +45,11 @@ class Result extends \Protobuf\Enum
     const EXCEEDED_DAILY_LIMIT_VALUE = 5;
 
     /**
+     * POI_INACCESSIBLE = 6
+     */
+    const POI_INACCESSIBLE_VALUE = 6;
+
+    /**
      * @var \POGOProtos\Networking\Responses\FortSearchResponse\Result
      */
     protected static $NO_RESULT_SET = null;
@@ -73,6 +78,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\FortSearchResponse\Result
      */
     protected static $EXCEEDED_DAILY_LIMIT = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\FortSearchResponse\Result
+     */
+    protected static $POI_INACCESSIBLE = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\FortSearchResponse\Result
@@ -147,6 +157,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\FortSearchResponse\Result
+     */
+    public static function POI_INACCESSIBLE()
+    {
+        if (self::$POI_INACCESSIBLE !== null) {
+            return self::$POI_INACCESSIBLE;
+        }
+
+        return self::$POI_INACCESSIBLE = new self('POI_INACCESSIBLE', self::POI_INACCESSIBLE_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\FortSearchResponse\Result
      */
@@ -159,6 +181,7 @@ class Result extends \Protobuf\Enum
             case 3: return self::IN_COOLDOWN_PERIOD();
             case 4: return self::INVENTORY_FULL();
             case 5: return self::EXCEEDED_DAILY_LIMIT();
+            case 6: return self::POI_INACCESSIBLE();
             default: return null;
         }
     }

@@ -67,6 +67,27 @@ class FortSettings extends \Protobuf\AbstractMessage
     protected $far_interaction_range_meters = null;
 
     /**
+     * disable_gyms optional bool = 7
+     *
+     * @var bool
+     */
+    protected $disable_gyms = null;
+
+    /**
+     * max_same_pokemon_at_fort optional int32 = 8
+     *
+     * @var int
+     */
+    protected $max_same_pokemon_at_fort = null;
+
+    /**
+     * max_player_total_deployed_pokemon optional int32 = 9
+     *
+     * @var int
+     */
+    protected $max_player_total_deployed_pokemon = null;
+
+    /**
      * Check if 'interaction_range_meters' has a value
      *
      * @return bool
@@ -247,6 +268,96 @@ class FortSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'disable_gyms' has a value
+     *
+     * @return bool
+     */
+    public function hasDisableGyms()
+    {
+        return $this->disable_gyms !== null;
+    }
+
+    /**
+     * Get 'disable_gyms' value
+     *
+     * @return bool
+     */
+    public function getDisableGyms()
+    {
+        return $this->disable_gyms;
+    }
+
+    /**
+     * Set 'disable_gyms' value
+     *
+     * @param bool $value
+     */
+    public function setDisableGyms($value = null)
+    {
+        $this->disable_gyms = $value;
+    }
+
+    /**
+     * Check if 'max_same_pokemon_at_fort' has a value
+     *
+     * @return bool
+     */
+    public function hasMaxSamePokemonAtFort()
+    {
+        return $this->max_same_pokemon_at_fort !== null;
+    }
+
+    /**
+     * Get 'max_same_pokemon_at_fort' value
+     *
+     * @return int
+     */
+    public function getMaxSamePokemonAtFort()
+    {
+        return $this->max_same_pokemon_at_fort;
+    }
+
+    /**
+     * Set 'max_same_pokemon_at_fort' value
+     *
+     * @param int $value
+     */
+    public function setMaxSamePokemonAtFort($value = null)
+    {
+        $this->max_same_pokemon_at_fort = $value;
+    }
+
+    /**
+     * Check if 'max_player_total_deployed_pokemon' has a value
+     *
+     * @return bool
+     */
+    public function hasMaxPlayerTotalDeployedPokemon()
+    {
+        return $this->max_player_total_deployed_pokemon !== null;
+    }
+
+    /**
+     * Get 'max_player_total_deployed_pokemon' value
+     *
+     * @return int
+     */
+    public function getMaxPlayerTotalDeployedPokemon()
+    {
+        return $this->max_player_total_deployed_pokemon;
+    }
+
+    /**
+     * Set 'max_player_total_deployed_pokemon' value
+     *
+     * @param int $value
+     */
+    public function setMaxPlayerTotalDeployedPokemon($value = null)
+    {
+        $this->max_player_total_deployed_pokemon = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -286,7 +397,10 @@ class FortSettings extends \Protobuf\AbstractMessage
             'max_player_deployed_pokemon' => null,
             'deploy_stamina_multiplier' => null,
             'deploy_attack_multiplier' => null,
-            'far_interaction_range_meters' => null
+            'far_interaction_range_meters' => null,
+            'disable_gyms' => null,
+            'max_same_pokemon_at_fort' => null,
+            'max_player_total_deployed_pokemon' => null
         ], $values);
 
         $message->setInteractionRangeMeters($values['interaction_range_meters']);
@@ -295,6 +409,9 @@ class FortSettings extends \Protobuf\AbstractMessage
         $message->setDeployStaminaMultiplier($values['deploy_stamina_multiplier']);
         $message->setDeployAttackMultiplier($values['deploy_attack_multiplier']);
         $message->setFarInteractionRangeMeters($values['far_interaction_range_meters']);
+        $message->setDisableGyms($values['disable_gyms']);
+        $message->setMaxSamePokemonAtFort($values['max_same_pokemon_at_fort']);
+        $message->setMaxPlayerTotalDeployedPokemon($values['max_player_total_deployed_pokemon']);
 
         return $message;
     }
@@ -341,6 +458,24 @@ class FortSettings extends \Protobuf\AbstractMessage
                     'number' => 6,
                     'name' => 'far_interaction_range_meters',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'disable_gyms',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'max_same_pokemon_at_fort',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 9,
+                    'name' => 'max_player_total_deployed_pokemon',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -399,6 +534,21 @@ class FortSettings extends \Protobuf\AbstractMessage
         if ($this->far_interaction_range_meters !== null) {
             $writer->writeVarint($stream, 49);
             $writer->writeDouble($stream, $this->far_interaction_range_meters);
+        }
+
+        if ($this->disable_gyms !== null) {
+            $writer->writeVarint($stream, 56);
+            $writer->writeBool($stream, $this->disable_gyms);
+        }
+
+        if ($this->max_same_pokemon_at_fort !== null) {
+            $writer->writeVarint($stream, 64);
+            $writer->writeVarint($stream, $this->max_same_pokemon_at_fort);
+        }
+
+        if ($this->max_player_total_deployed_pokemon !== null) {
+            $writer->writeVarint($stream, 72);
+            $writer->writeVarint($stream, $this->max_player_total_deployed_pokemon);
         }
 
         if ($this->extensions !== null) {
@@ -483,6 +633,30 @@ class FortSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 7) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->disable_gyms = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 8) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->max_same_pokemon_at_fort = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 9) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->max_player_total_deployed_pokemon = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -542,6 +716,21 @@ class FortSettings extends \Protobuf\AbstractMessage
             $size += 8;
         }
 
+        if ($this->disable_gyms !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
+        if ($this->max_same_pokemon_at_fort !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->max_same_pokemon_at_fort);
+        }
+
+        if ($this->max_player_total_deployed_pokemon !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->max_player_total_deployed_pokemon);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -560,6 +749,9 @@ class FortSettings extends \Protobuf\AbstractMessage
         $this->deploy_stamina_multiplier = null;
         $this->deploy_attack_multiplier = null;
         $this->far_interaction_range_meters = null;
+        $this->disable_gyms = null;
+        $this->max_same_pokemon_at_fort = null;
+        $this->max_player_total_deployed_pokemon = null;
     }
 
     /**
@@ -577,6 +769,9 @@ class FortSettings extends \Protobuf\AbstractMessage
         $this->deploy_stamina_multiplier = ($message->deploy_stamina_multiplier !== null) ? $message->deploy_stamina_multiplier : $this->deploy_stamina_multiplier;
         $this->deploy_attack_multiplier = ($message->deploy_attack_multiplier !== null) ? $message->deploy_attack_multiplier : $this->deploy_attack_multiplier;
         $this->far_interaction_range_meters = ($message->far_interaction_range_meters !== null) ? $message->far_interaction_range_meters : $this->far_interaction_range_meters;
+        $this->disable_gyms = ($message->disable_gyms !== null) ? $message->disable_gyms : $this->disable_gyms;
+        $this->max_same_pokemon_at_fort = ($message->max_same_pokemon_at_fort !== null) ? $message->max_same_pokemon_at_fort : $this->max_same_pokemon_at_fort;
+        $this->max_player_total_deployed_pokemon = ($message->max_player_total_deployed_pokemon !== null) ? $message->max_player_total_deployed_pokemon : $this->max_player_total_deployed_pokemon;
     }
 
 

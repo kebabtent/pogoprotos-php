@@ -48,11 +48,11 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
     protected $player_currencies = null;
 
     /**
-     * unknown4 optional string = 4
+     * hash optional string = 4
      *
      * @var string
      */
-    protected $unknown4 = null;
+    protected $hash = null;
 
     /**
      * Check if 'status' has a value
@@ -174,33 +174,33 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
     }
 
     /**
-     * Check if 'unknown4' has a value
+     * Check if 'hash' has a value
      *
      * @return bool
      */
-    public function hasUnknown4()
+    public function hasHash()
     {
-        return $this->unknown4 !== null;
+        return $this->hash !== null;
     }
 
     /**
-     * Get 'unknown4' value
+     * Get 'hash' value
      *
      * @return string
      */
-    public function getUnknown4()
+    public function getHash()
     {
-        return $this->unknown4;
+        return $this->hash;
     }
 
     /**
-     * Set 'unknown4' value
+     * Set 'hash' value
      *
      * @param string $value
      */
-    public function setUnknown4($value = null)
+    public function setHash($value = null)
     {
-        $this->unknown4 = $value;
+        $this->hash = $value;
     }
 
     /**
@@ -241,11 +241,11 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
             'status' => null,
             'items' => [],
             'player_currencies' => [],
-            'unknown4' => null
+            'hash' => null
         ], $values);
 
         $message->setStatus($values['status']);
-        $message->setUnknown4($values['unknown4']);
+        $message->setHash($values['hash']);
 
         foreach ($values['items'] as $item) {
             $message->addItems($item);
@@ -289,7 +289,7 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 4,
-                    'name' => 'unknown4',
+                    'name' => 'hash',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -342,9 +342,9 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
             }
         }
 
-        if ($this->unknown4 !== null) {
+        if ($this->hash !== null) {
             $writer->writeVarint($stream, 34);
-            $writer->writeString($stream, $this->unknown4);
+            $writer->writeString($stream, $this->hash);
         }
 
         if ($this->extensions !== null) {
@@ -430,7 +430,7 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
             if ($tag === 4) {
                 \Protobuf\WireFormat::assertWireType($wire, 9);
 
-                $this->unknown4 = $reader->readString($stream);
+                $this->hash = $reader->readString($stream);
 
                 continue;
             }
@@ -489,9 +489,9 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
             }
         }
 
-        if ($this->unknown4 !== null) {
+        if ($this->hash !== null) {
             $size += 1;
-            $size += $calculator->computeStringSize($this->unknown4);
+            $size += $calculator->computeStringSize($this->hash);
         }
 
         if ($this->extensions !== null) {
@@ -509,7 +509,7 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
         $this->status = null;
         $this->items = null;
         $this->player_currencies = null;
-        $this->unknown4 = null;
+        $this->hash = null;
     }
 
     /**
@@ -524,7 +524,7 @@ class GetStoreItemsResponse extends \Protobuf\AbstractMessage
         $this->status = ($message->status !== null) ? $message->status : $this->status;
         $this->items = ($message->items !== null) ? $message->items : $this->items;
         $this->player_currencies = ($message->player_currencies !== null) ? $message->player_currencies : $this->player_currencies;
-        $this->unknown4 = ($message->unknown4 !== null) ? $message->unknown4 : $this->unknown4;
+        $this->hash = ($message->hash !== null) ? $message->hash : $this->hash;
     }
 
 

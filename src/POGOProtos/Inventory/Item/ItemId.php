@@ -40,6 +40,11 @@ class ItemId extends \Protobuf\Enum
     const ITEM_MASTER_BALL_VALUE = 4;
 
     /**
+     * ITEM_PREMIER_BALL = 5
+     */
+    const ITEM_PREMIER_BALL_VALUE = 5;
+
+    /**
      * ITEM_POTION = 101
      */
     const ITEM_POTION_VALUE = 101;
@@ -140,6 +145,21 @@ class ItemId extends \Protobuf\Enum
     const ITEM_PINAP_BERRY_VALUE = 705;
 
     /**
+     * ITEM_GOLDEN_RAZZ_BERRY = 706
+     */
+    const ITEM_GOLDEN_RAZZ_BERRY_VALUE = 706;
+
+    /**
+     * ITEM_GOLDEN_NANAB_BERRY = 707
+     */
+    const ITEM_GOLDEN_NANAB_BERRY_VALUE = 707;
+
+    /**
+     * ITEM_GOLDEN_PINAP_BERRY = 708
+     */
+    const ITEM_GOLDEN_PINAP_BERRY_VALUE = 708;
+
+    /**
      * ITEM_SPECIAL_CAMERA = 801
      */
     const ITEM_SPECIAL_CAMERA_VALUE = 801;
@@ -190,6 +210,36 @@ class ItemId extends \Protobuf\Enum
     const ITEM_UP_GRADE_VALUE = 1105;
 
     /**
+     * ITEM_MOVE_REROLL_FAST_ATTACK = 1201
+     */
+    const ITEM_MOVE_REROLL_FAST_ATTACK_VALUE = 1201;
+
+    /**
+     * ITEM_MOVE_REROLL_SPECIAL_ATTACK = 1202
+     */
+    const ITEM_MOVE_REROLL_SPECIAL_ATTACK_VALUE = 1202;
+
+    /**
+     * ITEM_RARE_CANDY = 1301
+     */
+    const ITEM_RARE_CANDY_VALUE = 1301;
+
+    /**
+     * ITEM_FREE_RAID_TICKET = 1401
+     */
+    const ITEM_FREE_RAID_TICKET_VALUE = 1401;
+
+    /**
+     * ITEM_PAID_RAID_TICKET = 1402
+     */
+    const ITEM_PAID_RAID_TICKET_VALUE = 1402;
+
+    /**
+     * ITEM_LEGENDARY_RAID_TICKET = 1403
+     */
+    const ITEM_LEGENDARY_RAID_TICKET_VALUE = 1403;
+
+    /**
      * @var \POGOProtos\Inventory\Item\ItemId
      */
     protected static $ITEM_UNKNOWN = null;
@@ -213,6 +263,11 @@ class ItemId extends \Protobuf\Enum
      * @var \POGOProtos\Inventory\Item\ItemId
      */
     protected static $ITEM_MASTER_BALL = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_PREMIER_BALL = null;
 
     /**
      * @var \POGOProtos\Inventory\Item\ItemId
@@ -317,6 +372,21 @@ class ItemId extends \Protobuf\Enum
     /**
      * @var \POGOProtos\Inventory\Item\ItemId
      */
+    protected static $ITEM_GOLDEN_RAZZ_BERRY = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_GOLDEN_NANAB_BERRY = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_GOLDEN_PINAP_BERRY = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
     protected static $ITEM_SPECIAL_CAMERA = null;
 
     /**
@@ -363,6 +433,36 @@ class ItemId extends \Protobuf\Enum
      * @var \POGOProtos\Inventory\Item\ItemId
      */
     protected static $ITEM_UP_GRADE = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_MOVE_REROLL_FAST_ATTACK = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_MOVE_REROLL_SPECIAL_ATTACK = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_RARE_CANDY = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_FREE_RAID_TICKET = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_PAID_RAID_TICKET = null;
+
+    /**
+     * @var \POGOProtos\Inventory\Item\ItemId
+     */
+    protected static $ITEM_LEGENDARY_RAID_TICKET = null;
 
     /**
      * @return \POGOProtos\Inventory\Item\ItemId
@@ -422,6 +522,18 @@ class ItemId extends \Protobuf\Enum
         }
 
         return self::$ITEM_MASTER_BALL = new self('ITEM_MASTER_BALL', self::ITEM_MASTER_BALL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_PREMIER_BALL()
+    {
+        if (self::$ITEM_PREMIER_BALL !== null) {
+            return self::$ITEM_PREMIER_BALL;
+        }
+
+        return self::$ITEM_PREMIER_BALL = new self('ITEM_PREMIER_BALL', self::ITEM_PREMIER_BALL_VALUE);
     }
 
     /**
@@ -667,6 +779,42 @@ class ItemId extends \Protobuf\Enum
     /**
      * @return \POGOProtos\Inventory\Item\ItemId
      */
+    public static function ITEM_GOLDEN_RAZZ_BERRY()
+    {
+        if (self::$ITEM_GOLDEN_RAZZ_BERRY !== null) {
+            return self::$ITEM_GOLDEN_RAZZ_BERRY;
+        }
+
+        return self::$ITEM_GOLDEN_RAZZ_BERRY = new self('ITEM_GOLDEN_RAZZ_BERRY', self::ITEM_GOLDEN_RAZZ_BERRY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_GOLDEN_NANAB_BERRY()
+    {
+        if (self::$ITEM_GOLDEN_NANAB_BERRY !== null) {
+            return self::$ITEM_GOLDEN_NANAB_BERRY;
+        }
+
+        return self::$ITEM_GOLDEN_NANAB_BERRY = new self('ITEM_GOLDEN_NANAB_BERRY', self::ITEM_GOLDEN_NANAB_BERRY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_GOLDEN_PINAP_BERRY()
+    {
+        if (self::$ITEM_GOLDEN_PINAP_BERRY !== null) {
+            return self::$ITEM_GOLDEN_PINAP_BERRY;
+        }
+
+        return self::$ITEM_GOLDEN_PINAP_BERRY = new self('ITEM_GOLDEN_PINAP_BERRY', self::ITEM_GOLDEN_PINAP_BERRY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
     public static function ITEM_SPECIAL_CAMERA()
     {
         if (self::$ITEM_SPECIAL_CAMERA !== null) {
@@ -785,6 +933,78 @@ class ItemId extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_MOVE_REROLL_FAST_ATTACK()
+    {
+        if (self::$ITEM_MOVE_REROLL_FAST_ATTACK !== null) {
+            return self::$ITEM_MOVE_REROLL_FAST_ATTACK;
+        }
+
+        return self::$ITEM_MOVE_REROLL_FAST_ATTACK = new self('ITEM_MOVE_REROLL_FAST_ATTACK', self::ITEM_MOVE_REROLL_FAST_ATTACK_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_MOVE_REROLL_SPECIAL_ATTACK()
+    {
+        if (self::$ITEM_MOVE_REROLL_SPECIAL_ATTACK !== null) {
+            return self::$ITEM_MOVE_REROLL_SPECIAL_ATTACK;
+        }
+
+        return self::$ITEM_MOVE_REROLL_SPECIAL_ATTACK = new self('ITEM_MOVE_REROLL_SPECIAL_ATTACK', self::ITEM_MOVE_REROLL_SPECIAL_ATTACK_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_RARE_CANDY()
+    {
+        if (self::$ITEM_RARE_CANDY !== null) {
+            return self::$ITEM_RARE_CANDY;
+        }
+
+        return self::$ITEM_RARE_CANDY = new self('ITEM_RARE_CANDY', self::ITEM_RARE_CANDY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_FREE_RAID_TICKET()
+    {
+        if (self::$ITEM_FREE_RAID_TICKET !== null) {
+            return self::$ITEM_FREE_RAID_TICKET;
+        }
+
+        return self::$ITEM_FREE_RAID_TICKET = new self('ITEM_FREE_RAID_TICKET', self::ITEM_FREE_RAID_TICKET_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_PAID_RAID_TICKET()
+    {
+        if (self::$ITEM_PAID_RAID_TICKET !== null) {
+            return self::$ITEM_PAID_RAID_TICKET;
+        }
+
+        return self::$ITEM_PAID_RAID_TICKET = new self('ITEM_PAID_RAID_TICKET', self::ITEM_PAID_RAID_TICKET_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Inventory\Item\ItemId
+     */
+    public static function ITEM_LEGENDARY_RAID_TICKET()
+    {
+        if (self::$ITEM_LEGENDARY_RAID_TICKET !== null) {
+            return self::$ITEM_LEGENDARY_RAID_TICKET;
+        }
+
+        return self::$ITEM_LEGENDARY_RAID_TICKET = new self('ITEM_LEGENDARY_RAID_TICKET', self::ITEM_LEGENDARY_RAID_TICKET_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Inventory\Item\ItemId
      */
@@ -796,6 +1016,7 @@ class ItemId extends \Protobuf\Enum
             case 2: return self::ITEM_GREAT_BALL();
             case 3: return self::ITEM_ULTRA_BALL();
             case 4: return self::ITEM_MASTER_BALL();
+            case 5: return self::ITEM_PREMIER_BALL();
             case 101: return self::ITEM_POTION();
             case 102: return self::ITEM_SUPER_POTION();
             case 103: return self::ITEM_HYPER_POTION();
@@ -816,6 +1037,9 @@ class ItemId extends \Protobuf\Enum
             case 703: return self::ITEM_NANAB_BERRY();
             case 704: return self::ITEM_WEPAR_BERRY();
             case 705: return self::ITEM_PINAP_BERRY();
+            case 706: return self::ITEM_GOLDEN_RAZZ_BERRY();
+            case 707: return self::ITEM_GOLDEN_NANAB_BERRY();
+            case 708: return self::ITEM_GOLDEN_PINAP_BERRY();
             case 801: return self::ITEM_SPECIAL_CAMERA();
             case 901: return self::ITEM_INCUBATOR_BASIC_UNLIMITED();
             case 902: return self::ITEM_INCUBATOR_BASIC();
@@ -826,6 +1050,12 @@ class ItemId extends \Protobuf\Enum
             case 1103: return self::ITEM_METAL_COAT();
             case 1104: return self::ITEM_DRAGON_SCALE();
             case 1105: return self::ITEM_UP_GRADE();
+            case 1201: return self::ITEM_MOVE_REROLL_FAST_ATTACK();
+            case 1202: return self::ITEM_MOVE_REROLL_SPECIAL_ATTACK();
+            case 1301: return self::ITEM_RARE_CANDY();
+            case 1401: return self::ITEM_FREE_RAID_TICKET();
+            case 1402: return self::ITEM_PAID_RAID_TICKET();
+            case 1403: return self::ITEM_LEGENDARY_RAID_TICKET();
             default: return null;
         }
     }

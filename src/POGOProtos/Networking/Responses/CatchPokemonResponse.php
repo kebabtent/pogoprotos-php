@@ -67,6 +67,13 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
     protected $display_pokedex_id = null;
 
     /**
+     * throws_remaining optional int32 = 7
+     *
+     * @var int
+     */
+    protected $throws_remaining = null;
+
+    /**
      * Check if 'status' has a value
      *
      * @return bool
@@ -247,6 +254,36 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'throws_remaining' has a value
+     *
+     * @return bool
+     */
+    public function hasThrowsRemaining()
+    {
+        return $this->throws_remaining !== null;
+    }
+
+    /**
+     * Get 'throws_remaining' value
+     *
+     * @return int
+     */
+    public function getThrowsRemaining()
+    {
+        return $this->throws_remaining;
+    }
+
+    /**
+     * Set 'throws_remaining' value
+     *
+     * @param int $value
+     */
+    public function setThrowsRemaining($value = null)
+    {
+        $this->throws_remaining = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -286,7 +323,8 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
             'captured_pokemon_id' => null,
             'capture_award' => null,
             'capture_reason' => null,
-            'display_pokedex_id' => null
+            'display_pokedex_id' => null,
+            'throws_remaining' => null
         ], $values);
 
         $message->setStatus($values['status']);
@@ -295,6 +333,7 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
         $message->setCaptureAward($values['capture_award']);
         $message->setCaptureReason($values['capture_reason']);
         $message->setDisplayPokedexId($values['display_pokedex_id']);
+        $message->setThrowsRemaining($values['throws_remaining']);
 
         return $message;
     }
@@ -343,6 +382,12 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 6,
                     'name' => 'display_pokedex_id',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'throws_remaining',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -403,6 +448,11 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
         if ($this->display_pokedex_id !== null) {
             $writer->writeVarint($stream, 48);
             $writer->writeVarint($stream, $this->display_pokedex_id);
+        }
+
+        if ($this->throws_remaining !== null) {
+            $writer->writeVarint($stream, 56);
+            $writer->writeVarint($stream, $this->throws_remaining);
         }
 
         if ($this->extensions !== null) {
@@ -494,6 +544,14 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 7) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->throws_remaining = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -556,6 +614,11 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->display_pokedex_id);
         }
 
+        if ($this->throws_remaining !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->throws_remaining);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -574,6 +637,7 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
         $this->capture_award = null;
         $this->capture_reason = null;
         $this->display_pokedex_id = null;
+        $this->throws_remaining = null;
     }
 
     /**
@@ -591,6 +655,7 @@ class CatchPokemonResponse extends \Protobuf\AbstractMessage
         $this->capture_award = ($message->capture_award !== null) ? $message->capture_award : $this->capture_award;
         $this->capture_reason = ($message->capture_reason !== null) ? $message->capture_reason : $this->capture_reason;
         $this->display_pokedex_id = ($message->display_pokedex_id !== null) ? $message->display_pokedex_id : $this->display_pokedex_id;
+        $this->throws_remaining = ($message->throws_remaining !== null) ? $message->throws_remaining : $this->throws_remaining;
     }
 
 

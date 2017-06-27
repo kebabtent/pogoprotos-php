@@ -150,6 +150,31 @@ class ActivityType extends \Protobuf\Enum
     const ACTIVITY_SEARCH_FORT_STREAK_BONUS_VALUE = 26;
 
     /**
+     * ACTIVITY_DEFEAT_RAID_POKEMON = 27
+     */
+    const ACTIVITY_DEFEAT_RAID_POKEMON_VALUE = 27;
+
+    /**
+     * ACTIVITY_FEED_BERRY = 28
+     */
+    const ACTIVITY_FEED_BERRY_VALUE = 28;
+
+    /**
+     * ACTIVITY_SEARCH_GYM = 29
+     */
+    const ACTIVITY_SEARCH_GYM_VALUE = 29;
+
+    /**
+     * ACTIVITY_NEW_POKESTOP = 30
+     */
+    const ACTIVITY_NEW_POKESTOP_VALUE = 30;
+
+    /**
+     * ACTIVITY_GYM_BATTLE_LOSS = 31
+     */
+    const ACTIVITY_GYM_BATTLE_LOSS_VALUE = 31;
+
+    /**
      * @var \POGOProtos\Enums\ActivityType
      */
     protected static $ACTIVITY_UNKNOWN = null;
@@ -283,6 +308,31 @@ class ActivityType extends \Protobuf\Enum
      * @var \POGOProtos\Enums\ActivityType
      */
     protected static $ACTIVITY_SEARCH_FORT_STREAK_BONUS = null;
+
+    /**
+     * @var \POGOProtos\Enums\ActivityType
+     */
+    protected static $ACTIVITY_DEFEAT_RAID_POKEMON = null;
+
+    /**
+     * @var \POGOProtos\Enums\ActivityType
+     */
+    protected static $ACTIVITY_FEED_BERRY = null;
+
+    /**
+     * @var \POGOProtos\Enums\ActivityType
+     */
+    protected static $ACTIVITY_SEARCH_GYM = null;
+
+    /**
+     * @var \POGOProtos\Enums\ActivityType
+     */
+    protected static $ACTIVITY_NEW_POKESTOP = null;
+
+    /**
+     * @var \POGOProtos\Enums\ActivityType
+     */
+    protected static $ACTIVITY_GYM_BATTLE_LOSS = null;
 
     /**
      * @return \POGOProtos\Enums\ActivityType
@@ -609,6 +659,66 @@ class ActivityType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\ActivityType
+     */
+    public static function ACTIVITY_DEFEAT_RAID_POKEMON()
+    {
+        if (self::$ACTIVITY_DEFEAT_RAID_POKEMON !== null) {
+            return self::$ACTIVITY_DEFEAT_RAID_POKEMON;
+        }
+
+        return self::$ACTIVITY_DEFEAT_RAID_POKEMON = new self('ACTIVITY_DEFEAT_RAID_POKEMON', self::ACTIVITY_DEFEAT_RAID_POKEMON_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\ActivityType
+     */
+    public static function ACTIVITY_FEED_BERRY()
+    {
+        if (self::$ACTIVITY_FEED_BERRY !== null) {
+            return self::$ACTIVITY_FEED_BERRY;
+        }
+
+        return self::$ACTIVITY_FEED_BERRY = new self('ACTIVITY_FEED_BERRY', self::ACTIVITY_FEED_BERRY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\ActivityType
+     */
+    public static function ACTIVITY_SEARCH_GYM()
+    {
+        if (self::$ACTIVITY_SEARCH_GYM !== null) {
+            return self::$ACTIVITY_SEARCH_GYM;
+        }
+
+        return self::$ACTIVITY_SEARCH_GYM = new self('ACTIVITY_SEARCH_GYM', self::ACTIVITY_SEARCH_GYM_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\ActivityType
+     */
+    public static function ACTIVITY_NEW_POKESTOP()
+    {
+        if (self::$ACTIVITY_NEW_POKESTOP !== null) {
+            return self::$ACTIVITY_NEW_POKESTOP;
+        }
+
+        return self::$ACTIVITY_NEW_POKESTOP = new self('ACTIVITY_NEW_POKESTOP', self::ACTIVITY_NEW_POKESTOP_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\ActivityType
+     */
+    public static function ACTIVITY_GYM_BATTLE_LOSS()
+    {
+        if (self::$ACTIVITY_GYM_BATTLE_LOSS !== null) {
+            return self::$ACTIVITY_GYM_BATTLE_LOSS;
+        }
+
+        return self::$ACTIVITY_GYM_BATTLE_LOSS = new self('ACTIVITY_GYM_BATTLE_LOSS', self::ACTIVITY_GYM_BATTLE_LOSS_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\ActivityType
      */
@@ -642,6 +752,11 @@ class ActivityType extends \Protobuf\Enum
             case 24: return self::ACTIVITY_CATCH_FIRST_CATCH_STREAK_BONUS();
             case 25: return self::ACTIVITY_SEARCH_FORT_FIRST_OF_THE_DAY();
             case 26: return self::ACTIVITY_SEARCH_FORT_STREAK_BONUS();
+            case 27: return self::ACTIVITY_DEFEAT_RAID_POKEMON();
+            case 28: return self::ACTIVITY_FEED_BERRY();
+            case 29: return self::ACTIVITY_SEARCH_GYM();
+            case 30: return self::ACTIVITY_NEW_POKESTOP();
+            case 31: return self::ACTIVITY_GYM_BATTLE_LOSS();
             default: return null;
         }
     }

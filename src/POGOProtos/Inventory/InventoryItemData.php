@@ -109,6 +109,13 @@ class InventoryItemData extends \Protobuf\AbstractMessage
     protected $avatar_item = null;
 
     /**
+     * raid_tickets optional message = 13
+     *
+     * @var \POGOProtos\Inventory\RaidTickets
+     */
+    protected $raid_tickets = null;
+
+    /**
      * Check if 'pokemon_data' has a value
      *
      * @return bool
@@ -469,6 +476,36 @@ class InventoryItemData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'raid_tickets' has a value
+     *
+     * @return bool
+     */
+    public function hasRaidTickets()
+    {
+        return $this->raid_tickets !== null;
+    }
+
+    /**
+     * Get 'raid_tickets' value
+     *
+     * @return \POGOProtos\Inventory\RaidTickets
+     */
+    public function getRaidTickets()
+    {
+        return $this->raid_tickets;
+    }
+
+    /**
+     * Set 'raid_tickets' value
+     *
+     * @param \POGOProtos\Inventory\RaidTickets $value
+     */
+    public function setRaidTickets(\POGOProtos\Inventory\RaidTickets $value = null)
+    {
+        $this->raid_tickets = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -514,7 +551,8 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             'egg_incubators' => null,
             'candy' => null,
             'quest' => null,
-            'avatar_item' => null
+            'avatar_item' => null,
+            'raid_tickets' => null
         ], $values);
 
         $message->setPokemonData($values['pokemon_data']);
@@ -529,6 +567,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $message->setCandy($values['candy']);
         $message->setQuest($values['quest']);
         $message->setAvatarItem($values['avatar_item']);
+        $message->setRaidTickets($values['raid_tickets']);
 
         return $message;
     }
@@ -624,6 +663,13 @@ class InventoryItemData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Avatar.AvatarItem'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 13,
+                    'name' => 'raid_tickets',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Inventory.RaidTickets'
                 ]),
             ],
         ]);
@@ -723,6 +769,12 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 98);
             $writer->writeVarint($stream, $this->avatar_item->serializedSize($sizeContext));
             $this->avatar_item->writeTo($context);
+        }
+
+        if ($this->raid_tickets !== null) {
+            $writer->writeVarint($stream, 106);
+            $writer->writeVarint($stream, $this->raid_tickets->serializedSize($sizeContext));
+            $this->raid_tickets->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -939,6 +991,21 @@ class InventoryItemData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 13) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Inventory\RaidTickets();
+
+                $this->raid_tickets = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1064,6 +1131,14 @@ class InventoryItemData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->raid_tickets !== null) {
+            $innerSize = $this->raid_tickets->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1088,6 +1163,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $this->candy = null;
         $this->quest = null;
         $this->avatar_item = null;
+        $this->raid_tickets = null;
     }
 
     /**
@@ -1111,6 +1187,7 @@ class InventoryItemData extends \Protobuf\AbstractMessage
         $this->candy = ($message->candy !== null) ? $message->candy : $this->candy;
         $this->quest = ($message->quest !== null) ? $message->quest : $this->quest;
         $this->avatar_item = ($message->avatar_item !== null) ? $message->avatar_item : $this->avatar_item;
+        $this->raid_tickets = ($message->raid_tickets !== null) ? $message->raid_tickets : $this->raid_tickets;
     }
 
 

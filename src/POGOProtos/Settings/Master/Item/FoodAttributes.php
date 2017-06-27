@@ -46,6 +46,13 @@ class FoodAttributes extends \Protobuf\AbstractMessage
     protected $growth_percent = null;
 
     /**
+     * berry_multiplier optional float = 4
+     *
+     * @var float
+     */
+    protected $berry_multiplier = null;
+
+    /**
      * Check if 'item_effect' has a value
      *
      * @return bool
@@ -164,6 +171,36 @@ class FoodAttributes extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'berry_multiplier' has a value
+     *
+     * @return bool
+     */
+    public function hasBerryMultiplier()
+    {
+        return $this->berry_multiplier !== null;
+    }
+
+    /**
+     * Get 'berry_multiplier' value
+     *
+     * @return float
+     */
+    public function getBerryMultiplier()
+    {
+        return $this->berry_multiplier;
+    }
+
+    /**
+     * Set 'berry_multiplier' value
+     *
+     * @param float $value
+     */
+    public function setBerryMultiplier($value = null)
+    {
+        $this->berry_multiplier = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -200,10 +237,12 @@ class FoodAttributes extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'item_effect' => [],
             'item_effect_percent' => [],
-            'growth_percent' => null
+            'growth_percent' => null,
+            'berry_multiplier' => null
         ], $values);
 
         $message->setGrowthPercent($values['growth_percent']);
+        $message->setBerryMultiplier($values['berry_multiplier']);
 
         foreach ($values['item_effect'] as $item) {
             $message->addItemEffect($item);
@@ -240,6 +279,12 @@ class FoodAttributes extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 3,
                     'name' => 'growth_percent',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'berry_multiplier',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -288,6 +333,11 @@ class FoodAttributes extends \Protobuf\AbstractMessage
         if ($this->growth_percent !== null) {
             $writer->writeVarint($stream, 29);
             $writer->writeFloat($stream, $this->growth_percent);
+        }
+
+        if ($this->berry_multiplier !== null) {
+            $writer->writeVarint($stream, 37);
+            $writer->writeFloat($stream, $this->berry_multiplier);
         }
 
         if ($this->extensions !== null) {
@@ -362,6 +412,14 @@ class FoodAttributes extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->berry_multiplier = $reader->readFloat($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -410,6 +468,11 @@ class FoodAttributes extends \Protobuf\AbstractMessage
             $size += 4;
         }
 
+        if ($this->berry_multiplier !== null) {
+            $size += 1;
+            $size += 4;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -425,6 +488,7 @@ class FoodAttributes extends \Protobuf\AbstractMessage
         $this->item_effect = null;
         $this->item_effect_percent = null;
         $this->growth_percent = null;
+        $this->berry_multiplier = null;
     }
 
     /**
@@ -439,6 +503,7 @@ class FoodAttributes extends \Protobuf\AbstractMessage
         $this->item_effect = ($message->item_effect !== null) ? $message->item_effect : $this->item_effect;
         $this->item_effect_percent = ($message->item_effect_percent !== null) ? $message->item_effect_percent : $this->item_effect_percent;
         $this->growth_percent = ($message->growth_percent !== null) ? $message->growth_percent : $this->growth_percent;
+        $this->berry_multiplier = ($message->berry_multiplier !== null) ? $message->berry_multiplier : $this->berry_multiplier;
     }
 
 

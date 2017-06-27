@@ -250,6 +250,66 @@ class RequestType extends \Protobuf\Enum
     const USE_ITEM_ENCOUNTER_VALUE = 154;
 
     /**
+     * GYM_DEPLOY = 155
+     */
+    const GYM_DEPLOY_VALUE = 155;
+
+    /**
+     * GYM_GET_INFO = 156
+     */
+    const GYM_GET_INFO_VALUE = 156;
+
+    /**
+     * GYM_START_SESSION = 157
+     */
+    const GYM_START_SESSION_VALUE = 157;
+
+    /**
+     * GYM_BATTLE_ATTACK = 158
+     */
+    const GYM_BATTLE_ATTACK_VALUE = 158;
+
+    /**
+     * JOIN_LOBBY = 159
+     */
+    const JOIN_LOBBY_VALUE = 159;
+
+    /**
+     * LEAVE_LOBBY = 160
+     */
+    const LEAVE_LOBBY_VALUE = 160;
+
+    /**
+     * SET_LOBBY_VISIBILITY = 161
+     */
+    const SET_LOBBY_VISIBILITY_VALUE = 161;
+
+    /**
+     * SET_LOBBY_POKEMON = 162
+     */
+    const SET_LOBBY_POKEMON_VALUE = 162;
+
+    /**
+     * GET_RAID_DETAILS = 163
+     */
+    const GET_RAID_DETAILS_VALUE = 163;
+
+    /**
+     * GYM_FEED_POKEMON = 164
+     */
+    const GYM_FEED_POKEMON_VALUE = 164;
+
+    /**
+     * START_RAID_BATTLE = 165
+     */
+    const START_RAID_BATTLE_VALUE = 165;
+
+    /**
+     * ATTACK_RAID = 166
+     */
+    const ATTACK_RAID_VALUE = 166;
+
+    /**
      * GET_ASSET_DIGEST = 300
      */
     const GET_ASSET_DIGEST_VALUE = 300;
@@ -338,6 +398,31 @@ class RequestType extends \Protobuf\Enum
      * SET_AVATAR_ITEM_AS_VIEWED = 808
      */
     const SET_AVATAR_ITEM_AS_VIEWED_VALUE = 808;
+
+    /**
+     * GET_INBOX = 809
+     */
+    const GET_INBOX_VALUE = 809;
+
+    /**
+     * LIST_GYM_BADGES = 811
+     */
+    const LIST_GYM_BADGES_VALUE = 811;
+
+    /**
+     * GET_GYM_BADGE_DETAILS = 812
+     */
+    const GET_GYM_BADGE_DETAILS_VALUE = 812;
+
+    /**
+     * USE_ITEM_MOVE_REROLL = 813
+     */
+    const USE_ITEM_MOVE_REROLL_VALUE = 813;
+
+    /**
+     * USE_ITEM_RARE_CANDY = 814
+     */
+    const USE_ITEM_RARE_CANDY_VALUE = 814;
 
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
@@ -577,6 +662,66 @@ class RequestType extends \Protobuf\Enum
     /**
      * @var \POGOProtos\Networking\Requests\RequestType
      */
+    protected static $GYM_DEPLOY = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $GYM_GET_INFO = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $GYM_START_SESSION = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $GYM_BATTLE_ATTACK = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $JOIN_LOBBY = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $LEAVE_LOBBY = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $SET_LOBBY_VISIBILITY = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $SET_LOBBY_POKEMON = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $GET_RAID_DETAILS = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $GYM_FEED_POKEMON = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $START_RAID_BATTLE = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $ATTACK_RAID = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
     protected static $GET_ASSET_DIGEST = null;
 
     /**
@@ -663,6 +808,31 @@ class RequestType extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Requests\RequestType
      */
     protected static $SET_AVATAR_ITEM_AS_VIEWED = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $GET_INBOX = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $LIST_GYM_BADGES = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $GET_GYM_BADGE_DETAILS = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $USE_ITEM_MOVE_REROLL = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $USE_ITEM_RARE_CANDY = null;
 
     /**
      * @return \POGOProtos\Networking\Requests\RequestType
@@ -1231,6 +1401,150 @@ class RequestType extends \Protobuf\Enum
     /**
      * @return \POGOProtos\Networking\Requests\RequestType
      */
+    public static function GYM_DEPLOY()
+    {
+        if (self::$GYM_DEPLOY !== null) {
+            return self::$GYM_DEPLOY;
+        }
+
+        return self::$GYM_DEPLOY = new self('GYM_DEPLOY', self::GYM_DEPLOY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function GYM_GET_INFO()
+    {
+        if (self::$GYM_GET_INFO !== null) {
+            return self::$GYM_GET_INFO;
+        }
+
+        return self::$GYM_GET_INFO = new self('GYM_GET_INFO', self::GYM_GET_INFO_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function GYM_START_SESSION()
+    {
+        if (self::$GYM_START_SESSION !== null) {
+            return self::$GYM_START_SESSION;
+        }
+
+        return self::$GYM_START_SESSION = new self('GYM_START_SESSION', self::GYM_START_SESSION_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function GYM_BATTLE_ATTACK()
+    {
+        if (self::$GYM_BATTLE_ATTACK !== null) {
+            return self::$GYM_BATTLE_ATTACK;
+        }
+
+        return self::$GYM_BATTLE_ATTACK = new self('GYM_BATTLE_ATTACK', self::GYM_BATTLE_ATTACK_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function JOIN_LOBBY()
+    {
+        if (self::$JOIN_LOBBY !== null) {
+            return self::$JOIN_LOBBY;
+        }
+
+        return self::$JOIN_LOBBY = new self('JOIN_LOBBY', self::JOIN_LOBBY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function LEAVE_LOBBY()
+    {
+        if (self::$LEAVE_LOBBY !== null) {
+            return self::$LEAVE_LOBBY;
+        }
+
+        return self::$LEAVE_LOBBY = new self('LEAVE_LOBBY', self::LEAVE_LOBBY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function SET_LOBBY_VISIBILITY()
+    {
+        if (self::$SET_LOBBY_VISIBILITY !== null) {
+            return self::$SET_LOBBY_VISIBILITY;
+        }
+
+        return self::$SET_LOBBY_VISIBILITY = new self('SET_LOBBY_VISIBILITY', self::SET_LOBBY_VISIBILITY_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function SET_LOBBY_POKEMON()
+    {
+        if (self::$SET_LOBBY_POKEMON !== null) {
+            return self::$SET_LOBBY_POKEMON;
+        }
+
+        return self::$SET_LOBBY_POKEMON = new self('SET_LOBBY_POKEMON', self::SET_LOBBY_POKEMON_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function GET_RAID_DETAILS()
+    {
+        if (self::$GET_RAID_DETAILS !== null) {
+            return self::$GET_RAID_DETAILS;
+        }
+
+        return self::$GET_RAID_DETAILS = new self('GET_RAID_DETAILS', self::GET_RAID_DETAILS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function GYM_FEED_POKEMON()
+    {
+        if (self::$GYM_FEED_POKEMON !== null) {
+            return self::$GYM_FEED_POKEMON;
+        }
+
+        return self::$GYM_FEED_POKEMON = new self('GYM_FEED_POKEMON', self::GYM_FEED_POKEMON_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function START_RAID_BATTLE()
+    {
+        if (self::$START_RAID_BATTLE !== null) {
+            return self::$START_RAID_BATTLE;
+        }
+
+        return self::$START_RAID_BATTLE = new self('START_RAID_BATTLE', self::START_RAID_BATTLE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function ATTACK_RAID()
+    {
+        if (self::$ATTACK_RAID !== null) {
+            return self::$ATTACK_RAID;
+        }
+
+        return self::$ATTACK_RAID = new self('ATTACK_RAID', self::ATTACK_RAID_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
     public static function GET_ASSET_DIGEST()
     {
         if (self::$GET_ASSET_DIGEST !== null) {
@@ -1445,6 +1759,66 @@ class RequestType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function GET_INBOX()
+    {
+        if (self::$GET_INBOX !== null) {
+            return self::$GET_INBOX;
+        }
+
+        return self::$GET_INBOX = new self('GET_INBOX', self::GET_INBOX_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function LIST_GYM_BADGES()
+    {
+        if (self::$LIST_GYM_BADGES !== null) {
+            return self::$LIST_GYM_BADGES;
+        }
+
+        return self::$LIST_GYM_BADGES = new self('LIST_GYM_BADGES', self::LIST_GYM_BADGES_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function GET_GYM_BADGE_DETAILS()
+    {
+        if (self::$GET_GYM_BADGE_DETAILS !== null) {
+            return self::$GET_GYM_BADGE_DETAILS;
+        }
+
+        return self::$GET_GYM_BADGE_DETAILS = new self('GET_GYM_BADGE_DETAILS', self::GET_GYM_BADGE_DETAILS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function USE_ITEM_MOVE_REROLL()
+    {
+        if (self::$USE_ITEM_MOVE_REROLL !== null) {
+            return self::$USE_ITEM_MOVE_REROLL;
+        }
+
+        return self::$USE_ITEM_MOVE_REROLL = new self('USE_ITEM_MOVE_REROLL', self::USE_ITEM_MOVE_REROLL_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function USE_ITEM_RARE_CANDY()
+    {
+        if (self::$USE_ITEM_RARE_CANDY !== null) {
+            return self::$USE_ITEM_RARE_CANDY;
+        }
+
+        return self::$USE_ITEM_RARE_CANDY = new self('USE_ITEM_RARE_CANDY', self::USE_ITEM_RARE_CANDY_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Requests\RequestType
      */
@@ -1498,6 +1872,18 @@ class RequestType extends \Protobuf\Enum
             case 152: return self::SET_BUDDY_POKEMON();
             case 153: return self::GET_BUDDY_WALKED();
             case 154: return self::USE_ITEM_ENCOUNTER();
+            case 155: return self::GYM_DEPLOY();
+            case 156: return self::GYM_GET_INFO();
+            case 157: return self::GYM_START_SESSION();
+            case 158: return self::GYM_BATTLE_ATTACK();
+            case 159: return self::JOIN_LOBBY();
+            case 160: return self::LEAVE_LOBBY();
+            case 161: return self::SET_LOBBY_VISIBILITY();
+            case 162: return self::SET_LOBBY_POKEMON();
+            case 163: return self::GET_RAID_DETAILS();
+            case 164: return self::GYM_FEED_POKEMON();
+            case 165: return self::START_RAID_BATTLE();
+            case 166: return self::ATTACK_RAID();
             case 300: return self::GET_ASSET_DIGEST();
             case 301: return self::GET_DOWNLOAD_URLS();
             case 403: return self::CLAIM_CODENAME();
@@ -1516,6 +1902,11 @@ class RequestType extends \Protobuf\Enum
             case 806: return self::SFIDA_CAPTURE();
             case 807: return self::LIST_AVATAR_CUSTOMIZATIONS();
             case 808: return self::SET_AVATAR_ITEM_AS_VIEWED();
+            case 809: return self::GET_INBOX();
+            case 811: return self::LIST_GYM_BADGES();
+            case 812: return self::GET_GYM_BADGE_DETAILS();
+            case 813: return self::USE_ITEM_MOVE_REROLL();
+            case 814: return self::USE_ITEM_RARE_CANDY();
             default: return null;
         }
     }
