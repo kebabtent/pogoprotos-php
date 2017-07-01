@@ -215,6 +215,36 @@ class BadgeType extends \Protobuf\Enum
     const BADGE_POKEDEX_ENTRIES_GEN2_VALUE = 39;
 
     /**
+     * BADGE_RAID_BATTLE_WON = 40
+     */
+    const BADGE_RAID_BATTLE_WON_VALUE = 40;
+
+    /**
+     * BADGE_LEGENDARY_BATTLE_WON = 41
+     */
+    const BADGE_LEGENDARY_BATTLE_WON_VALUE = 41;
+
+    /**
+     * BADGE_BERRIES_FED = 42
+     */
+    const BADGE_BERRIES_FED_VALUE = 42;
+
+    /**
+     * BADGE_HOURS_DEFENDED = 43
+     */
+    const BADGE_HOURS_DEFENDED_VALUE = 43;
+
+    /**
+     * BADGE_PLACE_HOLDER = 44
+     */
+    const BADGE_PLACE_HOLDER_VALUE = 44;
+
+    /**
+     * BADGE_EVENT_MIN = 2000
+     */
+    const BADGE_EVENT_MIN_VALUE = 2000;
+
+    /**
      * @var \POGOProtos\Enums\BadgeType
      */
     protected static $BADGE_UNSET = null;
@@ -413,6 +443,36 @@ class BadgeType extends \Protobuf\Enum
      * @var \POGOProtos\Enums\BadgeType
      */
     protected static $BADGE_POKEDEX_ENTRIES_GEN2 = null;
+
+    /**
+     * @var \POGOProtos\Enums\BadgeType
+     */
+    protected static $BADGE_RAID_BATTLE_WON = null;
+
+    /**
+     * @var \POGOProtos\Enums\BadgeType
+     */
+    protected static $BADGE_LEGENDARY_BATTLE_WON = null;
+
+    /**
+     * @var \POGOProtos\Enums\BadgeType
+     */
+    protected static $BADGE_BERRIES_FED = null;
+
+    /**
+     * @var \POGOProtos\Enums\BadgeType
+     */
+    protected static $BADGE_HOURS_DEFENDED = null;
+
+    /**
+     * @var \POGOProtos\Enums\BadgeType
+     */
+    protected static $BADGE_PLACE_HOLDER = null;
+
+    /**
+     * @var \POGOProtos\Enums\BadgeType
+     */
+    protected static $BADGE_EVENT_MIN = null;
 
     /**
      * @return \POGOProtos\Enums\BadgeType
@@ -895,6 +955,78 @@ class BadgeType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\BadgeType
+     */
+    public static function BADGE_RAID_BATTLE_WON()
+    {
+        if (self::$BADGE_RAID_BATTLE_WON !== null) {
+            return self::$BADGE_RAID_BATTLE_WON;
+        }
+
+        return self::$BADGE_RAID_BATTLE_WON = new self('BADGE_RAID_BATTLE_WON', self::BADGE_RAID_BATTLE_WON_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\BadgeType
+     */
+    public static function BADGE_LEGENDARY_BATTLE_WON()
+    {
+        if (self::$BADGE_LEGENDARY_BATTLE_WON !== null) {
+            return self::$BADGE_LEGENDARY_BATTLE_WON;
+        }
+
+        return self::$BADGE_LEGENDARY_BATTLE_WON = new self('BADGE_LEGENDARY_BATTLE_WON', self::BADGE_LEGENDARY_BATTLE_WON_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\BadgeType
+     */
+    public static function BADGE_BERRIES_FED()
+    {
+        if (self::$BADGE_BERRIES_FED !== null) {
+            return self::$BADGE_BERRIES_FED;
+        }
+
+        return self::$BADGE_BERRIES_FED = new self('BADGE_BERRIES_FED', self::BADGE_BERRIES_FED_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\BadgeType
+     */
+    public static function BADGE_HOURS_DEFENDED()
+    {
+        if (self::$BADGE_HOURS_DEFENDED !== null) {
+            return self::$BADGE_HOURS_DEFENDED;
+        }
+
+        return self::$BADGE_HOURS_DEFENDED = new self('BADGE_HOURS_DEFENDED', self::BADGE_HOURS_DEFENDED_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\BadgeType
+     */
+    public static function BADGE_PLACE_HOLDER()
+    {
+        if (self::$BADGE_PLACE_HOLDER !== null) {
+            return self::$BADGE_PLACE_HOLDER;
+        }
+
+        return self::$BADGE_PLACE_HOLDER = new self('BADGE_PLACE_HOLDER', self::BADGE_PLACE_HOLDER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Enums\BadgeType
+     */
+    public static function BADGE_EVENT_MIN()
+    {
+        if (self::$BADGE_EVENT_MIN !== null) {
+            return self::$BADGE_EVENT_MIN;
+        }
+
+        return self::$BADGE_EVENT_MIN = new self('BADGE_EVENT_MIN', self::BADGE_EVENT_MIN_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\BadgeType
      */
@@ -941,6 +1073,12 @@ class BadgeType extends \Protobuf\Enum
             case 37: return self::BADGE_PIKACHU();
             case 38: return self::BADGE_UNOWN();
             case 39: return self::BADGE_POKEDEX_ENTRIES_GEN2();
+            case 40: return self::BADGE_RAID_BATTLE_WON();
+            case 41: return self::BADGE_LEGENDARY_BATTLE_WON();
+            case 42: return self::BADGE_BERRIES_FED();
+            case 43: return self::BADGE_HOURS_DEFENDED();
+            case 44: return self::BADGE_PLACE_HOLDER();
+            case 2000: return self::BADGE_EVENT_MIN();
             default: return null;
         }
     }

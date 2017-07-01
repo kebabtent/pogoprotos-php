@@ -76,6 +76,21 @@ class Result extends \Protobuf\Enum
     const ERROR_PLAYER_HAS_NO_NICKNAME_VALUE = 11;
 
     /**
+     * ERROR_POI_INACCESSIBLE = 12
+     */
+    const ERROR_POI_INACCESSIBLE_VALUE = 12;
+
+    /**
+     * ERROR_LEGENDARY_POKEMON = 13
+     */
+    const ERROR_LEGENDARY_POKEMON_VALUE = 13;
+
+    /**
+     * ERROR_INVALID_POKEMON = 14
+     */
+    const ERROR_INVALID_POKEMON_VALUE = 14;
+
+    /**
      * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
     protected static $NO_RESULT_SET = null;
@@ -134,6 +149,21 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
     protected static $ERROR_PLAYER_HAS_NO_NICKNAME = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    protected static $ERROR_POI_INACCESSIBLE = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    protected static $ERROR_LEGENDARY_POKEMON = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    protected static $ERROR_INVALID_POKEMON = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
@@ -280,6 +310,42 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    public static function ERROR_POI_INACCESSIBLE()
+    {
+        if (self::$ERROR_POI_INACCESSIBLE !== null) {
+            return self::$ERROR_POI_INACCESSIBLE;
+        }
+
+        return self::$ERROR_POI_INACCESSIBLE = new self('ERROR_POI_INACCESSIBLE', self::ERROR_POI_INACCESSIBLE_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    public static function ERROR_LEGENDARY_POKEMON()
+    {
+        if (self::$ERROR_LEGENDARY_POKEMON !== null) {
+            return self::$ERROR_LEGENDARY_POKEMON;
+        }
+
+        return self::$ERROR_LEGENDARY_POKEMON = new self('ERROR_LEGENDARY_POKEMON', self::ERROR_LEGENDARY_POKEMON_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
+     */
+    public static function ERROR_INVALID_POKEMON()
+    {
+        if (self::$ERROR_INVALID_POKEMON !== null) {
+            return self::$ERROR_INVALID_POKEMON;
+        }
+
+        return self::$ERROR_INVALID_POKEMON = new self('ERROR_INVALID_POKEMON', self::ERROR_INVALID_POKEMON_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\FortDeployPokemonResponse\Result
      */
@@ -298,6 +364,9 @@ class Result extends \Protobuf\Enum
             case 9: return self::ERROR_POKEMON_IS_BUDDY();
             case 10: return self::ERROR_FORT_DEPLOY_LOCKOUT();
             case 11: return self::ERROR_PLAYER_HAS_NO_NICKNAME();
+            case 12: return self::ERROR_POI_INACCESSIBLE();
+            case 13: return self::ERROR_LEGENDARY_POKEMON();
+            case 14: return self::ERROR_INVALID_POKEMON();
             default: return null;
         }
     }

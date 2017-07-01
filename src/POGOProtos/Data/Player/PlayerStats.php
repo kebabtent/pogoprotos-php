@@ -200,6 +200,55 @@ class PlayerStats extends \Protobuf\AbstractMessage
     protected $last_km_refill_ms = null;
 
     /**
+     * num_raid_battle_won optional int32 = 26
+     *
+     * @var int
+     */
+    protected $num_raid_battle_won = null;
+
+    /**
+     * num_raid_battle_total optional int32 = 27
+     *
+     * @var int
+     */
+    protected $num_raid_battle_total = null;
+
+    /**
+     * num_legendary_battle_won optional int32 = 28
+     *
+     * @var int
+     */
+    protected $num_legendary_battle_won = null;
+
+    /**
+     * num_legendary_battle_total optional int32 = 29
+     *
+     * @var int
+     */
+    protected $num_legendary_battle_total = null;
+
+    /**
+     * num_berries_fed optional int32 = 30
+     *
+     * @var int
+     */
+    protected $num_berries_fed = null;
+
+    /**
+     * total_defended_ms optional int64 = 31
+     *
+     * @var int
+     */
+    protected $total_defended_ms = null;
+
+    /**
+     * event_badges repeated enum = 32
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Enums\GymBadgeType>
+     */
+    protected $event_badges = null;
+
+    /**
      * Check if 'level' has a value
      *
      * @return bool
@@ -964,6 +1013,230 @@ class PlayerStats extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'num_raid_battle_won' has a value
+     *
+     * @return bool
+     */
+    public function hasNumRaidBattleWon()
+    {
+        return $this->num_raid_battle_won !== null;
+    }
+
+    /**
+     * Get 'num_raid_battle_won' value
+     *
+     * @return int
+     */
+    public function getNumRaidBattleWon()
+    {
+        return $this->num_raid_battle_won;
+    }
+
+    /**
+     * Set 'num_raid_battle_won' value
+     *
+     * @param int $value
+     */
+    public function setNumRaidBattleWon($value = null)
+    {
+        $this->num_raid_battle_won = $value;
+    }
+
+    /**
+     * Check if 'num_raid_battle_total' has a value
+     *
+     * @return bool
+     */
+    public function hasNumRaidBattleTotal()
+    {
+        return $this->num_raid_battle_total !== null;
+    }
+
+    /**
+     * Get 'num_raid_battle_total' value
+     *
+     * @return int
+     */
+    public function getNumRaidBattleTotal()
+    {
+        return $this->num_raid_battle_total;
+    }
+
+    /**
+     * Set 'num_raid_battle_total' value
+     *
+     * @param int $value
+     */
+    public function setNumRaidBattleTotal($value = null)
+    {
+        $this->num_raid_battle_total = $value;
+    }
+
+    /**
+     * Check if 'num_legendary_battle_won' has a value
+     *
+     * @return bool
+     */
+    public function hasNumLegendaryBattleWon()
+    {
+        return $this->num_legendary_battle_won !== null;
+    }
+
+    /**
+     * Get 'num_legendary_battle_won' value
+     *
+     * @return int
+     */
+    public function getNumLegendaryBattleWon()
+    {
+        return $this->num_legendary_battle_won;
+    }
+
+    /**
+     * Set 'num_legendary_battle_won' value
+     *
+     * @param int $value
+     */
+    public function setNumLegendaryBattleWon($value = null)
+    {
+        $this->num_legendary_battle_won = $value;
+    }
+
+    /**
+     * Check if 'num_legendary_battle_total' has a value
+     *
+     * @return bool
+     */
+    public function hasNumLegendaryBattleTotal()
+    {
+        return $this->num_legendary_battle_total !== null;
+    }
+
+    /**
+     * Get 'num_legendary_battle_total' value
+     *
+     * @return int
+     */
+    public function getNumLegendaryBattleTotal()
+    {
+        return $this->num_legendary_battle_total;
+    }
+
+    /**
+     * Set 'num_legendary_battle_total' value
+     *
+     * @param int $value
+     */
+    public function setNumLegendaryBattleTotal($value = null)
+    {
+        $this->num_legendary_battle_total = $value;
+    }
+
+    /**
+     * Check if 'num_berries_fed' has a value
+     *
+     * @return bool
+     */
+    public function hasNumBerriesFed()
+    {
+        return $this->num_berries_fed !== null;
+    }
+
+    /**
+     * Get 'num_berries_fed' value
+     *
+     * @return int
+     */
+    public function getNumBerriesFed()
+    {
+        return $this->num_berries_fed;
+    }
+
+    /**
+     * Set 'num_berries_fed' value
+     *
+     * @param int $value
+     */
+    public function setNumBerriesFed($value = null)
+    {
+        $this->num_berries_fed = $value;
+    }
+
+    /**
+     * Check if 'total_defended_ms' has a value
+     *
+     * @return bool
+     */
+    public function hasTotalDefendedMs()
+    {
+        return $this->total_defended_ms !== null;
+    }
+
+    /**
+     * Get 'total_defended_ms' value
+     *
+     * @return int
+     */
+    public function getTotalDefendedMs()
+    {
+        return $this->total_defended_ms;
+    }
+
+    /**
+     * Set 'total_defended_ms' value
+     *
+     * @param int $value
+     */
+    public function setTotalDefendedMs($value = null)
+    {
+        $this->total_defended_ms = $value;
+    }
+
+    /**
+     * Check if 'event_badges' has a value
+     *
+     * @return bool
+     */
+    public function hasEventBadgesList()
+    {
+        return $this->event_badges !== null;
+    }
+
+    /**
+     * Get 'event_badges' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Enums\GymBadgeType>
+     */
+    public function getEventBadgesList()
+    {
+        return $this->event_badges;
+    }
+
+    /**
+     * Set 'event_badges' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Enums\GymBadgeType> $value
+     */
+    public function setEventBadgesList(\Protobuf\Collection $value = null)
+    {
+        $this->event_badges = $value;
+    }
+
+    /**
+     * Add a new element to 'event_badges'
+     *
+     * @param \POGOProtos\Enums\GymBadgeType $value
+     */
+    public function addEventBadges(\POGOProtos\Enums\GymBadgeType $value)
+    {
+        if ($this->event_badges === null) {
+            $this->event_badges = new \Protobuf\EnumCollection();
+        }
+
+        $this->event_badges->add($value);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -1022,7 +1295,14 @@ class PlayerStats extends \Protobuf\AbstractMessage
             'pokemon_caught_by_type' => [],
             'small_rattata_caught' => null,
             'used_km_pool' => null,
-            'last_km_refill_ms' => null
+            'last_km_refill_ms' => null,
+            'num_raid_battle_won' => null,
+            'num_raid_battle_total' => null,
+            'num_legendary_battle_won' => null,
+            'num_legendary_battle_total' => null,
+            'num_berries_fed' => null,
+            'total_defended_ms' => null,
+            'event_badges' => []
         ], $values);
 
         $message->setLevel($values['level']);
@@ -1049,9 +1329,19 @@ class PlayerStats extends \Protobuf\AbstractMessage
         $message->setSmallRattataCaught($values['small_rattata_caught']);
         $message->setUsedKmPool($values['used_km_pool']);
         $message->setLastKmRefillMs($values['last_km_refill_ms']);
+        $message->setNumRaidBattleWon($values['num_raid_battle_won']);
+        $message->setNumRaidBattleTotal($values['num_raid_battle_total']);
+        $message->setNumLegendaryBattleWon($values['num_legendary_battle_won']);
+        $message->setNumLegendaryBattleTotal($values['num_legendary_battle_total']);
+        $message->setNumBerriesFed($values['num_berries_fed']);
+        $message->setTotalDefendedMs($values['total_defended_ms']);
 
         foreach ($values['pokemon_caught_by_type'] as $item) {
             $message->addPokemonCaughtByType($item);
+        }
+
+        foreach ($values['event_badges'] as $item) {
+            $message->addEventBadges($item);
         }
 
         return $message;
@@ -1215,6 +1505,49 @@ class PlayerStats extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 26,
+                    'name' => 'num_raid_battle_won',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 27,
+                    'name' => 'num_raid_battle_total',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 28,
+                    'name' => 'num_legendary_battle_won',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 29,
+                    'name' => 'num_legendary_battle_total',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 30,
+                    'name' => 'num_berries_fed',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 31,
+                    'name' => 'total_defended_ms',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 32,
+                    'name' => 'event_badges',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Enums.GymBadgeType'
+                ]),
             ],
         ]);
     }
@@ -1368,6 +1701,43 @@ class PlayerStats extends \Protobuf\AbstractMessage
         if ($this->last_km_refill_ms !== null) {
             $writer->writeVarint($stream, 200);
             $writer->writeVarint($stream, $this->last_km_refill_ms);
+        }
+
+        if ($this->num_raid_battle_won !== null) {
+            $writer->writeVarint($stream, 208);
+            $writer->writeVarint($stream, $this->num_raid_battle_won);
+        }
+
+        if ($this->num_raid_battle_total !== null) {
+            $writer->writeVarint($stream, 216);
+            $writer->writeVarint($stream, $this->num_raid_battle_total);
+        }
+
+        if ($this->num_legendary_battle_won !== null) {
+            $writer->writeVarint($stream, 224);
+            $writer->writeVarint($stream, $this->num_legendary_battle_won);
+        }
+
+        if ($this->num_legendary_battle_total !== null) {
+            $writer->writeVarint($stream, 232);
+            $writer->writeVarint($stream, $this->num_legendary_battle_total);
+        }
+
+        if ($this->num_berries_fed !== null) {
+            $writer->writeVarint($stream, 240);
+            $writer->writeVarint($stream, $this->num_berries_fed);
+        }
+
+        if ($this->total_defended_ms !== null) {
+            $writer->writeVarint($stream, 248);
+            $writer->writeVarint($stream, $this->total_defended_ms);
+        }
+
+        if ($this->event_badges !== null) {
+            foreach ($this->event_badges as $val) {
+                $writer->writeVarint($stream, 256);
+                $writer->writeVarint($stream, $val->value());
+            }
         }
 
         if ($this->extensions !== null) {
@@ -1611,6 +1981,69 @@ class PlayerStats extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 26) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->num_raid_battle_won = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 27) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->num_raid_battle_total = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 28) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->num_legendary_battle_won = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 29) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->num_legendary_battle_total = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 30) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->num_berries_fed = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 31) {
+                \Protobuf\WireFormat::assertWireType($wire, 3);
+
+                $this->total_defended_ms = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 32) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->event_badges === null) {
+                    $this->event_badges = new \Protobuf\EnumCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->event_badges->add(\POGOProtos\Enums\GymBadgeType::valueOf($reader->readVarint($stream)));
+                }
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1767,6 +2200,43 @@ class PlayerStats extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->last_km_refill_ms);
         }
 
+        if ($this->num_raid_battle_won !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->num_raid_battle_won);
+        }
+
+        if ($this->num_raid_battle_total !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->num_raid_battle_total);
+        }
+
+        if ($this->num_legendary_battle_won !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->num_legendary_battle_won);
+        }
+
+        if ($this->num_legendary_battle_total !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->num_legendary_battle_total);
+        }
+
+        if ($this->num_berries_fed !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->num_berries_fed);
+        }
+
+        if ($this->total_defended_ms !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->total_defended_ms);
+        }
+
+        if ($this->event_badges !== null) {
+            foreach ($this->event_badges as $val) {
+                $size += 2;
+                $size += $calculator->computeVarintSize($val->value());
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1804,6 +2274,13 @@ class PlayerStats extends \Protobuf\AbstractMessage
         $this->small_rattata_caught = null;
         $this->used_km_pool = null;
         $this->last_km_refill_ms = null;
+        $this->num_raid_battle_won = null;
+        $this->num_raid_battle_total = null;
+        $this->num_legendary_battle_won = null;
+        $this->num_legendary_battle_total = null;
+        $this->num_berries_fed = null;
+        $this->total_defended_ms = null;
+        $this->event_badges = null;
     }
 
     /**
@@ -1840,6 +2317,13 @@ class PlayerStats extends \Protobuf\AbstractMessage
         $this->small_rattata_caught = ($message->small_rattata_caught !== null) ? $message->small_rattata_caught : $this->small_rattata_caught;
         $this->used_km_pool = ($message->used_km_pool !== null) ? $message->used_km_pool : $this->used_km_pool;
         $this->last_km_refill_ms = ($message->last_km_refill_ms !== null) ? $message->last_km_refill_ms : $this->last_km_refill_ms;
+        $this->num_raid_battle_won = ($message->num_raid_battle_won !== null) ? $message->num_raid_battle_won : $this->num_raid_battle_won;
+        $this->num_raid_battle_total = ($message->num_raid_battle_total !== null) ? $message->num_raid_battle_total : $this->num_raid_battle_total;
+        $this->num_legendary_battle_won = ($message->num_legendary_battle_won !== null) ? $message->num_legendary_battle_won : $this->num_legendary_battle_won;
+        $this->num_legendary_battle_total = ($message->num_legendary_battle_total !== null) ? $message->num_legendary_battle_total : $this->num_legendary_battle_total;
+        $this->num_berries_fed = ($message->num_berries_fed !== null) ? $message->num_berries_fed : $this->num_berries_fed;
+        $this->total_defended_ms = ($message->total_defended_ms !== null) ? $message->total_defended_ms : $this->total_defended_ms;
+        $this->event_badges = ($message->event_badges !== null) ? $message->event_badges : $this->event_badges;
     }
 
 

@@ -116,6 +116,20 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
     protected $modifiers = null;
 
     /**
+     * close_soon optional bool = 14
+     *
+     * @var bool
+     */
+    protected $close_soon = null;
+
+    /**
+     * checkin_image_url optional string = 15
+     *
+     * @var string
+     */
+    protected $checkin_image_url = null;
+
+    /**
      * Check if 'fort_id' has a value
      *
      * @return bool
@@ -534,6 +548,66 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'close_soon' has a value
+     *
+     * @return bool
+     */
+    public function hasCloseSoon()
+    {
+        return $this->close_soon !== null;
+    }
+
+    /**
+     * Get 'close_soon' value
+     *
+     * @return bool
+     */
+    public function getCloseSoon()
+    {
+        return $this->close_soon;
+    }
+
+    /**
+     * Set 'close_soon' value
+     *
+     * @param bool $value
+     */
+    public function setCloseSoon($value = null)
+    {
+        $this->close_soon = $value;
+    }
+
+    /**
+     * Check if 'checkin_image_url' has a value
+     *
+     * @return bool
+     */
+    public function hasCheckinImageUrl()
+    {
+        return $this->checkin_image_url !== null;
+    }
+
+    /**
+     * Get 'checkin_image_url' value
+     *
+     * @return string
+     */
+    public function getCheckinImageUrl()
+    {
+        return $this->checkin_image_url;
+    }
+
+    /**
+     * Set 'checkin_image_url' value
+     *
+     * @param string $value
+     */
+    public function setCheckinImageUrl($value = null)
+    {
+        $this->checkin_image_url = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -580,7 +654,9 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
             'latitude' => null,
             'longitude' => null,
             'description' => null,
-            'modifiers' => []
+            'modifiers' => [],
+            'close_soon' => null,
+            'checkin_image_url' => null
         ], $values);
 
         $message->setFortId($values['fort_id']);
@@ -594,6 +670,8 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
         $message->setLatitude($values['latitude']);
         $message->setLongitude($values['longitude']);
         $message->setDescription($values['description']);
+        $message->setCloseSoon($values['close_soon']);
+        $message->setCheckinImageUrl($values['checkin_image_url']);
 
         foreach ($values['image_urls'] as $item) {
             $message->addImageUrls($item);
@@ -696,6 +774,18 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
                     'type_name' => '.POGOProtos.Map.Fort.FortModifier'
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 14,
+                    'name' => 'close_soon',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 15,
+                    'name' => 'checkin_image_url',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
             ],
         ]);
     }
@@ -793,6 +883,16 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
                 $writer->writeVarint($stream, $val->serializedSize($sizeContext));
                 $val->writeTo($context);
             }
+        }
+
+        if ($this->close_soon !== null) {
+            $writer->writeVarint($stream, 112);
+            $writer->writeBool($stream, $this->close_soon);
+        }
+
+        if ($this->checkin_image_url !== null) {
+            $writer->writeVarint($stream, 122);
+            $writer->writeString($stream, $this->checkin_image_url);
         }
 
         if ($this->extensions !== null) {
@@ -955,6 +1055,22 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 14) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->close_soon = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 15) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->checkin_image_url = $reader->readString($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1059,6 +1175,16 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->close_soon !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
+        if ($this->checkin_image_url !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->checkin_image_url);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1084,6 +1210,8 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
         $this->longitude = null;
         $this->description = null;
         $this->modifiers = null;
+        $this->close_soon = null;
+        $this->checkin_image_url = null;
     }
 
     /**
@@ -1108,6 +1236,8 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
         $this->longitude = ($message->longitude !== null) ? $message->longitude : $this->longitude;
         $this->description = ($message->description !== null) ? $message->description : $this->description;
         $this->modifiers = ($message->modifiers !== null) ? $message->modifiers : $this->modifiers;
+        $this->close_soon = ($message->close_soon !== null) ? $message->close_soon : $this->close_soon;
+        $this->checkin_image_url = ($message->checkin_image_url !== null) ? $message->checkin_image_url : $this->checkin_image_url;
     }
 
 

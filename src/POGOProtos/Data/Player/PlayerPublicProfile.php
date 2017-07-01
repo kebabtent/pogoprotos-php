@@ -46,6 +46,41 @@ class PlayerPublicProfile extends \Protobuf\AbstractMessage
     protected $avatar = null;
 
     /**
+     * team_color optional enum = 4
+     *
+     * @var \POGOProtos\Enums\TeamColor
+     */
+    protected $team_color = null;
+
+    /**
+     * battles_won optional int32 = 5
+     *
+     * @var int
+     */
+    protected $battles_won = null;
+
+    /**
+     * km_walked optional float = 6
+     *
+     * @var float
+     */
+    protected $km_walked = null;
+
+    /**
+     * caught_pokemon optional int32 = 7
+     *
+     * @var int
+     */
+    protected $caught_pokemon = null;
+
+    /**
+     * gym_badge_type optional enum = 8
+     *
+     * @var \POGOProtos\Enums\GymBadgeType
+     */
+    protected $gym_badge_type = null;
+
+    /**
      * Check if 'name' has a value
      *
      * @return bool
@@ -136,6 +171,156 @@ class PlayerPublicProfile extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'team_color' has a value
+     *
+     * @return bool
+     */
+    public function hasTeamColor()
+    {
+        return $this->team_color !== null;
+    }
+
+    /**
+     * Get 'team_color' value
+     *
+     * @return \POGOProtos\Enums\TeamColor
+     */
+    public function getTeamColor()
+    {
+        return $this->team_color;
+    }
+
+    /**
+     * Set 'team_color' value
+     *
+     * @param \POGOProtos\Enums\TeamColor $value
+     */
+    public function setTeamColor(\POGOProtos\Enums\TeamColor $value = null)
+    {
+        $this->team_color = $value;
+    }
+
+    /**
+     * Check if 'battles_won' has a value
+     *
+     * @return bool
+     */
+    public function hasBattlesWon()
+    {
+        return $this->battles_won !== null;
+    }
+
+    /**
+     * Get 'battles_won' value
+     *
+     * @return int
+     */
+    public function getBattlesWon()
+    {
+        return $this->battles_won;
+    }
+
+    /**
+     * Set 'battles_won' value
+     *
+     * @param int $value
+     */
+    public function setBattlesWon($value = null)
+    {
+        $this->battles_won = $value;
+    }
+
+    /**
+     * Check if 'km_walked' has a value
+     *
+     * @return bool
+     */
+    public function hasKmWalked()
+    {
+        return $this->km_walked !== null;
+    }
+
+    /**
+     * Get 'km_walked' value
+     *
+     * @return float
+     */
+    public function getKmWalked()
+    {
+        return $this->km_walked;
+    }
+
+    /**
+     * Set 'km_walked' value
+     *
+     * @param float $value
+     */
+    public function setKmWalked($value = null)
+    {
+        $this->km_walked = $value;
+    }
+
+    /**
+     * Check if 'caught_pokemon' has a value
+     *
+     * @return bool
+     */
+    public function hasCaughtPokemon()
+    {
+        return $this->caught_pokemon !== null;
+    }
+
+    /**
+     * Get 'caught_pokemon' value
+     *
+     * @return int
+     */
+    public function getCaughtPokemon()
+    {
+        return $this->caught_pokemon;
+    }
+
+    /**
+     * Set 'caught_pokemon' value
+     *
+     * @param int $value
+     */
+    public function setCaughtPokemon($value = null)
+    {
+        $this->caught_pokemon = $value;
+    }
+
+    /**
+     * Check if 'gym_badge_type' has a value
+     *
+     * @return bool
+     */
+    public function hasGymBadgeType()
+    {
+        return $this->gym_badge_type !== null;
+    }
+
+    /**
+     * Get 'gym_badge_type' value
+     *
+     * @return \POGOProtos\Enums\GymBadgeType
+     */
+    public function getGymBadgeType()
+    {
+        return $this->gym_badge_type;
+    }
+
+    /**
+     * Set 'gym_badge_type' value
+     *
+     * @param \POGOProtos\Enums\GymBadgeType $value
+     */
+    public function setGymBadgeType(\POGOProtos\Enums\GymBadgeType $value = null)
+    {
+        $this->gym_badge_type = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -172,12 +357,22 @@ class PlayerPublicProfile extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'name' => null,
             'level' => null,
-            'avatar' => null
+            'avatar' => null,
+            'team_color' => null,
+            'battles_won' => null,
+            'km_walked' => null,
+            'caught_pokemon' => null,
+            'gym_badge_type' => null
         ], $values);
 
         $message->setName($values['name']);
         $message->setLevel($values['level']);
         $message->setAvatar($values['avatar']);
+        $message->setTeamColor($values['team_color']);
+        $message->setBattlesWon($values['battles_won']);
+        $message->setKmWalked($values['km_walked']);
+        $message->setCaughtPokemon($values['caught_pokemon']);
+        $message->setGymBadgeType($values['gym_badge_type']);
 
         return $message;
     }
@@ -208,6 +403,38 @@ class PlayerPublicProfile extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Player.PlayerAvatar'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'team_color',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Enums.TeamColor'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'battles_won',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'km_walked',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'caught_pokemon',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'gym_badge_type',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Enums.GymBadgeType'
                 ]),
             ],
         ]);
@@ -251,6 +478,31 @@ class PlayerPublicProfile extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 26);
             $writer->writeVarint($stream, $this->avatar->serializedSize($sizeContext));
             $this->avatar->writeTo($context);
+        }
+
+        if ($this->team_color !== null) {
+            $writer->writeVarint($stream, 32);
+            $writer->writeVarint($stream, $this->team_color->value());
+        }
+
+        if ($this->battles_won !== null) {
+            $writer->writeVarint($stream, 40);
+            $writer->writeVarint($stream, $this->battles_won);
+        }
+
+        if ($this->km_walked !== null) {
+            $writer->writeVarint($stream, 53);
+            $writer->writeFloat($stream, $this->km_walked);
+        }
+
+        if ($this->caught_pokemon !== null) {
+            $writer->writeVarint($stream, 56);
+            $writer->writeVarint($stream, $this->caught_pokemon);
+        }
+
+        if ($this->gym_badge_type !== null) {
+            $writer->writeVarint($stream, 64);
+            $writer->writeVarint($stream, $this->gym_badge_type->value());
         }
 
         if ($this->extensions !== null) {
@@ -318,6 +570,46 @@ class PlayerPublicProfile extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                $this->team_color = \POGOProtos\Enums\TeamColor::valueOf($reader->readVarint($stream));
+
+                continue;
+            }
+
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->battles_won = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 6) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->km_walked = $reader->readFloat($stream);
+
+                continue;
+            }
+
+            if ($tag === 7) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->caught_pokemon = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 8) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                $this->gym_badge_type = \POGOProtos\Enums\GymBadgeType::valueOf($reader->readVarint($stream));
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -365,6 +657,31 @@ class PlayerPublicProfile extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->team_color !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->team_color->value());
+        }
+
+        if ($this->battles_won !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->battles_won);
+        }
+
+        if ($this->km_walked !== null) {
+            $size += 1;
+            $size += 4;
+        }
+
+        if ($this->caught_pokemon !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->caught_pokemon);
+        }
+
+        if ($this->gym_badge_type !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->gym_badge_type->value());
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -380,6 +697,11 @@ class PlayerPublicProfile extends \Protobuf\AbstractMessage
         $this->name = null;
         $this->level = null;
         $this->avatar = null;
+        $this->team_color = null;
+        $this->battles_won = null;
+        $this->km_walked = null;
+        $this->caught_pokemon = null;
+        $this->gym_badge_type = null;
     }
 
     /**
@@ -394,6 +716,11 @@ class PlayerPublicProfile extends \Protobuf\AbstractMessage
         $this->name = ($message->name !== null) ? $message->name : $this->name;
         $this->level = ($message->level !== null) ? $message->level : $this->level;
         $this->avatar = ($message->avatar !== null) ? $message->avatar : $this->avatar;
+        $this->team_color = ($message->team_color !== null) ? $message->team_color : $this->team_color;
+        $this->battles_won = ($message->battles_won !== null) ? $message->battles_won : $this->battles_won;
+        $this->km_walked = ($message->km_walked !== null) ? $message->km_walked : $this->km_walked;
+        $this->caught_pokemon = ($message->caught_pokemon !== null) ? $message->caught_pokemon : $this->caught_pokemon;
+        $this->gym_badge_type = ($message->gym_badge_type !== null) ? $message->gym_badge_type : $this->gym_badge_type;
     }
 
 

@@ -74,6 +74,41 @@ class FortSearchResponse extends \Protobuf\AbstractMessage
     protected $chain_hack_sequence_number = null;
 
     /**
+     * awarded_gym_badge optional message = 8
+     *
+     * @var \POGOProtos\Data\Badge\AwardedGymBadge
+     */
+    protected $awarded_gym_badge = null;
+
+    /**
+     * loot optional message = 9
+     *
+     * @var \POGOProtos\Inventory\Loot
+     */
+    protected $loot = null;
+
+    /**
+     * bonus_loot optional message = 10
+     *
+     * @var \POGOProtos\Inventory\Loot
+     */
+    protected $bonus_loot = null;
+
+    /**
+     * raid_tickets optional int32 = 11
+     *
+     * @var int
+     */
+    protected $raid_tickets = null;
+
+    /**
+     * team_bonus_loot optional message = 12
+     *
+     * @var \POGOProtos\Inventory\Loot
+     */
+    protected $team_bonus_loot = null;
+
+    /**
      * Check if 'result' has a value
      *
      * @return bool
@@ -298,6 +333,156 @@ class FortSearchResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'awarded_gym_badge' has a value
+     *
+     * @return bool
+     */
+    public function hasAwardedGymBadge()
+    {
+        return $this->awarded_gym_badge !== null;
+    }
+
+    /**
+     * Get 'awarded_gym_badge' value
+     *
+     * @return \POGOProtos\Data\Badge\AwardedGymBadge
+     */
+    public function getAwardedGymBadge()
+    {
+        return $this->awarded_gym_badge;
+    }
+
+    /**
+     * Set 'awarded_gym_badge' value
+     *
+     * @param \POGOProtos\Data\Badge\AwardedGymBadge $value
+     */
+    public function setAwardedGymBadge(\POGOProtos\Data\Badge\AwardedGymBadge $value = null)
+    {
+        $this->awarded_gym_badge = $value;
+    }
+
+    /**
+     * Check if 'loot' has a value
+     *
+     * @return bool
+     */
+    public function hasLoot()
+    {
+        return $this->loot !== null;
+    }
+
+    /**
+     * Get 'loot' value
+     *
+     * @return \POGOProtos\Inventory\Loot
+     */
+    public function getLoot()
+    {
+        return $this->loot;
+    }
+
+    /**
+     * Set 'loot' value
+     *
+     * @param \POGOProtos\Inventory\Loot $value
+     */
+    public function setLoot(\POGOProtos\Inventory\Loot $value = null)
+    {
+        $this->loot = $value;
+    }
+
+    /**
+     * Check if 'bonus_loot' has a value
+     *
+     * @return bool
+     */
+    public function hasBonusLoot()
+    {
+        return $this->bonus_loot !== null;
+    }
+
+    /**
+     * Get 'bonus_loot' value
+     *
+     * @return \POGOProtos\Inventory\Loot
+     */
+    public function getBonusLoot()
+    {
+        return $this->bonus_loot;
+    }
+
+    /**
+     * Set 'bonus_loot' value
+     *
+     * @param \POGOProtos\Inventory\Loot $value
+     */
+    public function setBonusLoot(\POGOProtos\Inventory\Loot $value = null)
+    {
+        $this->bonus_loot = $value;
+    }
+
+    /**
+     * Check if 'raid_tickets' has a value
+     *
+     * @return bool
+     */
+    public function hasRaidTickets()
+    {
+        return $this->raid_tickets !== null;
+    }
+
+    /**
+     * Get 'raid_tickets' value
+     *
+     * @return int
+     */
+    public function getRaidTickets()
+    {
+        return $this->raid_tickets;
+    }
+
+    /**
+     * Set 'raid_tickets' value
+     *
+     * @param int $value
+     */
+    public function setRaidTickets($value = null)
+    {
+        $this->raid_tickets = $value;
+    }
+
+    /**
+     * Check if 'team_bonus_loot' has a value
+     *
+     * @return bool
+     */
+    public function hasTeamBonusLoot()
+    {
+        return $this->team_bonus_loot !== null;
+    }
+
+    /**
+     * Get 'team_bonus_loot' value
+     *
+     * @return \POGOProtos\Inventory\Loot
+     */
+    public function getTeamBonusLoot()
+    {
+        return $this->team_bonus_loot;
+    }
+
+    /**
+     * Set 'team_bonus_loot' value
+     *
+     * @param \POGOProtos\Inventory\Loot $value
+     */
+    public function setTeamBonusLoot(\POGOProtos\Inventory\Loot $value = null)
+    {
+        $this->team_bonus_loot = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -338,7 +523,12 @@ class FortSearchResponse extends \Protobuf\AbstractMessage
             'pokemon_data_egg' => null,
             'experience_awarded' => null,
             'cooldown_complete_timestamp_ms' => null,
-            'chain_hack_sequence_number' => null
+            'chain_hack_sequence_number' => null,
+            'awarded_gym_badge' => null,
+            'loot' => null,
+            'bonus_loot' => null,
+            'raid_tickets' => null,
+            'team_bonus_loot' => null
         ], $values);
 
         $message->setResult($values['result']);
@@ -347,6 +537,11 @@ class FortSearchResponse extends \Protobuf\AbstractMessage
         $message->setExperienceAwarded($values['experience_awarded']);
         $message->setCooldownCompleteTimestampMs($values['cooldown_complete_timestamp_ms']);
         $message->setChainHackSequenceNumber($values['chain_hack_sequence_number']);
+        $message->setAwardedGymBadge($values['awarded_gym_badge']);
+        $message->setLoot($values['loot']);
+        $message->setBonusLoot($values['bonus_loot']);
+        $message->setRaidTickets($values['raid_tickets']);
+        $message->setTeamBonusLoot($values['team_bonus_loot']);
 
         foreach ($values['items_awarded'] as $item) {
             $message->addItemsAwarded($item);
@@ -407,6 +602,40 @@ class FortSearchResponse extends \Protobuf\AbstractMessage
                     'name' => 'chain_hack_sequence_number',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'awarded_gym_badge',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.Badge.AwardedGymBadge'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 9,
+                    'name' => 'loot',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Inventory.Loot'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 10,
+                    'name' => 'bonus_loot',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Inventory.Loot'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 11,
+                    'name' => 'raid_tickets',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 12,
+                    'name' => 'team_bonus_loot',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Inventory.Loot'
                 ]),
             ],
         ]);
@@ -473,6 +702,35 @@ class FortSearchResponse extends \Protobuf\AbstractMessage
         if ($this->chain_hack_sequence_number !== null) {
             $writer->writeVarint($stream, 56);
             $writer->writeVarint($stream, $this->chain_hack_sequence_number);
+        }
+
+        if ($this->awarded_gym_badge !== null) {
+            $writer->writeVarint($stream, 66);
+            $writer->writeVarint($stream, $this->awarded_gym_badge->serializedSize($sizeContext));
+            $this->awarded_gym_badge->writeTo($context);
+        }
+
+        if ($this->loot !== null) {
+            $writer->writeVarint($stream, 74);
+            $writer->writeVarint($stream, $this->loot->serializedSize($sizeContext));
+            $this->loot->writeTo($context);
+        }
+
+        if ($this->bonus_loot !== null) {
+            $writer->writeVarint($stream, 82);
+            $writer->writeVarint($stream, $this->bonus_loot->serializedSize($sizeContext));
+            $this->bonus_loot->writeTo($context);
+        }
+
+        if ($this->raid_tickets !== null) {
+            $writer->writeVarint($stream, 88);
+            $writer->writeVarint($stream, $this->raid_tickets);
+        }
+
+        if ($this->team_bonus_loot !== null) {
+            $writer->writeVarint($stream, 98);
+            $writer->writeVarint($stream, $this->team_bonus_loot->serializedSize($sizeContext));
+            $this->team_bonus_loot->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -583,6 +841,74 @@ class FortSearchResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 8) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Badge\AwardedGymBadge();
+
+                $this->awarded_gym_badge = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 9) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Inventory\Loot();
+
+                $this->loot = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 10) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Inventory\Loot();
+
+                $this->bonus_loot = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 11) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->raid_tickets = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 12) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Inventory\Loot();
+
+                $this->team_bonus_loot = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -655,6 +981,43 @@ class FortSearchResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->chain_hack_sequence_number);
         }
 
+        if ($this->awarded_gym_badge !== null) {
+            $innerSize = $this->awarded_gym_badge->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->loot !== null) {
+            $innerSize = $this->loot->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->bonus_loot !== null) {
+            $innerSize = $this->bonus_loot->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->raid_tickets !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->raid_tickets);
+        }
+
+        if ($this->team_bonus_loot !== null) {
+            $innerSize = $this->team_bonus_loot->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -674,6 +1037,11 @@ class FortSearchResponse extends \Protobuf\AbstractMessage
         $this->experience_awarded = null;
         $this->cooldown_complete_timestamp_ms = null;
         $this->chain_hack_sequence_number = null;
+        $this->awarded_gym_badge = null;
+        $this->loot = null;
+        $this->bonus_loot = null;
+        $this->raid_tickets = null;
+        $this->team_bonus_loot = null;
     }
 
     /**
@@ -692,6 +1060,11 @@ class FortSearchResponse extends \Protobuf\AbstractMessage
         $this->experience_awarded = ($message->experience_awarded !== null) ? $message->experience_awarded : $this->experience_awarded;
         $this->cooldown_complete_timestamp_ms = ($message->cooldown_complete_timestamp_ms !== null) ? $message->cooldown_complete_timestamp_ms : $this->cooldown_complete_timestamp_ms;
         $this->chain_hack_sequence_number = ($message->chain_hack_sequence_number !== null) ? $message->chain_hack_sequence_number : $this->chain_hack_sequence_number;
+        $this->awarded_gym_badge = ($message->awarded_gym_badge !== null) ? $message->awarded_gym_badge : $this->awarded_gym_badge;
+        $this->loot = ($message->loot !== null) ? $message->loot : $this->loot;
+        $this->bonus_loot = ($message->bonus_loot !== null) ? $message->bonus_loot : $this->bonus_loot;
+        $this->raid_tickets = ($message->raid_tickets !== null) ? $message->raid_tickets : $this->raid_tickets;
+        $this->team_bonus_loot = ($message->team_bonus_loot !== null) ? $message->team_bonus_loot : $this->team_bonus_loot;
     }
 
 

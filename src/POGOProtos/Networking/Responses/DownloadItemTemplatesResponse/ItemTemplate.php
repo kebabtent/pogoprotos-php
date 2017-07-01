@@ -167,6 +167,13 @@ class ItemTemplate extends \Protobuf\AbstractMessage
     protected $gender_settings = null;
 
     /**
+     * gym_badge_settings optional message = 24
+     *
+     * @var \POGOProtos\Settings\Master\GymBadgeGmtSettings
+     */
+    protected $gym_badge_settings = null;
+
+    /**
      * Check if 'template_id' has a value
      *
      * @return bool
@@ -767,6 +774,36 @@ class ItemTemplate extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'gym_badge_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasGymBadgeSettings()
+    {
+        return $this->gym_badge_settings !== null;
+    }
+
+    /**
+     * Get 'gym_badge_settings' value
+     *
+     * @return \POGOProtos\Settings\Master\GymBadgeGmtSettings
+     */
+    public function getGymBadgeSettings()
+    {
+        return $this->gym_badge_settings;
+    }
+
+    /**
+     * Set 'gym_badge_settings' value
+     *
+     * @param \POGOProtos\Settings\Master\GymBadgeGmtSettings $value
+     */
+    public function setGymBadgeSettings(\POGOProtos\Settings\Master\GymBadgeGmtSettings $value = null)
+    {
+        $this->gym_badge_settings = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -820,7 +857,8 @@ class ItemTemplate extends \Protobuf\AbstractMessage
             'quest_settings' => null,
             'avatar_customization' => null,
             'form_settings' => null,
-            'gender_settings' => null
+            'gender_settings' => null,
+            'gym_badge_settings' => null
         ], $values);
 
         $message->setTemplateId($values['template_id']);
@@ -843,6 +881,7 @@ class ItemTemplate extends \Protobuf\AbstractMessage
         $message->setAvatarCustomization($values['avatar_customization']);
         $message->setFormSettings($values['form_settings']);
         $message->setGenderSettings($values['gender_settings']);
+        $message->setGymBadgeSettings($values['gym_badge_settings']);
 
         return $message;
     }
@@ -994,6 +1033,13 @@ class ItemTemplate extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Settings.Master.GenderSettings'
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 24,
+                    'name' => 'gym_badge_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.Master.GymBadgeGmtSettings'
+                ]),
             ],
         ]);
     }
@@ -1139,6 +1185,12 @@ class ItemTemplate extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 186);
             $writer->writeVarint($stream, $this->gender_settings->serializedSize($sizeContext));
             $this->gender_settings->writeTo($context);
+        }
+
+        if ($this->gym_badge_settings !== null) {
+            $writer->writeVarint($stream, 194);
+            $writer->writeVarint($stream, $this->gym_badge_settings->serializedSize($sizeContext));
+            $this->gym_badge_settings->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -1468,6 +1520,21 @@ class ItemTemplate extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 24) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\Master\GymBadgeGmtSettings();
+
+                $this->gym_badge_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1654,6 +1721,14 @@ class ItemTemplate extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->gym_badge_settings !== null) {
+            $innerSize = $this->gym_badge_settings->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1686,6 +1761,7 @@ class ItemTemplate extends \Protobuf\AbstractMessage
         $this->avatar_customization = null;
         $this->form_settings = null;
         $this->gender_settings = null;
+        $this->gym_badge_settings = null;
     }
 
     /**
@@ -1717,6 +1793,7 @@ class ItemTemplate extends \Protobuf\AbstractMessage
         $this->avatar_customization = ($message->avatar_customization !== null) ? $message->avatar_customization : $this->avatar_customization;
         $this->form_settings = ($message->form_settings !== null) ? $message->form_settings : $this->form_settings;
         $this->gender_settings = ($message->gender_settings !== null) ? $message->gender_settings : $this->gender_settings;
+        $this->gym_badge_settings = ($message->gym_badge_settings !== null) ? $message->gym_badge_settings : $this->gym_badge_settings;
     }
 
 

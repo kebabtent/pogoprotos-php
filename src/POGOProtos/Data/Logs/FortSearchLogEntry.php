@@ -53,6 +53,13 @@ class FortSearchLogEntry extends \Protobuf\AbstractMessage
     protected $eggs = null;
 
     /**
+     * pokemon_eggs repeated message = 5
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Data\PokemonData>
+     */
+    protected $pokemon_eggs = null;
+
+    /**
      * Check if 'result' has a value
      *
      * @return bool
@@ -187,6 +194,50 @@ class FortSearchLogEntry extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'pokemon_eggs' has a value
+     *
+     * @return bool
+     */
+    public function hasPokemonEggsList()
+    {
+        return $this->pokemon_eggs !== null;
+    }
+
+    /**
+     * Get 'pokemon_eggs' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Data\PokemonData>
+     */
+    public function getPokemonEggsList()
+    {
+        return $this->pokemon_eggs;
+    }
+
+    /**
+     * Set 'pokemon_eggs' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Data\PokemonData> $value
+     */
+    public function setPokemonEggsList(\Protobuf\Collection $value = null)
+    {
+        $this->pokemon_eggs = $value;
+    }
+
+    /**
+     * Add a new element to 'pokemon_eggs'
+     *
+     * @param \POGOProtos\Data\PokemonData $value
+     */
+    public function addPokemonEggs(\POGOProtos\Data\PokemonData $value)
+    {
+        if ($this->pokemon_eggs === null) {
+            $this->pokemon_eggs = new \Protobuf\MessageCollection();
+        }
+
+        $this->pokemon_eggs->add($value);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -224,7 +275,8 @@ class FortSearchLogEntry extends \Protobuf\AbstractMessage
             'result' => null,
             'fort_id' => null,
             'items' => [],
-            'eggs' => null
+            'eggs' => null,
+            'pokemon_eggs' => []
         ], $values);
 
         $message->setResult($values['result']);
@@ -233,6 +285,10 @@ class FortSearchLogEntry extends \Protobuf\AbstractMessage
 
         foreach ($values['items'] as $item) {
             $message->addItems($item);
+        }
+
+        foreach ($values['pokemon_eggs'] as $item) {
+            $message->addPokemonEggs($item);
         }
 
         return $message;
@@ -271,6 +327,13 @@ class FortSearchLogEntry extends \Protobuf\AbstractMessage
                     'name' => 'eggs',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'pokemon_eggs',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Data.PokemonData'
                 ]),
             ],
         ]);
@@ -321,6 +384,14 @@ class FortSearchLogEntry extends \Protobuf\AbstractMessage
         if ($this->eggs !== null) {
             $writer->writeVarint($stream, 32);
             $writer->writeVarint($stream, $this->eggs);
+        }
+
+        if ($this->pokemon_eggs !== null) {
+            foreach ($this->pokemon_eggs as $val) {
+                $writer->writeVarint($stream, 42);
+                $writer->writeVarint($stream, $val->serializedSize($sizeContext));
+                $val->writeTo($context);
+            }
         }
 
         if ($this->extensions !== null) {
@@ -400,6 +471,25 @@ class FortSearchLogEntry extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\PokemonData();
+
+                if ($this->pokemon_eggs === null) {
+                    $this->pokemon_eggs = new \Protobuf\MessageCollection();
+                }
+
+                $this->pokemon_eggs->add($innerMessage);
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -454,6 +544,16 @@ class FortSearchLogEntry extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->eggs);
         }
 
+        if ($this->pokemon_eggs !== null) {
+            foreach ($this->pokemon_eggs as $val) {
+                $innerSize = $val->serializedSize($context);
+
+                $size += 1;
+                $size += $innerSize;
+                $size += $calculator->computeVarintSize($innerSize);
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -470,6 +570,7 @@ class FortSearchLogEntry extends \Protobuf\AbstractMessage
         $this->fort_id = null;
         $this->items = null;
         $this->eggs = null;
+        $this->pokemon_eggs = null;
     }
 
     /**
@@ -485,6 +586,7 @@ class FortSearchLogEntry extends \Protobuf\AbstractMessage
         $this->fort_id = ($message->fort_id !== null) ? $message->fort_id : $this->fort_id;
         $this->items = ($message->items !== null) ? $message->items : $this->items;
         $this->eggs = ($message->eggs !== null) ? $message->eggs : $this->eggs;
+        $this->pokemon_eggs = ($message->pokemon_eggs !== null) ? $message->pokemon_eggs : $this->pokemon_eggs;
     }
 
 

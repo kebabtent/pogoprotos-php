@@ -30,6 +30,11 @@ class BattleType extends \Protobuf\Enum
     const BATTLE_TYPE_TRAINING_VALUE = 2;
 
     /**
+     * BATTLE_TYPE_RAID = 3
+     */
+    const BATTLE_TYPE_RAID_VALUE = 3;
+
+    /**
      * @var \POGOProtos\Data\Battle\BattleType
      */
     protected static $BATTLE_TYPE_UNSET = null;
@@ -43,6 +48,11 @@ class BattleType extends \Protobuf\Enum
      * @var \POGOProtos\Data\Battle\BattleType
      */
     protected static $BATTLE_TYPE_TRAINING = null;
+
+    /**
+     * @var \POGOProtos\Data\Battle\BattleType
+     */
+    protected static $BATTLE_TYPE_RAID = null;
 
     /**
      * @return \POGOProtos\Data\Battle\BattleType
@@ -81,6 +91,18 @@ class BattleType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Data\Battle\BattleType
+     */
+    public static function BATTLE_TYPE_RAID()
+    {
+        if (self::$BATTLE_TYPE_RAID !== null) {
+            return self::$BATTLE_TYPE_RAID;
+        }
+
+        return self::$BATTLE_TYPE_RAID = new self('BATTLE_TYPE_RAID', self::BATTLE_TYPE_RAID_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Data\Battle\BattleType
      */
@@ -90,6 +112,7 @@ class BattleType extends \Protobuf\Enum
             case 0: return self::BATTLE_TYPE_UNSET();
             case 1: return self::BATTLE_TYPE_NORMAL();
             case 2: return self::BATTLE_TYPE_TRAINING();
+            case 3: return self::BATTLE_TYPE_RAID();
             default: return null;
         }
     }

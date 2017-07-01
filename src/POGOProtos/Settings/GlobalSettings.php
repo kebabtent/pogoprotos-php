@@ -102,6 +102,27 @@ class GlobalSettings extends \Protobuf\AbstractMessage
     protected $news_settings = null;
 
     /**
+     * translation_settings optional message = 13
+     *
+     * @var \POGOProtos\Settings\TranslationSettings
+     */
+    protected $translation_settings = null;
+
+    /**
+     * passcode_settings optional message = 14
+     *
+     * @var \POGOProtos\Settings\PasscodeSettings
+     */
+    protected $passcode_settings = null;
+
+    /**
+     * notification_settings optional message = 15
+     *
+     * @var \POGOProtos\Settings\NotificationSettings
+     */
+    protected $notification_settings = null;
+
+    /**
      * Check if 'fort_settings' has a value
      *
      * @return bool
@@ -432,6 +453,96 @@ class GlobalSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'translation_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasTranslationSettings()
+    {
+        return $this->translation_settings !== null;
+    }
+
+    /**
+     * Get 'translation_settings' value
+     *
+     * @return \POGOProtos\Settings\TranslationSettings
+     */
+    public function getTranslationSettings()
+    {
+        return $this->translation_settings;
+    }
+
+    /**
+     * Set 'translation_settings' value
+     *
+     * @param \POGOProtos\Settings\TranslationSettings $value
+     */
+    public function setTranslationSettings(\POGOProtos\Settings\TranslationSettings $value = null)
+    {
+        $this->translation_settings = $value;
+    }
+
+    /**
+     * Check if 'passcode_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasPasscodeSettings()
+    {
+        return $this->passcode_settings !== null;
+    }
+
+    /**
+     * Get 'passcode_settings' value
+     *
+     * @return \POGOProtos\Settings\PasscodeSettings
+     */
+    public function getPasscodeSettings()
+    {
+        return $this->passcode_settings;
+    }
+
+    /**
+     * Set 'passcode_settings' value
+     *
+     * @param \POGOProtos\Settings\PasscodeSettings $value
+     */
+    public function setPasscodeSettings(\POGOProtos\Settings\PasscodeSettings $value = null)
+    {
+        $this->passcode_settings = $value;
+    }
+
+    /**
+     * Check if 'notification_settings' has a value
+     *
+     * @return bool
+     */
+    public function hasNotificationSettings()
+    {
+        return $this->notification_settings !== null;
+    }
+
+    /**
+     * Get 'notification_settings' value
+     *
+     * @return \POGOProtos\Settings\NotificationSettings
+     */
+    public function getNotificationSettings()
+    {
+        return $this->notification_settings;
+    }
+
+    /**
+     * Set 'notification_settings' value
+     *
+     * @param \POGOProtos\Settings\NotificationSettings $value
+     */
+    public function setNotificationSettings(\POGOProtos\Settings\NotificationSettings $value = null)
+    {
+        $this->notification_settings = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -476,7 +587,10 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             'event_settings' => null,
             'max_pokemon_types' => null,
             'sfida_settings' => null,
-            'news_settings' => null
+            'news_settings' => null,
+            'translation_settings' => null,
+            'passcode_settings' => null,
+            'notification_settings' => null
         ], $values);
 
         $message->setFortSettings($values['fort_settings']);
@@ -490,6 +604,9 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $message->setMaxPokemonTypes($values['max_pokemon_types']);
         $message->setSfidaSettings($values['sfida_settings']);
         $message->setNewsSettings($values['news_settings']);
+        $message->setTranslationSettings($values['translation_settings']);
+        $message->setPasscodeSettings($values['passcode_settings']);
+        $message->setNotificationSettings($values['notification_settings']);
 
         return $message;
     }
@@ -576,6 +693,27 @@ class GlobalSettings extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Settings.NewsSettings'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 13,
+                    'name' => 'translation_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.TranslationSettings'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 14,
+                    'name' => 'passcode_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.PasscodeSettings'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 15,
+                    'name' => 'notification_settings',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Settings.NotificationSettings'
                 ]),
             ],
         ]);
@@ -667,6 +805,24 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 98);
             $writer->writeVarint($stream, $this->news_settings->serializedSize($sizeContext));
             $this->news_settings->writeTo($context);
+        }
+
+        if ($this->translation_settings !== null) {
+            $writer->writeVarint($stream, 106);
+            $writer->writeVarint($stream, $this->translation_settings->serializedSize($sizeContext));
+            $this->translation_settings->writeTo($context);
+        }
+
+        if ($this->passcode_settings !== null) {
+            $writer->writeVarint($stream, 114);
+            $writer->writeVarint($stream, $this->passcode_settings->serializedSize($sizeContext));
+            $this->passcode_settings->writeTo($context);
+        }
+
+        if ($this->notification_settings !== null) {
+            $writer->writeVarint($stream, 122);
+            $writer->writeVarint($stream, $this->notification_settings->serializedSize($sizeContext));
+            $this->notification_settings->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -854,6 +1010,51 @@ class GlobalSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 13) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\TranslationSettings();
+
+                $this->translation_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 14) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\PasscodeSettings();
+
+                $this->passcode_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
+            if ($tag === 15) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Settings\NotificationSettings();
+
+                $this->notification_settings = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -965,6 +1166,30 @@ class GlobalSettings extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->translation_settings !== null) {
+            $innerSize = $this->translation_settings->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->passcode_settings !== null) {
+            $innerSize = $this->passcode_settings->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
+        if ($this->notification_settings !== null) {
+            $innerSize = $this->notification_settings->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -988,6 +1213,9 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $this->max_pokemon_types = null;
         $this->sfida_settings = null;
         $this->news_settings = null;
+        $this->translation_settings = null;
+        $this->passcode_settings = null;
+        $this->notification_settings = null;
     }
 
     /**
@@ -1010,6 +1238,9 @@ class GlobalSettings extends \Protobuf\AbstractMessage
         $this->max_pokemon_types = ($message->max_pokemon_types !== null) ? $message->max_pokemon_types : $this->max_pokemon_types;
         $this->sfida_settings = ($message->sfida_settings !== null) ? $message->sfida_settings : $this->sfida_settings;
         $this->news_settings = ($message->news_settings !== null) ? $message->news_settings : $this->news_settings;
+        $this->translation_settings = ($message->translation_settings !== null) ? $message->translation_settings : $this->translation_settings;
+        $this->passcode_settings = ($message->passcode_settings !== null) ? $message->passcode_settings : $this->passcode_settings;
+        $this->notification_settings = ($message->notification_settings !== null) ? $message->notification_settings : $this->notification_settings;
     }
 
 

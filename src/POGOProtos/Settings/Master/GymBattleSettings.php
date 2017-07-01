@@ -130,6 +130,13 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
     protected $dodge_damage_reduction_percent = null;
 
     /**
+     * minimum_raid_player_level optional int32 = 16
+     *
+     * @var int
+     */
+    protected $minimum_raid_player_level = null;
+
+    /**
      * Check if 'energy_per_sec' has a value
      *
      * @return bool
@@ -580,6 +587,36 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'minimum_raid_player_level' has a value
+     *
+     * @return bool
+     */
+    public function hasMinimumRaidPlayerLevel()
+    {
+        return $this->minimum_raid_player_level !== null;
+    }
+
+    /**
+     * Get 'minimum_raid_player_level' value
+     *
+     * @return int
+     */
+    public function getMinimumRaidPlayerLevel()
+    {
+        return $this->minimum_raid_player_level;
+    }
+
+    /**
+     * Set 'minimum_raid_player_level' value
+     *
+     * @param int $value
+     */
+    public function setMinimumRaidPlayerLevel($value = null)
+    {
+        $this->minimum_raid_player_level = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -628,7 +665,8 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
             'dodge_duration_ms' => null,
             'minimum_player_level' => null,
             'swap_duration_ms' => null,
-            'dodge_damage_reduction_percent' => null
+            'dodge_damage_reduction_percent' => null,
+            'minimum_raid_player_level' => null
         ], $values);
 
         $message->setEnergyPerSec($values['energy_per_sec']);
@@ -646,6 +684,7 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
         $message->setMinimumPlayerLevel($values['minimum_player_level']);
         $message->setSwapDurationMs($values['swap_duration_ms']);
         $message->setDodgeDamageReductionPercent($values['dodge_damage_reduction_percent']);
+        $message->setMinimumRaidPlayerLevel($values['minimum_raid_player_level']);
 
         return $message;
     }
@@ -746,6 +785,12 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
                     'number' => 15,
                     'name' => 'dodge_damage_reduction_percent',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 16,
+                    'name' => 'minimum_raid_player_level',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -849,6 +894,11 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
         if ($this->dodge_damage_reduction_percent !== null) {
             $writer->writeVarint($stream, 125);
             $writer->writeFloat($stream, $this->dodge_damage_reduction_percent);
+        }
+
+        if ($this->minimum_raid_player_level !== null) {
+            $writer->writeVarint($stream, 128);
+            $writer->writeVarint($stream, $this->minimum_raid_player_level);
         }
 
         if ($this->extensions !== null) {
@@ -1005,6 +1055,14 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 16) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->minimum_raid_player_level = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1109,6 +1167,11 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
             $size += 4;
         }
 
+        if ($this->minimum_raid_player_level !== null) {
+            $size += 2;
+            $size += $calculator->computeVarintSize($this->minimum_raid_player_level);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1136,6 +1199,7 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
         $this->minimum_player_level = null;
         $this->swap_duration_ms = null;
         $this->dodge_damage_reduction_percent = null;
+        $this->minimum_raid_player_level = null;
     }
 
     /**
@@ -1162,6 +1226,7 @@ class GymBattleSettings extends \Protobuf\AbstractMessage
         $this->minimum_player_level = ($message->minimum_player_level !== null) ? $message->minimum_player_level : $this->minimum_player_level;
         $this->swap_duration_ms = ($message->swap_duration_ms !== null) ? $message->swap_duration_ms : $this->swap_duration_ms;
         $this->dodge_damage_reduction_percent = ($message->dodge_damage_reduction_percent !== null) ? $message->dodge_damage_reduction_percent : $this->dodge_damage_reduction_percent;
+        $this->minimum_raid_player_level = ($message->minimum_raid_player_level !== null) ? $message->minimum_raid_player_level : $this->minimum_raid_player_level;
     }
 
 

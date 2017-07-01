@@ -130,6 +130,13 @@ class PlayerData extends \Protobuf\AbstractMessage
     protected $secondary_player_avatar = null;
 
     /**
+     * name_is_blacklisted optional bool = 19
+     *
+     * @var bool
+     */
+    protected $name_is_blacklisted = null;
+
+    /**
      * Check if 'creation_timestamp_ms' has a value
      *
      * @return bool
@@ -608,6 +615,36 @@ class PlayerData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'name_is_blacklisted' has a value
+     *
+     * @return bool
+     */
+    public function hasNameIsBlacklisted()
+    {
+        return $this->name_is_blacklisted !== null;
+    }
+
+    /**
+     * Get 'name_is_blacklisted' value
+     *
+     * @return bool
+     */
+    public function getNameIsBlacklisted()
+    {
+        return $this->name_is_blacklisted;
+    }
+
+    /**
+     * Set 'name_is_blacklisted' value
+     *
+     * @param bool $value
+     */
+    public function setNameIsBlacklisted($value = null)
+    {
+        $this->name_is_blacklisted = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -656,7 +693,8 @@ class PlayerData extends \Protobuf\AbstractMessage
             'remaining_codename_claims' => null,
             'buddy_pokemon' => null,
             'battle_lockout_end_ms' => null,
-            'secondary_player_avatar' => null
+            'secondary_player_avatar' => null,
+            'name_is_blacklisted' => null
         ], $values);
 
         $message->setCreationTimestampMs($values['creation_timestamp_ms']);
@@ -672,6 +710,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $message->setBuddyPokemon($values['buddy_pokemon']);
         $message->setBattleLockoutEndMs($values['battle_lockout_end_ms']);
         $message->setSecondaryPlayerAvatar($values['secondary_player_avatar']);
+        $message->setNameIsBlacklisted($values['name_is_blacklisted']);
 
         foreach ($values['tutorial_state'] as $item) {
             $message->addTutorialState($item);
@@ -790,6 +829,12 @@ class PlayerData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.Player.PlayerAvatar'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 19,
+                    'name' => 'name_is_blacklisted',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -912,6 +957,11 @@ class PlayerData extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 146);
             $writer->writeVarint($stream, $this->secondary_player_avatar->serializedSize($sizeContext));
             $this->secondary_player_avatar->writeTo($context);
+        }
+
+        if ($this->name_is_blacklisted !== null) {
+            $writer->writeVarint($stream, 152);
+            $writer->writeBool($stream, $this->name_is_blacklisted);
         }
 
         if ($this->extensions !== null) {
@@ -1128,6 +1178,14 @@ class PlayerData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 19) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->name_is_blacklisted = $reader->readBool($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1262,6 +1320,11 @@ class PlayerData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->name_is_blacklisted !== null) {
+            $size += 2;
+            $size += 1;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1289,6 +1352,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $this->buddy_pokemon = null;
         $this->battle_lockout_end_ms = null;
         $this->secondary_player_avatar = null;
+        $this->name_is_blacklisted = null;
     }
 
     /**
@@ -1315,6 +1379,7 @@ class PlayerData extends \Protobuf\AbstractMessage
         $this->buddy_pokemon = ($message->buddy_pokemon !== null) ? $message->buddy_pokemon : $this->buddy_pokemon;
         $this->battle_lockout_end_ms = ($message->battle_lockout_end_ms !== null) ? $message->battle_lockout_end_ms : $this->battle_lockout_end_ms;
         $this->secondary_player_avatar = ($message->secondary_player_avatar !== null) ? $message->secondary_player_avatar : $this->secondary_player_avatar;
+        $this->name_is_blacklisted = ($message->name_is_blacklisted !== null) ? $message->name_is_blacklisted : $this->name_is_blacklisted;
     }
 
 

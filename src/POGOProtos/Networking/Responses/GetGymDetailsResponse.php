@@ -67,6 +67,13 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
     protected $secondary_url = null;
 
     /**
+     * checkin_image_url optional string = 7
+     *
+     * @var string
+     */
+    protected $checkin_image_url = null;
+
+    /**
      * Check if 'gym_state' has a value
      *
      * @return bool
@@ -275,6 +282,36 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'checkin_image_url' has a value
+     *
+     * @return bool
+     */
+    public function hasCheckinImageUrl()
+    {
+        return $this->checkin_image_url !== null;
+    }
+
+    /**
+     * Get 'checkin_image_url' value
+     *
+     * @return string
+     */
+    public function getCheckinImageUrl()
+    {
+        return $this->checkin_image_url;
+    }
+
+    /**
+     * Set 'checkin_image_url' value
+     *
+     * @param string $value
+     */
+    public function setCheckinImageUrl($value = null)
+    {
+        $this->checkin_image_url = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -314,13 +351,15 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
             'urls' => [],
             'result' => null,
             'description' => null,
-            'secondary_url' => []
+            'secondary_url' => [],
+            'checkin_image_url' => null
         ], $values);
 
         $message->setGymState($values['gym_state']);
         $message->setName($values['name']);
         $message->setResult($values['result']);
         $message->setDescription($values['description']);
+        $message->setCheckinImageUrl($values['checkin_image_url']);
 
         foreach ($values['urls'] as $item) {
             $message->addUrls($item);
@@ -378,6 +417,12 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
                     'name' => 'secondary_url',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'checkin_image_url',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -440,6 +485,11 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
                 $writer->writeVarint($stream, 50);
                 $writer->writeString($stream, $val);
             }
+        }
+
+        if ($this->checkin_image_url !== null) {
+            $writer->writeVarint($stream, 58);
+            $writer->writeString($stream, $this->checkin_image_url);
         }
 
         if ($this->extensions !== null) {
@@ -539,6 +589,14 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 7) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->checkin_image_url = $reader->readString($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -605,6 +663,11 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->checkin_image_url !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->checkin_image_url);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -623,6 +686,7 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
         $this->result = null;
         $this->description = null;
         $this->secondary_url = null;
+        $this->checkin_image_url = null;
     }
 
     /**
@@ -640,6 +704,7 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
         $this->result = ($message->result !== null) ? $message->result : $this->result;
         $this->description = ($message->description !== null) ? $message->description : $this->description;
         $this->secondary_url = ($message->secondary_url !== null) ? $message->secondary_url : $this->secondary_url;
+        $this->checkin_image_url = ($message->checkin_image_url !== null) ? $message->checkin_image_url : $this->checkin_image_url;
     }
 
 

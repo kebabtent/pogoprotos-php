@@ -33,6 +33,13 @@ class ClaimCodenameMessage extends \Protobuf\AbstractMessage
     protected $codename = null;
 
     /**
+     * force optional bool = 2
+     *
+     * @var bool
+     */
+    protected $force = null;
+
+    /**
      * Check if 'codename' has a value
      *
      * @return bool
@@ -60,6 +67,36 @@ class ClaimCodenameMessage extends \Protobuf\AbstractMessage
     public function setCodename($value = null)
     {
         $this->codename = $value;
+    }
+
+    /**
+     * Check if 'force' has a value
+     *
+     * @return bool
+     */
+    public function hasForce()
+    {
+        return $this->force !== null;
+    }
+
+    /**
+     * Get 'force' value
+     *
+     * @return bool
+     */
+    public function getForce()
+    {
+        return $this->force;
+    }
+
+    /**
+     * Set 'force' value
+     *
+     * @param bool $value
+     */
+    public function setForce($value = null)
+    {
+        $this->force = $value;
     }
 
     /**
@@ -97,10 +134,12 @@ class ClaimCodenameMessage extends \Protobuf\AbstractMessage
     {
         $message = new self();
         $values  = array_merge([
-            'codename' => null
+            'codename' => null,
+            'force' => null
         ], $values);
 
         $message->setCodename($values['codename']);
+        $message->setForce($values['force']);
 
         return $message;
     }
@@ -117,6 +156,12 @@ class ClaimCodenameMessage extends \Protobuf\AbstractMessage
                     'number' => 1,
                     'name' => 'codename',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 2,
+                    'name' => 'force',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -150,6 +195,11 @@ class ClaimCodenameMessage extends \Protobuf\AbstractMessage
         if ($this->codename !== null) {
             $writer->writeVarint($stream, 10);
             $writer->writeString($stream, $this->codename);
+        }
+
+        if ($this->force !== null) {
+            $writer->writeVarint($stream, 16);
+            $writer->writeBool($stream, $this->force);
         }
 
         if ($this->extensions !== null) {
@@ -194,6 +244,14 @@ class ClaimCodenameMessage extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 2) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->force = $reader->readBool($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -228,6 +286,11 @@ class ClaimCodenameMessage extends \Protobuf\AbstractMessage
             $size += $calculator->computeStringSize($this->codename);
         }
 
+        if ($this->force !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -241,6 +304,7 @@ class ClaimCodenameMessage extends \Protobuf\AbstractMessage
     public function clear()
     {
         $this->codename = null;
+        $this->force = null;
     }
 
     /**
@@ -253,6 +317,7 @@ class ClaimCodenameMessage extends \Protobuf\AbstractMessage
         }
 
         $this->codename = ($message->codename !== null) ? $message->codename : $this->codename;
+        $this->force = ($message->force !== null) ? $message->force : $this->force;
     }
 
 

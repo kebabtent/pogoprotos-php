@@ -46,6 +46,13 @@ class GetPlayerProfileResponse extends \Protobuf\AbstractMessage
     protected $badges = null;
 
     /**
+     * gym_badges optional message = 4
+     *
+     * @var \POGOProtos\Networking\Responses\GetPlayerProfileResponse\GymBadges
+     */
+    protected $gym_badges = null;
+
+    /**
      * Check if 'result' has a value
      *
      * @return bool
@@ -150,6 +157,36 @@ class GetPlayerProfileResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'gym_badges' has a value
+     *
+     * @return bool
+     */
+    public function hasGymBadges()
+    {
+        return $this->gym_badges !== null;
+    }
+
+    /**
+     * Get 'gym_badges' value
+     *
+     * @return \POGOProtos\Networking\Responses\GetPlayerProfileResponse\GymBadges
+     */
+    public function getGymBadges()
+    {
+        return $this->gym_badges;
+    }
+
+    /**
+     * Set 'gym_badges' value
+     *
+     * @param \POGOProtos\Networking\Responses\GetPlayerProfileResponse\GymBadges $value
+     */
+    public function setGymBadges(\POGOProtos\Networking\Responses\GetPlayerProfileResponse\GymBadges $value = null)
+    {
+        $this->gym_badges = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -186,11 +223,13 @@ class GetPlayerProfileResponse extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'result' => null,
             'start_time' => null,
-            'badges' => []
+            'badges' => [],
+            'gym_badges' => null
         ], $values);
 
         $message->setResult($values['result']);
         $message->setStartTime($values['start_time']);
+        $message->setGymBadges($values['gym_badges']);
 
         foreach ($values['badges'] as $item) {
             $message->addBadges($item);
@@ -226,6 +265,13 @@ class GetPlayerProfileResponse extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
                     'type_name' => '.POGOProtos.Data.PlayerBadge'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'gym_badges',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Networking.Responses.GetPlayerProfileResponse.GymBadges'
                 ]),
             ],
         ]);
@@ -271,6 +317,12 @@ class GetPlayerProfileResponse extends \Protobuf\AbstractMessage
                 $writer->writeVarint($stream, $val->serializedSize($sizeContext));
                 $val->writeTo($context);
             }
+        }
+
+        if ($this->gym_badges !== null) {
+            $writer->writeVarint($stream, 34);
+            $writer->writeVarint($stream, $this->gym_badges->serializedSize($sizeContext));
+            $this->gym_badges->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -342,6 +394,21 @@ class GetPlayerProfileResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Networking\Responses\GetPlayerProfileResponse\GymBadges();
+
+                $this->gym_badges = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -391,6 +458,14 @@ class GetPlayerProfileResponse extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->gym_badges !== null) {
+            $innerSize = $this->gym_badges->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -406,6 +481,7 @@ class GetPlayerProfileResponse extends \Protobuf\AbstractMessage
         $this->result = null;
         $this->start_time = null;
         $this->badges = null;
+        $this->gym_badges = null;
     }
 
     /**
@@ -420,6 +496,7 @@ class GetPlayerProfileResponse extends \Protobuf\AbstractMessage
         $this->result = ($message->result !== null) ? $message->result : $this->result;
         $this->start_time = ($message->start_time !== null) ? $message->start_time : $this->start_time;
         $this->badges = ($message->badges !== null) ? $message->badges : $this->badges;
+        $this->gym_badges = ($message->gym_badges !== null) ? $message->gym_badges : $this->gym_badges;
     }
 
 

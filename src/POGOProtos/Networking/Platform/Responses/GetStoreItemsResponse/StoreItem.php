@@ -57,14 +57,14 @@ class StoreItem extends \Protobuf\AbstractMessage
     /**
      * yields_item optional message = 5
      *
-     * @var \POGOProtos\Inventory\Item\ItemData
+     * @var \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItemInfo
      */
     protected $yields_item = null;
 
     /**
      * tags repeated message = 6
      *
-     * @var \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry>
+     * @var \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreTags>
      */
     protected $tags = null;
 
@@ -208,7 +208,7 @@ class StoreItem extends \Protobuf\AbstractMessage
     /**
      * Get 'yields_item' value
      *
-     * @return \POGOProtos\Inventory\Item\ItemData
+     * @return \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItemInfo
      */
     public function getYieldsItem()
     {
@@ -218,9 +218,9 @@ class StoreItem extends \Protobuf\AbstractMessage
     /**
      * Set 'yields_item' value
      *
-     * @param \POGOProtos\Inventory\Item\ItemData $value
+     * @param \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItemInfo $value
      */
-    public function setYieldsItem(\POGOProtos\Inventory\Item\ItemData $value = null)
+    public function setYieldsItem(\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItemInfo $value = null)
     {
         $this->yields_item = $value;
     }
@@ -238,7 +238,7 @@ class StoreItem extends \Protobuf\AbstractMessage
     /**
      * Get 'tags' value
      *
-     * @return \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry>
+     * @return \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreTags>
      */
     public function getTagsList()
     {
@@ -248,7 +248,7 @@ class StoreItem extends \Protobuf\AbstractMessage
     /**
      * Set 'tags' value
      *
-     * @param \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry> $value
+     * @param \Protobuf\Collection<\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreTags> $value
      */
     public function setTagsList(\Protobuf\Collection $value = null)
     {
@@ -258,11 +258,10 @@ class StoreItem extends \Protobuf\AbstractMessage
     /**
      * Add a new element to 'tags'
      *
-     * @param
-     * \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry
+     * @param \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreTags
      * $value
      */
-    public function addTags(\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry $value)
+    public function addTags(\POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreTags $value)
     {
         if ($this->tags === null) {
             $this->tags = new \Protobuf\MessageCollection();
@@ -398,14 +397,14 @@ class StoreItem extends \Protobuf\AbstractMessage
                     'name' => 'yields_item',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
-                    'type_name' => '.POGOProtos.Inventory.Item.ItemData'
+                    'type_name' => '.POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 6,
                     'name' => 'tags',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
-                    'type_name' => '.POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem.TagsEntry'
+                    'type_name' => '.POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags'
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 7,
@@ -566,7 +565,7 @@ class StoreItem extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 11);
 
                 $innerSize    = $reader->readVarint($stream);
-                $innerMessage = new \POGOProtos\Inventory\Item\ItemData();
+                $innerMessage = new \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItemInfo();
 
                 $this->yields_item = $innerMessage;
 
@@ -581,7 +580,7 @@ class StoreItem extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 11);
 
                 $innerSize    = $reader->readVarint($stream);
-                $innerMessage = new \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreItem\TagsEntry();
+                $innerMessage = new \POGOProtos\Networking\Platform\Responses\GetStoreItemsResponse\StoreTags();
 
                 if ($this->tags === null) {
                     $this->tags = new \Protobuf\MessageCollection();

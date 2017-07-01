@@ -60,6 +60,13 @@ class PlayerLevelSettings extends \Protobuf\AbstractMessage
     protected $max_encounter_player_level = null;
 
     /**
+     * max_raid_encounter_player_level optional int32 = 6
+     *
+     * @var int
+     */
+    protected $max_raid_encounter_player_level = null;
+
+    /**
      * Check if 'rank_num' has a value
      *
      * @return bool
@@ -252,6 +259,36 @@ class PlayerLevelSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'max_raid_encounter_player_level' has a value
+     *
+     * @return bool
+     */
+    public function hasMaxRaidEncounterPlayerLevel()
+    {
+        return $this->max_raid_encounter_player_level !== null;
+    }
+
+    /**
+     * Get 'max_raid_encounter_player_level' value
+     *
+     * @return int
+     */
+    public function getMaxRaidEncounterPlayerLevel()
+    {
+        return $this->max_raid_encounter_player_level;
+    }
+
+    /**
+     * Set 'max_raid_encounter_player_level' value
+     *
+     * @param int $value
+     */
+    public function setMaxRaidEncounterPlayerLevel($value = null)
+    {
+        $this->max_raid_encounter_player_level = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -290,11 +327,13 @@ class PlayerLevelSettings extends \Protobuf\AbstractMessage
             'required_experience' => [],
             'cp_multiplier' => [],
             'max_egg_player_level' => null,
-            'max_encounter_player_level' => null
+            'max_encounter_player_level' => null,
+            'max_raid_encounter_player_level' => null
         ], $values);
 
         $message->setMaxEggPlayerLevel($values['max_egg_player_level']);
         $message->setMaxEncounterPlayerLevel($values['max_encounter_player_level']);
+        $message->setMaxRaidEncounterPlayerLevel($values['max_raid_encounter_player_level']);
 
         foreach ($values['rank_num'] as $item) {
             $message->addRankNum($item);
@@ -346,6 +385,12 @@ class PlayerLevelSettings extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 5,
                     'name' => 'max_encounter_player_level',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'max_raid_encounter_player_level',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -406,6 +451,11 @@ class PlayerLevelSettings extends \Protobuf\AbstractMessage
         if ($this->max_encounter_player_level !== null) {
             $writer->writeVarint($stream, 40);
             $writer->writeVarint($stream, $this->max_encounter_player_level);
+        }
+
+        if ($this->max_raid_encounter_player_level !== null) {
+            $writer->writeVarint($stream, 48);
+            $writer->writeVarint($stream, $this->max_raid_encounter_player_level);
         }
 
         if ($this->extensions !== null) {
@@ -503,6 +553,14 @@ class PlayerLevelSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 6) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->max_raid_encounter_player_level = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -563,6 +621,11 @@ class PlayerLevelSettings extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->max_encounter_player_level);
         }
 
+        if ($this->max_raid_encounter_player_level !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->max_raid_encounter_player_level);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -580,6 +643,7 @@ class PlayerLevelSettings extends \Protobuf\AbstractMessage
         $this->cp_multiplier = null;
         $this->max_egg_player_level = null;
         $this->max_encounter_player_level = null;
+        $this->max_raid_encounter_player_level = null;
     }
 
     /**
@@ -596,6 +660,7 @@ class PlayerLevelSettings extends \Protobuf\AbstractMessage
         $this->cp_multiplier = ($message->cp_multiplier !== null) ? $message->cp_multiplier : $this->cp_multiplier;
         $this->max_egg_player_level = ($message->max_egg_player_level !== null) ? $message->max_egg_player_level : $this->max_egg_player_level;
         $this->max_encounter_player_level = ($message->max_encounter_player_level !== null) ? $message->max_encounter_player_level : $this->max_encounter_player_level;
+        $this->max_raid_encounter_player_level = ($message->max_raid_encounter_player_level !== null) ? $message->max_raid_encounter_player_level : $this->max_raid_encounter_player_level;
     }
 
 

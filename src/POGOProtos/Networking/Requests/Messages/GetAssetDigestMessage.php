@@ -61,6 +61,27 @@ class GetAssetDigestMessage extends \Protobuf\AbstractMessage
     protected $app_version = null;
 
     /**
+     * paginate optional bool = 6
+     *
+     * @var bool
+     */
+    protected $paginate = null;
+
+    /**
+     * page_offset optional int32 = 7
+     *
+     * @var int
+     */
+    protected $page_offset = null;
+
+    /**
+     * page_timestamp optional uint64 = 8
+     *
+     * @var int
+     */
+    protected $page_timestamp = null;
+
+    /**
      * Check if 'platform' has a value
      *
      * @return bool
@@ -211,6 +232,96 @@ class GetAssetDigestMessage extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'paginate' has a value
+     *
+     * @return bool
+     */
+    public function hasPaginate()
+    {
+        return $this->paginate !== null;
+    }
+
+    /**
+     * Get 'paginate' value
+     *
+     * @return bool
+     */
+    public function getPaginate()
+    {
+        return $this->paginate;
+    }
+
+    /**
+     * Set 'paginate' value
+     *
+     * @param bool $value
+     */
+    public function setPaginate($value = null)
+    {
+        $this->paginate = $value;
+    }
+
+    /**
+     * Check if 'page_offset' has a value
+     *
+     * @return bool
+     */
+    public function hasPageOffset()
+    {
+        return $this->page_offset !== null;
+    }
+
+    /**
+     * Get 'page_offset' value
+     *
+     * @return int
+     */
+    public function getPageOffset()
+    {
+        return $this->page_offset;
+    }
+
+    /**
+     * Set 'page_offset' value
+     *
+     * @param int $value
+     */
+    public function setPageOffset($value = null)
+    {
+        $this->page_offset = $value;
+    }
+
+    /**
+     * Check if 'page_timestamp' has a value
+     *
+     * @return bool
+     */
+    public function hasPageTimestamp()
+    {
+        return $this->page_timestamp !== null;
+    }
+
+    /**
+     * Get 'page_timestamp' value
+     *
+     * @return int
+     */
+    public function getPageTimestamp()
+    {
+        return $this->page_timestamp;
+    }
+
+    /**
+     * Set 'page_timestamp' value
+     *
+     * @param int $value
+     */
+    public function setPageTimestamp($value = null)
+    {
+        $this->page_timestamp = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -249,7 +360,10 @@ class GetAssetDigestMessage extends \Protobuf\AbstractMessage
             'device_manufacturer' => null,
             'device_model' => null,
             'locale' => null,
-            'app_version' => null
+            'app_version' => null,
+            'paginate' => null,
+            'page_offset' => null,
+            'page_timestamp' => null
         ], $values);
 
         $message->setPlatform($values['platform']);
@@ -257,6 +371,9 @@ class GetAssetDigestMessage extends \Protobuf\AbstractMessage
         $message->setDeviceModel($values['device_model']);
         $message->setLocale($values['locale']);
         $message->setAppVersion($values['app_version']);
+        $message->setPaginate($values['paginate']);
+        $message->setPageOffset($values['page_offset']);
+        $message->setPageTimestamp($values['page_timestamp']);
 
         return $message;
     }
@@ -298,6 +415,24 @@ class GetAssetDigestMessage extends \Protobuf\AbstractMessage
                     'number' => 5,
                     'name' => 'app_version',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'paginate',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'page_offset',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'page_timestamp',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -351,6 +486,21 @@ class GetAssetDigestMessage extends \Protobuf\AbstractMessage
         if ($this->app_version !== null) {
             $writer->writeVarint($stream, 40);
             $writer->writeVarint($stream, $this->app_version);
+        }
+
+        if ($this->paginate !== null) {
+            $writer->writeVarint($stream, 48);
+            $writer->writeBool($stream, $this->paginate);
+        }
+
+        if ($this->page_offset !== null) {
+            $writer->writeVarint($stream, 56);
+            $writer->writeVarint($stream, $this->page_offset);
+        }
+
+        if ($this->page_timestamp !== null) {
+            $writer->writeVarint($stream, 64);
+            $writer->writeVarint($stream, $this->page_timestamp);
         }
 
         if ($this->extensions !== null) {
@@ -427,6 +577,30 @@ class GetAssetDigestMessage extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 6) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->paginate = $reader->readBool($stream);
+
+                continue;
+            }
+
+            if ($tag === 7) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->page_offset = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 8) {
+                \Protobuf\WireFormat::assertWireType($wire, 4);
+
+                $this->page_timestamp = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -481,6 +655,21 @@ class GetAssetDigestMessage extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->app_version);
         }
 
+        if ($this->paginate !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
+        if ($this->page_offset !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->page_offset);
+        }
+
+        if ($this->page_timestamp !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->page_timestamp);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -498,6 +687,9 @@ class GetAssetDigestMessage extends \Protobuf\AbstractMessage
         $this->device_model = null;
         $this->locale = null;
         $this->app_version = null;
+        $this->paginate = null;
+        $this->page_offset = null;
+        $this->page_timestamp = null;
     }
 
     /**
@@ -514,6 +706,9 @@ class GetAssetDigestMessage extends \Protobuf\AbstractMessage
         $this->device_model = ($message->device_model !== null) ? $message->device_model : $this->device_model;
         $this->locale = ($message->locale !== null) ? $message->locale : $this->locale;
         $this->app_version = ($message->app_version !== null) ? $message->app_version : $this->app_version;
+        $this->paginate = ($message->paginate !== null) ? $message->paginate : $this->paginate;
+        $this->page_offset = ($message->page_offset !== null) ? $message->page_offset : $this->page_offset;
+        $this->page_timestamp = ($message->page_timestamp !== null) ? $message->page_timestamp : $this->page_timestamp;
     }
 
 

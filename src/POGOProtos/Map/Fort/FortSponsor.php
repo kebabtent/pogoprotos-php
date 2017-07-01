@@ -115,6 +115,21 @@ class FortSponsor extends \Protobuf\Enum
     const MUFFINTIN_VALUE = 19;
 
     /**
+     * SALAMANDER = 20
+     */
+    const SALAMANDER_VALUE = 20;
+
+    /**
+     * PLANCHA = 21
+     */
+    const PLANCHA_VALUE = 21;
+
+    /**
+     * NIA_OPS = 22
+     */
+    const NIA_OPS_VALUE = 22;
+
+    /**
      * @var \POGOProtos\Map\Fort\FortSponsor
      */
     protected static $UNSET_SPONSOR = null;
@@ -213,6 +228,21 @@ class FortSponsor extends \Protobuf\Enum
      * @var \POGOProtos\Map\Fort\FortSponsor
      */
     protected static $MUFFINTIN = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $SALAMANDER = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $PLANCHA = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $NIA_OPS = null;
 
     /**
      * @return \POGOProtos\Map\Fort\FortSponsor
@@ -455,6 +485,42 @@ class FortSponsor extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function SALAMANDER()
+    {
+        if (self::$SALAMANDER !== null) {
+            return self::$SALAMANDER;
+        }
+
+        return self::$SALAMANDER = new self('SALAMANDER', self::SALAMANDER_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function PLANCHA()
+    {
+        if (self::$PLANCHA !== null) {
+            return self::$PLANCHA;
+        }
+
+        return self::$PLANCHA = new self('PLANCHA', self::PLANCHA_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function NIA_OPS()
+    {
+        if (self::$NIA_OPS !== null) {
+            return self::$NIA_OPS;
+        }
+
+        return self::$NIA_OPS = new self('NIA_OPS', self::NIA_OPS_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Map\Fort\FortSponsor
      */
@@ -481,6 +547,9 @@ class FortSponsor extends \Protobuf\Enum
             case 17: return self::MIXER();
             case 18: return self::SCOOPER();
             case 19: return self::MUFFINTIN();
+            case 20: return self::SALAMANDER();
+            case 21: return self::PLANCHA();
+            case 22: return self::NIA_OPS();
             default: return null;
         }
     }

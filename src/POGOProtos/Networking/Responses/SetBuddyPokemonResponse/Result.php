@@ -40,6 +40,11 @@ class Result extends \Protobuf\Enum
     const ERROR_POKEMON_IS_EGG_VALUE = 4;
 
     /**
+     * ERROR_INVALID_POKEMON = 5
+     */
+    const ERROR_INVALID_POKEMON_VALUE = 5;
+
+    /**
      * @var \POGOProtos\Networking\Responses\SetBuddyPokemonResponse\Result
      */
     protected static $UNEST = null;
@@ -63,6 +68,11 @@ class Result extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Responses\SetBuddyPokemonResponse\Result
      */
     protected static $ERROR_POKEMON_IS_EGG = null;
+
+    /**
+     * @var \POGOProtos\Networking\Responses\SetBuddyPokemonResponse\Result
+     */
+    protected static $ERROR_INVALID_POKEMON = null;
 
     /**
      * @return \POGOProtos\Networking\Responses\SetBuddyPokemonResponse\Result
@@ -125,6 +135,18 @@ class Result extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Responses\SetBuddyPokemonResponse\Result
+     */
+    public static function ERROR_INVALID_POKEMON()
+    {
+        if (self::$ERROR_INVALID_POKEMON !== null) {
+            return self::$ERROR_INVALID_POKEMON;
+        }
+
+        return self::$ERROR_INVALID_POKEMON = new self('ERROR_INVALID_POKEMON', self::ERROR_INVALID_POKEMON_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Responses\SetBuddyPokemonResponse\Result
      */
@@ -136,6 +158,7 @@ class Result extends \Protobuf\Enum
             case 2: return self::ERROR_POKEMON_DEPLOYED();
             case 3: return self::ERROR_POKEMON_NOT_OWNED();
             case 4: return self::ERROR_POKEMON_IS_EGG();
+            case 5: return self::ERROR_INVALID_POKEMON();
             default: return null;
         }
     }

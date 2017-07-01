@@ -95,6 +95,11 @@ class ItemEffect extends \Protobuf\Enum
     const ITEM_EFFECT_CANDY_AWARD_VALUE = 1015;
 
     /**
+     * ITEM_EFFECT_FULL_MOTIVATION = 1016
+     */
+    const ITEM_EFFECT_FULL_MOTIVATION_VALUE = 1016;
+
+    /**
      * @var \POGOProtos\Enums\ItemEffect
      */
     protected static $ITEM_EFFECT_NONE = null;
@@ -173,6 +178,11 @@ class ItemEffect extends \Protobuf\Enum
      * @var \POGOProtos\Enums\ItemEffect
      */
     protected static $ITEM_EFFECT_CANDY_AWARD = null;
+
+    /**
+     * @var \POGOProtos\Enums\ItemEffect
+     */
+    protected static $ITEM_EFFECT_FULL_MOTIVATION = null;
 
     /**
      * @return \POGOProtos\Enums\ItemEffect
@@ -367,6 +377,18 @@ class ItemEffect extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\ItemEffect
+     */
+    public static function ITEM_EFFECT_FULL_MOTIVATION()
+    {
+        if (self::$ITEM_EFFECT_FULL_MOTIVATION !== null) {
+            return self::$ITEM_EFFECT_FULL_MOTIVATION;
+        }
+
+        return self::$ITEM_EFFECT_FULL_MOTIVATION = new self('ITEM_EFFECT_FULL_MOTIVATION', self::ITEM_EFFECT_FULL_MOTIVATION_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\ItemEffect
      */
@@ -389,6 +411,7 @@ class ItemEffect extends \Protobuf\Enum
             case 1013: return self::ITEM_EFFECT_CAP_CHANCE_ALWAYS();
             case 1014: return self::ITEM_EFFECT_CAP_CHANCE_SINGLE_THROW();
             case 1015: return self::ITEM_EFFECT_CANDY_AWARD();
+            case 1016: return self::ITEM_EFFECT_FULL_MOTIVATION();
             default: return null;
         }
     }

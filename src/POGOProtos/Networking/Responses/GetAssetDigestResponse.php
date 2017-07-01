@@ -39,6 +39,20 @@ class GetAssetDigestResponse extends \Protobuf\AbstractMessage
     protected $timestamp_ms = null;
 
     /**
+     * result optional enum = 3
+     *
+     * @var \POGOProtos\Networking\Responses\GetAssetDigestResponse\Result
+     */
+    protected $result = null;
+
+    /**
+     * page_offset optional int32 = 4
+     *
+     * @var int
+     */
+    protected $page_offset = null;
+
+    /**
      * Check if 'digest' has a value
      *
      * @return bool
@@ -113,6 +127,66 @@ class GetAssetDigestResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'result' has a value
+     *
+     * @return bool
+     */
+    public function hasResult()
+    {
+        return $this->result !== null;
+    }
+
+    /**
+     * Get 'result' value
+     *
+     * @return \POGOProtos\Networking\Responses\GetAssetDigestResponse\Result
+     */
+    public function getResult()
+    {
+        return $this->result;
+    }
+
+    /**
+     * Set 'result' value
+     *
+     * @param \POGOProtos\Networking\Responses\GetAssetDigestResponse\Result $value
+     */
+    public function setResult(\POGOProtos\Networking\Responses\GetAssetDigestResponse\Result $value = null)
+    {
+        $this->result = $value;
+    }
+
+    /**
+     * Check if 'page_offset' has a value
+     *
+     * @return bool
+     */
+    public function hasPageOffset()
+    {
+        return $this->page_offset !== null;
+    }
+
+    /**
+     * Get 'page_offset' value
+     *
+     * @return int
+     */
+    public function getPageOffset()
+    {
+        return $this->page_offset;
+    }
+
+    /**
+     * Set 'page_offset' value
+     *
+     * @param int $value
+     */
+    public function setPageOffset($value = null)
+    {
+        $this->page_offset = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -148,10 +222,14 @@ class GetAssetDigestResponse extends \Protobuf\AbstractMessage
         $message = new self();
         $values  = array_merge([
             'digest' => [],
-            'timestamp_ms' => null
+            'timestamp_ms' => null,
+            'result' => null,
+            'page_offset' => null
         ], $values);
 
         $message->setTimestampMs($values['timestamp_ms']);
+        $message->setResult($values['result']);
+        $message->setPageOffset($values['page_offset']);
 
         foreach ($values['digest'] as $item) {
             $message->addDigest($item);
@@ -179,6 +257,19 @@ class GetAssetDigestResponse extends \Protobuf\AbstractMessage
                     'number' => 2,
                     'name' => 'timestamp_ms',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_UINT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 3,
+                    'name' => 'result',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Networking.Responses.GetAssetDigestResponse.Result'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 4,
+                    'name' => 'page_offset',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -220,6 +311,16 @@ class GetAssetDigestResponse extends \Protobuf\AbstractMessage
         if ($this->timestamp_ms !== null) {
             $writer->writeVarint($stream, 16);
             $writer->writeVarint($stream, $this->timestamp_ms);
+        }
+
+        if ($this->result !== null) {
+            $writer->writeVarint($stream, 24);
+            $writer->writeVarint($stream, $this->result->value());
+        }
+
+        if ($this->page_offset !== null) {
+            $writer->writeVarint($stream, 32);
+            $writer->writeVarint($stream, $this->page_offset);
         }
 
         if ($this->extensions !== null) {
@@ -283,6 +384,22 @@ class GetAssetDigestResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 3) {
+                \Protobuf\WireFormat::assertWireType($wire, 14);
+
+                $this->result = \POGOProtos\Networking\Responses\GetAssetDigestResponse\Result::valueOf($reader->readVarint($stream));
+
+                continue;
+            }
+
+            if ($tag === 4) {
+                \Protobuf\WireFormat::assertWireType($wire, 5);
+
+                $this->page_offset = $reader->readVarint($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -327,6 +444,16 @@ class GetAssetDigestResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->timestamp_ms);
         }
 
+        if ($this->result !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->result->value());
+        }
+
+        if ($this->page_offset !== null) {
+            $size += 1;
+            $size += $calculator->computeVarintSize($this->page_offset);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -341,6 +468,8 @@ class GetAssetDigestResponse extends \Protobuf\AbstractMessage
     {
         $this->digest = null;
         $this->timestamp_ms = null;
+        $this->result = null;
+        $this->page_offset = null;
     }
 
     /**
@@ -354,6 +483,8 @@ class GetAssetDigestResponse extends \Protobuf\AbstractMessage
 
         $this->digest = ($message->digest !== null) ? $message->digest : $this->digest;
         $this->timestamp_ms = ($message->timestamp_ms !== null) ? $message->timestamp_ms : $this->timestamp_ms;
+        $this->result = ($message->result !== null) ? $message->result : $this->result;
+        $this->page_offset = ($message->page_offset !== null) ? $message->page_offset : $this->page_offset;
     }
 
 

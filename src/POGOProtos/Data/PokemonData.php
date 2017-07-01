@@ -270,6 +270,13 @@ class PokemonData extends \Protobuf\AbstractMessage
     protected $pokemon_display = null;
 
     /**
+     * is_bad optional bool = 37
+     *
+     * @var bool
+     */
+    protected $is_bad = null;
+
+    /**
      * Check if 'id' has a value
      *
      * @return bool
@@ -1320,6 +1327,36 @@ class PokemonData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'is_bad' has a value
+     *
+     * @return bool
+     */
+    public function hasIsBad()
+    {
+        return $this->is_bad !== null;
+    }
+
+    /**
+     * Get 'is_bad' value
+     *
+     * @return bool
+     */
+    public function getIsBad()
+    {
+        return $this->is_bad;
+    }
+
+    /**
+     * Set 'is_bad' value
+     *
+     * @param bool $value
+     */
+    public function setIsBad($value = null)
+    {
+        $this->is_bad = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -1388,7 +1425,8 @@ class PokemonData extends \Protobuf\AbstractMessage
             'buddy_total_km_walked' => null,
             'display_pokemon_id' => null,
             'display_cp' => null,
-            'pokemon_display' => null
+            'pokemon_display' => null,
+            'is_bad' => null
         ], $values);
 
         $message->setId($values['id']);
@@ -1426,6 +1464,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $message->setDisplayPokemonId($values['display_pokemon_id']);
         $message->setDisplayCp($values['display_cp']);
         $message->setPokemonDisplay($values['pokemon_display']);
+        $message->setIsBad($values['is_bad']);
 
         return $message;
     }
@@ -1653,6 +1692,12 @@ class PokemonData extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
                     'type_name' => '.POGOProtos.Data.PokemonDisplay'
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 37,
+                    'name' => 'is_bad',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
             ],
         ]);
     }
@@ -1855,6 +1900,11 @@ class PokemonData extends \Protobuf\AbstractMessage
             $writer->writeVarint($stream, 290);
             $writer->writeVarint($stream, $this->pokemon_display->serializedSize($sizeContext));
             $this->pokemon_display->writeTo($context);
+        }
+
+        if ($this->is_bad !== null) {
+            $writer->writeVarint($stream, 296);
+            $writer->writeBool($stream, $this->is_bad);
         }
 
         if ($this->extensions !== null) {
@@ -2178,6 +2228,14 @@ class PokemonData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 37) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->is_bad = $reader->readBool($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -2385,6 +2443,11 @@ class PokemonData extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($innerSize);
         }
 
+        if ($this->is_bad !== null) {
+            $size += 2;
+            $size += 1;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -2432,6 +2495,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $this->display_pokemon_id = null;
         $this->display_cp = null;
         $this->pokemon_display = null;
+        $this->is_bad = null;
     }
 
     /**
@@ -2478,6 +2542,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $this->display_pokemon_id = ($message->display_pokemon_id !== null) ? $message->display_pokemon_id : $this->display_pokemon_id;
         $this->display_cp = ($message->display_cp !== null) ? $message->display_cp : $this->display_cp;
         $this->pokemon_display = ($message->pokemon_display !== null) ? $message->pokemon_display : $this->pokemon_display;
+        $this->is_bad = ($message->is_bad !== null) ? $message->is_bad : $this->is_bad;
     }
 
 
