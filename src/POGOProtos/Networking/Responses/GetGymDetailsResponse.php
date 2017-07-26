@@ -74,6 +74,13 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
     protected $checkin_image_url = null;
 
     /**
+     * event_info optional message = 8
+     *
+     * @var \POGOProtos\Data\Raid\EventInfo
+     */
+    protected $event_info = null;
+
+    /**
      * Check if 'gym_state' has a value
      *
      * @return bool
@@ -312,6 +319,36 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'event_info' has a value
+     *
+     * @return bool
+     */
+    public function hasEventInfo()
+    {
+        return $this->event_info !== null;
+    }
+
+    /**
+     * Get 'event_info' value
+     *
+     * @return \POGOProtos\Data\Raid\EventInfo
+     */
+    public function getEventInfo()
+    {
+        return $this->event_info;
+    }
+
+    /**
+     * Set 'event_info' value
+     *
+     * @param \POGOProtos\Data\Raid\EventInfo $value
+     */
+    public function setEventInfo(\POGOProtos\Data\Raid\EventInfo $value = null)
+    {
+        $this->event_info = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -352,7 +389,8 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
             'result' => null,
             'description' => null,
             'secondary_url' => [],
-            'checkin_image_url' => null
+            'checkin_image_url' => null,
+            'event_info' => null
         ], $values);
 
         $message->setGymState($values['gym_state']);
@@ -360,6 +398,7 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
         $message->setResult($values['result']);
         $message->setDescription($values['description']);
         $message->setCheckinImageUrl($values['checkin_image_url']);
+        $message->setEventInfo($values['event_info']);
 
         foreach ($values['urls'] as $item) {
             $message->addUrls($item);
@@ -423,6 +462,13 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
                     'name' => 'checkin_image_url',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'event_info',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.Raid.EventInfo'
                 ]),
             ],
         ]);
@@ -490,6 +536,12 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
         if ($this->checkin_image_url !== null) {
             $writer->writeVarint($stream, 58);
             $writer->writeString($stream, $this->checkin_image_url);
+        }
+
+        if ($this->event_info !== null) {
+            $writer->writeVarint($stream, 66);
+            $writer->writeVarint($stream, $this->event_info->serializedSize($sizeContext));
+            $this->event_info->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -597,6 +649,21 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 8) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Raid\EventInfo();
+
+                $this->event_info = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -668,6 +735,14 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeStringSize($this->checkin_image_url);
         }
 
+        if ($this->event_info !== null) {
+            $innerSize = $this->event_info->serializedSize($context);
+
+            $size += 1;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -687,6 +762,7 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
         $this->description = null;
         $this->secondary_url = null;
         $this->checkin_image_url = null;
+        $this->event_info = null;
     }
 
     /**
@@ -705,6 +781,7 @@ class GetGymDetailsResponse extends \Protobuf\AbstractMessage
         $this->description = ($message->description !== null) ? $message->description : $this->description;
         $this->secondary_url = ($message->secondary_url !== null) ? $message->secondary_url : $this->secondary_url;
         $this->checkin_image_url = ($message->checkin_image_url !== null) ? $message->checkin_image_url : $this->checkin_image_url;
+        $this->event_info = ($message->event_info !== null) ? $message->event_info : $this->event_info;
     }
 
 

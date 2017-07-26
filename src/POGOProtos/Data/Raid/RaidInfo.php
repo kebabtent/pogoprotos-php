@@ -81,6 +81,13 @@ class RaidInfo extends \Protobuf\AbstractMessage
     protected $is_exclusive = null;
 
     /**
+     * is_raid_hidden optional bool = 9
+     *
+     * @var bool
+     */
+    protected $is_raid_hidden = null;
+
+    /**
      * Check if 'raid_seed' has a value
      *
      * @return bool
@@ -321,6 +328,36 @@ class RaidInfo extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'is_raid_hidden' has a value
+     *
+     * @return bool
+     */
+    public function hasIsRaidHidden()
+    {
+        return $this->is_raid_hidden !== null;
+    }
+
+    /**
+     * Get 'is_raid_hidden' value
+     *
+     * @return bool
+     */
+    public function getIsRaidHidden()
+    {
+        return $this->is_raid_hidden;
+    }
+
+    /**
+     * Set 'is_raid_hidden' value
+     *
+     * @param bool $value
+     */
+    public function setIsRaidHidden($value = null)
+    {
+        $this->is_raid_hidden = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -362,7 +399,8 @@ class RaidInfo extends \Protobuf\AbstractMessage
             'raid_pokemon' => null,
             'raid_level' => null,
             'complete' => null,
-            'is_exclusive' => null
+            'is_exclusive' => null,
+            'is_raid_hidden' => null
         ], $values);
 
         $message->setRaidSeed($values['raid_seed']);
@@ -373,6 +411,7 @@ class RaidInfo extends \Protobuf\AbstractMessage
         $message->setRaidLevel($values['raid_level']);
         $message->setComplete($values['complete']);
         $message->setIsExclusive($values['is_exclusive']);
+        $message->setIsRaidHidden($values['is_raid_hidden']);
 
         return $message;
     }
@@ -432,6 +471,12 @@ class RaidInfo extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 8,
                     'name' => 'is_exclusive',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 9,
+                    'name' => 'is_raid_hidden',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -502,6 +547,11 @@ class RaidInfo extends \Protobuf\AbstractMessage
         if ($this->is_exclusive !== null) {
             $writer->writeVarint($stream, 64);
             $writer->writeBool($stream, $this->is_exclusive);
+        }
+
+        if ($this->is_raid_hidden !== null) {
+            $writer->writeVarint($stream, 72);
+            $writer->writeBool($stream, $this->is_raid_hidden);
         }
 
         if ($this->extensions !== null) {
@@ -609,6 +659,14 @@ class RaidInfo extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 9) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->is_raid_hidden = $reader->readBool($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -681,6 +739,11 @@ class RaidInfo extends \Protobuf\AbstractMessage
             $size += 1;
         }
 
+        if ($this->is_raid_hidden !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -701,6 +764,7 @@ class RaidInfo extends \Protobuf\AbstractMessage
         $this->raid_level = null;
         $this->complete = null;
         $this->is_exclusive = null;
+        $this->is_raid_hidden = null;
     }
 
     /**
@@ -720,6 +784,7 @@ class RaidInfo extends \Protobuf\AbstractMessage
         $this->raid_level = ($message->raid_level !== null) ? $message->raid_level : $this->raid_level;
         $this->complete = ($message->complete !== null) ? $message->complete : $this->complete;
         $this->is_exclusive = ($message->is_exclusive !== null) ? $message->is_exclusive : $this->is_exclusive;
+        $this->is_raid_hidden = ($message->is_raid_hidden !== null) ? $message->is_raid_hidden : $this->is_raid_hidden;
     }
 
 

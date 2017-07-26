@@ -74,6 +74,13 @@ class RedeemPasscodeReward extends \Protobuf\AbstractMessage
     protected $pokecoins = null;
 
     /**
+     * badges repeated enum = 8
+     *
+     * @var \Protobuf\Collection<\POGOProtos\Enums\GymBadgeType>
+     */
+    protected $badges = null;
+
+    /**
      * Check if 'items' has a value
      *
      * @return bool
@@ -354,6 +361,50 @@ class RedeemPasscodeReward extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'badges' has a value
+     *
+     * @return bool
+     */
+    public function hasBadgesList()
+    {
+        return $this->badges !== null;
+    }
+
+    /**
+     * Get 'badges' value
+     *
+     * @return \Protobuf\Collection<\POGOProtos\Enums\GymBadgeType>
+     */
+    public function getBadgesList()
+    {
+        return $this->badges;
+    }
+
+    /**
+     * Set 'badges' value
+     *
+     * @param \Protobuf\Collection<\POGOProtos\Enums\GymBadgeType> $value
+     */
+    public function setBadgesList(\Protobuf\Collection $value = null)
+    {
+        $this->badges = $value;
+    }
+
+    /**
+     * Add a new element to 'badges'
+     *
+     * @param \POGOProtos\Enums\GymBadgeType $value
+     */
+    public function addBadges(\POGOProtos\Enums\GymBadgeType $value)
+    {
+        if ($this->badges === null) {
+            $this->badges = new \Protobuf\EnumCollection();
+        }
+
+        $this->badges->add($value);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -394,7 +445,8 @@ class RedeemPasscodeReward extends \Protobuf\AbstractMessage
             'pokemon' => [],
             'poke_candy' => [],
             'stardust' => null,
-            'pokecoins' => null
+            'pokecoins' => null,
+            'badges' => []
         ], $values);
 
         $message->setStardust($values['stardust']);
@@ -418,6 +470,10 @@ class RedeemPasscodeReward extends \Protobuf\AbstractMessage
 
         foreach ($values['poke_candy'] as $item) {
             $message->addPokeCandy($item);
+        }
+
+        foreach ($values['badges'] as $item) {
+            $message->addBadges($item);
         }
 
         return $message;
@@ -477,6 +533,13 @@ class RedeemPasscodeReward extends \Protobuf\AbstractMessage
                     'name' => 'pokecoins',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT32(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'badges',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_ENUM(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
+                    'type_name' => '.POGOProtos.Enums.GymBadgeType'
                 ]),
             ],
         ]);
@@ -554,6 +617,13 @@ class RedeemPasscodeReward extends \Protobuf\AbstractMessage
         if ($this->pokecoins !== null) {
             $writer->writeVarint($stream, 56);
             $writer->writeVarint($stream, $this->pokecoins);
+        }
+
+        if ($this->badges !== null) {
+            foreach ($this->badges as $val) {
+                $writer->writeVarint($stream, 64);
+                $writer->writeVarint($stream, $val->value());
+            }
         }
 
         if ($this->extensions !== null) {
@@ -701,6 +771,21 @@ class RedeemPasscodeReward extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 8) {
+                $innerSize  = $reader->readVarint($stream);
+                $innerLimit = $stream->tell() + $innerSize;
+
+                if ($this->badges === null) {
+                    $this->badges = new \Protobuf\EnumCollection();
+                }
+
+                while ($stream->tell() < $innerLimit) {
+                    $this->badges->add(\POGOProtos\Enums\GymBadgeType::valueOf($reader->readVarint($stream)));
+                }
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -790,6 +875,13 @@ class RedeemPasscodeReward extends \Protobuf\AbstractMessage
             $size += $calculator->computeVarintSize($this->pokecoins);
         }
 
+        if ($this->badges !== null) {
+            foreach ($this->badges as $val) {
+                $size += 1;
+                $size += $calculator->computeVarintSize($val->value());
+            }
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -809,6 +901,7 @@ class RedeemPasscodeReward extends \Protobuf\AbstractMessage
         $this->poke_candy = null;
         $this->stardust = null;
         $this->pokecoins = null;
+        $this->badges = null;
     }
 
     /**
@@ -827,6 +920,7 @@ class RedeemPasscodeReward extends \Protobuf\AbstractMessage
         $this->poke_candy = ($message->poke_candy !== null) ? $message->poke_candy : $this->poke_candy;
         $this->stardust = ($message->stardust !== null) ? $message->stardust : $this->stardust;
         $this->pokecoins = ($message->pokecoins !== null) ? $message->pokecoins : $this->pokecoins;
+        $this->badges = ($message->badges !== null) ? $message->badges : $this->badges;
     }
 
 

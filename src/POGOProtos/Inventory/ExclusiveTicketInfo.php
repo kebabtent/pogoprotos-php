@@ -39,13 +39,6 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
     protected $fort_id = null;
 
     /**
-     * description optional string = 3
-     *
-     * @var string
-     */
-    protected $description = null;
-
-    /**
      * start_time_ms optional int64 = 4
      *
      * @var int
@@ -58,6 +51,34 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
      * @var int
      */
     protected $end_time_ms = null;
+
+    /**
+     * image_url optional string = 6
+     *
+     * @var string
+     */
+    protected $image_url = null;
+
+    /**
+     * latitude optional double = 7
+     *
+     * @var float
+     */
+    protected $latitude = null;
+
+    /**
+     * longitude optional double = 8
+     *
+     * @var float
+     */
+    protected $longitude = null;
+
+    /**
+     * gym_name optional string = 9
+     *
+     * @var string
+     */
+    protected $gym_name = null;
 
     /**
      * Check if 'raid_seed' has a value
@@ -117,36 +138,6 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
     public function setFortId($value = null)
     {
         $this->fort_id = $value;
-    }
-
-    /**
-     * Check if 'description' has a value
-     *
-     * @return bool
-     */
-    public function hasDescription()
-    {
-        return $this->description !== null;
-    }
-
-    /**
-     * Get 'description' value
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set 'description' value
-     *
-     * @param string $value
-     */
-    public function setDescription($value = null)
-    {
-        $this->description = $value;
     }
 
     /**
@@ -210,6 +201,126 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'image_url' has a value
+     *
+     * @return bool
+     */
+    public function hasImageUrl()
+    {
+        return $this->image_url !== null;
+    }
+
+    /**
+     * Get 'image_url' value
+     *
+     * @return string
+     */
+    public function getImageUrl()
+    {
+        return $this->image_url;
+    }
+
+    /**
+     * Set 'image_url' value
+     *
+     * @param string $value
+     */
+    public function setImageUrl($value = null)
+    {
+        $this->image_url = $value;
+    }
+
+    /**
+     * Check if 'latitude' has a value
+     *
+     * @return bool
+     */
+    public function hasLatitude()
+    {
+        return $this->latitude !== null;
+    }
+
+    /**
+     * Get 'latitude' value
+     *
+     * @return float
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * Set 'latitude' value
+     *
+     * @param float $value
+     */
+    public function setLatitude($value = null)
+    {
+        $this->latitude = $value;
+    }
+
+    /**
+     * Check if 'longitude' has a value
+     *
+     * @return bool
+     */
+    public function hasLongitude()
+    {
+        return $this->longitude !== null;
+    }
+
+    /**
+     * Get 'longitude' value
+     *
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * Set 'longitude' value
+     *
+     * @param float $value
+     */
+    public function setLongitude($value = null)
+    {
+        $this->longitude = $value;
+    }
+
+    /**
+     * Check if 'gym_name' has a value
+     *
+     * @return bool
+     */
+    public function hasGymName()
+    {
+        return $this->gym_name !== null;
+    }
+
+    /**
+     * Get 'gym_name' value
+     *
+     * @return string
+     */
+    public function getGymName()
+    {
+        return $this->gym_name;
+    }
+
+    /**
+     * Set 'gym_name' value
+     *
+     * @param string $value
+     */
+    public function setGymName($value = null)
+    {
+        $this->gym_name = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -246,16 +357,22 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
         $values  = array_merge([
             'raid_seed' => null,
             'fort_id' => null,
-            'description' => null,
             'start_time_ms' => null,
-            'end_time_ms' => null
+            'end_time_ms' => null,
+            'image_url' => null,
+            'latitude' => null,
+            'longitude' => null,
+            'gym_name' => null
         ], $values);
 
         $message->setRaidSeed($values['raid_seed']);
         $message->setFortId($values['fort_id']);
-        $message->setDescription($values['description']);
         $message->setStartTimeMs($values['start_time_ms']);
         $message->setEndTimeMs($values['end_time_ms']);
+        $message->setImageUrl($values['image_url']);
+        $message->setLatitude($values['latitude']);
+        $message->setLongitude($values['longitude']);
+        $message->setGymName($values['gym_name']);
 
         return $message;
     }
@@ -281,12 +398,6 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
                 \google\protobuf\FieldDescriptorProto::fromArray([
-                    'number' => 3,
-                    'name' => 'description',
-                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
-                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
-                ]),
-                \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 4,
                     'name' => 'start_time_ms',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
@@ -296,6 +407,30 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
                     'number' => 5,
                     'name' => 'end_time_ms',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_INT64(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 6,
+                    'name' => 'image_url',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 7,
+                    'name' => 'latitude',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 8,
+                    'name' => 'longitude',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_DOUBLE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 9,
+                    'name' => 'gym_name',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
@@ -336,11 +471,6 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
             $writer->writeString($stream, $this->fort_id);
         }
 
-        if ($this->description !== null) {
-            $writer->writeVarint($stream, 26);
-            $writer->writeString($stream, $this->description);
-        }
-
         if ($this->start_time_ms !== null) {
             $writer->writeVarint($stream, 32);
             $writer->writeVarint($stream, $this->start_time_ms);
@@ -349,6 +479,26 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
         if ($this->end_time_ms !== null) {
             $writer->writeVarint($stream, 40);
             $writer->writeVarint($stream, $this->end_time_ms);
+        }
+
+        if ($this->image_url !== null) {
+            $writer->writeVarint($stream, 50);
+            $writer->writeString($stream, $this->image_url);
+        }
+
+        if ($this->latitude !== null) {
+            $writer->writeVarint($stream, 57);
+            $writer->writeDouble($stream, $this->latitude);
+        }
+
+        if ($this->longitude !== null) {
+            $writer->writeVarint($stream, 65);
+            $writer->writeDouble($stream, $this->longitude);
+        }
+
+        if ($this->gym_name !== null) {
+            $writer->writeVarint($stream, 74);
+            $writer->writeString($stream, $this->gym_name);
         }
 
         if ($this->extensions !== null) {
@@ -401,14 +551,6 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
                 continue;
             }
 
-            if ($tag === 3) {
-                \Protobuf\WireFormat::assertWireType($wire, 9);
-
-                $this->description = $reader->readString($stream);
-
-                continue;
-            }
-
             if ($tag === 4) {
                 \Protobuf\WireFormat::assertWireType($wire, 3);
 
@@ -421,6 +563,38 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
                 \Protobuf\WireFormat::assertWireType($wire, 3);
 
                 $this->end_time_ms = $reader->readVarint($stream);
+
+                continue;
+            }
+
+            if ($tag === 6) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->image_url = $reader->readString($stream);
+
+                continue;
+            }
+
+            if ($tag === 7) {
+                \Protobuf\WireFormat::assertWireType($wire, 1);
+
+                $this->latitude = $reader->readDouble($stream);
+
+                continue;
+            }
+
+            if ($tag === 8) {
+                \Protobuf\WireFormat::assertWireType($wire, 1);
+
+                $this->longitude = $reader->readDouble($stream);
+
+                continue;
+            }
+
+            if ($tag === 9) {
+                \Protobuf\WireFormat::assertWireType($wire, 9);
+
+                $this->gym_name = $reader->readString($stream);
 
                 continue;
             }
@@ -464,11 +638,6 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
             $size += $calculator->computeStringSize($this->fort_id);
         }
 
-        if ($this->description !== null) {
-            $size += 1;
-            $size += $calculator->computeStringSize($this->description);
-        }
-
         if ($this->start_time_ms !== null) {
             $size += 1;
             $size += $calculator->computeVarintSize($this->start_time_ms);
@@ -477,6 +646,26 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
         if ($this->end_time_ms !== null) {
             $size += 1;
             $size += $calculator->computeVarintSize($this->end_time_ms);
+        }
+
+        if ($this->image_url !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->image_url);
+        }
+
+        if ($this->latitude !== null) {
+            $size += 1;
+            $size += 8;
+        }
+
+        if ($this->longitude !== null) {
+            $size += 1;
+            $size += 8;
+        }
+
+        if ($this->gym_name !== null) {
+            $size += 1;
+            $size += $calculator->computeStringSize($this->gym_name);
         }
 
         if ($this->extensions !== null) {
@@ -493,9 +682,12 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
     {
         $this->raid_seed = null;
         $this->fort_id = null;
-        $this->description = null;
         $this->start_time_ms = null;
         $this->end_time_ms = null;
+        $this->image_url = null;
+        $this->latitude = null;
+        $this->longitude = null;
+        $this->gym_name = null;
     }
 
     /**
@@ -509,9 +701,12 @@ class ExclusiveTicketInfo extends \Protobuf\AbstractMessage
 
         $this->raid_seed = ($message->raid_seed !== null) ? $message->raid_seed : $this->raid_seed;
         $this->fort_id = ($message->fort_id !== null) ? $message->fort_id : $this->fort_id;
-        $this->description = ($message->description !== null) ? $message->description : $this->description;
         $this->start_time_ms = ($message->start_time_ms !== null) ? $message->start_time_ms : $this->start_time_ms;
         $this->end_time_ms = ($message->end_time_ms !== null) ? $message->end_time_ms : $this->end_time_ms;
+        $this->image_url = ($message->image_url !== null) ? $message->image_url : $this->image_url;
+        $this->latitude = ($message->latitude !== null) ? $message->latitude : $this->latitude;
+        $this->longitude = ($message->longitude !== null) ? $message->longitude : $this->longitude;
+        $this->gym_name = ($message->gym_name !== null) ? $message->gym_name : $this->gym_name;
     }
 
 

@@ -145,6 +145,11 @@ class VariableName extends \Protobuf\Enum
     const DEPLOYED_MILLIS_VALUE = 1016;
 
     /**
+     * RAID_SEED = 1017
+     */
+    const RAID_SEED_VALUE = 1017;
+
+    /**
      * @var \POGOProtos\Enums\VariableName
      */
     protected static $UNSET_VariableName = null;
@@ -273,6 +278,11 @@ class VariableName extends \Protobuf\Enum
      * @var \POGOProtos\Enums\VariableName
      */
     protected static $DEPLOYED_MILLIS = null;
+
+    /**
+     * @var \POGOProtos\Enums\VariableName
+     */
+    protected static $RAID_SEED = null;
 
     /**
      * @return \POGOProtos\Enums\VariableName
@@ -587,6 +597,18 @@ class VariableName extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\VariableName
+     */
+    public static function RAID_SEED()
+    {
+        if (self::$RAID_SEED !== null) {
+            return self::$RAID_SEED;
+        }
+
+        return self::$RAID_SEED = new self('RAID_SEED', self::RAID_SEED_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\VariableName
      */
@@ -619,6 +641,7 @@ class VariableName extends \Protobuf\Enum
             case 1014: return self::BATTLES_WON();
             case 1015: return self::BATTLES_LOST();
             case 1016: return self::DEPLOYED_MILLIS();
+            case 1017: return self::RAID_SEED();
             default: return null;
         }
     }

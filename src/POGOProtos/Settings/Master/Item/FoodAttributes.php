@@ -53,6 +53,13 @@ class FoodAttributes extends \Protobuf\AbstractMessage
     protected $berry_multiplier = null;
 
     /**
+     * remote_berry_multiplier optional float = 5
+     *
+     * @var float
+     */
+    protected $remote_berry_multiplier = null;
+
+    /**
      * Check if 'item_effect' has a value
      *
      * @return bool
@@ -201,6 +208,36 @@ class FoodAttributes extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'remote_berry_multiplier' has a value
+     *
+     * @return bool
+     */
+    public function hasRemoteBerryMultiplier()
+    {
+        return $this->remote_berry_multiplier !== null;
+    }
+
+    /**
+     * Get 'remote_berry_multiplier' value
+     *
+     * @return float
+     */
+    public function getRemoteBerryMultiplier()
+    {
+        return $this->remote_berry_multiplier;
+    }
+
+    /**
+     * Set 'remote_berry_multiplier' value
+     *
+     * @param float $value
+     */
+    public function setRemoteBerryMultiplier($value = null)
+    {
+        $this->remote_berry_multiplier = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -238,11 +275,13 @@ class FoodAttributes extends \Protobuf\AbstractMessage
             'item_effect' => [],
             'item_effect_percent' => [],
             'growth_percent' => null,
-            'berry_multiplier' => null
+            'berry_multiplier' => null,
+            'remote_berry_multiplier' => null
         ], $values);
 
         $message->setGrowthPercent($values['growth_percent']);
         $message->setBerryMultiplier($values['berry_multiplier']);
+        $message->setRemoteBerryMultiplier($values['remote_berry_multiplier']);
 
         foreach ($values['item_effect'] as $item) {
             $message->addItemEffect($item);
@@ -285,6 +324,12 @@ class FoodAttributes extends \Protobuf\AbstractMessage
                 \google\protobuf\FieldDescriptorProto::fromArray([
                     'number' => 4,
                     'name' => 'berry_multiplier',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'remote_berry_multiplier',
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_FLOAT(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
@@ -338,6 +383,11 @@ class FoodAttributes extends \Protobuf\AbstractMessage
         if ($this->berry_multiplier !== null) {
             $writer->writeVarint($stream, 37);
             $writer->writeFloat($stream, $this->berry_multiplier);
+        }
+
+        if ($this->remote_berry_multiplier !== null) {
+            $writer->writeVarint($stream, 45);
+            $writer->writeFloat($stream, $this->remote_berry_multiplier);
         }
 
         if ($this->extensions !== null) {
@@ -420,6 +470,14 @@ class FoodAttributes extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 2);
+
+                $this->remote_berry_multiplier = $reader->readFloat($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -473,6 +531,11 @@ class FoodAttributes extends \Protobuf\AbstractMessage
             $size += 4;
         }
 
+        if ($this->remote_berry_multiplier !== null) {
+            $size += 1;
+            $size += 4;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -489,6 +552,7 @@ class FoodAttributes extends \Protobuf\AbstractMessage
         $this->item_effect_percent = null;
         $this->growth_percent = null;
         $this->berry_multiplier = null;
+        $this->remote_berry_multiplier = null;
     }
 
     /**
@@ -504,6 +568,7 @@ class FoodAttributes extends \Protobuf\AbstractMessage
         $this->item_effect_percent = ($message->item_effect_percent !== null) ? $message->item_effect_percent : $this->item_effect_percent;
         $this->growth_percent = ($message->growth_percent !== null) ? $message->growth_percent : $this->growth_percent;
         $this->berry_multiplier = ($message->berry_multiplier !== null) ? $message->berry_multiplier : $this->berry_multiplier;
+        $this->remote_berry_multiplier = ($message->remote_berry_multiplier !== null) ? $message->remote_berry_multiplier : $this->remote_berry_multiplier;
     }
 
 

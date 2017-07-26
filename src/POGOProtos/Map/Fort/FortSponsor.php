@@ -130,6 +130,11 @@ class FortSponsor extends \Protobuf\Enum
     const NIA_OPS_VALUE = 22;
 
     /**
+     * WHISK = 23
+     */
+    const WHISK_VALUE = 23;
+
+    /**
      * @var \POGOProtos\Map\Fort\FortSponsor
      */
     protected static $UNSET_SPONSOR = null;
@@ -243,6 +248,11 @@ class FortSponsor extends \Protobuf\Enum
      * @var \POGOProtos\Map\Fort\FortSponsor
      */
     protected static $NIA_OPS = null;
+
+    /**
+     * @var \POGOProtos\Map\Fort\FortSponsor
+     */
+    protected static $WHISK = null;
 
     /**
      * @return \POGOProtos\Map\Fort\FortSponsor
@@ -521,6 +531,18 @@ class FortSponsor extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Map\Fort\FortSponsor
+     */
+    public static function WHISK()
+    {
+        if (self::$WHISK !== null) {
+            return self::$WHISK;
+        }
+
+        return self::$WHISK = new self('WHISK', self::WHISK_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Map\Fort\FortSponsor
      */
@@ -550,6 +572,7 @@ class FortSponsor extends \Protobuf\Enum
             case 20: return self::SALAMANDER();
             case 21: return self::PLANCHA();
             case 22: return self::NIA_OPS();
+            case 23: return self::WHISK();
             default: return null;
         }
     }

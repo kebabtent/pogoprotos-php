@@ -30,6 +30,11 @@ class Costume extends \Protobuf\Enum
     const ANNIVERSARY_VALUE = 2;
 
     /**
+     * ONE_YEAR_ANNIVERSARY = 3
+     */
+    const ONE_YEAR_ANNIVERSARY_VALUE = 3;
+
+    /**
      * @var \POGOProtos\Enums\Costume
      */
     protected static $COSTUME_UNSET = null;
@@ -43,6 +48,11 @@ class Costume extends \Protobuf\Enum
      * @var \POGOProtos\Enums\Costume
      */
     protected static $ANNIVERSARY = null;
+
+    /**
+     * @var \POGOProtos\Enums\Costume
+     */
+    protected static $ONE_YEAR_ANNIVERSARY = null;
 
     /**
      * @return \POGOProtos\Enums\Costume
@@ -81,6 +91,18 @@ class Costume extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\Costume
+     */
+    public static function ONE_YEAR_ANNIVERSARY()
+    {
+        if (self::$ONE_YEAR_ANNIVERSARY !== null) {
+            return self::$ONE_YEAR_ANNIVERSARY;
+        }
+
+        return self::$ONE_YEAR_ANNIVERSARY = new self('ONE_YEAR_ANNIVERSARY', self::ONE_YEAR_ANNIVERSARY_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\Costume
      */
@@ -90,6 +112,7 @@ class Costume extends \Protobuf\Enum
             case 0: return self::COSTUME_UNSET();
             case 1: return self::HOLIDAY_2016();
             case 2: return self::ANNIVERSARY();
+            case 3: return self::ONE_YEAR_ANNIVERSARY();
             default: return null;
         }
     }
