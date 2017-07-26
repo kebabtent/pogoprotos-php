@@ -35,6 +35,11 @@ class NotificationCategory extends \Protobuf\Enum
     const POKEMON_WON_VALUE = 3;
 
     /**
+     * EXCLUSIVE_RAID_INVITE = 4
+     */
+    const EXCLUSIVE_RAID_INVITE_VALUE = 4;
+
+    /**
      * @var \POGOProtos\Enums\NotificationCategory
      */
     protected static $UNSET_NotificationCategory = null;
@@ -53,6 +58,11 @@ class NotificationCategory extends \Protobuf\Enum
      * @var \POGOProtos\Enums\NotificationCategory
      */
     protected static $POKEMON_WON = null;
+
+    /**
+     * @var \POGOProtos\Enums\NotificationCategory
+     */
+    protected static $EXCLUSIVE_RAID_INVITE = null;
 
     /**
      * @return \POGOProtos\Enums\NotificationCategory
@@ -103,6 +113,18 @@ class NotificationCategory extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\NotificationCategory
+     */
+    public static function EXCLUSIVE_RAID_INVITE()
+    {
+        if (self::$EXCLUSIVE_RAID_INVITE !== null) {
+            return self::$EXCLUSIVE_RAID_INVITE;
+        }
+
+        return self::$EXCLUSIVE_RAID_INVITE = new self('EXCLUSIVE_RAID_INVITE', self::EXCLUSIVE_RAID_INVITE_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\NotificationCategory
      */
@@ -113,6 +135,7 @@ class NotificationCategory extends \Protobuf\Enum
             case 1: return self::GYM_REMOVAL();
             case 2: return self::POKEMON_HUNGRY();
             case 3: return self::POKEMON_WON();
+            case 4: return self::EXCLUSIVE_RAID_INVITE();
             default: return null;
         }
     }

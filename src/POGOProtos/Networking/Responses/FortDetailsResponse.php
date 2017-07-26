@@ -130,6 +130,13 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
     protected $checkin_image_url = null;
 
     /**
+     * event_info optional message = 16
+     *
+     * @var \POGOProtos\Data\Raid\EventInfo
+     */
+    protected $event_info = null;
+
+    /**
      * Check if 'fort_id' has a value
      *
      * @return bool
@@ -608,6 +615,36 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'event_info' has a value
+     *
+     * @return bool
+     */
+    public function hasEventInfo()
+    {
+        return $this->event_info !== null;
+    }
+
+    /**
+     * Get 'event_info' value
+     *
+     * @return \POGOProtos\Data\Raid\EventInfo
+     */
+    public function getEventInfo()
+    {
+        return $this->event_info;
+    }
+
+    /**
+     * Set 'event_info' value
+     *
+     * @param \POGOProtos\Data\Raid\EventInfo $value
+     */
+    public function setEventInfo(\POGOProtos\Data\Raid\EventInfo $value = null)
+    {
+        $this->event_info = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -656,7 +693,8 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
             'description' => null,
             'modifiers' => [],
             'close_soon' => null,
-            'checkin_image_url' => null
+            'checkin_image_url' => null,
+            'event_info' => null
         ], $values);
 
         $message->setFortId($values['fort_id']);
@@ -672,6 +710,7 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
         $message->setDescription($values['description']);
         $message->setCloseSoon($values['close_soon']);
         $message->setCheckinImageUrl($values['checkin_image_url']);
+        $message->setEventInfo($values['event_info']);
 
         foreach ($values['image_urls'] as $item) {
             $message->addImageUrls($item);
@@ -786,6 +825,13 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 16,
+                    'name' => 'event_info',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL(),
+                    'type_name' => '.POGOProtos.Data.Raid.EventInfo'
+                ]),
             ],
         ]);
     }
@@ -893,6 +939,12 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
         if ($this->checkin_image_url !== null) {
             $writer->writeVarint($stream, 122);
             $writer->writeString($stream, $this->checkin_image_url);
+        }
+
+        if ($this->event_info !== null) {
+            $writer->writeVarint($stream, 130);
+            $writer->writeVarint($stream, $this->event_info->serializedSize($sizeContext));
+            $this->event_info->writeTo($context);
         }
 
         if ($this->extensions !== null) {
@@ -1071,6 +1123,21 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 16) {
+                \Protobuf\WireFormat::assertWireType($wire, 11);
+
+                $innerSize    = $reader->readVarint($stream);
+                $innerMessage = new \POGOProtos\Data\Raid\EventInfo();
+
+                $this->event_info = $innerMessage;
+
+                $context->setLength($innerSize);
+                $innerMessage->readFrom($context);
+                $context->setLength($length);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1185,6 +1252,14 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
             $size += $calculator->computeStringSize($this->checkin_image_url);
         }
 
+        if ($this->event_info !== null) {
+            $innerSize = $this->event_info->serializedSize($context);
+
+            $size += 2;
+            $size += $innerSize;
+            $size += $calculator->computeVarintSize($innerSize);
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1212,6 +1287,7 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
         $this->modifiers = null;
         $this->close_soon = null;
         $this->checkin_image_url = null;
+        $this->event_info = null;
     }
 
     /**
@@ -1238,6 +1314,7 @@ class FortDetailsResponse extends \Protobuf\AbstractMessage
         $this->modifiers = ($message->modifiers !== null) ? $message->modifiers : $this->modifiers;
         $this->close_soon = ($message->close_soon !== null) ? $message->close_soon : $this->close_soon;
         $this->checkin_image_url = ($message->checkin_image_url !== null) ? $message->checkin_image_url : $this->checkin_image_url;
+        $this->event_info = ($message->event_info !== null) ? $message->event_info : $this->event_info;
     }
 
 

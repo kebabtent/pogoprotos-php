@@ -53,6 +53,13 @@ class BadgeSettings extends \Protobuf\AbstractMessage
     protected $capture_reward = null;
 
     /**
+     * event_badge optional bool = 5
+     *
+     * @var bool
+     */
+    protected $event_badge = null;
+
+    /**
      * Check if 'badge_type' has a value
      *
      * @return bool
@@ -201,6 +208,36 @@ class BadgeSettings extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'event_badge' has a value
+     *
+     * @return bool
+     */
+    public function hasEventBadge()
+    {
+        return $this->event_badge !== null;
+    }
+
+    /**
+     * Get 'event_badge' value
+     *
+     * @return bool
+     */
+    public function getEventBadge()
+    {
+        return $this->event_badge;
+    }
+
+    /**
+     * Set 'event_badge' value
+     *
+     * @param bool $value
+     */
+    public function setEventBadge($value = null)
+    {
+        $this->event_badge = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -238,11 +275,13 @@ class BadgeSettings extends \Protobuf\AbstractMessage
             'badge_type' => null,
             'badge_rank' => null,
             'targets' => [],
-            'capture_reward' => []
+            'capture_reward' => [],
+            'event_badge' => null
         ], $values);
 
         $message->setBadgeType($values['badge_type']);
         $message->setBadgeRank($values['badge_rank']);
+        $message->setEventBadge($values['event_badge']);
 
         foreach ($values['targets'] as $item) {
             $message->addTargets($item);
@@ -288,6 +327,12 @@ class BadgeSettings extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_MESSAGE(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_REPEATED(),
                     'type_name' => '.POGOProtos.Data.Badge.BadgeCaptureReward'
+                ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 5,
+                    'name' => 'event_badge',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
             ],
         ]);
@@ -340,6 +385,11 @@ class BadgeSettings extends \Protobuf\AbstractMessage
                 $writer->writeVarint($stream, $val->serializedSize($sizeContext));
                 $val->writeTo($context);
             }
+        }
+
+        if ($this->event_badge !== null) {
+            $writer->writeVarint($stream, 40);
+            $writer->writeBool($stream, $this->event_badge);
         }
 
         if ($this->extensions !== null) {
@@ -426,6 +476,14 @@ class BadgeSettings extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 5) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->event_badge = $reader->readBool($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -482,6 +540,11 @@ class BadgeSettings extends \Protobuf\AbstractMessage
             }
         }
 
+        if ($this->event_badge !== null) {
+            $size += 1;
+            $size += 1;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -498,6 +561,7 @@ class BadgeSettings extends \Protobuf\AbstractMessage
         $this->badge_rank = null;
         $this->targets = null;
         $this->capture_reward = null;
+        $this->event_badge = null;
     }
 
     /**
@@ -513,6 +577,7 @@ class BadgeSettings extends \Protobuf\AbstractMessage
         $this->badge_rank = ($message->badge_rank !== null) ? $message->badge_rank : $this->badge_rank;
         $this->targets = ($message->targets !== null) ? $message->targets : $this->targets;
         $this->capture_reward = ($message->capture_reward !== null) ? $message->capture_reward : $this->capture_reward;
+        $this->event_badge = ($message->event_badge !== null) ? $message->event_badge : $this->event_badge;
     }
 
 

@@ -425,6 +425,26 @@ class RequestType extends \Protobuf\Enum
     const USE_ITEM_RARE_CANDY_VALUE = 814;
 
     /**
+     * REGISTER_PUSH_NOTIFICATION = 5000
+     */
+    const REGISTER_PUSH_NOTIFICATION_VALUE = 5000;
+
+    /**
+     * UNREGISTER_PUSH_NOTIFICATION = 5001
+     */
+    const UNREGISTER_PUSH_NOTIFICATION_VALUE = 5001;
+
+    /**
+     * UPDATE_NOTIFICATION_STATUS = 5002
+     */
+    const UPDATE_NOTIFICATION_STATUS_VALUE = 5002;
+
+    /**
+     * OPT_OUT_PUSH_NOTIFICATION_CATEGORY = 5003
+     */
+    const OPT_OUT_PUSH_NOTIFICATION_CATEGORY_VALUE = 5003;
+
+    /**
      * @var \POGOProtos\Networking\Requests\RequestType
      */
     protected static $METHOD_UNSET = null;
@@ -833,6 +853,26 @@ class RequestType extends \Protobuf\Enum
      * @var \POGOProtos\Networking\Requests\RequestType
      */
     protected static $USE_ITEM_RARE_CANDY = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $REGISTER_PUSH_NOTIFICATION = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $UNREGISTER_PUSH_NOTIFICATION = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $UPDATE_NOTIFICATION_STATUS = null;
+
+    /**
+     * @var \POGOProtos\Networking\Requests\RequestType
+     */
+    protected static $OPT_OUT_PUSH_NOTIFICATION_CATEGORY = null;
 
     /**
      * @return \POGOProtos\Networking\Requests\RequestType
@@ -1819,6 +1859,54 @@ class RequestType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function REGISTER_PUSH_NOTIFICATION()
+    {
+        if (self::$REGISTER_PUSH_NOTIFICATION !== null) {
+            return self::$REGISTER_PUSH_NOTIFICATION;
+        }
+
+        return self::$REGISTER_PUSH_NOTIFICATION = new self('REGISTER_PUSH_NOTIFICATION', self::REGISTER_PUSH_NOTIFICATION_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function UNREGISTER_PUSH_NOTIFICATION()
+    {
+        if (self::$UNREGISTER_PUSH_NOTIFICATION !== null) {
+            return self::$UNREGISTER_PUSH_NOTIFICATION;
+        }
+
+        return self::$UNREGISTER_PUSH_NOTIFICATION = new self('UNREGISTER_PUSH_NOTIFICATION', self::UNREGISTER_PUSH_NOTIFICATION_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function UPDATE_NOTIFICATION_STATUS()
+    {
+        if (self::$UPDATE_NOTIFICATION_STATUS !== null) {
+            return self::$UPDATE_NOTIFICATION_STATUS;
+        }
+
+        return self::$UPDATE_NOTIFICATION_STATUS = new self('UPDATE_NOTIFICATION_STATUS', self::UPDATE_NOTIFICATION_STATUS_VALUE);
+    }
+
+    /**
+     * @return \POGOProtos\Networking\Requests\RequestType
+     */
+    public static function OPT_OUT_PUSH_NOTIFICATION_CATEGORY()
+    {
+        if (self::$OPT_OUT_PUSH_NOTIFICATION_CATEGORY !== null) {
+            return self::$OPT_OUT_PUSH_NOTIFICATION_CATEGORY;
+        }
+
+        return self::$OPT_OUT_PUSH_NOTIFICATION_CATEGORY = new self('OPT_OUT_PUSH_NOTIFICATION_CATEGORY', self::OPT_OUT_PUSH_NOTIFICATION_CATEGORY_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Networking\Requests\RequestType
      */
@@ -1907,6 +1995,10 @@ class RequestType extends \Protobuf\Enum
             case 812: return self::GET_GYM_BADGE_DETAILS();
             case 813: return self::USE_ITEM_MOVE_REROLL();
             case 814: return self::USE_ITEM_RARE_CANDY();
+            case 5000: return self::REGISTER_PUSH_NOTIFICATION();
+            case 5001: return self::UNREGISTER_PUSH_NOTIFICATION();
+            case 5002: return self::UPDATE_NOTIFICATION_STATUS();
+            case 5003: return self::OPT_OUT_PUSH_NOTIFICATION_CATEGORY();
             default: return null;
         }
     }

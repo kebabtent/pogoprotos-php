@@ -277,6 +277,13 @@ class PokemonData extends \Protobuf\AbstractMessage
     protected $is_bad = null;
 
     /**
+     * hatched_from_egg optional bool = 38
+     *
+     * @var bool
+     */
+    protected $hatched_from_egg = null;
+
+    /**
      * Check if 'id' has a value
      *
      * @return bool
@@ -1357,6 +1364,36 @@ class PokemonData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'hatched_from_egg' has a value
+     *
+     * @return bool
+     */
+    public function hasHatchedFromEgg()
+    {
+        return $this->hatched_from_egg !== null;
+    }
+
+    /**
+     * Get 'hatched_from_egg' value
+     *
+     * @return bool
+     */
+    public function getHatchedFromEgg()
+    {
+        return $this->hatched_from_egg;
+    }
+
+    /**
+     * Set 'hatched_from_egg' value
+     *
+     * @param bool $value
+     */
+    public function setHatchedFromEgg($value = null)
+    {
+        $this->hatched_from_egg = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -1426,7 +1463,8 @@ class PokemonData extends \Protobuf\AbstractMessage
             'display_pokemon_id' => null,
             'display_cp' => null,
             'pokemon_display' => null,
-            'is_bad' => null
+            'is_bad' => null,
+            'hatched_from_egg' => null
         ], $values);
 
         $message->setId($values['id']);
@@ -1465,6 +1503,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $message->setDisplayCp($values['display_cp']);
         $message->setPokemonDisplay($values['pokemon_display']);
         $message->setIsBad($values['is_bad']);
+        $message->setHatchedFromEgg($values['hatched_from_egg']);
 
         return $message;
     }
@@ -1698,6 +1737,12 @@ class PokemonData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 38,
+                    'name' => 'hatched_from_egg',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
             ],
         ]);
     }
@@ -1905,6 +1950,11 @@ class PokemonData extends \Protobuf\AbstractMessage
         if ($this->is_bad !== null) {
             $writer->writeVarint($stream, 296);
             $writer->writeBool($stream, $this->is_bad);
+        }
+
+        if ($this->hatched_from_egg !== null) {
+            $writer->writeVarint($stream, 304);
+            $writer->writeBool($stream, $this->hatched_from_egg);
         }
 
         if ($this->extensions !== null) {
@@ -2236,6 +2286,14 @@ class PokemonData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 38) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->hatched_from_egg = $reader->readBool($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -2448,6 +2506,11 @@ class PokemonData extends \Protobuf\AbstractMessage
             $size += 1;
         }
 
+        if ($this->hatched_from_egg !== null) {
+            $size += 2;
+            $size += 1;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -2496,6 +2559,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $this->display_cp = null;
         $this->pokemon_display = null;
         $this->is_bad = null;
+        $this->hatched_from_egg = null;
     }
 
     /**
@@ -2543,6 +2607,7 @@ class PokemonData extends \Protobuf\AbstractMessage
         $this->display_cp = ($message->display_cp !== null) ? $message->display_cp : $this->display_cp;
         $this->pokemon_display = ($message->pokemon_display !== null) ? $message->pokemon_display : $this->pokemon_display;
         $this->is_bad = ($message->is_bad !== null) ? $message->is_bad : $this->is_bad;
+        $this->hatched_from_egg = ($message->hatched_from_egg !== null) ? $message->hatched_from_egg : $this->hatched_from_egg;
     }
 
 

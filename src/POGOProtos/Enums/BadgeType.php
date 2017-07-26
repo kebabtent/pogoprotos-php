@@ -245,6 +245,11 @@ class BadgeType extends \Protobuf\Enum
     const BADGE_EVENT_MIN_VALUE = 2000;
 
     /**
+     * BADGE_CHICAGO_FEST_JULY_2017 = 2001
+     */
+    const BADGE_CHICAGO_FEST_JULY_2017_VALUE = 2001;
+
+    /**
      * @var \POGOProtos\Enums\BadgeType
      */
     protected static $BADGE_UNSET = null;
@@ -473,6 +478,11 @@ class BadgeType extends \Protobuf\Enum
      * @var \POGOProtos\Enums\BadgeType
      */
     protected static $BADGE_EVENT_MIN = null;
+
+    /**
+     * @var \POGOProtos\Enums\BadgeType
+     */
+    protected static $BADGE_CHICAGO_FEST_JULY_2017 = null;
 
     /**
      * @return \POGOProtos\Enums\BadgeType
@@ -1027,6 +1037,18 @@ class BadgeType extends \Protobuf\Enum
     }
 
     /**
+     * @return \POGOProtos\Enums\BadgeType
+     */
+    public static function BADGE_CHICAGO_FEST_JULY_2017()
+    {
+        if (self::$BADGE_CHICAGO_FEST_JULY_2017 !== null) {
+            return self::$BADGE_CHICAGO_FEST_JULY_2017;
+        }
+
+        return self::$BADGE_CHICAGO_FEST_JULY_2017 = new self('BADGE_CHICAGO_FEST_JULY_2017', self::BADGE_CHICAGO_FEST_JULY_2017_VALUE);
+    }
+
+    /**
      * @param int $value
      * @return \POGOProtos\Enums\BadgeType
      */
@@ -1079,6 +1101,7 @@ class BadgeType extends \Protobuf\Enum
             case 43: return self::BADGE_HOURS_DEFENDED();
             case 44: return self::BADGE_PLACE_HOLDER();
             case 2000: return self::BADGE_EVENT_MIN();
+            case 2001: return self::BADGE_CHICAGO_FEST_JULY_2017();
             default: return null;
         }
     }

@@ -200,6 +200,13 @@ class FortData extends \Protobuf\AbstractMessage
     protected $image_url = null;
 
     /**
+     * in_event optional bool = 26
+     *
+     * @var bool
+     */
+    protected $in_event = null;
+
+    /**
      * Check if 'id' has a value
      *
      * @return bool
@@ -964,6 +971,36 @@ class FortData extends \Protobuf\AbstractMessage
     }
 
     /**
+     * Check if 'in_event' has a value
+     *
+     * @return bool
+     */
+    public function hasInEvent()
+    {
+        return $this->in_event !== null;
+    }
+
+    /**
+     * Get 'in_event' value
+     *
+     * @return bool
+     */
+    public function getInEvent()
+    {
+        return $this->in_event;
+    }
+
+    /**
+     * Set 'in_event' value
+     *
+     * @param bool $value
+     */
+    public function setInEvent($value = null)
+    {
+        $this->in_event = $value;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function extensions()
@@ -1022,7 +1059,8 @@ class FortData extends \Protobuf\AbstractMessage
             'visited' => null,
             'same_team_deploy_lockout_end_ms' => null,
             'allow_checkin' => null,
-            'image_url' => null
+            'image_url' => null,
+            'in_event' => null
         ], $values);
 
         $message->setId($values['id']);
@@ -1049,6 +1087,7 @@ class FortData extends \Protobuf\AbstractMessage
         $message->setSameTeamDeployLockoutEndMs($values['same_team_deploy_lockout_end_ms']);
         $message->setAllowCheckin($values['allow_checkin']);
         $message->setImageUrl($values['image_url']);
+        $message->setInEvent($values['in_event']);
 
         foreach ($values['active_fort_modifier'] as $item) {
             $message->addActiveFortModifier($item);
@@ -1225,6 +1264,12 @@ class FortData extends \Protobuf\AbstractMessage
                     'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_STRING(),
                     'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
                 ]),
+                \google\protobuf\FieldDescriptorProto::fromArray([
+                    'number' => 26,
+                    'name' => 'in_event',
+                    'type' => \google\protobuf\FieldDescriptorProto\Type::TYPE_BOOL(),
+                    'label' => \google\protobuf\FieldDescriptorProto\Label::LABEL_OPTIONAL()
+                ]),
             ],
         ]);
     }
@@ -1382,6 +1427,11 @@ class FortData extends \Protobuf\AbstractMessage
         if ($this->image_url !== null) {
             $writer->writeVarint($stream, 202);
             $writer->writeString($stream, $this->image_url);
+        }
+
+        if ($this->in_event !== null) {
+            $writer->writeVarint($stream, 208);
+            $writer->writeBool($stream, $this->in_event);
         }
 
         if ($this->extensions !== null) {
@@ -1653,6 +1703,14 @@ class FortData extends \Protobuf\AbstractMessage
                 continue;
             }
 
+            if ($tag === 26) {
+                \Protobuf\WireFormat::assertWireType($wire, 8);
+
+                $this->in_event = $reader->readBool($stream);
+
+                continue;
+            }
+
             $extensions = $context->getExtensionRegistry();
             $extension  = $extensions ? $extensions->findByNumber(__CLASS__, $tag) : null;
 
@@ -1821,6 +1879,11 @@ class FortData extends \Protobuf\AbstractMessage
             $size += $calculator->computeStringSize($this->image_url);
         }
 
+        if ($this->in_event !== null) {
+            $size += 2;
+            $size += 1;
+        }
+
         if ($this->extensions !== null) {
             $size += $this->extensions->serializedSize($context);
         }
@@ -1858,6 +1921,7 @@ class FortData extends \Protobuf\AbstractMessage
         $this->same_team_deploy_lockout_end_ms = null;
         $this->allow_checkin = null;
         $this->image_url = null;
+        $this->in_event = null;
     }
 
     /**
@@ -1894,6 +1958,7 @@ class FortData extends \Protobuf\AbstractMessage
         $this->same_team_deploy_lockout_end_ms = ($message->same_team_deploy_lockout_end_ms !== null) ? $message->same_team_deploy_lockout_end_ms : $this->same_team_deploy_lockout_end_ms;
         $this->allow_checkin = ($message->allow_checkin !== null) ? $message->allow_checkin : $this->allow_checkin;
         $this->image_url = ($message->image_url !== null) ? $message->image_url : $this->image_url;
+        $this->in_event = ($message->in_event !== null) ? $message->in_event : $this->in_event;
     }
 
 
